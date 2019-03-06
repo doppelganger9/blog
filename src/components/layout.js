@@ -8,48 +8,12 @@ class Layout extends React.Component {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
+    const isRootLayout = location.pathname === rootPath
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
+    if (isRootLayout) {
+      header = headerForRootLayout({ title })
     } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
+      header = headerForPostLayout({ title })
     }
     return (
       <div
@@ -66,10 +30,53 @@ class Layout extends React.Component {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
+          &nbsp;-&nbsp;
         </footer>
       </div>
     )
   }
+}
+
+function linkToRoot({title}) {
+  return (
+    <Link
+      style={{
+        boxShadow: `none`,
+        textDecoration: `none`,
+        color: `inherit`,
+      }}
+      to={`/`}
+    >
+      {title}
+    </Link>
+  );
+}
+
+function headerForRootLayout({title}) {
+  return (
+    <h1
+      style={{
+        ...scale(1.5),
+        marginBottom: rhythm(1.5),
+        marginTop: 0,
+      }}
+    >
+      {linkToRoot({title})}
+    </h1>
+  )
+}
+
+function headerForPostLayout({ title }) {
+  return (
+    <h3
+      style={{
+        fontFamily: `Montserrat, sans-serif`,
+        marginTop: 0,
+      }}
+    >
+      {linkToRoot({title})}
+    </h3>
+  )
 }
 
 export default Layout
