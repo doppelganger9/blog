@@ -1,8 +1,9 @@
 workflow "Build and deploy on push" {
   on = "push"
   resolves = [
-    "Only Master Branch",
     "techulus/push-github-action@master",
+    "Gatsby Build",
+    "Deploy to Github Pages",
   ]
 }
 
@@ -17,18 +18,6 @@ action "Prettier Check" {
   needs = ["Clean Install"]
 }
 
-action "Deploy to Github Pages" {
-  uses = "actions/npm@master"
-  needs = ["Only Master Branch"]
-  args = "run deploy"
-  env = {
-    GIT_AUTHOR_NAME = "Github Action"
-    GIT_COMMITTER_NAME = "Github Action"
-    GIT_AUTHOR_EMAIL = "david.lacourt@gmail.com"
-    GIT_COMMITTER_EMAIL = "david.lacourt@gmail.com"
-  }
-}
-
 action "Only Master Branch" {
   uses = "actions/bin/filter@master"
   needs = ["Prettier Check"]
@@ -41,5 +30,20 @@ action "techulus/push-github-action@master" {
   secrets = ["API_KEY"]
   env = {
     MESSAGE = "https://blog.lacourt.dev/ updated by Github Actions pipeline!"
+  }
+}
+
+action "Gatsby Build" {
+  uses = "actions/npm@master"
+  needs = ["Only Master Branch"]
+  args = "run build"
+}
+
+action "Deploy to Github Pages" {
+  uses = "maxheld83/ghpages@master"
+  needs = ["Gatsby Build"]
+  secrets = ["GH_PAT"]
+  env = {
+    BUILD_DIR = "public"
   }
 }
