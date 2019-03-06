@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
-import PrivacyPolicy from "./privacy-policy";
+import PrivacyPolicy from "./privacy-policy"
 
 class Layout extends React.Component {
   render() {
@@ -39,7 +39,7 @@ class Layout extends React.Component {
   }
 }
 
-function linkToRoot({title}) {
+function linkToRoot({ title }) {
   return (
     <Link
       style={{
@@ -51,10 +51,10 @@ function linkToRoot({title}) {
     >
       {title}
     </Link>
-  );
+  )
 }
 
-function headerForRootLayout({title}) {
+function headerForRootLayout({ title }) {
   return (
     <h1
       style={{
@@ -63,7 +63,7 @@ function headerForRootLayout({title}) {
         marginTop: 0,
       }}
     >
-      {linkToRoot({title})}
+      {linkToRoot({ title })}
     </h1>
   )
 }
@@ -76,7 +76,7 @@ function headerForPostLayout({ title }) {
         marginTop: 0,
       }}
     >
-      {linkToRoot({title})}
+      {linkToRoot({ title })}
     </h3>
   )
 }

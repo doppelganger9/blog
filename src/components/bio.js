@@ -31,7 +31,22 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives in <a href="https://en.wikipedia.org/wiki/Senlis">Senlis <span role="img" aria-label="Stag">🦌</span></a>, and works in Paris <span role="img" aria-label="France">🇫🇷</span>, and <span role="img" aria-label="Love">🧡</span> building things with code.
+              Written by <strong>{author}</strong> who lives in{" "}
+              <a href="https://en.wikipedia.org/wiki/Senlis">
+                Senlis{" "}
+                <span role="img" aria-label="Stag">
+                  🦌
+                </span>
+              </a>
+              , and works in Paris{" "}
+              <span role="img" aria-label="France">
+                🇫🇷
+              </span>
+              , and{" "}
+              <span role="img" aria-label="Love">
+                🧡
+              </span>{" "}
+              building things with code.
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
