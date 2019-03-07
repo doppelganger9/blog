@@ -1,6 +1,6 @@
 # David's Blog
 
-See it live here: https://doppelganger9.github.io/blog/
+See it live here: https://lacourt.dev/
 
 This blog is made with [Gatsby](https://www.gatsbyjs.org/).
 
@@ -15,9 +15,9 @@ I encourage your curiosity and will be delighted if you can fix my poor English 
 
 ## CI/CD
 
-I'm an automation advocate, so expect a full CI/CD pipeline soon!
+I'm an automation advocate, I [wrote a post](https://lacourt.dev/2019/03/06/) about setting up the Github Actions Workflow for this blog.
 
-For now, it's just a manual `npm run deploy` to publish to github pages.
+The website is deployed to [Netlify](https://www.netlify.com).
 
 ## License
 
