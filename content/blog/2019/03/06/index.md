@@ -2,14 +2,8 @@
 title: Github Actions!
 date: "2019-03-06T23:31:03.284Z"
 published: true
-draft: true
+tags: [ "CI/CD", "GitHub Actions", "Netlify", "git" ]
 ---
-
-My intent for this blog is for it to be fully **Open Source**.
-
-You can check all the commits [on the Github Repository](https://github.com/doppelganger9/blog).
-
-It is built with [GatsbyJS](https://www.gatsbyjs.org/) and ⚛️**React**.
 
 ## Automation
 
