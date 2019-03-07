@@ -204,16 +204,24 @@ Even with this, the same step was still failing, so I search the marketplace and
 
 So I followed the README of https://github.com/maxheld83/ghpages, created a Personal Access Token, added it to the Secrets for the step as GH_PAT, rewired everything correctly, saved and commited this to push to master.
 
-Well... not quite there yet, a lot of errors...
+In the end, it kind of worked, but this Action did not put a subpath in the GitHub Pages so my blog did not load properly (images, fonts, posts pages were all 404).
 
-I think I'll have to write my own or dig deeper!
+## Removing GH-Page, and reconfigure all the things!
 
-That's all for now.
+You will see that I simplified the workflow, that there is no Github Page deploy anymore, because I signed up for [Netlify](https://www.netlify.com), and reconfigured my `.dev` domain to map this.
+
+Netlify has its own mini-CI/CD, from now on, it will automatically install & build my Gatsby blog on each push to the master branch.
+
+I think this is a more simple solution, though it requires an integration to another service (e.g. it's not 100% Github centric).
 
 ## Conclusion
 
-It is almost done, I will revise this post as soon as I get a solution. Stay tuned!
+I learned a lot on the way and ended up with an auto-deploy static blog triggered by a git push of new content to the master branch.
 
-Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation. I will in the future add a feature inspired by this article: http://artsy.github.io/blog/2017/07/15/Comments-are-on/
+If it was not clear, Github made a lot of documentation on all this, but I still wanted to write my own as feedback.
+
+I hope you too learned a few things, or at least witnessed how I bump against issues and go on 🤣.
+
+> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation.
 
 👋
