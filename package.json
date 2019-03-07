@@ -36,7 +36,6 @@
     "typography-theme-wordpress-2016": "^0.16.18"
   },
   "devDependencies": {
-    "gh-pages": "2.0.1",
     "prettier": "^1.16.4"
   },
   "homepage": "https://github.com/doppelganger9/blog#readme",
@@ -55,7 +54,6 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"I should write tests! -> https://gatsby.app/unit-testing\"",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "test": "echo \"I should write tests! -> https://gatsby.app/unit-testing\""
   }
 }
