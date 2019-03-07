@@ -8,6 +8,7 @@
     "url": "https://github.com/doppelganger9/blog/issues"
   },
   "dependencies": {
+    "@weknow/gatsby-remark-twitter": "^0.2.0",
     "gatsby": "^2.1.17",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-feed": "^2.0.13",
