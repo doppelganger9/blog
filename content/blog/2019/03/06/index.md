@@ -2,6 +2,7 @@
 title: Github Actions!
 date: "2019-03-06T23:31:03.284Z"
 published: true
+description: "A post about how I added build & deploy automation for this blog"
 tags: [ "CI/CD", "GitHub Actions", "Netlify", "git" ]
 ---
 

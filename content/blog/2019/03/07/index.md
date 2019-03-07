@@ -2,6 +2,7 @@
 title: Gitpod, my new on-demand 🛎 dev environment 👨‍💻
 date: "2019-03-07T19:30:03.284Z"
 published: true
+description: "A post about how I used Gitpod.io to write this post."
 tags: [ "Gitpod", "editor" ]
 ---
 

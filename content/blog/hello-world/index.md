@@ -1,6 +1,7 @@
 ---
-title: Hello World
+title: Hello 👋 World 🌎
 date: "2015-05-01T22:12:03.284Z"
+description: "The first post on this blog! About my intent and this blog's purpose"
 published: true
 ---
 
@@ -17,4 +18,3 @@ My intent for this blog is for it to be fully **Open Source**.
 You can check all the commits [on the Github Repository](https://github.com/doppelganger9/blog).
 
 It is built with [GatsbyJS](https://www.gatsbyjs.org/) and ⚛️**React**.
-
