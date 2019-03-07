@@ -1,5 +1,7 @@
 # David's Blog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72137791-898b-46be-ac68-9e1a5a37a29b/deploy-status)](https://app.netlify.com/sites/infallible-shannon-2d54c6/deploys)
+
 See it live here: https://lacourt.dev/
 
 This blog is made with [Gatsby](https://www.gatsbyjs.org/).
