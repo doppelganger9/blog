@@ -19,21 +19,20 @@ So today I pushed a few commits to set up a **CI/CD** pipeline.
 
 I mean, a *Github Actions workflow*, as it is properly called.
 
-## Github Actions?
+## Github Actions
 
 They are Github's take on CI/CD.
 > What's different from GitLab CI/CD, or Jenkins, or Travis CI and the likes?
 
-- a lot of triggers (pushing code, creating wiki, creating issue, posting a comment, or anything imaginable with webhooks)
+- a lot of triggers (pushing code, creating a wiki page, creating an issue, posting a comment, or anything imaginable with webhooks)
 - each step is a microservice, a docker image run with [some specific specs](https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#runtime-environment-resources)
 - there is a nice visual editor that renders a graph based on a textual representation
 - it's currently in limited public beta, you have to request access.
 - there is a marketplace for actions, and you can easily create and publish yours.
 
-Have a look here : https://github.com/features/actions
+Have a look at the [The GitHub Actions Features](https://github.com/features/actions).
 
-Also the documentation: https://developer.github.com/actions/
-
+Also the [GitHub Actions documentation](https://developer.github.com/actions/).
 
 ## Github Actions Workflow
 
@@ -47,7 +46,7 @@ You will see the `main.workflow` file beautifully rendered as a graph presenting
 
 This is the raw file in all its textual splendor (not YAML or JSON, more like Terraform):
 
-```
+```text
 workflow "Build and deploy on push" {
   on = "push"
   resolves = [
@@ -119,7 +118,7 @@ Scrolling down, we can see the failing step:
 
 Clicking on the **log** link will give us the complete docker image execution logs.
 
-On the left side, there is a panel with the list of steps:
+On the left side, there is a panel with a list of steps:
 
 ![Actions Failed](./ActionsFailed.png)
 
@@ -135,7 +134,7 @@ Now I can look at some green steps, but there still is a failure at the deploy s
 
 Looking at the **logs** of this particular step, I can see:
 
-```
+```text
 *** Please tell me who you are.
 
 Run
@@ -147,15 +146,15 @@ to set your account's default identity.
 Omit --global to set the identity only in this repository.
 ```
 
-How can I set git config from an action or workflow file?
+How can I set `git config` from an action or workflow file?
 
 ## Adding Environment Variables and Secrets
 
 So I need to somehow set `user.email` and `user.name` in `git config`.
 
-Looking at [Git documentation](), It seems I can use ENCIRONMENT VARIABLES:
+Looking at [Git documentation](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables), It seems I can use ENVIRONMENT VARIABLES:
 
-```
+```text
 GIT_AUTHOR_NAME is the human-readable name in the “author” field.
 GIT_AUTHOR_EMAIL is the email for the “author” field.
 GIT_AUTHOR_DATE is the timestamp used for the “author” field.
@@ -179,7 +178,7 @@ Save the changes.
 
 You could also have edited the file with a text editor, here is the same changeset in textual representation:
 
-```
+```text
 action "Deploy to Github Pages" {
   uses = "actions/npm@master"
   needs = ["Only Master Branch"]
@@ -193,21 +192,21 @@ action "Deploy to Github Pages" {
 }
 ```
 
-## Still failing: change step definition!
+## Still failing: change step definition
 
-Even with this, the same step was still failing, so I search the marketplace and [awesome Actions list]() and found one that did exactly what I wanted: deploy to gihthub pages.
+Even with this, the same step was still failing, so I search the marketplace and [awesome Actions list](https://github.com/sdras/awesome-actions) and found one that did exactly what I wanted: deploy to GitHub pages.
 
-So I followed the README of https://github.com/maxheld83/ghpages, created a Personal Access Token, added it to the Secrets for the step as GH_PAT, rewired everything correctly, saved and commited this to push to master.
+So I followed the README of [the `ghpages` Action](https://github.com/maxheld83/ghpages), created a Personal Access Token, added it to the Secrets for the step as GH_PAT, rewired everything correctly, saved and committed this to push to master.
 
 In the end, it kind of worked, but this Action did not put a subpath in the GitHub Pages so my blog did not load properly (images, fonts, posts pages were all 404).
 
-## Removing GH-Page, and reconfigure all the things!
+## Removing GH-Page, and reconfigure all the things
 
 You will see that I simplified the workflow, that there is no Github Page deploy anymore, because I signed up for [Netlify](https://www.netlify.com), and reconfigured my `.dev` domain to map this.
 
 Netlify has its own mini-CI/CD, from now on, it will automatically install & build my Gatsby blog on each push to the master branch.
 
-I think this is a more simple solution, though it requires an integration to another service (e.g. it's not 100% Github centric).
+I think this is a more simple solution, though it requires integration to another service (e.g. it's not 100% Github centric).
 
 ## Conclusion
 
@@ -215,7 +214,7 @@ I learned a lot on the way and ended up with an auto-deploy static blog triggere
 
 If it was not clear, Github made a lot of documentation on all this, but I still wanted to write my own as feedback.
 
-I hope you too learned a few things, or at least witnessed how I bump against issues and go on 🤣.
+I hope you too learned a few things or at least witnessed how I bump against issues and go on 🤣.
 
 > Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation.
 
