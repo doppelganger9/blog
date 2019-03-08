@@ -44,6 +44,7 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           `@weknow/gatsby-remark-twitter`,
+          `gatsby-remark-reading-time`,
         ],
       },
     },

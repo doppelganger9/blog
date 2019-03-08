@@ -29,6 +29,7 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        <p style={{ ...scale(-2/5), display: `block`, marginTop: rhythm(-1), marginBottom: rhythm(2) }} >{post.fields.readingTime.text}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -84,6 +85,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
   }
