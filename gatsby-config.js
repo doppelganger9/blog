@@ -54,6 +54,7 @@ module.exports = {
           `gatsby-remark-smartypants`,
           `@weknow/gatsby-remark-twitter`,
           `gatsby-remark-reading-time`,
+          'gatsby-remark-a11y-emoji',
         ],
       },
     },

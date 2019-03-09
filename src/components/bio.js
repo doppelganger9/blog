@@ -49,29 +49,29 @@ function Bio() {
               </span>{" "}
               building things with code.
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`} style={{ boxShadow: 'none' }}>
-                <FaTwitter/>
+              <a alt="twitter" href={`https://twitter.com/${social.twitter}`} style={{ boxShadow: 'none' }}>
+                <FaTwitter role="img" aria-label="twitter icon"/>
               </a>{` `}
-              <a href={`https://github.com/doppelganger9/`} style={{ boxShadow: 'none' }}>
-                <FaGithub />
+              <a alt="github" href={`https://github.com/doppelganger9/`} style={{ boxShadow: 'none' }}>
+                <FaGithub role="img" aria-label="github icon"/>
               </a>{` `}
-              <a href={`https://www.linkedin.com/in/davidlacourt/`} style={{ boxShadow: 'none' }}>
-                <FaLinkedin />
+              <a alt="linkedin" href={`https://www.linkedin.com/in/davidlacourt/`} style={{ boxShadow: 'none' }}>
+                <FaLinkedin role="img" aria-label="linkedin icon"/>
               </a>{` `}
-              <a href={`https://dev.to/doppelganger9`} style={{ boxShadow: 'none' }}>
-                <FaDev />
+              <a alt="dev.to" href={`https://dev.to/doppelganger9`} style={{ boxShadow: 'none' }}>
+                <FaDev role="img" aria-label="dev.to icon"/>
               </a>{` `}
-              <a href={`https://stackoverflow.com/users/526660/doppelganger9`} style={{ boxShadow: 'none' }}>
-                <FaStackOverflow />
+              <a alt="stackoverflow" href={`https://stackoverflow.com/users/526660/doppelganger9`} style={{ boxShadow: 'none' }}>
+                <FaStackOverflow role="img" aria-label="stackoverflow icon"/>
               </a>{` `}
-              <a href={`https://gitlab.com/davidlacourt`} style={{ boxShadow: 'none' }}>
-                <FaGitlab />
+              <a alt="gitlab" href={`https://gitlab.com/davidlacourt`} style={{ boxShadow: 'none' }}>
+                <FaGitlab role="img" aria-label="gitlab icon"/>
               </a>{` `}
-              <a href={`https://www.facebook.com/david.lacourt`} style={{ boxShadow: 'none' }}>
-                <FaFacebook />
+              <a alt="facebook" href={`https://www.facebook.com/david.lacourt`} style={{ boxShadow: 'none' }}>
+                <FaFacebook role="img" aria-label="facebook icon"/>
               </a>{` `}
-              <a href={`https://codepen.io/doppelganger9/`} style={{ boxShadow: 'none' }}>
-                <FaCodepen />
+              <a alt="codepen" href={`https://codepen.io/doppelganger9/`} style={{ boxShadow: 'none' }}>
+                <FaCodepen role="img" aria-label="codepen icon"/>
               </a>
             </p>
           </div>

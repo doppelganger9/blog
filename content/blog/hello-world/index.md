@@ -5,13 +5,13 @@ description: "The first post on this blog! About my intent and this blog's purpo
 published: true
 ---
 
-# Hi! 👋
+## Hi! 👋
 
 This is my first post on my new blog! How exciting!
 
 I'm sure I'll write a lot more interesting things in the future.
 
-# Purpose 🤔
+## Purpose 🤔
 
 My intent for this blog is for it to be fully **Open Source**.
 
