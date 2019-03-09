@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
+import { FaTwitter, FaGithub, FaLinkedin, FaDev, FaStackOverflow, FaGitlab, FaFacebook, FaCodepen } from "react-icons/fa";
 
 function Bio() {
   return (
@@ -48,8 +49,29 @@ function Bio() {
               </span>{" "}
               building things with code.
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+              <a href={`https://twitter.com/${social.twitter}`} style={{ boxShadow: 'none' }}>
+                <FaTwitter/>
+              </a>{` `}
+              <a href={`https://github.com/doppelganger9/`} style={{ boxShadow: 'none' }}>
+                <FaGithub />
+              </a>{` `}
+              <a href={`https://www.linkedin.com/in/davidlacourt/`} style={{ boxShadow: 'none' }}>
+                <FaLinkedin />
+              </a>{` `}
+              <a href={`https://dev.to/doppelganger9`} style={{ boxShadow: 'none' }}>
+                <FaDev />
+              </a>{` `}
+              <a href={`https://stackoverflow.com/users/526660/doppelganger9`} style={{ boxShadow: 'none' }}>
+                <FaStackOverflow />
+              </a>{` `}
+              <a href={`https://gitlab.com/davidlacourt`} style={{ boxShadow: 'none' }}>
+                <FaGitlab />
+              </a>{` `}
+              <a href={`https://www.facebook.com/david.lacourt`} style={{ boxShadow: 'none' }}>
+                <FaFacebook />
+              </a>{` `}
+              <a href={`https://codepen.io/doppelganger9/`} style={{ boxShadow: 'none' }}>
+                <FaCodepen />
               </a>
             </p>
           </div>
