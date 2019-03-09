@@ -4,7 +4,7 @@ module.exports = {
     title: `David's Blog`,
     author: `David Lacourt`,
     description: `A developer's blog. Might be useful. Maybe.`,
-    siteUrl: ` https://doppelganger9.github.io/blog/`,
+    siteUrl: ` https://lacourt.dev/`,
     social: {
       twitter: `doppelganger9`,
     },
