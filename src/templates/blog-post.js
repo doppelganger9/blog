@@ -36,6 +36,10 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
+        <a className="twitter-share-button"
+          href={`https://twitter.com/intent/tweet?via=mercatante`}
+          data-size="large">Tweet</a>{` `}
+        <a className="twitter-follow-button" href="https://twitter.com/doppelganger9?ref_src=twsrc%5Etfw" data-show-count="false" data-size="large">Follow @doppelganger9</a>
         <Bio />
 
         <ul
