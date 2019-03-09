@@ -5,8 +5,16 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+/* global twttr */
 
 class BlogPostTemplate extends React.Component {
+
+  componentDidMount() {
+    if (typeof twttr.widgets !== 'undefined') {
+      twttr.widgets.load()
+    }
+  }
+
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
