@@ -6,6 +6,15 @@ import PrivacyPolicy from "./privacy-policy"
 import Helmet from 'react-helmet'
 
 class Layout extends React.Component {
+
+  componentDidMount() {
+    if (window.twttr) {
+      if (typeof window.twttr.widgets !== 'undefined') {
+        window.twttr.widgets.load()
+      }
+    }
+  }
+
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`

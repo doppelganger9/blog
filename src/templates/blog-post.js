@@ -5,15 +5,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-/* global twttr */
 
 class BlogPostTemplate extends React.Component {
-
-  componentDidMount() {
-    if (typeof twttr.widgets !== 'undefined') {
-      twttr.widgets.load()
-    }
-  }
 
   render() {
     const post = this.props.data.markdownRemark
@@ -44,9 +37,8 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <a className="twitter-share-button"
-          href={`https://twitter.com/intent/tweet?via=mercatante`}
-          data-size="large">Tweet</a>{` `}
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-show-count="false" data-size="large">Tweet</a>
+        {` `}
         <a className="twitter-follow-button" href="https://twitter.com/doppelganger9?ref_src=twsrc%5Etfw" data-show-count="false" data-size="large">Follow @doppelganger9</a>
         <Bio />
 
