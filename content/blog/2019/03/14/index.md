@@ -1,0 +1,223 @@
+---
+title: Using reveal-md to create technical presentations
+date: "2019-03-12T20:30:03.284Z"
+published: false
+description: "A post about how I made emojis available on all OSes and browsers for reveal-md."
+tags: [ "reveal-md", "technical presentations", "tools", "emoji" ]
+---
+
+
+[Last time](/2019/03/12/) I presented you the awesome **reveal-md** tool that I use to create impressive technical slideshows.
+
+One of the things I use too much is emojis.
+I tend to put them everywhere possible, for me they are like a form of modern ideograms that future generations will find etched on glass pyramids...
+
+![pyramid sun loop](https://media.giphy.com/media/TOgT1sxf12pdm/giphy.gif)
+
+However, for the time being, I still have an issue with [how emojis are supported](https://en.wikipedia.org/wiki/Emoji).
+
+Going back to **reveal-md**, when I exported to PDF, the emojis were broken, and the same thing happened for my Windows 7 co-workers when they were looking at the exported website or when I was presenting from that kind of OS.
+
+Thus, I was in need of a way to transform emojis to images inside my presentations.
+
+Time to present item number 9 on my "I ❤️ reveal" list of feature!
+
+![fanfare](https://media.giphy.com/media/xTk2YUwApvZyGiul32/source.mp4)
+
+## Preprocessor to the rescue
+
+**reveal-md** [has a preprocessor option](https://github.com/webpro/reveal-md#pre-process-markdown) that allow us to pass it a JavaScript file that will apply some code to change the markdown before presenting it. And, this my dear reader, is exactly what I needed to solve my emojis issue!
+
+![problem solved](https://media.giphy.com/media/5bivKwxhVzshNk2Rjw/source.gif)
+
+Combined with **[Twemoji](https://github.com/twitter/twemoji)**, I could parse all my presentation's markdown and convert emoji Unicode strings to image tags with SVG.
+
+## Twemoji
+
+### What is it?
+
+It is an open source library made by Twitter.
+It contains their whole collection of emojis!
+There is also a JavaScript API that can parse text or DOM nodes to replace emoji Unicode characters with <img> tags.
+
+### Installation
+
+So, I installed it in my repo using:
+
+```
+npm install --save twemoji
+```
+
+## Free the emojis!
+
+Now we can look at how we will combine Twemoji with a **reveal-md** preprocessor to make the emojis free from the OS and browsers!
+
+### reveal-md Preprocessor using twemoji
+
+The preprocessor is really simple:
+
+```javascript
+// emoji2svgimg.js
+const twemoji = require('twemoji');
+
+module.exports = (markdown, options) => {
+  return new Promise((resolve, reject) => {
+    return resolve(
+      twemoji.parse(markdown, {
+        folder: 'svg',
+        ext: '.svg'
+      })
+    );
+  });
+};
+```
+
+As you see it returns the Promise that it will have transformed the markdown using `twemoji.parse`.
+
+Wait a minute.
+
+![Wait a minute.](https://media.giphy.com/media/9aDBfz8iy4caA/giphy.gif)
+
+If you don't know **Promises**, I urge you to go watch this YouTube video -- MPJ is just 🤩
+
+<iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/2d7s3spWAzo?autoplay=0&origin=https://lacourt.dev"
+  frameborder="0"/>
+
+I also recommend to subscribe to his channel, all the content is stellar 💫.
+
+### SVG FTW!
+
+For better antialiasing (because you can zoom with ALT+click using Reveal-md presentation mode) I used SVG [with these special parser options](https://github.com/twitter/twemoji#folder):
+
+```
+twemoji.parse(markdown, {
+        folder: 'svg',
+        ext: '.svg'
+      })
+```
+
+### using the preprocessor
+
+To use this, append the `--preprocessor` command line option for reveal-md:
+
+```bash
+reveal-md presentation.md --preprocessor emoji2svgimg.js
+```
+
+Looking at my presentation, I saw a few regressions happening to the emojis: the CSS seemed wrong, and the [animated fragments](https://github.com/hakimel/reveal.js/#element-attributes) [inside a slide](https://github.com/hakimel/reveal.js/#fragments) was broken.
+
+### Fixing CSS
+
+I had to tweak the CSS for the twemojis to have a size related to the font size. I already had a `local.css` file to tweak CSS for my slides, so I added [the recommended CSS](https://github.com/twitter/twemoji#inline-styles):
+
+```css
+img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+}
+```
+It did not play well as I had some rules forcing the height of all images... so I had to rewrite this. I learned [a new CSS selector](https://developer.mozilla.org/fr/docs/Web/CSS/:not) on the way, sweet 😎!
+```css
+img:not(.emoji) {
+    height: 200pt !important;
+}
+```
+
+*Sorry, I promise I won't use `!important` in production ever again*
+
+### Broken fragments
+
+Using fragments in a slide was broken as the `<!-- fragment -->` became applied to the img tag instead of the image.
+
+To solve this issue, I had to change the fragment comment by using more HTML to delineate the fragment that would contain emoji image.
+
+It went from a clean Markdown to an embedded HTML markup with the reveal-md magic fragment comments:
+
+```markdown
+1. 🔍 what is WASM?
+<!-- .element: class="fragment" -->
+2. 🎩 History: when did it came to be?
+<!-- .element: class="fragment" -->
+3. 👀 what does it look like?
+<!-- .element: class="fragment" -->
+4. 🤹‍♀️ what could it be used for?
+<!-- .element: class="fragment" -->
+```
+
+became:
+
+```markdown
+<ol>
+  <li> 🔍 what is WASM?</li>
+  <!-- .element: class="fragment" -->
+  <li> 🎩 History: when did it came to be?</li>
+  <!-- .element: class="fragment" -->
+  <li> 👀 what does it look like?</li>
+  <!-- .element: class="fragment" -->
+  <li> 🤹‍♀️ what could it be used for?</li>
+  <!-- .element: class="fragment" -->
+</ol>
+
+```
+
+and
+
+```markdown
+🤢
+<!-- .element class="fragment" -->
+```
+
+became infected with a mild case of [divitis](https://csscreator.com/divitis):
+
+```markdown
+<div>🤢</div>
+<!-- .element class="fragment" -->
+```
+
+
+### exporting to PDF
+
+it works and even solves an old issue due to capturing the emojis of the chromium browser happening during `reveal-md`'s export to pdf process. Win! ✌️
+
+I changed the NPM scripts to use the preprocessor:
+
+```json
+  ...
+  "scripts": {
+    ...
+    "preexport:pdf": "cp presentation.md 2print.md && replace-in-file '/class=\"fragment\"/g' ' ' 2print.md --isRegex",
+    "export:pdf": "reveal-md 2print.md -w --css local.css --theme white --print presentation.pdf --preprocessor emoji2svgimg.js",
+    "postexport:pdf": "rm 2print.md"
+  },
+ ...
+```
+
+### exporting to an HTML static website
+
+Exporting the site works, as the links to an image are external to the site. For example, the SVG for the 🔍 is an URL pointing to a CDN:
+
+https://twemoji.maxcdn.com/2/svg/1f4a9.svg
+
+<img src="https://twemoji.maxcdn.com/2/svg/1f4a9.svg" style="width: 50%" alt="loupe" />
+
+*What a really nice pile of poo! Such smooth anti-aliasing! Thank you so much Scalable Vector Graphics!*
+👍
+
+I also changed the NPM scripts to use the preprocessor:
+
+```json
+  ...
+  "scripts": {
+    ...
+    "export:site": "reveal-md presentation.md --css local.css --theme white --static _site --preprocessor emoji2svgimg.js",
+    "postexport:site": "cp *.svg _site/ && cp *.png _site/ && cp *.jpg _site/ && cp *.mp4 _site/ && cp robots.txt _site/ && cp *.svg _site/_assets/ && cp *.png _site/_assets/ && cp *.jpg _site/_assets/",
+ ...
+```
+
+## Conclusion
+
+And for the emoji part, now anyone will be able to enjoy my reveal-md presentation with all their emojis without depending on their OS/browser! Particularly those poor people stuck on old windows OSes... 😇
+
