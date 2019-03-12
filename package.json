@@ -2,7 +2,7 @@
   "name": "blog",
   "private": true,
   "description": "David Lacourt's personal blog, powered by Gatsby and Markdown",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "David Lacourt <david.lacourt@gmail.com>",
   "bugs": {
     "url": "https://github.com/doppelganger9/blog/issues"
