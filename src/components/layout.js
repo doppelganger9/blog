@@ -54,6 +54,12 @@ class Layout extends React.Component {
               return t;
             }(document, "script", "twitter-wjs"));`}
           </script>
+          <style>{`
+          .no-box-shadow {
+              box-shadow: none;
+          }
+          `}
+          </style>
         </Helmet>
         <header>{header}</header>
         <main>{children}</main>

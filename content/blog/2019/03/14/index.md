@@ -1,9 +1,9 @@
 ---
-title: Using reveal-md to create technical presentations
-date: "2019-03-12T20:30:03.284Z"
+title: Using reveal-md with emojis everywhere!
+date: "2019-03-14T20:30:03.284Z"
 published: true
 description: "A post about how I made emojis available on all OSes and browsers for reveal-md."
-tags: [ "reveal-md", "technical presentations", "tools", "emoji" ]
+tags: [ "reveal-md", "technical presentations", "tools", "emoji", "pdf", "static website" ]
 ---
 
 
@@ -12,7 +12,7 @@ tags: [ "reveal-md", "technical presentations", "tools", "emoji" ]
 One of the things I use too much is emojis.
 I tend to put them everywhere possible, for me they are like a form of modern ideograms that future generations will find etched on glass pyramids...
 
-![pyramid sun loop](https://media.giphy.com/media/TOgT1sxf12pdm/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/TOgT1sxf12pdm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/loop-pyramid-TOgT1sxf12pdm">via GIPHY</a></p>
 
 However, for the time being, I still have an issue with [how emojis are supported](https://en.wikipedia.org/wiki/Emoji).
 
@@ -22,15 +22,15 @@ Thus, I was in need of a way to transform emojis to images inside my presentatio
 
 Time to present item number 9 on my "I ❤️ reveal" list of reveal's preferred feature!
 
-![fanfare](https://media.giphy.com/media/xTk2YUwApvZyGiul32/source.mp4)
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/xTk2YUwApvZyGiul32" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-season-4-spongebob-squarepants-xTk2YUwApvZyGiul32">via GIPHY</a></p>
 
 ## Preprocessor to the rescue
 
 **reveal-md** [has a preprocessor option](https://github.com/webpro/reveal-md#pre-process-markdown) that allow us to pass it a JavaScript file that will apply some code to change the markdown before presenting it. And, this my dear reader, is exactly what I needed to solve my emojis issue!
 
-![problem solved](https://media.giphy.com/media/5bivKwxhVzshNk2Rjw/source.gif)
-
 Combined with **[Twemoji](https://github.com/twitter/twemoji)**, I could parse all my presentation's markdown and convert emoji Unicode strings to image tags with SVG.
+
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/5bivKwxhVzshNk2Rjw" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/thedailyshow-5bivKwxhVzshNk2Rjw">via GIPHY</a></p>
 
 ## Twemoji
 
@@ -76,7 +76,7 @@ As you see it returns the Promise that it will have transformed the markdown usi
 
 Wait a minute.
 
-![Wait a minute.](https://media.giphy.com/media/9aDBfz8iy4caA/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/9aDBfz8iy4caA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mrw-birthday-thinking-9aDBfz8iy4caA">via GIPHY</a></p>
 
 If you don't know **Promises**, I urge you to go watch this YouTube video -- MPJ is just 🤩
 
@@ -221,11 +221,15 @@ I also changed the NPM scripts to use the preprocessor:
 
 ## 🎁 Sample repository
 
-Well, here is a gift for you!
+Well, [here is a gift for you](https://github.com/doppelganger9/sample-reveal-md-twemoji-presentation)!
 
 To illustrate this post and the previous one, I made a sample repository. It shows all my adaptations. I use nearly the same at work, branded with my company's logo and colors.
 
 Feel free to use it. It is open source, so you can also contribute by opening issues, asking questions, pushing code via Pull Requests, etc.
+
+You can even see a [sample exported PDF with Twemojis](https://github.com/doppelganger9/sample-reveal-md-twemoji-presentation/blob/master/presentation.pdf) [and without](https://github.com/doppelganger9/sample-reveal-md-twemoji-presentation/blob/master/presentation-without-twemojis.pdf).
+
+Try opening both PDFs on a non-emoji friendly OS for comparison 😉
 
 ## Conclusion
 

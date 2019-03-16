@@ -3,7 +3,7 @@ title: Using reveal-md to create technical presentations
 date: "2019-03-12T20:30:03.284Z"
 published: true
 description: "A post about how I discovered and now use reveal-md to create engaging technical presentations."
-tags: [ "reveal-md", "technical presentations", "tools" ]
+tags: [ "reveal-md", "technical presentations", "tools", "pdf", "static website" ]
 ---
 
 *This post is a departure from [the](/2019/03/06/) [previous](/2019/03/07/) [ones](/2019/03/10/) as it is describing a tool unrelated to the construction of this blog.*
@@ -14,14 +14,14 @@ tags: [ "reveal-md", "technical presentations", "tools" ]
 2 years ago, I went to an international event for my company and heard that I was supposed to present some slides about technical updates concerning our team's project.
 Except... I did not have prepared anything.
 
-![Everything is fine](https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/NTur7XlVDUdqM" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/trump-consequences-NTur7XlVDUdqM">via GIPHY</a></p>
 
 So I bet on a cool tool I had previously tried out of a professional context: ✨*reveal-md*✨.
 
 It totally helped me **focus on the slides' content** using great presentation and animation defaults.
 During the morning boring managers meeting, I managed (sic) to put up a nice set of slides with code samples, emojis, images. On the plus side, it kept me awake 🤣, or else I would have fallen asleep! 2 hours later I said "Sure, I can show you my slides!" and I delivered a solid presentation given the constraints.
 
-![Say what?](https://media.giphy.com/media/7F5RBG1GX8dP2/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/7F5RBG1GX8dP2" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/sweet-7F5RBG1GX8dP2">via GIPHY</a></p>
 
 Since that time, all my presentations are made with *reveal-md*:
 - I can *quickly* write in Markdown using any text editor
@@ -44,7 +44,7 @@ Just [experience it yourself](https://revealjs.com) to feel it better than readi
 
 Have you clicked the link above? No? [click it](https://revealjs.com). Navigate the slides. How smooth.
 
-![Now, chill](https://media.giphy.com/media/5xtDarqlsEW6F7F14Fq/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/5xtDarqlsEW6F7F14Fq" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/editingandlayout-smile-beach-drink-5xtDarqlsEW6F7F14Fq">via GIPHY</a></p>
 
 So **reveal-md** is a special assembly of [RevealJS](https://github.com/hakimel/reveal.js) with lots of useful plugins, which is readily usable and expects usage of Markdown to create presentations, instead of HTML.
 
@@ -74,13 +74,13 @@ To -- wait for it... -- **reveal** the content piece by piece, for example, if y
 <!-- .element: class="fragment" -->
 ```
 
-![bazinga](https://media.giphy.com/media/CV61LRKyQf6P6/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:64%;position:relative;"><iframe src="https://giphy.com/embed/CV61LRKyQf6P6" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/love-sheldon-bazinga-CV61LRKyQf6P6">via GIPHY</a></p>
 
 ### 💚 Slide navigation
 
 Slides left-right and up-down navigation with '---' or '----'
 
-![Konami Code](https://media.giphy.com/media/13ki5hgynlBaFy/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:42%;position:relative;"><iframe src="https://giphy.com/embed/13ki5hgynlBaFy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/nintendo-retro-13ki5hgynlBaFy">via GIPHY</a></p>
 
 ### 💜 useful shortcuts
 
@@ -106,7 +106,7 @@ I use embedded iframes to show other websites, like [caniuse.com](https://canius
 
 Want to make it even better?
 
-![Challenge Accepted](https://media.giphy.com/media/AWv3UAFkgz39u/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/AWv3UAFkgz39u" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/hoppip-how-i-met-your-mother-barney-stinson-AWv3UAFkgz39u">via GIPHY</a></p>
 
 You can add lazy-loading to the iframe just by using `data-src` instead of `src`. This way *reveal*  will load the iframe's content only when you will show the slide during your presentation.
 
@@ -149,7 +149,7 @@ Exporting the PDF?
 
 Yep, *reveal-md* can do that!
 
-![can do](https://media.giphy.com/media/DgLsbUL7SG3kI/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:84%;position:relative;"><iframe src="https://giphy.com/embed/DgLsbUL7SG3kI" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/reaction-video-morty-DgLsbUL7SG3kI">via GIPHY</a></p>
 
 I use these NPM scripts in the `package.json` of the presentation's repository:
 ```json
@@ -169,7 +169,7 @@ As you can see, I use `replace-in-file` dependency to remove all fragments in or
 
 You can also export your presentation to a statically rendered HTML  snapshot of it.
 
-![Web surfin' time](https://media.giphy.com/media/IwTWTsUzmIicM/giphy.gif)
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/IwTWTsUzmIicM" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/internet-surfing-IwTWTsUzmIicM">via GIPHY</a></p>
 
 I use these NPM scripts in the `package.json` of the presentation's repository:
 ```json

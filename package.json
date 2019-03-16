@@ -20,6 +20,7 @@
     "gatsby-plugin-sitemap": "2.0.6",
     "gatsby-plugin-typography": "^2.2.7",
     "gatsby-remark-a11y-emoji": "1.0.0",
+    "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-copy-linked-files": "^2.0.9",
     "gatsby-remark-images": "^2.0.6",
     "gatsby-remark-prismjs": "^3.2.4",
