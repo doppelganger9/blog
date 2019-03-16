@@ -1,7 +1,7 @@
 ---
 title: Using reveal-md to create technical presentations
 date: "2019-03-12T20:30:03.284Z"
-published: false
+published: true
 description: "A post about how I made emojis available on all OSes and browsers for reveal-md."
 tags: [ "reveal-md", "technical presentations", "tools", "emoji" ]
 ---
@@ -20,7 +20,7 @@ Going back to **reveal-md**, when I exported to PDF, the emojis were broken, and
 
 Thus, I was in need of a way to transform emojis to images inside my presentations.
 
-Time to present item number 9 on my "I ❤️ reveal" list of feature!
+Time to present item number 9 on my "I ❤️ reveal" list of reveal's preferred feature!
 
 ![fanfare](https://media.giphy.com/media/xTk2YUwApvZyGiul32/source.mp4)
 
@@ -151,14 +151,10 @@ became:
 
 ```markdown
 <ol>
-  <li> 🔍 what is WASM?</li>
-  <!-- .element: class="fragment" -->
-  <li> 🎩 History: when did it came to be?</li>
-  <!-- .element: class="fragment" -->
-  <li> 👀 what does it look like?</li>
-  <!-- .element: class="fragment" -->
-  <li> 🤹‍♀️ what could it be used for?</li>
-  <!-- .element: class="fragment" -->
+  <li class="fragment"> 🔍 what is WASM?</li>
+  <li class="fragment"> 🎩 History: when did it came to be?</li>
+  <li class="fragment"> 👀 what does it look like?</li>
+  <li class="fragment"> 🤹‍♀️ what could it be used for?</li>
 </ol>
 
 ```
@@ -173,16 +169,18 @@ and
 became infected with a mild case of [divitis](https://csscreator.com/divitis):
 
 ```markdown
-<div>🤢</div>
-<!-- .element class="fragment" -->
+<div class="fragment">🤢</div>
 ```
 
+> Dare I say that I reduced the character count and readability? 🤐
 
 ### exporting to PDF
 
-it works and even solves an old issue due to capturing the emojis of the chromium browser happening during `reveal-md`'s export to pdf process. Win! ✌️
+Exporting the presentation to a PDF works and even, adding the preprocessor solves an old issue on emoji rendering.
+Before the preprocessor, emojis were rendered by capturing snapshots of the presentation via [a headless chromium browser](https://github.com/hakimel/reveal.js/#pdf-export).
+So.. one less issue: Win! ✌️
 
-I changed the NPM scripts to use the preprocessor:
+Here is what was added in the NPM scripts to use the preprocessor:
 
 ```json
   ...
@@ -195,11 +193,15 @@ I changed the NPM scripts to use the preprocessor:
  ...
 ```
 
+([see my previous post if you want to know more about the other reveal export options and npm scripts](/2019/03/12/))
+
 ### exporting to an HTML static website
 
-Exporting the site works, as the links to an image are external to the site. For example, the SVG for the 🔍 is an URL pointing to a CDN:
+Exporting the presentation to a static website still works.
+The links to Twemoji images are external to the site.
+For example, the SVG for the 💩 is an URL pointing to a CDN URL:
 
-https://twemoji.maxcdn.com/2/svg/1f4a9.svg
+`https://twemoji.maxcdn.com/2/svg/1f4a9.svg`
 
 <img src="https://twemoji.maxcdn.com/2/svg/1f4a9.svg" style="width: 50%" alt="loupe" />
 
@@ -217,7 +219,20 @@ I also changed the NPM scripts to use the preprocessor:
  ...
 ```
 
+## 🎁 Sample repository
+
+Well, here is a gift for you!
+
+To illustrate this post and the previous one, I made a sample repository. It shows all my adaptations. I use nearly the same at work, branded with my company's logo and colors.
+
+Feel free to use it. It is open source, so you can also contribute by opening issues, asking questions, pushing code via Pull Requests, etc.
+
 ## Conclusion
 
-And for the emoji part, now anyone will be able to enjoy my reveal-md presentation with all their emojis without depending on their OS/browser! Particularly those poor people stuck on old windows OSes... 😇
+Regarding emojis in reveal-md presentations, PDFs or static website exports, now anyone will be able to enjoy them without depending on their OS/browser!
 
+Particularly those unlucky people stuck on old windows OSes... 😇
+
+> I hope you enjoyed this post! If you have any feedback about how it makes you almost laugh, was useful in any way, want to fix my lame jokes, content, or my English, send me a message on Twitter.
+
+👋
