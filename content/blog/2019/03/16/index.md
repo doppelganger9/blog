@@ -17,7 +17,9 @@ On the plus side, this will be a short read 🤣
 
 By the way, thanks again MPJ for articulating all this so clearly, go watch this video:
 
-https://youtu.be/oAt5E2xrXH8?t=910
+<iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/oAt5E2xrXH8?autoplay=0&origin=https://lacourt.dev&t=910"
+  frameborder="0"/>
 
 ## Contentful...
 
