@@ -1,6 +1,6 @@
 ---
-title: Emojis everywhere with reveal-md
-date: "2019-03-14T09:00:00.000Z"
+title: This blog is a PWA 💯
+date: "2019-03-24T09:00:00.000Z"
 description: "You shouldn't be looking at this. This is a post from the future"
 published: false
 ---

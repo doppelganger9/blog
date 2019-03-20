@@ -31,7 +31,7 @@ Since that time, all my presentations are made with *reveal-md*:
 - I can embed HTML, like real code or IFRAME showing live running examples
 - ...and I can use emojis
 
-On that last point, *and that will be the focus of [another post](/future/reveal-md-emojis-everywhere)*, I had an issue as emoji support depends on the OS and browser. So, when I exported to PDF, the emojis were broken, and the same thing for my Windows 7 co-workers.
+On that last point, *and that will be the focus of [another post](/2019/03/14/)*, I had an issue as emoji support depends on the OS and browser. So, when I exported to PDF, the emojis were broken, and the same thing for my Windows 7 co-workers.
 
 ## What is *reveal-md*?
 
