@@ -2,11 +2,11 @@
 title: This blog is built with Gatsby.
 date: "2019-03-20T06:00:00.000Z"
 published: true
-description: "A post about why I choosed GatsbyJS to build this blog. And some weird thoughts about writing."
+description: "A post about why I chose GatsbyJS to build this blog. And some weird thoughts about writing."
 tags: [ "Gatsby", "meta" ]
 ---
 
-*NOTE: this should have been one of my first post, so it's kind of a "pilot" post.*
+*NOTE: this should have been one of my first posts, so it's kind of a "pilot" post.*
 
 ## What is
 
@@ -110,7 +110,7 @@ See also [this article](https://hackernoon.com/why-migrate-from-wordpress-to-a-s
 
 ## Conclusion
 
-In this post, I wanted to explain the choice for the technology stack for this blog. If it is not clear, well, maybe I should not have write it at 5am or you could help me with proof-reading 🤣
+In this post, I wanted to explain the choice for the technology stack for this blog. If it is not clear, well, maybe I should not have written it at 5am or you could help me with proof-reading 🤣
 
 Anyway, I learned a ton on the way and am quite satisfied with this blog as a result.
 
