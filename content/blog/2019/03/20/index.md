@@ -72,7 +72,7 @@ This one is here to transform your markdown into blog post views,
 ### Regrets
 
 Now that I'm fully into this, I kind of regret my initial choice of starter. _Lumen starter I'm eyeing at you, you look so nice with this sexy sidebar (even though with my profile pic of a non-hipster face, that might not be as good)_
-Maybe I can just [migrate to another starter](/alternate-universe/migrating-to-lumen-starter)?
+Maybe I can just [migrate to another starter](/alternate-reality/migrating-to-lumen-starter)?
 
 ## Other choices
 
