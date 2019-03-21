@@ -36,9 +36,16 @@ Combined with **[Twemoji](https://github.com/twitter/twemoji)**, I could parse a
 
 ### What is it?
 
-It is an open source library made by Twitter.
+It is [an open source library made by Twitter](https://twemoji.twitter.com/).
 It contains their whole collection of emojis!
 There is also a JavaScript API that can parse text or DOM nodes to replace emoji Unicode characters with <img> tags.
+
+Here is the attribution:
+> Copyright 2018 Twitter, Inc and other contributors
+> Code licensed under the MIT License: http://opensource.org/licenses/MIT
+> Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+Thank you Twitter 😘
 
 ### Installation
 
@@ -50,7 +57,7 @@ npm install --save twemoji
 
 ## Free the emojis!
 
-Now we can look at how we will combine Twemoji with a **reveal-md** preprocessor to make the emojis free from the OS and browsers!
+Now we can look at how we will combine **Twemoji** with a **reveal-md** preprocessor to make the emojis free from the OS and browsers!
 
 ### reveal-md Preprocessor using twemoji
 
