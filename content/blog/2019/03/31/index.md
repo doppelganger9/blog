@@ -1,12 +1,12 @@
 ---
 title: On being a dad
 date: "2019-03-31T10:04:00.000Z"
-published: false
+published: true
 description: "A post about reflecting on how being a dad can help you with soft skills 🤣!"
 tags: [ "parenting", "soft skills", "meta" ]
 lang: en
 ---
-*Today will be a non-tech post. I'm an advocate of developing soft skills for developers, and I will show you an unexpected way to do so. It requires some investment on your part. 🤣*
+*Today will be a non-tech post. I'm an advocate of developing soft skills for developers, and I will show you an unexpected way to do so. It requires some investment on your part. 🤣 Also no GIFs, but the kids' "art" instead, enjoy!*
 
 Since 2013, our family has grown and my wife and I became parents. It has been a revolution in our lives. Being responsible for the life of other human beings, based on your own mix of DNA, is not the same as having a cat or a dog! They made us change. In my case, the prospect of becoming a dad was an opportunity for change, and hopefully for the better: I wanted my kids to look at me as an awesome dad.
 
@@ -38,7 +38,7 @@ So during those 6 last years, they made me adopt these roles/postures:
 
 And they keep surprising us every day and forcing us to adopt new strategies.
 
-All in all, I have been and am still being transformed by all this.
+All in all, I have been and am still being transformed by all this.<br/>
 And I still hope, it is in a better version of myself -- even though with 3 kids I have lowered the bar that I set initially with the first kid in 2013. At least I have a palette of reactions, roles, and postures to choose from, which might indicate some kind of adaptation 🤔🤓.
 
 ## Transfer
@@ -54,7 +54,7 @@ There is a whole lot of [research on the subject](https://en.wikipedia.org/wiki/
 - in context A, learn to XXX
 - in context B, XXX improves the way you YYY or just enable you to XXX
 
-A = home and parenting
+A = home and parenting<br/>
 B = work and soft skills
 
 Or, A can be "practicing sports", then XXX can be "endurance" or "refereeing", and be applied in B.
@@ -78,7 +78,7 @@ And also, it alleviates the pain when talking to people whom I used to think the
 
 Their ages are 6, 4 and 3 this year. Interactions are starting to quiet down. More and more, they are able to play silently, almost share their toys between them without crying or shouting. The little 3-year old still has some issues when he can't have something he desperately wants, but still, I can leave them to find their own solutions to solve communication issues and keep an eye in the background instead of being actively separating and "managing" them.
 
-I know they are preparing something, and I'll need to react quickly to their evil plans! :-D
+I know they are preparing something, and I'll need to react quickly to their evil plans! 🤣
 
 Really, I don't think about all this when I'm with them, but I have become conscious of the side effects on my job.
 
@@ -88,8 +88,8 @@ As a gift to you, my dear reader, I will from now on, share their beautiful draw
 
 ![caca](caca.jpeg)
 
-Thank you, kids!
-With love, daddy.
+> Thank you, kids!<br/>
+> With love, daddy.
 
 ## Conclusion
 
