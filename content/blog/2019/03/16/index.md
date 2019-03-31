@@ -4,6 +4,7 @@ date: "2019-03-16T12:00:03.284Z"
 published: true
 description: "A post about how I mostly integrated Contentful in my publishing workflow, but failed, and did not do it."
 tags: [ "contentful", "fail" ]
+lang: en
 ---
 
 ## About this post

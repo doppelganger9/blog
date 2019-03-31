@@ -1,6 +1,6 @@
 ---
-title: The bias of using too much biases
-date: "2019-04-15T12:10:00.000Z"
+title: Publishing all the things
+date: "2019-04-19T12:10:00.000Z"
 description: "You shouldn't be looking at this. This is a post from the future"
 published: false
 lang: en

@@ -3,6 +3,7 @@ title: Migrating to Lumen starter
 date: "2019-03-18T09:00:00.000Z"
 description: "You shouldn't be looking at this. This is a post from a parallel universe"
 published: false
+lang: en
 ---
 
 You've accidentally stumbled upon a hidden post.

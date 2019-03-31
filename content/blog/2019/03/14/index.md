@@ -4,6 +4,7 @@ date: "2019-03-14T20:30:03.284Z"
 published: true
 description: "A post about how I made emojis available on all OSes and browsers for reveal-md."
 tags: [ "reveal-md", "technical presentations", "tools", "emoji", "pdf", "static website" ]
+lang: en
 ---
 
 

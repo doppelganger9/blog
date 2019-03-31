@@ -4,6 +4,7 @@ date: "2019-03-10T22:30:03.284Z"
 published: true
 description: "A post about how I added Twitter integration, based from a vague memory of an old tweet."
 tags: [ "Twitter", "Gatsby" ]
+lang: en
 ---
 
 ## Remembering things

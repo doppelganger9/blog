@@ -4,6 +4,7 @@ date: "2019-03-20T06:00:00.000Z"
 published: true
 description: "A post about why I chose GatsbyJS to build this blog. And some weird thoughts about writing."
 tags: [ "Gatsby", "meta" ]
+lang: en
 ---
 
 *NOTE: this should have been one of my first posts, so it's kind of a "pilot" post.*

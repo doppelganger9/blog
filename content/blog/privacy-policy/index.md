@@ -3,6 +3,7 @@ title: Privacy Policy
 date: "2019-03-06T22:16:37.121Z"
 description: "This blog's privacy policy"
 published: false
+lang: en
 ---
 
 ![Cookie Monster](./cookiemonster.gif)
