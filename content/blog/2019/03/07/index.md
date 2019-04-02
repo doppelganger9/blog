@@ -5,6 +5,7 @@ published: true
 description: "A post about how I used Gitpod.io to write this post."
 tags: [ "Gitpod", "editor" ]
 lang: en
+keywords: [ "gitpod", "git", "online editor", "github", "gitpodio", "gitpod.io", "best online ide", "awesome online ide", "editor", "visual studio code", "vscode", "vs code", "theia" ]
 ---
 
 <style>

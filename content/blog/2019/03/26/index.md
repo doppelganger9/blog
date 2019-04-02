@@ -5,6 +5,7 @@ published: true
 description: Here is my silly side-project as a geek dad with kids playing with their lights instead of sleeping.
 tags: [ "NodeJS", "PhilipsHUE", "Google Home", "Side-project" ]
 lang: en
+keywords: [ "node", "NodeJS","Phillips", "Philips", "HUE", "PhilipsHUE","PhillipsHUE", "Google Home","Google Assistant", "Dr Evil", "Side-project", "parenting", "raspberrypi", "raspberrypi Zero", "raspberrypi Zero W" ]
 ---
 
 ![Like this one from ThinkGeek](https://www.thinkgeek.com/images/products/zoom/ivlq_useless_light_switch.gif)

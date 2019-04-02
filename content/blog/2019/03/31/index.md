@@ -5,6 +5,7 @@ published: true
 description: "A post about reflecting on how being a dad can help you with soft skills 🤣!"
 tags: [ "parenting", "soft skills", "meta" ]
 lang: en
+keywords: [ "parenting", "soft skills", "management", "introvert", "roles", "postures", "geek dad" ]
 ---
 *Today will be a non-tech post. I'm an advocate of developing soft skills for developers, and I will show you an unexpected way to do so. It requires some investment on your part. 🤣 Also no GIFs, but the kids' "art" instead, enjoy!*
 

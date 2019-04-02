@@ -5,6 +5,7 @@ published: true
 description: "A post about how I added Twitter integration, based from a vague memory of an old tweet."
 tags: [ "Twitter", "Gatsby" ]
 lang: en
+keywords: [ "twitter", "gastby", "gatsbyjs", "integration", "gatsby-remark-twitter", "gatsby-source-twitter" ]
 ---
 
 ## Remembering things

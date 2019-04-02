@@ -5,6 +5,7 @@ published: true
 description: "A post about how I added build & deploy automation for this blog"
 tags: [ "CI/CD", "GitHub Actions", "Netlify", "git" ]
 lang: en
+keywords: [ "pipeline", "build", "automation", "continuous integration", "continuous deployment", "github actions", "github", "netlify", "git", "ci/cd", "github actions workflow", "git push", "git amend", "github pages" ]
 ---
 
 ## Automation

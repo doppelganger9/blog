@@ -5,6 +5,7 @@ published: true
 description: "A post about how I made emojis available on all OSes and browsers for reveal-md."
 tags: [ "reveal-md", "technical presentations", "tools", "emoji", "pdf", "static website" ]
 lang: en
+keywords: [ "reveal", "revealJS", "reveal-js", "reveal-md", "markdown", "technical presentations", "technical slides", "technical slideshow", "tools", "emojis", "twitter", "twitter emojis", "twemoji", "twimoji", "pdf" ]
 ---
 
 

@@ -4,6 +4,7 @@ date: "2019-03-18T09:00:00.000Z"
 description: "You shouldn't be looking at this. This is a post from a parallel universe"
 published: false
 lang: en
+keywords: ["not yet published", "not yet written", "404", "not found", "lumen starter"]
 ---
 
 You've accidentally stumbled upon a hidden post.

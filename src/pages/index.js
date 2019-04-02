@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ListOfPosts from "../components/posts-list"
+import commonSEOKeywords from "../data/commonSEOKeywords"
 
 class BlogIndex extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          keywords={commonSEOKeywords}
         />
         <Bio />
         <ListOfPosts posts={posts} />

@@ -4,6 +4,7 @@ date: "2019-03-24T09:00:00.000Z"
 description: "You shouldn't be looking at this. This is a post from the future"
 published: false
 lang: en
+keywords: [ "pwa", "progressive web apps", "not yet published", "not yet written", "404", "not found" ]
 ---
 
 You've accidentally stumbled upon a hidden post.

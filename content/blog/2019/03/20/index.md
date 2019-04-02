@@ -5,6 +5,7 @@ published: true
 description: "A post about why I chose GatsbyJS to build this blog. And some weird thoughts about writing."
 tags: [ "Gatsby", "meta" ]
 lang: en
+keywords: [ "gatsby", "gatsbyjs", "blog", "yet another blog", "writing", "reflections", "graphql", "markdown" ]
 ---
 
 *NOTE: this should have been one of my first posts, so it's kind of a "pilot" post.*

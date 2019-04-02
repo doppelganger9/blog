@@ -5,6 +5,7 @@ published: true
 description: "A post about how I discovered and now use reveal-md to create engaging technical presentations."
 tags: [ "reveal-md", "technical presentations", "tools", "pdf", "static website" ]
 lang: en
+keywords: [ "reveal", "revealJS", "reveal-js", "reveal-md", "markdown", "technical presentations", "technical slides", "technical slideshow", "tools", "pdf", "static website"]
 ---
 
 *This post is a departure from [the](/2019/03/06/) [previous](/2019/03/07/) [ones](/2019/03/10/) as it is describing a tool unrelated to the construction of this blog.*

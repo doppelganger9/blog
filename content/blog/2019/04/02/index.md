@@ -5,6 +5,7 @@ published: true
 description: "A post showing the Zeigarnik Effect applying to me playing, again and again, a game I did not finish when I was young."
 tags: [ "Cognitive Bias", "Retro-gaming", "meta", "nostalgia" ]
 lang: en
+keywords: [ "amberstar", "ambermoon", "thalion", "thalion Software", "AtariST", "Zeigarnik Effect", "memory bias" ]
 ---
 ![Amberstar Amiga game cover](https://upload.wikimedia.org/wikipedia/en/1/10/Amberstar_cover.jpg)
 
