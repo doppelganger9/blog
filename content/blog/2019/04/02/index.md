@@ -33,9 +33,9 @@ It was an *Atari ST (or Amiga)* Computer Role-Playing Game from a German studio 
 
 It had a mix of 2D and 2.5D which was real innovation at that time, at least for me. The [Thalion Web Shrine](http://thalion.exotica.org.uk/games/amberstar/amberstar.html) has some screenshots:
 
-![2D screenshot](http://thalion.exotica.org.uk/games/amberstar/sshots/graveyard.gif)
+![2D screenshot](graveyard.gif)
 
-![2.5D screenshot](http://thalion.exotica.org.uk/games/amberstar/sshots/3d.gif)
+![2.5D screenshot](3d.gif)
 
 There are a few YouTube videos showing the gameplay.
 
