@@ -14,6 +14,8 @@
 </script>
 
 <script>
+  import TitleBar from '../../components/TitleBar.svelte';
+  import Separator from '../../components/Separator.svelte';
   import ArticleFooter from '../../components/ArticleFooter.svelte';
 
   export let post;
@@ -29,8 +31,12 @@
     all elements inside .content
   */
   .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
+    font-size: 1.8em;
+    font-weight: 900;
+  }
+
+  .content :global(h3) {
+    font-size: 1.4rem;
   }
 
   .content :global(pre) {
@@ -49,10 +55,11 @@
   .content :global(ul) {
     line-height: 1.5;
     list-style-type: disc;
+    margin: 0 0 1.75rem 0;
   }
 
   .content :global(li) {
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.875rem 0;
   }
 
   p.reading-time {
@@ -70,15 +77,14 @@
       margin: 0 0 .5rem 0;
   }
 
-  .content :global(h2) {
-      margin-top: 4rem;
-  }
 
 </style>
 
 <svelte:head>
   <title>{post.metadata.title}</title>
 </svelte:head>
+
+<TitleBar level='h3' />
 
 <h1>{post.metadata.title}</h1>
 <p class='date'>{post.metadata.dateString}</p>
@@ -88,4 +94,5 @@
   {@html post.html}
 </div>
 
+<Separator />
 <ArticleFooter />

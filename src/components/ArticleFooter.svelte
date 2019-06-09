@@ -17,12 +17,7 @@ img {
   margin-bottom: 4.375rem;
 }
 
-hr {
-  margin: 8rem 0 4rem 0;
-}
-
 </style>
-<hr>
 
 <div class='article-footer'>
 
