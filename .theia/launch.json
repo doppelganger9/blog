@@ -10,12 +10,12 @@
       "processId": ""
     },
     {
-      "name": "Gatsby develop",
+      "name": "Run dev",
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
-      "args": ["develop"],
+      "program": "${workspaceRoot}/node_modules/sapper/dist/bin/sapper",
+      "args": ["dev"],
       "stopOnEntry": false,
       "runtimeArgs": ["--nolazy"],
       "sourceMaps": false

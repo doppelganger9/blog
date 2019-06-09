@@ -1,1 +1,0 @@
-export default [`blog`, `gatsby`, `gatsbyjs`, `javascript`, `react`, `doppelganger9`, `david lacourt`, `lacourt`, `lacourt david`];

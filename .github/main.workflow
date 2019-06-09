@@ -2,7 +2,7 @@ workflow "Build and deploy on push" {
   on = "push"
   resolves = [
     "Send Push Notification",
-    "Gatsby Build",
+    "Build Blog",
   ]
 }
 
@@ -11,22 +11,15 @@ action "Clean Install" {
   args = "ci"
 }
 
-action "Prettier Check" {
+action "Build Blog" {
   uses = "actions/npm@master"
-  args = "run format -- --check"
-  needs = ["Clean Install"]
-}
-
-action "Gatsby Build" {
-  uses = "actions/npm@master"
-  needs = ["Prettier Check"]
   args = "run build"
 }
 
 action "Send Push Notification" {
   uses = "techulus/push-github-action@master"
   secrets = ["API_KEY"]
-  needs = ["Gatsby Build"]
+  needs = ["Build Blog"]
   env = {
     MESSAGE = "https://blog.lacourt.dev/ updated by Github Actions pipeline!"
   }
