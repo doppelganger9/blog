@@ -1,5 +1,4 @@
 <script>
-  import Nav from '../components/Nav.svelte';
   import Footer from '../components/Footer.svelte';
 
   export let segment;
@@ -20,8 +19,6 @@
     max-width: 100%;
   }
 </style>
-
-<Nav {segment}/>
 
 <main>
   <slot></slot>

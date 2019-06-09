@@ -38,16 +38,116 @@ You might know that at the beginning [this blog was built using GatsbyJS](/2019/
 
 But I wanted to test my new Svelte powers to see where I could go. So I tried using Sapper to refactor this website.
 
+## migrated Features
+
+### TDD with Cypress
+
+First, for each of my previous blog features, I added a Cypress test!
+
+The cypress test would be green on the older blog, and red on the new one. This would allow me to TDD through the migration an ensure I would not forgot any of the expected features.
+
+### Have a list of blog posts
+
+### Show the date of publication for each blog post
+
+### Print estimated reading time for each blog post
+
+- reading time : gatsby-remark-reading-time --> simple code
+
+### Map routes URL structure to Sapper to keep SEO working.
+
+TODO: how to do this using Netlify mapping?
+
+### Write articles using Markdown
+
 ## What's next?
 
 I need to port those features from the previous blog:
 
-- Twitter buttons
-- SEO
-- Google Analytics
+- sitemap.xml for SEO (gatsby-plugin-sitemap
+- autolink headers in markdown (adding href anchors ids + some CSS to show a linkable header)
+- better code highlighting (gatsby-remark-prismjs) with PrismJS
+- Twitter buttons (@weknow/gatsby-remark-twitter) & links (also the Twitter script should load every time)
+- SEO (Gatsby had a plugin)
+- Google Analytics (gatsby-plugin-google-analytics), anonymized, respect DNT, UA-135533567-1
+- PWA manifest (Gatsby had a plugin to automatically generate this)
+- favicon (Gatsby had a plugin for that too)
+- gatsby-remark-a11y-emoji : add alt + aria labels for emojis in markdown content.
+- RSS feed with gatsby-plugin-feed
+- handling offline with gatsby-plugin-offline --> see service-worker.js
+
+### replacing gatsby-plugin-typography
+
+Use [Google fonts](https://fonts.google.com/?query=merriweathe&selection.family=Merriweather:400,400i,700,900|Montserrat:900) directly:
+
+```html
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,900|Montserrat:900&display=swap');
+  </style>
+```
+
+and then use:
+
+```css
+font-family: 'Merriweather', serif;
+font-family: 'Montserrat', sans-serif;
+```
 
 I had an issue with the metadata date, for which I needed to remove the double-quote aroud the string date.
 Also, marked extension seem to convert everything in text, even boolean values, so beware of that (published field).
+
+### Twitter Buttons
+
+Put this in the svelte:head part:
+
+```html
+  <script type="text/javascript">
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
+```
+
+Put this in the layout:
+
+```html
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large">Tweet</a>
+
+<a href="https://twitter.com/doppelganger9?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @doppelganger9</a>
+
+```
+
+At the moment, it breaks the back link with this error:
+
+```error
+Uncaught (in promise) TypeError: Cannot read property 'removeChild' of null
+    at detach (internal.mjs:122)
+    at Object.destroy [as d] ([day].svelte:118)
+    at destroy (internal.mjs:1132)
+    at Day.$destroy (internal.mjs:1236)
+    at Day.$destroy (internal.mjs:1260)
+    at App.svelte:22
+    at run (internal.mjs:17)
+    at Array.forEach (<anonymous>)
+    at run_all (internal.mjs:23)
+    at check_outros (internal.mjs:595)
+```
+
+So I'm not adding them for now, as I have to investigate further into this error.
 
 ## How to map URLs
 
@@ -73,22 +173,22 @@ In the svelte template, I changed the preload function into this:
 
 ```html
 <script context="module">
-	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// this file is called [day].html
-		const res = await this.fetch(`2019/${params.month}/${params.day}.json`);
-		const data = await res.json();
+  export async function preload({ params, query }) {
+    // the `slug` parameter is available because
+    // this file is called [day].html
+    const res = await this.fetch(`2019/${params.month}/${params.day}.json`);
+    const data = await res.json();
 
-		if (res.status === 200) {
-			return { 
+    if (res.status === 200) {
+      return {
         post: data,
         year: 2019,
         month: params.month,
         day: params.day,
       };
-		} else {
-			this.error(res.status, data.message);
-		}
-	}
+    } else {
+      this.error(res.status, data.message);
+    }
+  }
 </script>
 ```
