@@ -64,17 +64,38 @@ TODO: how to do this using Netlify mapping?
 
 I need to port those features from the previous blog:
 
-- sitemap.xml for SEO (gatsby-plugin-sitemap
 - autolink headers in markdown (adding href anchors ids + some CSS to show a linkable header)
 - better code highlighting (gatsby-remark-prismjs) with PrismJS
 - Twitter buttons (@weknow/gatsby-remark-twitter) & links (also the Twitter script should load every time)
-- SEO (Gatsby had a plugin)
+- SEO (Gatsby had a plugin): twitter card for articles
 - Google Analytics (gatsby-plugin-google-analytics), anonymized, respect DNT, UA-135533567-1
 - PWA manifest (Gatsby had a plugin to automatically generate this)
 - favicon (Gatsby had a plugin for that too)
 - gatsby-remark-a11y-emoji : add alt + aria labels for emojis in markdown content.
-- RSS feed with gatsby-plugin-feed
 - handling offline with gatsby-plugin-offline --> see service-worker.js
+
+### RSS Feed
+
+Look at `src/rss.js`, and the line in the `template.html` advertising the link for auto-discovery of the RSS feed:
+
+```html
+  <link rel='alternate' type='application/rss+xml' title="RSS Feed for David's Blog" href='/rss' />
+```
+
+It was adapted from Rich Harris' work for HN Svelte found here: [Sapper Issue 461: Add XML Generation/RSS XML feed](https://github.com/sveltejs/sapper/issues/461). Original source code is on GitHub:
+ [https://github.com/sveltejs/hn.svelte.technology/blob/master/src/routes/%5Blist%5D/rss.js](https://github.com/sveltejs/hn.svelte.technology/blob/master/src/routes/%5Blist%5D/rss.js).
+
+### Sitemap
+
+I applied the same idea from the RSS Feed, and added a `sitemap.xml` endpoint in 10 minutes.
+
+See `src/sitemap.xml.js`.
+
+It generates the sitemap from the published posts, and a few hard-coded URLs (root URL and privacy-policy).
+
+```html
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+```
 
 ### replacing gatsby-plugin-typography
 
