@@ -1,4 +1,6 @@
 <script>
+  import TitleBar from '../components/TitleBar.svelte';
+
   export let status;
   export let error;
 
@@ -31,9 +33,10 @@
   <title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<TitleBar level="h3" />
 
-<p>{error.message}</p>
+<h1>{error.message}</h1>
+<h2>{status}</h2>
 
 {#if status == 404}
 <img

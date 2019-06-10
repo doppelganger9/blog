@@ -30,3 +30,7 @@ export function builtByFooterShouldBeShown() {
 export function aBackLinkShouldBeShownTo(target = '/') {
   cy.get(`a[href='${target}']`).should('exist')
 }
+
+export function titleBarShouldBeShown(level = 'h1') {
+  cy.get(level).should('contain', `David's Blog`)
+}
