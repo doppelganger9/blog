@@ -3,8 +3,10 @@ import path from 'path';
 import marked from 'marked';
 import { computeMinutesToRead } from './_minutesToRead.js';
 
+const WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE = './src/posts';
+
 export function getPosts () {
-  const slugs = fs.readdirSync('posts')
+  const slugs = fs.readdirSync(WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE)
     .filter(file => path.extname(file) === '.md')
     .map(file => file.slice(0, -3));
 
@@ -15,7 +17,7 @@ export function getPosts () {
 
 export function getPost(slug) {
 
-  const file = `posts/${slug}.md`;
+  const file = `${WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE}/${slug}.md`;
   if (!fs.existsSync(file)) return null;
 
   const markdown = fs.readFileSync(file, 'utf-8');
