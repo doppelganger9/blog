@@ -1,9 +1,13 @@
 # David's Blog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72137791-898b-46be-ac68-9e1a5a37a29b/deploy-status)](https://app.netlify.com/sites/infallible-shannon-2d54c6/deploys) [![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/doppelganger9/blog)](https://github.com/doppelganger9/blog/actions)
+
+See it live here: https://lacourt.dev/
+
 This is a [Sapper](https://github.com/sveltejs/sapper) backed blog with webpack. To clone it and get started:
 
 ```bash
-git clone ??????
+git clone https://github.com/doppelganger9/blog.git
 cd david-blog
 npm install
 npm run dev
@@ -12,6 +16,12 @@ npm run dev
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
 Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
+
+## Open source
+
+You can follow in the commit history how I migrated from the [Gastby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/) to grow my own thing.
+
+I encourage your curiosity and will be delighted if you can fix my poor English grammar or whatever deeper in the content I will post.
 
 ## Structure
 
@@ -51,27 +61,12 @@ import { files } from '@sapper/service-worker';
 
 Sapper uses Rollup or webpack to provide code-splitting and dynamic imports, as well as compiling your Svelte components. With webpack, it also provides hot module reloading. As long as you don't do anything daft, you can edit the configuration files to add whatever plugins you'd like.
 
-## Production mode and deployment
+## CI/CD
 
-To start a production version of your app, run `npm run build && npm start`. This will disable live reloading, and activate the appropriate bundler plugins.
+I'm an automation advocate, I [wrote a post](https://lacourt.dev/2019/03/06/) about setting up the Github Actions Workflow for this blog.
 
-You can deploy your application to any environment that supports Node 8 or above. As an example, to deploy to [Now](https://zeit.co/now), run these commands:
+The website is deployed to [Netlify](https://www.netlify.com).
 
-```bash
-npm install -g now
-now
-```
+## License
 
-## Using external components with webpack
-
-When using Svelte components installed from npm, such as [@sveltejs/svelte-virtual-list](https://github.com/sveltejs/svelte-virtual-list), Svelte needs the original component source (rather than any precompiled JavaScript that ships with the component). This allows the component to be rendered server-side, and also keeps your client-side app smaller.
-
-Because of that, it's essential that webpack doesn't treat the package as an *external dependency*. You can either modify the `externals` option under `server` in [webpack.config.js](webpack.config.js), or simply install the package to `devDependencies` rather than `dependencies`, which will cause it to get bundled (and therefore compiled) with your app:
-
-```bash
-npm install -D @sveltejs/svelte-virtual-list
-```
-
-## Bugs and feedback
-
-Sapper is in early development, and may have the odd rough edge here and there. Please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
+MIT
