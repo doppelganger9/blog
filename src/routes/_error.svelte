@@ -8,7 +8,7 @@
 </script>
 
 <style>
-  h1, p {
+  h1 {
     margin: 0 auto;
   }
 
@@ -16,10 +16,6 @@
     font-size: 2.8em;
     font-weight: 700;
     margin: 0 0 0.5em 0;
-  }
-
-  p {
-    margin: 1em auto;
   }
 
   @media (min-width: 480px) {
