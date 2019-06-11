@@ -86,7 +86,7 @@ action "techulus/push-github-action@master" {
   needs = ["Deploy to Github Pages"]
   secrets = ["API_KEY"]
   env = {
-    MESSAGE = "https://blog.lacourt.dev/ updated by Github Actions pipeline!"
+    MESSAGE = "https://lacourt.dev/ updated by Github Actions pipeline!"
   }
 }
 ```
