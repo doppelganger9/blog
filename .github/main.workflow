@@ -22,6 +22,6 @@ action "Send Push Notification" {
   secrets = ["API_KEY"]
   needs = ["Build Blog"]
   env = {
-    MESSAGE = "https://blog.lacourt.dev/ updated by Github Actions pipeline!"
+    MESSAGE = "https://lacourt.dev/ updated by Github Actions pipeline!"
   }
 }
