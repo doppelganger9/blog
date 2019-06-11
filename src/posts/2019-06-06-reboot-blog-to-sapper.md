@@ -2,7 +2,7 @@
 title: Blog reboot
 date: 2019-06-06T09:00:00
 description: It has happened again, I switched the blog from Gatsby to Sapper...
-published: true
+published: false
 lang: en
 keywords: ["Sapper", "Svelte"]
 slug: 2019/06/06
@@ -53,10 +53,6 @@ The cypress test would be green on the older blog, and red on the new one. This 
 ### Print estimated reading time for each blog post
 
 - reading time : gatsby-remark-reading-time --> simple code
-
-### Map routes URL structure to Sapper to keep SEO working.
-
-TODO: how to do this using Netlify mapping?
 
 ### Write articles using Markdown
 
