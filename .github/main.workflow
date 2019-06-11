@@ -13,6 +13,7 @@ action "Clean Install" {
 
 action "Build Blog" {
   uses = "actions/npm@master"
+  needs = ["Clean Install"]
   args = "run build"
 }
 
