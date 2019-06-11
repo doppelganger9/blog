@@ -22,7 +22,7 @@ img {
 <div class='article-footer'>
 
 <div class='image-wrapper'>
-  <img src='profile-pic.png' alt='portrait'>
+  <img src='profile-pic-small.jpg' alt='portrait'>
 </div>
 
 <p>Written by <strong>David Lacourt</strong> who lives in 

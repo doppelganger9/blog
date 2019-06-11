@@ -10,7 +10,7 @@ const renderXmlRssFeed = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
   <description><![CDATA[A developer's blog. Might be useful. Maybe.]]></description>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 	<image>
-		<url>${siteUrl}/profile-pic.png</url>
+		<url>${siteUrl}/profile-pic-small.jpg</url>
 		<title><![CDATA[David's Blog]]></title>
 		<link>${siteUrl}</link>
 	</image>
