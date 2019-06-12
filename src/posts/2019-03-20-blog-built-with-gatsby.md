@@ -3,9 +3,9 @@ title: This blog is built with Gatsby.
 date: 2019-03-20T06:00:00
 published: true
 description: A post about why I chose GatsbyJS to build this blog. And some weird thoughts about writing.
-tags: [ "Gatsby", "meta" ]
+tags: Gatsby, meta
 lang: en
-keywords: [ "gatsby", "gatsbyjs", "blog", "yet another blog", "writing", "reflections", "graphql", "markdown" ]
+keywords: gatsby, gatsbyjs, blog, yet another blog, writing, reflections, graphql, markdown
 slug: 2019/03/20
 ---
 

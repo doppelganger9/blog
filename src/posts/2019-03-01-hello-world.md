@@ -4,7 +4,7 @@ date: 2019-03-01T22:12:03
 description: The first post on this blog! About my intent and this blog's purpose
 published: true
 lang: en
-keywords: [ "hello world", "first post", "starting new blog" ]
+keywords: hello world, first post, starting new blog
 slug: hello-world
 ---
 

@@ -3,10 +3,11 @@ title: The Zeigarnik effect
 date: 2019-04-02T11:00:00
 published: true
 description: A post showing the Zeigarnik Effect applying to me playing, again and again, a game I did not finish when I was young.
-tags: [ "Cognitive Bias", "Retro-gaming", "meta", "nostalgia" ]
+tags: Cognitive Bias, Retro-gaming, meta, nostalgia
 lang: en
-keywords: [ "amberstar", "ambermoon", "thalion", "thalion Software", "AtariST", "Zeigarnik Effect", "memory bias" ]
+keywords: amberstar, ambermoon, thalion, thalion Software, AtariST, Zeigarnik Effect, memory bias
 slug: 2019/04/02
+thumb: https://upload.wikimedia.org/wikipedia/en/1/10/Amberstar_cover.jpg
 ---
 ![Amberstar Amiga game cover](https://upload.wikimedia.org/wikipedia/en/1/10/Amberstar_cover.jpg)
 

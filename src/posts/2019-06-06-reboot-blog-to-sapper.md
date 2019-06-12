@@ -4,7 +4,7 @@ date: 2019-06-06T09:00:00
 description: It has happened again, I switched the blog from Gatsby to Sapper...
 published: false
 lang: en
-keywords: ["Sapper", "Svelte"]
+keywords: Sapper, Svelte
 slug: 2019/06/06
 ---
 

@@ -3,9 +3,9 @@ title: Setting up Twitter integration
 date: 2019-03-10T22:30:03
 published: true
 description: A post about how I added Twitter integration, based from a vague memory of an old tweet.
-tags: [ "Twitter", "Gatsby" ]
+tags: Twitter, Gatsby
 lang: en
-keywords: [ "twitter", "gastby", "gatsbyjs", "integration", "gatsby-remark-twitter", "gatsby-source-twitter" ]
+keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-source-twitter
 slug: 2019/03/10
 ---
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

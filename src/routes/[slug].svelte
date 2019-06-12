@@ -84,6 +84,26 @@
 
 <svelte:head>
   <title>{post.metadata.title}</title>
+  <meta name="description" content="{post.metadata.description}" />
+  <meta name="keywords" content="sapper,svelte,blog,david,lacourt,developpeur,developer,gatsbyjs,gatsby,{post.metadata.keywords}"/>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lacourt.dev/{post.slug}">
+  <meta property="og:title" content="{post.metadata.title}">
+  <meta property="og:description" content="{post.metadata.description}">
+  {#if post.metadata.thumb}
+  <meta property="og:image" content="{post.metadata.thumb}">
+  {/if}
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://lacourt.dev/{post.slug}">
+  <meta property="twitter:title" content="{post.metadata.title}">
+  <meta property="twitter:description" content="{post.metadata.description}">
+  {#if post.metadata.thumb}
+  <meta property="twitter:image" content="{post.metadata.thumb}">
+  {/if}
 </svelte:head>
 
 <TitleBar level='h3' />

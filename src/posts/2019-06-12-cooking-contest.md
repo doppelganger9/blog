@@ -4,8 +4,10 @@ date: 2019-06-12T09:00:00
 description: I tried and learned how to use Svelte by making a small side-project for a team event. Also, I like the Orange color.
 published: true
 lang: en
-keywords: ["Svelte", "cooking", "contest", "orange", "car", "failed", "Sapper"]
+tags: Svelte, cooking, contest, orange, car, fail, Sapper
+keywords: Svelte, cooking, contest, orange, car, fail, Sapper
 slug: 2019/05/20
+thumb: https://source.unsplash.com/TYlR9NGFrPs/600x400
 ---
 
 ![unsplash photo by @jibarofoto](https://source.unsplash.com/TYlR9NGFrPs/600x400)

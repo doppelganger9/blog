@@ -4,7 +4,7 @@ date: 2019-04-19T12:10:00
 description: You shouldn't be looking at this. This is a post from the future
 published: false
 lang: en
-keywords: ["not yet published", "not yet written", "404", "not found"]
+keywords: not yet published, not yet written, 404, not found
 slug: future/publishing-all-the-things
 ---
 
