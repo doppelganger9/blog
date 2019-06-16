@@ -20,7 +20,7 @@ Unearthing some old tweet to share with you today:
 
 [Check the introduction](https://observablehq.com/@observablehq/five-minute-introduction) for yourself: it is something that you need to manipulate to better understand (a.k.a. *Kinesthetic learning*).
 
-You may have noticed from [previous](/2019/03/14/) [posts](/2019/03/16/) that I'm really fond of the Fun Fun Function YouTube channel.
+You may have noticed from [previous](/2019/03/14) [posts](/2019/03/16) that I'm really fond of the Fun Fun Function YouTube channel.
 
 Inspired by [MPJ](https://twitter.com/mpjme), I tried to use the [ObservableHQ website](https://observablehq.com/) to do some kind of literate programming or expressive playground: combining code with text in a readable form.
 

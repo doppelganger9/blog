@@ -32,7 +32,7 @@ So during those 6 last years, they made me adopt these roles/postures:
 - A manager talking to people that don't understand anything, don't listen to anything and trying in return to understand them while they don't know yet how to speak.
 - A teacher that transmit knowledge, know how,
 - A dictator sometimes when using the imperative tone.
-- [A mad scientist that creates devil plans to trap them](/2019/03/26/)
+- [A mad scientist that creates devil plans to trap them](/2019/03/26)
 - A cooking chef
 - The laundryman
 - The repairman

@@ -63,7 +63,7 @@ Sapper uses Rollup or webpack to provide code-splitting and dynamic imports, as 
 
 ## CI/CD
 
-I'm an automation advocate, I [wrote a post](https://lacourt.dev/2019/03/06/) about setting up the Github Actions Workflow for this blog.
+I'm an automation advocate, I [wrote a post](https://lacourt.dev/2019/03/06) about setting up the Github Actions Workflow for this blog.
 
 The website is deployed to [Netlify](https://www.netlify.com).
 
