@@ -165,8 +165,8 @@ You can see it live at [https://lacourt.dev/sitemap.xml](/sitemap.xml).
 
 ## Conclusion
 
-In this post we looked at how to provide the expected tags for Google Search, Twitter Cards, Facebook URL previews (OpenGraph). This participate in "Search Engine Optimization" and helps make your content shine on the Internet!
-
-Again, it was quite easy to port this feature, and I learned a lot along the way, more than I did previously because everything was already set up!
+> In this post we looked at how to provide the expected tags for Google Search, Twitter Cards, Facebook URL previews (OpenGraph). This participate in "Search Engine Optimization" and helps make your content shine on the Internet!
+>
+> Again, it was quite easy to port this feature, and I learned a lot along the way, more than I did previously because everything was already set up!
 
 👋
