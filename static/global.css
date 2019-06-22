@@ -95,3 +95,15 @@ blockquote {
     font-size: 16px;
   }
 }
+
+
+.anchor .header-link::before {
+  content: "📎";
+  position: absolute;
+  left: 0;
+  opacity: .2;
+}
+
+h1:hover .anchor .header-link::before, h2:hover .anchor .header-link::before, h3:hover .anchor .header-link::before, h4:hover .anchor .header-link::before {
+  opacity: .7;
+}
