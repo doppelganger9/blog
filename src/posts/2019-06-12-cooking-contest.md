@@ -5,7 +5,7 @@ description: I tried and learned how to use Svelte by making a small side-projec
 published: true
 lang: en
 tags: Svelte, cooking, contest, orange, car, fail, Sapper
-keywords: Svelte, cooking, contest, orange, car, fail, Sapper
+keywords: Svelte, cooking, contest, orange, car, fail, Sapper, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, side project
 slug: 2019/05/20
 thumb: https://source.unsplash.com/TYlR9NGFrPs/600x400
 ---
@@ -148,7 +148,7 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 
 > Wow, in this post I showed you my new side-project [cooking-contest.web.app](https://cooking-contest.web.app) which is built with [Svelte](https://svelte.dev). You've seen pictures of failed cakes, my broken *Orange* car, a talk by *Rich Harris*, leaked API Keys, and spoilers about upcoming blog posts on using Sapper to rebuild this blog.
 >
-> I hope you liked it; if you have any questions, or just want to say hi or thanks you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by @jibarofoto, @brizmaker, @iantuck.

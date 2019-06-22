@@ -12,6 +12,8 @@ thumb: https://source.unsplash.com/T8nwEwiM90k/600x400
 Today, we will look into how I migrated from the previous GatsbyJS/React blog stack to the new Sapper/Svelte one.
 It will be the perfect time for me to talk about *Test Driven Development* (TDD).
 
+This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 3](/2019/06/24), [part 2 bis](/2019/06/27), and more to come!
+
 ![colorful trees at night by @winstonchen, unsplash](https://source.unsplash.com/l7y4Z8s1sNk/600x400)
 
 ## Test Driven Development
@@ -288,7 +290,7 @@ Using it to test CSS selectors for your `cy.get('...')` instructions:
 >
 > It was less funky than my previous post, lacking emojis, animated GIFs and pictures of 💩 from my kids, but I hope it was still enjoyable!
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thanks you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by @winstonchen, @cbarbalis, @randytarampi.
