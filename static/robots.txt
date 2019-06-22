@@ -1,3 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /playground/
+Disallow: /future/
+Disallow: /alternate-reality/
 Sitemap: https://lacourt.dev/sitemap.xml

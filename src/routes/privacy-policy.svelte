@@ -21,7 +21,7 @@
 
 <svelte:head>
   <title>Privacy Policy</title>
-  <meta name='description' content='Privacy policy for david blog.'>
+  <meta name='description' content="Privacy policy for David's Blog.">
 </svelte:head>
 
 <TitleBar level='h3' />
@@ -41,3 +41,5 @@
 
 <Separator />
 <ArticleFooter />
+
+<a href="hidden-links" style="visibility: hidden; position: absolute;">&nbsp;</a>
