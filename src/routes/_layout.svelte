@@ -1,7 +1,6 @@
 <script>
   import Footer from '../components/Footer.svelte';
-
-  export let segment;
+  import Favicons from '../components/Favicons.svelte';
 </script>
 
 <style>
@@ -19,6 +18,8 @@
     max-width: 100%;
   }
 </style>
+
+<Favicons/>
 
 <main>
   <slot></slot>

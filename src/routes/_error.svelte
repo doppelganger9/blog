@@ -1,5 +1,6 @@
 <script>
   import TitleBar from '../components/TitleBar.svelte';
+  import Favicons from '../components/Favicons.svelte';
 
   export let status;
   export let error;
@@ -28,7 +29,7 @@
 <svelte:head>
   <title>{status}</title>
 </svelte:head>
-
+<Favicons/>
 <TitleBar level="h3" />
 
 <h1>{error.message}</h1>
