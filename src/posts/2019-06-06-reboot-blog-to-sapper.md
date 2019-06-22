@@ -1,11 +1,11 @@
 ---
 title: Blog reboot
-date: 2019-06-06T09:00:00
+date: 2019-06-18T20:00:00
 description: It has happened again, I switched the blog from Gatsby to Sapper...
 published: false
 lang: en
 keywords: Sapper, Svelte
-slug: 2019/06/06
+slug: 2019/06/18
 ---
 
 Okay, It's been a long time since I haven't posted something here, so here is I go.
@@ -14,88 +14,85 @@ Lately I've been spending some time trying Svelte.
 
 ## What is Svelte?
 
+![svelte logo](https://svelte.dev/svelte-logo-horizontal.svg)
+
 > Svelte: "Cybernetically enhanced web apps"
 
 ## What do I like about it?
 
-It just is so *simple*.
-
-It do all its things at compiler time, so the runtime is really lightweight!
-
-I just 🧡 it!
-
-I've done this little <a href='https://github.com/doppelganger9/cooking-contest'>Cooking Contest</a> project to iterate on learning by creating something that might be useful.
-
-Animations are so easy!
-
-Stores are so simple to use!
-
-The learning curve is low, 3 days later I was really efficient at creating components, stores, etc.
+- It just is so *simple*.
+- The learning curve is low, 3 days later I was really efficient at creating components, stores, etc.
+- It does all its things at compiler time, so the runtime is really lightweight!
+- In a [previous post](/2019/06/12), I told you about this little <a href='https://github.com/doppelganger9/cooking-contest'>Cooking Contest</a> project to iterate on learning by creating something that might be useful.
+- Animations are so easy! There will be [a future post about this](/future/svelte-animations)
+- Stores are so simple to use! I will [dedicate a future post about this](/future/svelte-stores).
+- I just 🧡 it!
 
 ## This blog runs now on Sapper
 
-You might know that at the beginning [this blog was built using GatsbyJS](/2019/03/20/). It was a blast!
+You might know that at the beginning [this blog was built using GatsbyJS](/2019/03/20). It was a blast!
 
-But I wanted to test my new Svelte powers to see where I could go. So I tried using Sapper to refactor this website.
+But I wanted to test my *new Svelte powers* to see where I could go.
+
+So I tried using Sapper to refactor this website.
+
+You are currently looking at it. I will explain how I did it below.
 
 ## migrated Features
 
 ### TDD with Cypress
 
-First, for each of my previous blog features, I added a Cypress test!
+See [previous article about that](/2019/06/21).
 
-The cypress test would be green on the older blog, and red on the new one. This would allow me to TDD through the migration an ensure I would not forgot any of the expected features.
-
-### Have a list of blog posts
-
-### Show the date of publication for each blog post
-
-### Print estimated reading time for each blog post
+#### Print estimated reading time for each blog post
 
 - reading time : gatsby-remark-reading-time --> simple code
 
-### Write articles using Markdown
+except for code blocks...
 
-## What's next?
+#### Write articles using Markdown
+
+used a branch and adapted from there.
+
+#### What next
 
 I need to port those features from the previous blog:
 
-- autolink headers in markdown (adding href anchors ids + some CSS to show a linkable header)
 - better code highlighting (gatsby-remark-prismjs) with PrismJS
 - Twitter buttons (@weknow/gatsby-remark-twitter) & links (also the Twitter script should load every time)
-- SEO (Gatsby had a plugin): twitter card for articles
-- Google Analytics (gatsby-plugin-google-analytics), anonymized, respect DNT, UA-135533567-1
-- PWA manifest (Gatsby had a plugin to automatically generate this)
-- favicon (Gatsby had a plugin for that too)
+
 - gatsby-remark-a11y-emoji : add alt + aria labels for emojis in markdown content.
 - handling offline with gatsby-plugin-offline --> see service-worker.js
 
+### Favicons
+
+Gatsby has a plugin for that too.
+
+I resorted to generate all favicons beforehand.
+I created a `Favicons.svelte` component to include all those links in the`<head>` part using `<svelte:head>`.
+
+Look at commit 952b83a6cf2022c34846b5685538c510e0a1e14f.
+
+
+### PWA Manifest
+
+Gatsby has a plugin to automatically generate this.
+
+Here, again, it is made beforehand.
+It uses the Favicons.
+
+### SEO, analytics
+
+I already [wrote an article about that](/2019/06/16).
+
 ### RSS Feed
 
-Look at `src/rss.js`, and the line in the `template.html` advertising the link for auto-discovery of the RSS feed:
+Also [wrote an article about that](/2019/06/24).
 
-```html
-  <link rel='alternate' type='application/rss+xml' title="RSS Feed for David's Blog" href='/rss' />
-```
-
-It was adapted from Rich Harris' work for HN Svelte found here: [Sapper Issue 461: Add XML Generation/RSS XML feed](https://github.com/sveltejs/sapper/issues/461). Original source code is on GitHub:
- [https://github.com/sveltejs/hn.svelte.technology/blob/master/src/routes/%5Blist%5D/rss.js](https://github.com/sveltejs/hn.svelte.technology/blob/master/src/routes/%5Blist%5D/rss.js).
-
-### Sitemap
-
-I applied the same idea from the RSS Feed, and added a `sitemap.xml` endpoint in 10 minutes.
-
-See `src/sitemap.xml.js`.
-
-It generates the sitemap from the published posts, and a few hard-coded URLs (root URL and privacy-policy).
-
-```html
-<link rel="sitemap" type="application/xml" href="/sitemap.xml">
-```
 
 ### replacing gatsby-plugin-typography
 
-Use [Google fonts](https://fonts.google.com/?query=merriweathe&selection.family=Merriweather:400,400i,700,900|Montserrat:900) directly:
+I used [Google fonts](https://fonts.google.com/?query=merriweathe&selection.family=Merriweather:400,400i,700,900|Montserrat:900) directly:
 
 ```html
   <style>
@@ -103,15 +100,31 @@ Use [Google fonts](https://fonts.google.com/?query=merriweathe&selection.family=
   </style>
 ```
 
-and then use:
+and then changed the fonts in the [`global.css`](https://github.com/doppelganger9/blog/blob/master/static/global.css#L2), like so:
 
 ```css
 font-family: 'Merriweather', serif;
 font-family: 'Montserrat', sans-serif;
 ```
 
+### migrating markdown content
+
+This Sapper markdown blog template used [`marked`]() library
+
 I had an issue with the metadata date, for which I needed to remove the double-quote aroud the string date.
 Also, marked extension seem to convert everything in text, even boolean values, so beware of that (published field).
+
+####  autolink headers in markdown
+
+adding href anchors ids + some CSS to show a linkable header.
+
+I have written Cypress Tests for that, but you will see that they are tests showing how to configure the `marked` library.
+They have a playground/exploratory feel to them.
+They do not test directly the blog site, and thus, are even quicker because there is no need to run a browser to run them.
+
+I followed the `marked` documentation to add a special `renderer` based on their sample which I adapted and provided CSS for.
+
+Look at commit d756b50db77e7484b9213ee75bd3dc5ee797e5a0 in the commit log.
 
 ### Twitter Buttons
 
@@ -209,3 +222,31 @@ In the svelte template, I changed the preload function into this:
   }
 </script>
 ```
+
+## What seems to be missing from Sapper
+
+### Sapper Export crawling
+
+in order to export your pages, you have to link to them from the App, because of the way the export feature works by crawling your content.
+
+So, it explains why in this meta-post I linked to `rss` and `sitemap.xml` endpoints.
+
+In the Sapper GitHub Issues, I found a tips that revolves around providing an invisible link and then having more links inside.
+
+See https://github.com/sveltejs/sapper/issues/749
+
+Look commit f108e3184b5760a394d22ea254170e3034c3eb62.
+
+### Service Worker and JSON data
+
+Also, the service-worker is currently not indexing all the exported `.json` files.
+
+### Sapper routing
+
+Another useful stuff would be to include another page without duplicating, for example a markdown post in another directory. Currently, I have opted for duplication, but it is not fully satisfying (see `routes/future`, `routes/[slug]`, `routes/2019`, `routes/alternate-reality`: they all have the same template except of course for imports with relative paths).
+
+I resolved this by extracting the duplicated part in a shared `Post.svelte` component. This has reduced the duplication.
+
+### npm run dev watch
+
+The watch part in `npm run dev` does not detect changes to Markdown files.
