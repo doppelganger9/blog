@@ -41,6 +41,7 @@
     "sirv": "^0.4.0"
   },
   "devDependencies": {
+    "cross-fetch": "3.0.4",
     "cypress": "^3.5.0",
     "elizabot": "0.0.2",
     "marked": "^0.7.0",
