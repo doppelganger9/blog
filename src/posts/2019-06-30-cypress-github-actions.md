@@ -129,6 +129,38 @@ Of course, my `package.json` has an npm script named `test`, that runs in parall
 
 By the way, this script is provided by the **Sapper template**, I just reused it!
 
+## Fast?
+
+In my original tweet, I said the E2E step was fast, 1:31 for 36 tests.
+
+I think you deserve an explanation because I might have said it too quickly.
+
+The real gist of the tests as reported in the cypress logs took 42 seconds in this latest sample:
+
+![Did Cypress run in 3 minutes or 42 seconds?](cypress-run-3min-or-42seconds.png)
+
+And we also see that the step took all in all 3 minutes and 13 seconds to complete.
+
+This is confirmed in the GitHub Action UI:
+
+![Cypress E2E Test step took 3 minutes](cypress-github-action-3min.png)
+
+Here is some details on the time spent:
+
+- 19:40:14Z: action starts
+- pulling docker image, building it, gcr.io/github-actions-images/action-runner:latest
+- then it runs `npm run test` inside the docker image
+- it is the first time Cypress runs, so it verifies it can run
+- 19:41:33: verifying cypress can run
+- then it starts cypress client, server, service worker: it takes ~ 16 seconds
+- then it starts the test runner
+- it ends 46 seconds laters
+- 19:43:18Z : the action stops with success.
+
+Now you know what happened between the 42 seconds and 3 minutes: Docker image pulling by GitHub actions, verifying and launching Cypress.
+
+Still 3 minutes feels pretty fast to me.
+
 ## Conclusion
 
 > Today we saw just one little step to make Cypress.io run on a GitHub Actions Workflow. It just works out of the box.
