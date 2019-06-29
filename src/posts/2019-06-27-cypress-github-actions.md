@@ -9,7 +9,7 @@ slug: 2019/06/27
 thumb: https://lacourt.dev/WorkflowVisualOverviewWithCypressE2E.png
 ---
 
-This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 3](/2019/06/24), and more to come!
+This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 3](/2019/06/29), and more to come!
 
 > Hey there! This is a little interlude. I totally forgot in **part 2** to tell you about how I automated **Cypress.io** End-to-End tests within my Github Actions worflow, as part of my blog's *Continuous Integration* pipeline!
 
