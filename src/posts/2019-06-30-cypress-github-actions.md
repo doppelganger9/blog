@@ -1,17 +1,17 @@
 ---
 title: migrating to Sapper part 2 bis - Netlify, GitHub Actions with Cypress.io
-date: 2019-06-27T19:00:00
+date: 2019-06-30T09:30:00
 description: Going back to part 2 to add more depth to a tweet I made about using a GitHub Action to automate Cypress.io tests. And Netlify.
-published: false
+published: true
 lang: en
-keywords: Sapper, Svelte, Cypress.io, Cypress, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, Github, actions, workflow, pipeline, ci, cd, ci/cd, continuous testing,
-slug: 2019/06/27
+keywords: Sapper, Svelte, Cypress.io, Cypress, Cyrpress,Cyrpess, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, Github, actions, workflow, pipeline, ci, cd, ci/cd, continuous testing, worflow, wokflow, worklflow, wokrflow
+slug: 2019/06/30
 thumb: https://lacourt.dev/WorkflowVisualOverviewWithCypressE2E.png
 ---
 
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 3](/2019/06/29), and more to come!
 
-> Hey there! This is a little interlude. I totally forgot in **part 2** to tell you about how I automated **Cypress.io** End-to-End tests within my Github Actions worflow, as part of my blog's *Continuous Integration* pipeline!
+> Hey there! This is a little interlude. I totally forgot in **part 2** to tell you about how I automated **Cypress.io** End-to-End tests within my Github Actions workflow, as part of my blog's *Continuous Integration* pipeline!
 
 ## I Promised
 
@@ -28,13 +28,13 @@ I already in the past tried to do this kind of automation with Selenium, Appium,
 
 So we abandoned it.
 
-Yeah, writing E2E test were not only complicated and time costly, but also the Continuous Integration did not work.
+Yeah, writing E2E tests were not only complicated and time costly, but also the Continuous Integration did not work.
 
-Now of course, Cypress.io fixed all of this.
+Now, of course, Cypress.io fixed all of this.
 
 They're the best -- Except they don't pay me to say this 🤪 ... well, they totally sent me swag since then, so they are **the bestest**!
 
-## GitHub Actions Worklflow
+## GitHub Actions Workflow
 
 If you want more basic details about the GitHub Actions Workflow, take a look at [this previous post](/2019/03/06) explaining the core workflow when I first created this blog.
 
@@ -103,7 +103,7 @@ So I merely added this action:
 
 ![Cypress GitHub Action Configuration](CypressGitHubActionConfig.png)
 
-Franckly, I'm a command line guy, this time I just edited the `main.workflow` file to add text to it. Okay, it did not work out so well, as I had to `git commit --amend` and `push --force` to make it work because I had forgotten to had the step name in the `resolves` array.
+Frankly, I'm a command line guy, this time I just edited the `main.workflow` file to add text to it. Okay, it did not work out so well, as I had to `git commit --amend` and `push --force` to make it work because I had forgotten to had the step name in the `resolves` array.
 
 ```text
 action "Cypress E2E Tests" {
@@ -135,5 +135,5 @@ By the way, this script is provided by the **Sapper template**, I just reused it
 >
 > I also explained why I chose Netlify over GitHub Pages to deploy this blog.
 >
-> I hope it will help you setup this in your own Workflow!
+> I hope it will help you set up this in your own Workflow!
 > If I can be of any help, or If you have any questions about Cypress, Svelte, Sapper, GitHub Actions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
