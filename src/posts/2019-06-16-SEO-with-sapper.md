@@ -14,7 +14,7 @@ thumb: https://lacourt.dev/thumb-seo-svelte.png
 Today, we will look into how I migrated the SEO features of my previous GatsbyJS/React blog stack to Sapper/Svelte.
 As you'll see, like a lot of feature, it was really easy and straightforward to do, and made me better understand what was the purpose of this feature, and how to make it work; better than just using a plugin.
 
-This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 2](/2019/06/21), [part 3](/2019/06/24), [part 2 bis](/2019/06/27), and more to come!
+This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 2](/2019/06/21), [part 3](/2019/06/29), [part 2 bis](/2019/06/27), and more to come!
 
 ## Why SEO?
 

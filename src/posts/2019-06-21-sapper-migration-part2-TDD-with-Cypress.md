@@ -12,7 +12,7 @@ thumb: https://source.unsplash.com/T8nwEwiM90k/600x400
 Today, we will look into how I migrated from the previous GatsbyJS/React blog stack to the new Sapper/Svelte one.
 It will be the perfect time for me to talk about *Test Driven Development* (TDD).
 
-This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 3](/2019/06/24), [part 2 bis](/2019/06/27), and more to come!
+This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 3](/2019/06/29), [part 2 bis](/2019/06/27), and more to come!
 
 ![colorful trees at night by @winstonchen, unsplash](https://source.unsplash.com/l7y4Z8s1sNk/600x400)
 
