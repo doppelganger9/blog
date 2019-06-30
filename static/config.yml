@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: doppelganger9/blog
+  branch: master # Branch to update (optional; defaults to master)
+# This line should *not* be indented
+publish_mode: editorial_workflow
+# This line should *not* be indented
+media_folder: "static/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/uploads"
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {name: "layout", label: "Layout", widget: "hidden", default: "blog"}
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "date", label: "Publish Date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss"}
+      - {name: "description", label: "Description", widget: "text"}
+      - {name: "published", label: "Published?", widget: "boolean", default: false}
+      - {name: "lang", label: "Language", widget: "string"}
+      - {name: "keywords", label: "SEO Keywords", widget: "string"}
+      - {name: "slug", label: "Slug path", widget: "string"}
+      - {name: "thumb", label: "Featured Image", widget: "image"}
+      - {name: "body", label: "Body", widget: "markdown"}

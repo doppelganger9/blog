@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
+import parser from 'js-yaml';
+
 import { computeMinutesToRead } from './_minutesToRead.js';
 
 const WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE = './src/posts';
@@ -59,7 +61,11 @@ export function getPost(slug) {
   };
 }
 
+const removeStartingQuote = t => t.indexOf('"') === 0 ? t.slice(1) : t;
+const removeEndingQuote = t => t.lastIndexOf('"') === t.length ? t.slice(0, t.length-1) : t;
+
 function processMarkdown(markdown) {
+  console.log('processing markdown...');
   const match = /---\n([\s\S]+?)\n---/.exec(markdown);
   const frontMatter = match[1];
   const content = markdown.slice(match[0].length);
@@ -67,9 +73,12 @@ function processMarkdown(markdown) {
   const metadata = {};
   frontMatter.split('\n').forEach(pair => {
     const colonIndex = pair.indexOf(':');
-    metadata[pair.slice(0, colonIndex).trim()] = pair
+    const key = pair.slice(0, colonIndex).trim();
+    let value = pair
       .slice(colonIndex + 1)
       .trim();
+    console.log(parser.load(pair));
+    metadata[key] = value;
   });
 
   return { metadata, content };
