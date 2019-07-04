@@ -9,7 +9,7 @@ slug: 2019/06/29
 thumb: https://source.unsplash.com/o4-YyGi5JBc/600x400
 ---
 
-This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 2 bis](/2019/06/27), and more to come!
+This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 2 bis](/2019/06/30), and more to come!
 
 ![Alley of books by @glennoble](https://source.unsplash.com/o4-YyGi5JBc/600x400)
 

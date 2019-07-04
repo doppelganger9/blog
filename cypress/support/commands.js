@@ -23,3 +23,20 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("visitWithLang", (target, lang, options = {}) => {
+  cy.visit(target, {
+    ...options,
+    onBeforeLoad(win) {
+      Object.defineProperty(win.navigator, 'language',
+        {
+          get: cy
+            .stub()
+            .returns(lang)
+            .as('language')
+        }
+      );
+    },
+  },
+  );
+})

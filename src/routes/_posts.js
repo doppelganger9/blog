@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
 import { computeMinutesToRead } from './_minutesToRead.js';
+import { siteUrl } from '../stores/_config.js';
 
 const WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE = './src/posts';
 
@@ -36,11 +37,14 @@ export function getPost(slug) {
   const { content, metadata } = processMarkdown(markdown);
 
   const date = new Date(metadata.date);
-  const lang = 'en';
+  const lang = metadata.lang || 'en';
   metadata.dateString = date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
   const renderer = new marked.Renderer();
   renderer.heading = renderHeadingWithAnchor(metadata.slug);
+
+  const thumb = metadata.thumb;
+  metadata.thumb = (thumb && thumb.indexOf(siteUrl) < 0) ? (siteUrl + '/' + thumb) : thumb;
 
   const html = marked(content, {
     headerIds: true,

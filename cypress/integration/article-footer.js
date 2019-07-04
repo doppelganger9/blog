@@ -4,7 +4,7 @@ describe(`The "Article Footer"`, () => {
   const articleFooterSelector = 'p';
   //const articleFooterSelector = '.article-footer';
   beforeEach(() => {
-    cy.visit('/')
+    cy.visitWithLang('/', 'en-US')
   });
 
   // it(`has David's profile picture`, () => {

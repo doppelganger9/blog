@@ -3,7 +3,7 @@ import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeS
 describe(`The 404 page`, () => {
 
   beforeEach(() => {
-    cy.visit('/404', { failOnStatusCode: false })
+    cy.visitWithLang('/404', 'en-US', { failOnStatusCode: false });
   });
 
   it(`should show up for unknown URLs`, () => {

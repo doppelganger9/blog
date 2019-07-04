@@ -2,7 +2,7 @@ import { titleBarShouldBeShown, builtByFooterShouldBeShown, articleFooterShouldB
 
 describe(`a blog post`, () => {
   beforeEach(() => {
-    cy.visit('/').get(`h3:contains('Hello')`).find('a').click()
+    cy.visitWithLang('/', 'en-US').get(`h3:contains('Hello')`).find('a').click()
   });
 
   it(`should show the title bar in h3`, () => {
