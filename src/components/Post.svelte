@@ -3,6 +3,8 @@
   import Separator from './Separator.svelte';
   import ArticleFooter from './ArticleFooter.svelte';
 
+  import { siteUrl } from '../stores/_config.js';
+
   export let post;
 </script>
 
@@ -72,7 +74,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lacourt.dev/{post.slug}">
+  <meta property="og:url" content="{siteUrl}/{post.slug}">
   <meta property="og:title" content="{post.metadata.title}">
   <meta property="og:description" content="{post.metadata.description}">
   {#if post.metadata.thumb}
@@ -81,7 +83,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://lacourt.dev/{post.slug}">
+  <meta property="twitter:url" content="{siteUrl}/{post.slug}">
   <meta property="twitter:title" content="{post.metadata.title}">
   <meta property="twitter:description" content="{post.metadata.description}">
   {#if post.metadata.thumb}

@@ -2,7 +2,7 @@ import { articleFooterShouldBeShown, builtByFooterShouldBeShown } from '../commo
 
 describe(`David's Blog app`, () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visitWithLang('/', 'en-US')
   });
 
   it('has the correct <h1>', () => {

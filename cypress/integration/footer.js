@@ -2,7 +2,7 @@ import { jamStackFrameworkName, mainFrameworkName, mainFrameworkURL, jamStackFra
 
 describe('has a footer', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visitWithLang('/', 'en-US')
   });
 
   it('shows a copyright year', () => {

@@ -2,7 +2,7 @@ import { articleFooterShouldBeShown, builtByFooterShouldBeShown } from '../commo
 
 describe(`Privacy Policy page`, () => {
   beforeEach(() => {
-    cy.visit('/privacy-policy')
+    cy.visitWithLang('/privacy-policy', 'en-US')
   })
 
   it(`should have the proper title`, () => {

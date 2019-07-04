@@ -1,4 +1,6 @@
 <script>
+  import { i18n } from '../stores/_i18n.js';
+
   export let level = 'h1';
 </script>
 <style>
@@ -23,10 +25,10 @@
   color: inherit;
 }
 </style>
-<div class='title-bar'>
+<div class='title-bar' data-cy='title-bar'>
 {#if level == 'h1'}
-  <h1><a href='/'>David's Blog</a></h1>
+  <h1><a href='/'>{$i18n`title`}</a></h1>
 {:else}
-  <h3><a href='/'>David's Blog</a></h3>
+  <h3><a href='/'>{$i18n`title`}</a></h3>
 {/if}
 </div>
