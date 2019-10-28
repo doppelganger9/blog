@@ -9,6 +9,8 @@ keywords: pipeline, build, automation, continuous integration, continuous deploy
 slug: 2019/03/06
 ---
 
+*NOTE: the HCL format for Github Actions is deprecated, please read the [update to this post](/2019/10/28)!*
+
 ## Automation
 
 I'm a big fan of automation. So it's natural that one of the first steps of setting up this blog for me was to make it automatically build & deploy.
