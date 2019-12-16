@@ -49,6 +49,6 @@
     "sapper": "0.27.9",
     "svelte": "3.16.4",
     "svelte-loader": "2.13.6",
-    "webpack": "4.41.2"
+    "webpack": "4.41.3"
   }
 }
