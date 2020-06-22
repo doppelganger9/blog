@@ -237,6 +237,16 @@ See https://github.com/sveltejs/sapper/issues/749
 
 Look commit f108e3184b5760a394d22ea254170e3034c3eb62.
 
+#### Fall 2019 update as [the PR n°825](https://github.com/sveltejs/sapper/pull/825) has been merged
+
+You can use the `sapper export --entry` CLI option to specify multiple roots to crawl when exporting.
+
+For example, you can have a `src/routes/surprise/index.svelte` that contains links to files that
+are not linked from the main content. You just run `sapper export --entry '/ /surprise'` and the
+surprise directory contents linked in the index.html file will be crawled and thus exported.
+
+I found it not really practical as I did not want to have an index for my hidden content so I'm keeping a hidden link to the hidden-links file and it will generate everything.
+
 ### Service Worker and JSON data
 
 Also, the service-worker is currently not indexing all the exported `.json` files.

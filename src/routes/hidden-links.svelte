@@ -7,6 +7,7 @@
 <a href="/playground/bigeditabletext">Big Editable Text</a><br/>
 <a href="/playground/falling-money">falling money</a><br/>
 <a href="/playground/time-boxing">time boxing</a><br/>
+<a href="/playground/typing-train">typing train</a><br/>
 
 <a href="/rss">RSS Feed</a><br/>
 <a href="/sitemap.xml">XML Sitemap</a><br/>

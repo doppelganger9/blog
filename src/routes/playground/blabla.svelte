@@ -54,7 +54,7 @@
 <p>The current <code>navigator.lang</code> is <code>{lang}</code></p>
 {#if langs}
   <p><label>You can select the lang (it defaults to {lang}) from <code>global.speechSynthesis.getVoices()</code>:</label>
-  <select bind:value={selectedLang} on:change={populateVoiceList}>
+  <select bind:value={selectedLang} on:blur={populateVoiceList}>
     {#each langs as lang}
     <option label="{lang}" value="{lang}"/>
     {/each}
