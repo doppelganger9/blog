@@ -40,3 +40,7 @@ Cypress.Commands.add("visitWithLang", (target, lang, options = {}) => {
   },
   );
 })
+
+Cypress.Commands.add("getByDataCy", (selector) => {
+  return cy.get(`[data-cy='${selector}']`)
+})

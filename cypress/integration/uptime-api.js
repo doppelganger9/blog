@@ -1,3 +1,7 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 describe(`The Uptime Robot API`, () => {
 
   it(`should conform to our understanding of getMonitors`, () => {

@@ -37,6 +37,7 @@
   li a {
     box-shadow: none;
     text-decoration: none;
+    color: inherit;
   }
 </style>
 
@@ -65,16 +66,18 @@
 
 <ArticleFooter />
 
-<ul>
+<ul data-cy="blog-posts-list">
   {#each posts as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
         tell Sapper to load the data for the page as soon as
         the user hovers over the link or taps it, instead of
         waiting for the 'click' event -->
-    <li>
-      <h3><a rel='prefetch' href='{post.slug}'>{post.title}</a></h3>
-      <div class='subtitle'><date>{post.date}</date> &dash; {post.minutesToRead}<br/></div>
-      <p>{post.description}</p>
+    <li data-cy="blog-posts-item">
+      <a rel='prefetch' href='{post.slug}'>
+        <h3>{post.title}</h3>
+        <div class='subtitle'><date>{post.date}</date> &dash; {post.minutesToRead}<br/></div>
+        <p>{post.description}</p>
+      </a>
     </li>
   {/each}
 </ul>

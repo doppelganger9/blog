@@ -1,6 +1,11 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 describe(`RSS feed endpoint`, () => {
 
   beforeEach(() => {
+    cy.server({force404: true}); // for the status indicator
     cy.request('/rss').as('rss');
   });
 
