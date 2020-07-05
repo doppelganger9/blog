@@ -1,8 +1,13 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown } from '../common';
 
 describe(`The 404 page`, () => {
 
   beforeEach(() => {
+    cy.server({force404: true}); // for the status indicator
     cy.visitWithLang('/404', 'en-US', { failOnStatusCode: false });
   });
 

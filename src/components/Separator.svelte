@@ -3,4 +3,4 @@ hr {
   margin: 8rem 0 4rem 0;
 }
 </style>
-<hr/>
+<hr data-cy='separator' />

@@ -93,11 +93,11 @@
 
 <TitleBar level='h3' />
 
-<h1>{post.metadata.title}</h1>
-<p class='date'>{post.metadata.dateString}</p>
-<p class='reading-time'>{post.minutesToRead}</p>
+<h1 data-cy='blog-post-heading'>{post.metadata.title}</h1>
+<p data-cy='blog-post-date' class='date'>{post.metadata.dateString}</p>
+<p data-cy='blog-post-readtime' class='reading-time'>{post.minutesToRead}</p>
 
-<div class='content'>
+<div data-cy='blog-post-content' class='content'>
   {@html post.html}
 </div>
 

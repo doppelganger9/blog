@@ -1,7 +1,12 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 import { jamStackFrameworkName, mainFrameworkName, mainFrameworkURL, jamStackFrameworkURL } from '../common';
 
 describe('has a footer', () => {
   beforeEach(() => {
+    cy.server({force404: true}); // for the status indicator
     cy.visitWithLang('/', 'en-US')
   });
 

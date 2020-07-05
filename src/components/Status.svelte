@@ -10,6 +10,8 @@
     '2': { text:'up', class:'up'},
     '8': { text:'seems down', class:'seems_down'},
     '9': { text:'down', class:'down'},
+    '404': { text:'api-404', class:'api-404'},
+    '500': { text:'api-500', class:'api-500'},
   };
 
   const API_KEY = 'm782954097-5449c0939742ace6ade5d999';
@@ -26,11 +28,13 @@
       mode: 'cors',
       body: `{"api_key":"${API_KEY}","monitors":["782954097"],"format":"json"}`,
     }).then((response) => {
-      console.debug(response);
-      response.json().then(json => {
-        console.debug(json);
-        $status = ''+json.monitors[0].status;
-      });
+      if (response.ok) {
+        response.json().then(json => {
+          $status = ''+json.monitors[0].status;
+        });
+      } else {
+        $status = ''+response.status;
+      }
     }).catch(console.error);
   });
 </script>
@@ -58,4 +62,13 @@ a.status.seems_down::after {
 a.status.down::after {
   content:': 🆘'
 }
+
+a.status.api-404::after {
+  content:': 🕵️‍♂️'
+}
+
+a.status.api-500::after {
+  content:': 💥'
+}
+
 </style>

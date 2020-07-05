@@ -32,9 +32,11 @@
     "export:serve": "npx http-server __sapper__/export/",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
+    "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
-    "cy:open-legacy": "cypress open --config baseUrl=http://localhost:8000 --env BLOG_JAMSTACK=gatsby",
-    "test": "run-p --race dev cy:run"
+    "test": "start-server-and-test dev 3000 cy:run",
+    "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage",
+    "coverage:report": "nyc report --reporter=lcov"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -42,15 +44,38 @@
     "sirv": "0.4.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@cypress/code-coverage": "^1.10.2",
+    "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
     "cross-fetch": "3.0.5",
-    "cypress": "4.8.0",
-    "elizabot": "0.0.3",
-    "marked": "1.1.0",
-    "npm-run-all": "4.1.5",
+    "cypress": "4.9.0",
+    "elizabot": "^0.0.3",
+    "istanbul-lib-coverage": "^2.0.5",
+    "marked": "^1.1.0",
+    "nyc": "^14.1.1",
+    "rollup": "^2.3.4",
+    "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^5.3.0",
     "rxjs": "6.6.0",
-    "sapper": "0.27.16",
-    "svelte": "3.23.2",
-    "svelte-loader": "2.13.6",
-    "webpack": "4.43.0"
+    "sapper": "^0.27.16",
+    "source-map-support": "^0.5.19",
+    "start-server-and-test": "1.10.6",
+    "svelte": "^3.23.2"
+  },
+  "nyc": {
+    "cache": false,
+    "extension": [
+      ".js",
+      ".svelte"
+    ],
+    "all": true
   }
 }

@@ -1,9 +1,14 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 import { aBackLinkShouldBeShownTo } from '../common.js';
 
 describe(`The "Article Footer"`, () => {
   const articleFooterSelector = 'p';
   //const articleFooterSelector = '.article-footer';
   beforeEach(() => {
+    cy.server({force404: true}); // for the status indicator
     cy.visitWithLang('/', 'en-US')
   });
 

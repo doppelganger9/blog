@@ -1,3 +1,7 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 let marked = require('marked');
 
 describe(`Links & Anchors in blog post markdown titles`, () => {

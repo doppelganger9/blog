@@ -1,3 +1,8 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
+
 // TODO
 // when browser locale is fr-FR,
 //    some labels should be french (title, footer, etc.)
@@ -12,6 +17,7 @@ describe(`i18n`, () => {
 
   describe(`Given the browser's language is 🇫🇷`, () => {
     beforeEach(() => {
+      cy.server({force404: true}); // for the status indicator
       cy.visitWithLang('/', 'fr-FR');
     });
     it(`when viewing the home page, then the title bar is in 🇫🇷`, () => {
@@ -48,6 +54,7 @@ describe(`i18n`, () => {
 
   describe(`Given the browser's language is 🇺🇸`, () => {
     beforeEach(() => {
+      cy.server({force404: true}); // for the status indicator
       cy.visitWithLang('/', 'en-US');
     });
     it(`when viewing the home page, then the title bar is in 🇺🇸`, () => {

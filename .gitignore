@@ -2,4 +2,7 @@
 node_modules
 yarn-error.log
 /cypress/screenshots/
+/cypress/videos/
 /__sapper__/
+/.nyc_output/
+/coverage/

@@ -1,7 +1,12 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 import { articleFooterShouldBeShown, builtByFooterShouldBeShown } from '../common';
 
 describe(`David's Blog app`, () => {
   beforeEach(() => {
+    cy.server({force404: true}); // for the status indicator
     cy.visitWithLang('/', 'en-US')
   });
 

@@ -1,3 +1,7 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="cypress" />
+/// <reference types="../support" />
 const statusPageURL = 'status.lacourt.dev';
 
 describe(`The Status component`, () => {
@@ -48,10 +52,22 @@ describe(`The Status component`, () => {
     waitForAPIToLoadAndAssertHasClass('seems_down');
   });
 
-  it(`should have a 'down" indicator when the status API returns status 9`, () => {
+  it(`should have a 'down' indicator when the status API returns status 9`, () => {
     givenAPIReturnStatus(9);
     visitAndShouldShowWaiting();
     waitForAPIToLoadAndAssertHasClass('down');
+  });
+
+  it(`should have a 'api-404' indicator when the status API returns HTTP 404`, () => {
+    givenAPIReturnHTTPStatus(404, 'Not found');
+    visitAndShouldShowWaiting();
+    waitForAPIToLoadAndAssertHasClass('api-404');
+  });
+
+  it(`should have a 'api-500' indicator when the status API returns HTTP 500`, () => {
+    givenAPIReturnHTTPStatus(500, 'Server error');
+    visitAndShouldShowWaiting();
+    waitForAPIToLoadAndAssertHasClass('api-500');
   });
 
   function givenAPIReturnStatus(status) {
@@ -68,6 +84,16 @@ describe(`The Status component`, () => {
           }
         ]
       }
+    }).as('mocked-uptime-getMonitors-API');
+  }
+
+  function givenAPIReturnHTTPStatus(status, message = undefined) {
+    cy.server();
+    cy.route({
+      method: 'POST',
+      url: `https://api.uptimerobot.com/v2/getMonitors`,
+      status,
+      ...(message && { response: message})
     }).as('mocked-uptime-getMonitors-API');
   }
 
