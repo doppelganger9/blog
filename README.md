@@ -1,6 +1,6 @@
 # David's Blog
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/72137791-898b-46be-ac68-9e1a5a37a29b/deploy-status)](https://app.netlify.com/sites/infallible-shannon-2d54c6/deploys) [![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/doppelganger9/blog)](https://github.com/doppelganger9/blog/actions)
+[![Coverage Status](https://coveralls.io/repos/github/doppelganger9/blog/badge.svg?branch=master)](https://coveralls.io/github/doppelganger9/blog?branch=master) [![Netlify Status](https://api.netlify.com/api/v1/badges/72137791-898b-46be-ac68-9e1a5a37a29b/deploy-status)](https://app.netlify.com/sites/infallible-shannon-2d54c6/deploys)
 
 See it live here: https://lacourt.dev/
 
