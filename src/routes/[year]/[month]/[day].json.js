@@ -1,17 +1,19 @@
 import { getPosts } from '../../_posts.js';
 
+const regexp = /(\d){4}\/(\d){2}\/(\d){2}/;
+
 const lookup = new Map();
 getPosts()
-  .filter(p => p.slug.indexOf('2019/') >= 0)
+  .filter(p => regexp.test(p.slug))
   .forEach(post => {
     lookup.set(post.slug, JSON.stringify(post));
   });
 
 export function get(req, res, next) {
   // the `month` and `day` parameters are available because
-  // this file is called 2019/[month]/[day].json.js
-  const { month, day } = req.params;
-  const slug = `2019/${month}/${day}`;
+  // this file is called [year]/[month]/[day].json.js
+  const { year, month, day } = req.params;
+  const slug = `${year}/${month}/${day}`;
   if (lookup.has(slug)) {
     res.writeHead(200, {
       'Content-Type': 'application/json'
