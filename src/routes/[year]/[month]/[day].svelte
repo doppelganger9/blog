@@ -2,7 +2,7 @@
   export async function preload({ params, query }) {
     // the `slug` parameter is available because
     // this file is called [day].html
-    const res = await this.fetch(`2019/${params.month}/${params.day}.json`);
+    const res = await this.fetch(`${params.year}/${params.month}/${params.day}.json`);
     const data = await res.json();
 
     if (res.status === 200) {
