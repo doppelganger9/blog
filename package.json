@@ -67,7 +67,7 @@
     "sapper": "0.27.16",
     "source-map-support": "0.5.19",
     "start-server-and-test": "1.11.0",
-    "svelte": "3.23.2"
+    "svelte": "3.24.0"
   },
   "nyc": {
     "cache": false,
