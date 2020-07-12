@@ -24,23 +24,24 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': true,
-				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
+				'process.env.NODE_ENV': jsonModeWithSimpleQuotes,
 			}),
 			svelte({
 				// tell svelte to handle mdsvex files, all markdown will be processed by mdsvex
 				extensions: ['.svelte', '.svx'],
 				preprocess: mdsvex({
+					smartypants: true,
 					layout: {
-						_: './src/layouts/post.svelte' // par défaut
-					}
+						_: './src/layouts/post.svelte', // par défaut
+					},
 				}),
 				dev,
 				hydratable: true,
-				emitCss: true
+				emitCss: true,
 			}),
 			resolve({
 				browser: true,
-				dedupe: ['svelte']
+				dedupe: ['svelte'],
 			}),
 			commonjs(),
 
@@ -51,18 +52,18 @@ export default {
 				presets: [
 					['@babel/preset-env', {
 						targets: '> 0.25%, not dead'
-					}]
+					}],
 				],
 				plugins: [
 					'@babel/plugin-syntax-dynamic-import',
 					['@babel/plugin-transform-runtime', {
-						useESModules: true
-					}]
-				]
+						useESModules: true,
+					}],
+				],
 			}),
 
 			!dev && terser({
-				module: true
+				module: true,
 			}),
 
 			// only instrument source code in development mode
@@ -76,7 +77,7 @@ export default {
 				include: ['src/**/*'],
 				sourceMap: true,
 				compact: false,
-				debug: true
+				debug: true,
 			}),
 		],
 
@@ -90,23 +91,24 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': false,
-				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
+				'process.env.NODE_ENV': jsonModeWithSimpleQuotes,
 			}),
 			svelte({
 				// tell svelte to handle mdsvex files
 				extensions: ['.svelte', '.svx'],
 				preprocess: mdsvex({
+					smartypants: true,
 					layout: {
 						_: './src/layouts/post.svelte' // par défaut
-					}
+					},
 				}),
 				generate: 'ssr',
-				dev
+				dev,
 			}),
 			resolve({
-				dedupe: ['svelte']
+				dedupe: ['svelte'],
 			}),
-			commonjs()
+			commonjs(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))

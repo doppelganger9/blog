@@ -3,7 +3,7 @@ import path from 'path';
 import { computeMinutesToRead } from './_minutesToRead.js';
 import { siteUrl } from '../stores/_config.js';
 import { transform } from 'mdsvex';
-
+import { processDate } from './_date.js';
 
 export const onlyPublishedPosts = it => it.published === true;
 export const onlyRealPosts = p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0;
@@ -81,12 +81,6 @@ async function getPost(slug) {
   };
 
   return post;
-}
-
-function processDate(metadata) {
-  const date = new Date(metadata.date);
-  const lang = metadata.lang || 'en';
-  return date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 function processThumb(thumb) {

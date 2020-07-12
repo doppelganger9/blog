@@ -1,18 +1,39 @@
+<script context="module">
+/**
+ * This module script is for exporting custom HTML tag overrides.
+ * see https://mdsvex.com/docs#custom-components
+ */
+</script>
+
 <script>
   import TitleBar from '../components/TitleBar.svelte';
   import Separator from '../components/Separator.svelte';
   import ArticleFooter from '../components/ArticleFooter.svelte';
+  
+  import { onMount } from 'svelte';
 
   import { siteUrl } from '../stores/_config.js';
+  import { processDate } from '../routes/_date.js';
+  import { computeMinutesToRead } from '../routes/_minutesToRead.js';
 
+  // all the following will be injected as Layout metadata from FrontMatter SVX parsed values.
   export let title;
   export let thumb;
   export let slug;
   export let description;
   export let keywords;
 
-  export let dateString;    // TODO comment dériver cette valeur d'un autre metadata ?
-  export let minutesToRead; // TODO comment dériver cette valeur du contenu du Post ?
+  export let lang;
+  export let date;
+  // data derived from post FrontMatter metadata
+  let dateString = processDate({lang, date});
+
+  // Did not find how to derive a value from post contents unless making a JSON route with data and preload it.
+  let contentNode; // bound to a div to access the HTML Node innerText.
+  let minutesToRead;
+  onMount(() => {
+		minutesToRead = computeMinutesToRead(contentNode.textContent);
+	});
 </script>
 
 <style>
@@ -102,7 +123,7 @@
 <p data-cy='blog-post-date' class='date'>{dateString}</p>
 <p data-cy='blog-post-readtime' class='reading-time'>{minutesToRead}</p>
 
-<div data-cy='blog-post-content' class='content'>
+<div data-cy='blog-post-content' class='content' bind:this={contentNode}>
 <slot>
 </slot>
 </div>
