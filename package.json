@@ -26,9 +26,9 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
+    "dev": "sapper dev --ext '.svelte .svx'",
+    "build": "sapper build --ext '.svelte .svx'",
+    "export": "sapper export --ext '.svelte .svx'",
     "export:serve": "npx http-server __sapper__/export/",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
@@ -59,6 +59,7 @@
     "istanbul-lib-coverage": "2.0.5",
     "marked": "1.1.1",
     "nyc": "15.1.0",
+    "mdsvex": "0.8.2",
     "rollup": "2.21.0",
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
     "rollup-plugin-svelte": "5.2.3",

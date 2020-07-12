@@ -14,7 +14,7 @@ _It's been quite a few months since [the last post](/2019/10/28), I will [tell y
 
 ![Colourpop Room - @rotor_](https://source.unsplash.com/OMzZ_dt5ovg/640x554)
 
-Today, we'll see how Code Coverage report was added to this blog, which is [based on Sapper / Svelte](/2019/06/12).
+Today, we'll see how Code Coverage report was added to this blog, which is [based on Sapper / Svelte](/2019/05/20).
 
 In an earlier post, I showed how TDD is a [really great programming](/2019/10/27) practice.
 
@@ -60,7 +60,7 @@ Everything is run via Cypress test runner. At the end of each test, the code cov
 Let's review our existing tests:
 
 - `links-in-markdown-titles` is testing that the [marked](https://github.com/markedjs/marked) library works as we expect. _It is an essential part of this blog as it compiles markdown content into pages, which makes writing posts a little bit easier to me._ It does not call `cy.visit` so it is not testing the web application.
-- `uptime-api` is a special case because it really calls an API, testing that it answers conforming to our expectations. _[Remember](/2019/10/27/)? this test was added to test the UptimeRobot API._ It does not call `cy.visit` either.
+- `uptime-api` is a special case because it really calls an API, testing that it answers conforming to our expectations. _[Remember](/2019/10/27)? this test was added to test the UptimeRobot API._ It does not call `cy.visit` either.
 - the other tests are end to end functional tests. When you read the report, it should read like a backlog of requirements. _I first wrote them during [the migration process from Gatsby to Sapper](2019/06/21) to compare both blogs._ These tests begin with or at some point call `cy.visit` to test some part of the web application inside a browser.
 
 So we already have different kinds of tests, and thus running Cypress will check all this.

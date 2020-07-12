@@ -1,8 +1,25 @@
+# MacOS creates this
+
 .DS_Store
+
+# Node modules need not be commited, simply call `npm install` or `npm ci` to re-generate it
+
 node_modules
-yarn-error.log
+
+# We don't want Cypress post test artefacts kept in git
+
 /cypress/screenshots/
 /cypress/videos/
+
+# the __sapper__ directory will contains build/ export/ dev/ 
+# directories for builts artefacts from corresponding commands
+
 /__sapper__/
+
+# We do not want to commit the generated coverage directories from NYC/Istanbul
+
 /.nyc_output/
 /coverage/
+
+# MDsveX creates a temporary directory to preprocess .md or .svx into Svelte components
+.svx/

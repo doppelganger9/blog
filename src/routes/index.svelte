@@ -1,7 +1,7 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`index.json`).then(r => r.json()).then(posts => {
-      return { posts };
+    return this.fetch(`index.json`).then(r => r.json()).then(({posts, svxPosts}) => {
+      return { posts, svxPosts };
     });
   }
 </script>
@@ -13,6 +13,7 @@
   import { siteUrl } from '../stores/_config.js';
 
   export let posts;
+  export let svxPosts;
 </script>
 
 <style>
@@ -65,6 +66,24 @@
 <TitleBar level='h1' />
 
 <ArticleFooter />
+
+
+<ul data-cy="blog-posts-list">
+  {#each svxPosts as post}
+    <!-- we're using the non-standard `rel=prefetch` attribute to
+        tell Sapper to load the data for the page as soon as
+        the user hovers over the link or taps it, instead of
+        waiting for the 'click' event -->
+    <li data-cy="blog-posts-item">
+      <a rel='prefetch' href='{post.slug}'>
+        <h3>{post.title}</h3>
+        <div class='subtitle'><date>{post.date}</date> &dash; {post.minutesToRead}<br/></div>
+        <p>{post.description}</p>
+      </a>
+    </li>
+  {/each}
+</ul>
+
 
 <ul data-cy="blog-posts-list">
   {#each posts as post}

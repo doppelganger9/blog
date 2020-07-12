@@ -8,21 +8,7 @@ lang: en
 keywords: gitpod, git, online editor, github, gitpodio, gitpod.io, best online ide, awesome online ide, editor, visual studio code, vscode, vs code, theia
 slug: 2019/03/07
 ---
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<style>
-body {
-    color: #fdd;
-    background: #227;
-    transition: color 2s, background 2s;
-}
-a {
-    color: #ee5;
-}
-blockquote {
-    color: #ee5;
-    border-left-color: #ee5;
-}
-</style>
+
 
 ![gitpod logo](https://gitpod.io/images/gitpod-logo.svg)
 

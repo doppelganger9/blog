@@ -1,4 +1,4 @@
-import { getPosts } from './_posts.js';
+import { getPosts, onlyPublishedPosts, onlyRealPosts } from './_posts.js';
 import { siteUrl } from '../stores/_config.js';
 
 const renderSitemapXml = (contextPaths) => `<?xml version="1.0" encoding="UTF-8"?>
@@ -12,17 +12,18 @@ ${contextPaths.map(path => `
 `).join('\n')}
 </urlset>`;
 
-export function get(req, res) {
+export async function get(req, res) {
 
   res.writeHead(200, {
     'Cache-Control': `public, max-age=0, must-revalidate`,
     'Content-Type': 'application/xml'
   });
 
-  const posts = getPosts()
-    .filter(it => it.metadata.published == 'true')
-    .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
+  const posts = (await getPosts())
+    .filter(onlyPublishedPosts)
+    .filter(onlyRealPosts)
     .map(post => post.slug);
+
   const feed = renderSitemapXml([...posts, 'privacy-policy', '']);
   res.end(feed);
 }

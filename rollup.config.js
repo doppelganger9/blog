@@ -6,6 +6,8 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import istanbul from 'rollup-plugin-istanbul';
+//import image from 'svelte-image';
+import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
@@ -25,6 +27,13 @@ export default {
 				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
 			}),
 			svelte({
+				// tell svelte to handle mdsvex files, all markdown will be processed by mdsvex
+				extensions: ['.svelte', '.svx'],
+				preprocess: mdsvex({
+					layout: {
+						_: './src/layouts/post.svelte' // par défaut
+					}
+				}),
 				dev,
 				hydratable: true,
 				emitCss: true
@@ -84,6 +93,13 @@ export default {
 				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
 			}),
 			svelte({
+				// tell svelte to handle mdsvex files
+				extensions: ['.svelte', '.svx'],
+				preprocess: mdsvex({
+					layout: {
+						_: './src/layouts/post.svelte' // par défaut
+					}
+				}),
 				generate: 'ssr',
 				dev
 			}),

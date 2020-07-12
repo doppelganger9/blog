@@ -1,80 +1,94 @@
 import fs from 'fs';
 import path from 'path';
-import marked from 'marked';
 import { computeMinutesToRead } from './_minutesToRead.js';
 import { siteUrl } from '../stores/_config.js';
+import { transform } from 'mdsvex';
 
-const WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE = './src/posts';
 
-export function getPosts () {
-  const slugs = fs.readdirSync(WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE)
-    .filter(file => path.extname(file) === '.md')
-    .map(file => file.slice(0, -3));
+export const onlyPublishedPosts = it => it.published === true;
+export const onlyRealPosts = p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0;
 
-  return slugs.map(getPost).sort((a, b) => {
-    return a.metadata.date < b.metadata.date ? 1 : -1;
-  });
+const WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS = './src/routes'; // pour le moment je teste juste en pointant directement sur le seul article svx
+
+let memo = undefined; // to keep already parsed posts to avoid doing it mutliple times.
+
+export async function getPosts () {
+  if (!memo) {
+    const root = WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS;
+    const directoriesToExplore = [ root + '/' ];
+    const filesFound = [];
+  
+    while(directoriesToExplore.length > 0) {
+      const dir = directoriesToExplore.pop();
+      fs.readdirSync(dir).forEach(file => {
+        const fileWithPath = path.join(dir, file);
+        const stat = fs.statSync(fileWithPath);
+        if (stat.isDirectory()) {
+          directoriesToExplore.push(fileWithPath);
+        } else if (stat.isFile()) {
+          if (path.extname(file) === '.svx') {
+            filesFound.push(fileWithPath);
+          }
+        }
+      });
+    }
+  
+    const slugs = filesFound.map(file => {
+      const [,slug] = file.split('src/routes/');
+      const slug2 = slug.slice(0, -4);
+      if (slug2.indexOf('/index')) {
+        return slug2.split('/index')[0];
+      } else {
+        return slug2;
+      }
+    });
+
+    // memo = [await getPost(slugs[0])]; // DEBUG 1 seule route
+    memo = (await Promise.all(slugs.map(getPost)))
+      .sort((a, b) => {
+        return a.date < b.date ? 1 : -1;
+      });
+  }
+
+  // we memoize this function's return value, as we export the data with Sapper, no need to re-evaluate it each time.
+  return [...memo];
 }
 
-const renderHeadingWithAnchor = (slug) => (text, level) => {
-  var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-  return `
-    <h${level}>
-      <a name="${escapedText}" aria-hidden="true" class="anchor" href="${slug}#${escapedText}">
-        <span class="header-link"></span>
-      </a>
-      ${text}
-    </h${level}>`;
-};
+async function getPost(slug) {
 
-export function getPost(slug) {
+  let file;
+  if (fs.existsSync(`${WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS}/${slug}.svx`)) {
+    // un fichier nommé, de la forme /x/y/z/slug.svx
+    file = `${WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS}/${slug}.svx`;
+  } else if (fs.existsSync(`${WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS}/${slug}/index.svx`)) {
+    // un fichier qui mappe sq route sur une date de la forme /yyyy/mm/dd/index.svx
+    file = `${WHERE_TO_RECURSIVELY_SEARCH_FOR_SVX_BLOG_POSTS}/${slug}/index.svx`;
+  }
 
-  const file = `${WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE}/${slug}.md`;
-  if (!fs.existsSync(file)) return null;
+  const parser = transform();
+  const contents = fs.readFileSync(file, 'utf-8');
+  const parsed = await parser.process({contents, file});
+  const metadata = parsed.data.fm || {};
+  const content = parsed.contents || '';
 
-  const markdown = fs.readFileSync(file, 'utf-8');
+  metadata.dateString = processDate(metadata);
+  metadata.thumb = processThumb(metadata.thumb);
 
-  const { content, metadata } = processMarkdown(markdown);
+  const post = {
+    ...metadata,
+    slug: metadata.slug || slug,
+    minutesToRead: computeMinutesToRead(content),
+  };
 
+  return post;
+}
+
+function processDate(metadata) {
   const date = new Date(metadata.date);
   const lang = metadata.lang || 'en';
-  metadata.dateString = date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-
-  const renderer = new marked.Renderer();
-  renderer.heading = renderHeadingWithAnchor(metadata.slug);
-
-  const thumb = metadata.thumb;
-  metadata.thumb = (thumb && thumb.indexOf(siteUrl) < 0) ? (siteUrl + '/' + thumb) : thumb;
-
-  const html = marked(content, {
-    headerIds: true,
-    smartypants: true,
-    renderer: renderer,
-  });
-
-  const minutesToRead = computeMinutesToRead(content);
-
-  const alternateSlug = metadata.slug;
-  return {
-    slug: alternateSlug || slug,
-    metadata,
-    html,
-    minutesToRead,
-  };
+  return date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function processMarkdown(markdown) {
-  const match = /---\n([\s\S]+?)\n---/.exec(markdown);
-  const frontMatter = match[1];
-  const content = markdown.slice(match[0].length);
-
-  const metadata = {};
-  frontMatter.split('\n').forEach(pair => {
-    const colonIndex = pair.indexOf(':');
-    metadata[pair.slice(0, colonIndex).trim()] = pair
-      .slice(colonIndex + 1)
-      .trim();
-  });
-
-  return { metadata, content };
+function processThumb(thumb) {
+  return (thumb && thumb.indexOf(siteUrl) < 0) ? (siteUrl + '/' + thumb) : thumb;
 }
