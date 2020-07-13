@@ -16,6 +16,8 @@
   import { processDate } from '../routes/_date.js';
   import { computeMinutesToRead } from '../routes/_minutesToRead.js';
 
+  import twemoji from 'twemoji';
+
   // all the following will be injected as Layout metadata from FrontMatter SVX parsed values.
   export let title;
   export let thumb;
@@ -91,6 +93,10 @@
       font-size: 2.5rem;
       margin: 0 0 .5rem 0;
   }
+
+  :global(img.emoji) {
+    width: 1em;
+  }
 </style>
 
 <svelte:head>
@@ -119,7 +125,7 @@
 
 <TitleBar level='h3' />
 
-<h1 data-cy='blog-post-heading'>{title}</h1>
+<h1 data-cy='blog-post-heading'>{@html twemoji.parse(title)}</h1>
 <p data-cy='blog-post-date' class='date'>{dateString}</p>
 <p data-cy='blog-post-readtime' class='reading-time'>{minutesToRead}</p>
 

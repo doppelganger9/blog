@@ -9,6 +9,7 @@ import istanbul from 'rollup-plugin-istanbul';
 //import image from 'svelte-image';
 import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
+import remarkTwemoji from 'remark-twemoji';
 
 const mode = process.env.NODE_ENV;
 const jsonModeWithSimpleQuotes = mode ? JSON.stringify(mode).replace(/\"/g, '\'') : "''";
@@ -34,6 +35,9 @@ export default {
 					layout: {
 						_: './src/layouts/post.svelte', // par défaut
 					},
+					remarkPlugins: [
+						remarkTwemoji,
+					],
 				}),
 				dev,
 				hydratable: true,
@@ -101,6 +105,9 @@ export default {
 					layout: {
 						_: './src/layouts/post.svelte' // par défaut
 					},
+					remarkPlugins: [
+						remarkTwemoji,
+					],
 				}),
 				generate: 'ssr',
 				dev,
