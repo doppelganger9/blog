@@ -10,6 +10,8 @@ import istanbul from 'rollup-plugin-istanbul';
 import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
 import remarkTwemoji from 'remark-twemoji';
+import remarkSlug from 'remark-slug';
+import remarkAutolinkHeadings from 'remark-autolink-headings';
 
 const mode = process.env.NODE_ENV;
 const jsonModeWithSimpleQuotes = mode ? JSON.stringify(mode).replace(/\"/g, '\'') : "''";
@@ -37,6 +39,8 @@ export default {
 					},
 					remarkPlugins: [
 						remarkTwemoji,
+						remarkSlug,
+						remarkAutolinkHeadings,
 					],
 				}),
 				dev,
@@ -107,6 +111,8 @@ export default {
 					},
 					remarkPlugins: [
 						remarkTwemoji,
+						remarkSlug,
+						remarkAutolinkHeadings,
 					],
 				}),
 				generate: 'ssr',

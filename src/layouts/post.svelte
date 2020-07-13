@@ -35,7 +35,14 @@
   let minutesToRead;
   onMount(() => {
 		minutesToRead = computeMinutesToRead(contentNode.textContent);
-	});
+  });
+  
+  // hack for adding location onto anchor links bc of base element
+  onMount(async () => {
+    ;[...document.querySelectorAll('a[href^="#"]')].map(
+      x => (x.href = document.location + new URL(x.href).hash)
+    )
+  });
 </script>
 
 <style>

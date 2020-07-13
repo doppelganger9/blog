@@ -60,6 +60,8 @@
     "marked": "1.1.1",
     "nyc": "15.1.0",
     "mdsvex": "0.8.2",
+    "remark-autolink-headings": "6.0.1",
+    "remark-slug": "6.0.0",
     "remark-twemoji": "0.1.1",
     "rollup": "2.21.0",
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
