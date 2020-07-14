@@ -9,6 +9,12 @@ keywords: gitpod, git, online editor, github, gitpodio, gitpod.io, best online i
 slug: 2019/03/07
 ---
 
+<script>
+  import AddTwitterWidgetScript from '../../../../components/AddTwitterWidgetScript.svelte';
+</script>
+
+<AddTwitterWidgetScript />
+
 
 ![gitpod logo](https://gitpod.io/images/gitpod-logo.svg)
 
@@ -64,9 +70,9 @@ Well... again not everything is 🌈 and 🦄.
 
 Damn, after a little search, it seems there really is an issue about this.
 
-<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Oh once you enable <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@GitHub</a> Actions on a repo no other integration will work. For example trying to push a git tag using a deploy key will error out with: &quot;refusing to allow an integration to create .github/main.workflow&quot;</p>&mdash; Stefan Prodan (@stefanprodan) <a href="https://twitter.com/stefanprodan/status/1089848015626686465?ref_src=twsrc%5Etfw">28 janvier 2019</a></blockquote>
+https://twitter.com/stefanprodan/status/1089848015626686465
 
-<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Yes, it&#39;s a bug, and we&#39;re working on a fix.  There are security reasons not to let integrations write to main.workflow, but our current version of this check may be too restrictive.  Thanks for the report.</p>&mdash; Patrick Reynolds (@p_reynolds) <a href="https://twitter.com/p_reynolds/status/1089880487659737088?ref_src=twsrc%5Etfw">28 janvier 2019</a></blockquote>
+https://twitter.com/p_reynolds/status/1089880487659737088
 
 ### Partial fix and git-fu 🥋
 

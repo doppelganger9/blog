@@ -12,6 +12,7 @@ import pkg from './package.json';
 import remarkTwemoji from 'remark-twemoji';
 import remarkSlug from 'remark-slug';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
+import remarkOEmbed from '@agentofuser/remark-oembed';
 
 const mode = process.env.NODE_ENV;
 const jsonModeWithSimpleQuotes = mode ? JSON.stringify(mode).replace(/\"/g, '\'') : "''";
@@ -38,6 +39,7 @@ export default {
 						_: './src/layouts/post.svelte', // par défaut
 					},
 					remarkPlugins: [
+						[remarkOEmbed, {usePrefix:false, replaceParent:true, Twitter: {omit_script: 1}}],
 						remarkTwemoji,
 						remarkSlug,
 						remarkAutolinkHeadings,
@@ -110,6 +112,7 @@ export default {
 						_: './src/layouts/post.svelte' // par défaut
 					},
 					remarkPlugins: [
+						[remarkOEmbed, {usePrefix:false, replaceParent:true, Twitter: {omit_script: 1}}],
 						remarkTwemoji,
 						remarkSlug,
 						remarkAutolinkHeadings,

@@ -43,6 +43,7 @@
     "sirv": "0.4.6"
   },
   "devDependencies": {
+    "@agentofuser/remark-oembed": "git+https://github.com/doppelganger9/remark-oembed.git",
     "@babel/core": "7.10.5",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-runtime": "7.10.5",
