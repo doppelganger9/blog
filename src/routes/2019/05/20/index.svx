@@ -88,7 +88,7 @@ You can play with the deployed version : [https://cooking-contest.web.app/](http
 
 It's okay if your eyes are bleeding. Wipe the blood, and please continue reading.
 
-<div style="width:100%;height:0;padding-bottom:51%;position:relative;"><iframe src="https://giphy.com/embed/YsOpzCbCfLJfO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/someone-wiki-phobia-YsOpzCbCfLJfO">via GIPHY</a></p>
+https://giphy.com/gifs/image-things-czOM9AjyWfi8w
 
 #### Firebase Hosting
 

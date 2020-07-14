@@ -15,7 +15,7 @@ slug: 2019/03/14
 One of the things I use too much is emojis.
 I tend to put them everywhere possible, for me they are like a form of modern ideograms that future generations will find etched on glass pyramids...
 
-<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/TOgT1sxf12pdm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/loop-pyramid-TOgT1sxf12pdm">via GIPHY</a></p>
+https://giphy.com/gifs/animation-loop-26AHRhriag6RPO7GU
 
 However, for the time being, I still have an issue with [how emojis are supported](https://en.wikipedia.org/wiki/Emoji).
 
@@ -25,7 +25,7 @@ Thus, I was in need of a way to transform emojis to images inside my presentatio
 
 Time to present item number 9 on my "I ❤️ reveal" list of reveal's preferred feature!
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/xTk2YUwApvZyGiul32" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-season-4-spongebob-squarepants-xTk2YUwApvZyGiul32">via GIPHY</a></p>
+https://giphy.com/gifs/spongebob-season-4-spongebob-squarepants-xTk2YUwApvZyGiul32
 
 ## Preprocessor to the rescue
 
@@ -33,7 +33,7 @@ Time to present item number 9 on my "I ❤️ reveal" list of reveal's preferred
 
 Combined with **[Twemoji](https://github.com/twitter/twemoji)**, I could parse all my presentation's markdown and convert emoji Unicode strings to image tags with SVG.
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/5bivKwxhVzshNk2Rjw" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/thedailyshow-5bivKwxhVzshNk2Rjw">via GIPHY</a></p>
+https://giphy.com/gifs/thedailyshow-5bivKwxhVzshNk2Rjw
 
 ## Twemoji
 
@@ -86,7 +86,7 @@ As you see it returns the Promise that it will have transformed the markdown usi
 
 Wait a minute.
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/9aDBfz8iy4caA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mrw-birthday-thinking-9aDBfz8iy4caA">via GIPHY</a></p>
+https://giphy.com/gifs/mrw-birthday-thinking-9aDBfz8iy4caA
 
 If you don't know **Promises**, I urge you to go watch this YouTube video -- MPJ is just 🤩
 
