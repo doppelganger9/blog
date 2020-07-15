@@ -2,7 +2,7 @@
   "name": "david-blog",
   "private": true,
   "description": "David Lacourt's personal blog, made with Sapper and Webpack, powered by Svelte and Markdown",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "David Lacourt <david.lacourt@gmail.com>",
   "bugs": {
     "url": "https://github.com/doppelganger9/blog/issues"
