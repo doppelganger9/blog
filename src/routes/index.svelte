@@ -66,6 +66,7 @@
 
 <ArticleFooter />
 
+
 <ul data-cy="blog-posts-list">
   {#each posts as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to

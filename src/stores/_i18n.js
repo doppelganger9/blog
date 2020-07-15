@@ -30,7 +30,9 @@ const labelsByLang = {
     "article.footer.html": `Written by <strong>David Lacourt</strong> who lives in 
   <a href="https://en.wikipedia.org/wiki/Senlis">Senlis <span role="img" aria-label="Stag">🦌</span></a>, 
   works in Paris <span role="img" aria-label="France">🇫🇷</span>, 
-  <span role="img" aria-label="Love">🧡</span>&nbsp;building things with code.`
+  <span role="img" aria-label="Love">🧡</span>&nbsp;building things with code.`,
+    "switch to English": "switch to English",
+    "switch to French": "switch to French",
   },
   "fr": {
     "title": "Le Blog de David",
@@ -40,7 +42,9 @@ const labelsByLang = {
     "article.footer.html": `Ecrit par <strong>David Lacourt</strong>, qui habite à 
   <a href="https://en.wikipedia.org/wiki/Senlis">Senlis <span role="img" aria-label="Stag">🦌</span></a>, 
   travaille à Paris <span role="img" aria-label="France">🇫🇷</span>, 
-  <span role="img" aria-label="Love">🧡</span>&nbsp;construire des choses avec du code.`
+  <span role="img" aria-label="Love">🧡</span>&nbsp;construire des choses avec du code.`,
+    "switch to English": "basculer en Anglais",
+    "switch to French": "basculer en Français",
   }
 };
 

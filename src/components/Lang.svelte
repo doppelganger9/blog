@@ -1,6 +1,7 @@
 <script>
-  import { switchLang, lang } from '../stores/_i18n.js';
+  import { switchLang, lang, i18n } from '../stores/_i18n.js';
   import { onMount } from 'svelte';
+  import twemoji from 'twemoji';
 
   onMount(() => {
     switchLang(navigator.language.split('-')[0]);
@@ -29,7 +30,7 @@
 </style>
 
 {#if $lang === 'fr'}
-<button data-cy='switch-lang-button' on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
+<button data-cy='switch-lang-button' aria-label="{$i18n`switch to English`}" on:click={() => switchLang('en')}>{@html twemoji.parse('🇫🇷 ➡️ 🇺🇸')}</button>
 {:else if $lang === 'en'}
-<button data-cy='switch-lang-button' on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
+<button data-cy='switch-lang-button' aria-label="{$i18n`switch to French`}" on:click={() => switchLang('fr')}>{@html twemoji.parse('🇺🇸 ➡️ 🇫🇷')}</button>
 {/if}

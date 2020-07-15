@@ -1,0 +1,20 @@
+---
+title: Markdown + Svelte components with MDsveX
+date: 2020-07-10T20:45:00
+published: true
+description: MDsveX posts contents to mix Markdown and Svelte components for more fun!
+tags: CI/CD, GitHub Actions, Quality, Cypress
+lang: en
+keywords: pipeline, build, automation, continuous integration, continuous deployment, github actions, github, netlify, git, ci/cd, github actions workflow, cypress, code coverage, coveralls
+slug: 2020/07/10
+thumb: https://lacourt.dev/code-coverage-sapper-app.png
+---
+
+<script>
+  import Eliza from '../../../playground/eliza.svelte';
+</script>
+
+## Wow I can now import and use Svelte components, like this Eliza bot from Playgrounds:
+
+<Eliza></Eliza>
+

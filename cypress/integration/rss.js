@@ -19,7 +19,7 @@ describe(`RSS feed endpoint`, () => {
     cy.get('@rss').should((response) => {
       expect(response).to.have.property('headers');
 
-      expect(response.headers['content-type']).to.eq('application/rss+xml');
+      expect(response.headers['content-type']).to.contain('application/rss+xml');
     });
   });
 

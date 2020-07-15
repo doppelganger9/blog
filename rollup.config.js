@@ -6,7 +6,13 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import istanbul from 'rollup-plugin-istanbul';
+//import image from 'svelte-image';
+import { mdsvex } from 'mdsvex';
 import pkg from './package.json';
+import remarkTwemoji from 'remark-twemoji';
+import remarkSlug from 'remark-slug';
+import remarkAutolinkHeadings from 'remark-autolink-headings';
+import remarkOEmbed from '@agentofuser/remark-oembed';
 
 const mode = process.env.NODE_ENV;
 const jsonModeWithSimpleQuotes = mode ? JSON.stringify(mode).replace(/\"/g, '\'') : "''";
@@ -22,16 +28,30 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': true,
-				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
+				'process.env.NODE_ENV': jsonModeWithSimpleQuotes,
 			}),
 			svelte({
+				// tell svelte to handle mdsvex files, all markdown will be processed by mdsvex
+				extensions: ['.svelte', '.svx'],
+				preprocess: mdsvex({
+					smartypants: true,
+					layout: {
+						_: './src/layouts/post.svelte', // par défaut
+					},
+					remarkPlugins: [
+						[remarkOEmbed, {usePrefix:false, replaceParent:true, Twitter: {omit_script: 1}}],
+						remarkTwemoji,
+						remarkSlug,
+						remarkAutolinkHeadings,
+					],
+				}),
 				dev,
 				hydratable: true,
-				emitCss: true
+				emitCss: true,
 			}),
 			resolve({
 				browser: true,
-				dedupe: ['svelte']
+				dedupe: ['svelte'],
 			}),
 			commonjs(),
 
@@ -42,18 +62,18 @@ export default {
 				presets: [
 					['@babel/preset-env', {
 						targets: '> 0.25%, not dead'
-					}]
+					}],
 				],
 				plugins: [
 					'@babel/plugin-syntax-dynamic-import',
 					['@babel/plugin-transform-runtime', {
-						useESModules: true
-					}]
-				]
+						useESModules: true,
+					}],
+				],
 			}),
 
 			!dev && terser({
-				module: true
+				module: true,
 			}),
 
 			// only instrument source code in development mode
@@ -67,7 +87,7 @@ export default {
 				include: ['src/**/*'],
 				sourceMap: true,
 				compact: false,
-				debug: true
+				debug: true,
 			}),
 		],
 
@@ -81,16 +101,30 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': false,
-				'process.env.NODE_ENV': jsonModeWithSimpleQuotes
+				'process.env.NODE_ENV': jsonModeWithSimpleQuotes,
 			}),
 			svelte({
+				// tell svelte to handle mdsvex files
+				extensions: ['.svelte', '.svx'],
+				preprocess: mdsvex({
+					smartypants: true,
+					layout: {
+						_: './src/layouts/post.svelte' // par défaut
+					},
+					remarkPlugins: [
+						[remarkOEmbed, {usePrefix:false, replaceParent:true, Twitter: {omit_script: 1}}],
+						remarkTwemoji,
+						remarkSlug,
+						remarkAutolinkHeadings,
+					],
+				}),
 				generate: 'ssr',
-				dev
+				dev,
 			}),
 			resolve({
-				dedupe: ['svelte']
+				dedupe: ['svelte'],
 			}),
-			commonjs()
+			commonjs(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))

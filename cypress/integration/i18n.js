@@ -46,9 +46,17 @@ describe(`i18n`, () => {
     it(`when viewing the home page, then a button to switch to 🇺🇸 should be visible`, () => {
       cy.get(`[data-cy=switch-lang-button]`)
         .should('exist')
-        .should('be.visible')
-        .should('contain', '🇫🇷 ➡️ 🇺🇸');
-    });
+        .should('be.visible');
+      cy.get(`[data-cy=switch-lang-button]`)
+        .then(($btn) => {
+          cy.wrap($btn.attr('aria-label')).should('equal', 'switch to French');
+        });
+      cy.wait(300); // $i18n has a small delay before it injects the expected value.
+      cy.get(`[data-cy=switch-lang-button]`)
+        .then(($btn) => {
+          cy.wrap($btn.attr('aria-label')).should('equal', 'basculer en Anglais');
+        });
+  });
 
   });
 
@@ -83,8 +91,12 @@ describe(`i18n`, () => {
     it(`when viewing the home page, then a button to switch to 🇫🇷 should be visible`, () => {
       cy.get(`[data-cy=switch-lang-button]`)
         .should('exist')
-        .should('be.visible')
-        .should('contain', '🇺🇸 ➡️ 🇫🇷');
+        .should('be.visible');
+      // this one does not need to wait as it is the default value.
+      cy.get(`[data-cy=switch-lang-button]`)
+        .then(($btn) => {
+          cy.wrap($btn.attr('aria-label')).should('equal', 'switch to French');
+        });
     });
   });
 });
