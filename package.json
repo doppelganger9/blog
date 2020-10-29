@@ -50,7 +50,7 @@
     "@babel/runtime": "7.12.1",
     "@cypress/code-coverage": "1.14.0",
     "@rollup/plugin-babel": "5.2.0",
-    "@rollup/plugin-commonjs": "14.0.0",
+    "@rollup/plugin-commonjs": "16.0.0",
     "@rollup/plugin-node-resolve": "8.4.0",
     "@rollup/plugin-replace": "2.3.3",
     "cross-fetch": "3.0.5",
