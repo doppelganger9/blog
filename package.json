@@ -61,7 +61,7 @@
     "nyc": "15.1.0",
     "rollup": "2.33.1",
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
-    "rollup-plugin-svelte": "5.2.3",
+    "rollup-plugin-svelte": "6.1.1",
     "rollup-plugin-terser": "5.3.1",
     "rxjs": "6.6.2",
     "sapper": "0.28.5",
