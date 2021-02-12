@@ -52,7 +52,7 @@
     "@rollup/plugin-babel": "5.2.0",
     "@rollup/plugin-commonjs": "14.0.0",
     "@rollup/plugin-node-resolve": "8.4.0",
-    "@rollup/plugin-replace": "2.3.3",
+    "@rollup/plugin-replace": "2.3.4",
     "cross-fetch": "3.0.5",
     "cypress": "4.12.1",
     "elizabot": "0.0.3",
