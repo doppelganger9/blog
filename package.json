@@ -63,7 +63,7 @@
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
     "rollup-plugin-svelte": "5.2.3",
     "rollup-plugin-terser": "5.3.1",
-    "rxjs": "6.6.3",
+    "rxjs": "6.6.6",
     "sapper": "0.28.5",
     "source-map-support": "0.5.19",
     "start-server-and-test": "1.11.7",
