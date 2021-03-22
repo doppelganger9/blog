@@ -46,7 +46,7 @@
     "@babel/core": "7.13.10",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-runtime": "7.13.10",
-    "@babel/preset-env": "7.13.10",
+    "@babel/preset-env": "7.13.12",
     "@babel/runtime": "7.13.10",
     "@cypress/code-coverage": "1.14.0",
     "@rollup/plugin-babel": "5.3.0",
