@@ -2,7 +2,7 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-const statusPageURL = 'stats.uptimerobot.com/ZYDp0hJL8';
+const statusPageURL = 'https://stats.uptimerobot.com/ZYDp0hJL8';
 
 describe(`The Status component`, () => {
 
@@ -12,10 +12,10 @@ describe(`The Status component`, () => {
       .should('exist');
   });
 
-  it(`should redirect to the status page`, () => {
+  it(`should have a link to redirect to the public UPTIME Robot status page`, () => {
     cy.visit('/');
-    footerStatusAnchor(cy).click();
-    cy.location('host').should('contain', statusPageURL);
+    footerStatusAnchor(cy)
+      .should('have.attr', 'href', statusPageURL);
   });
 
   it(`should first show a waiting indicatorbefore the API returns its response`, () => {
