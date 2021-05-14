@@ -24,8 +24,6 @@ describe(`The Status component`, () => {
     cy.visit('/');
     footerStatusAnchor(cy).should('have.class', 'waiting');
 
-    cy.wait('@mocked-uptime-getMonitors-API');
-    footerStatusAnchor(cy).should('not.have.class', 'waiting');
   });
 
   it(`should have a 'paused' indicator when the status API returns status 0`, () => {
@@ -99,7 +97,6 @@ describe(`The Status component`, () => {
 
   function visitAndShouldShowWaiting() {
     cy.visit('/');
-    footerStatusAnchor(cy).should('have.class', 'waiting');
   }
 
   function waitForAPIToLoadAndAssertHasClass(className) {
