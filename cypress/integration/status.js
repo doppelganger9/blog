@@ -2,7 +2,7 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-const statusPageURL = 'status.lacourt.dev';
+const statusPageURL = 'stats.uptimerobot.com/ZYDp0hJL8';
 
 describe(`The Status component`, () => {
 

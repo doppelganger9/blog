@@ -39,7 +39,7 @@
   });
 </script>
 
-<a data-cy="status-indicator" class="status {all_status[$status].class}" href='https://status.lacourt.dev'>
+<a data-cy="status-indicator" class="status {all_status[$status].class}" href='https://stats.uptimerobot.com/ZYDp0hJL8'>
   Status: {all_status[$status].text}
 </a>
 
