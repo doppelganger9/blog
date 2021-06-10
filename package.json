@@ -66,7 +66,7 @@
     "rxjs": "7.1.0",
     "sapper": "0.29.1",
     "source-map-support": "0.5.19",
-    "start-server-and-test": "1.12.3",
+    "start-server-and-test": "1.12.5",
     "svelte": "3.29.0"
   },
   "nyc": {
