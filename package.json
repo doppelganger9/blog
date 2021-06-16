@@ -59,7 +59,7 @@
     "istanbul-lib-coverage": "2.0.5",
     "marked": "1.2.7",
     "nyc": "15.1.0",
-    "rollup": "2.51.2",
+    "rollup": "2.52.0",
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
     "rollup-plugin-svelte": "5.2.3",
     "rollup-plugin-terser": "5.3.1",
