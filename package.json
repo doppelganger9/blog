@@ -57,7 +57,7 @@
     "cypress": "4.12.1",
     "elizabot": "0.0.3",
     "istanbul-lib-coverage": "2.0.5",
-    "marked": "1.2.7",
+    "marked": "2.0.0",
     "nyc": "15.1.0",
     "rollup": "2.52.2",
     "rollup-plugin-istanbul": "git+https://github.com/billowz/rollup-plugin-istanbul.git#rc",
