@@ -56,7 +56,7 @@
     "cross-fetch": "3.1.4",
     "cypress": "4.12.1",
     "elizabot": "0.0.3",
-    "istanbul-lib-coverage": "2.0.5",
+    "istanbul-lib-coverage": "3.2.0",
     "marked": "1.2.7",
     "nyc": "15.1.0",
     "rollup": "2.52.2",
