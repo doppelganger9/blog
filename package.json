@@ -38,11 +38,11 @@
     "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage"
   },
   "devDependencies": {
-    "cypress": "4.12.1",
-    "elizabot": "0.0.3",
     "@sveltejs/adapter-netlify": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "cypress": "8.7.0",
+    "elizabot": "0.0.3",
     "marked": "^2.0.1",
     "rxjs": "7.0.1",
     "start-server-and-test": "1.12.5",
