@@ -44,6 +44,7 @@
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "marked": "^2.0.1",
+    "rxjs": "7.0.1",
     "start-server-and-test": "1.12.5",
     "svelte": "^3.42.1"
   }
