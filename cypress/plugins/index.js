@@ -15,5 +15,6 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 
-  on('task', require('@cypress/code-coverage/task'))
+  // TODO put back after Svelte-Kit migration OK
+  //on('task', require('@cypress/code-coverage/task'))
 }
