@@ -19,7 +19,7 @@ So today I'll try my best at explaining this feature and implementing it on this
 
 You can see the result at the bottom of this page, and it should look like this:
 
-![status indicator UP](status-UP.png)
+![status indicator UP](/status-UP.png)
 
 1. monitor my website with Uptime Robot (free!)
 2. set up a public status page
@@ -58,7 +58,7 @@ See the [Cypress Best Practices section](https://docs.cypress.io/guides/referenc
 
 Going back to our test, of course, It went red.
 
-![red](status-tdd-red.png)
+![red](/status-tdd-red.png)
 
 Then I added the anchor in the Footer.svelte component
 ```js
@@ -69,18 +69,18 @@ Then I added the anchor in the Footer.svelte component
 ```
 It went green but as you see, I only wrote what's needed to make it pass.
 
-![green](status-tdd-green.png)
+![green](/status-tdd-green.png)
 
 I went on and added red tests, then wrote code, and even refactored things to make it less messy: making a `Status.svelte` component, extracting functions in tests to make tests more readable using *Clean Code*.
 
 At one time, I had a CORS issue.
 
-![CORS red 1](status-CORS-1.png)
-![CORS red 2](status-CORS-2.png)
+![CORS red 1](/status-CORS-1.png)
+![CORS red 2](/status-CORS-2.png)
 
 Thank you Cypress for being helpful with this error message, I just added the option (`"chromeWebSecurity": false` in cypress.json settings file), and bam! Green.
 
-![CORS green](status-CORS-green.png)
+![CORS green](/status-CORS-green.png)
 
 ## Playground
 
@@ -145,7 +145,7 @@ In the following Cypress test I configured an API Stub that would return status 
 Then I wrote the code to make it pass.
 I wrote a lot of other tests to triangulate the implementation and to write the specification of every expected status returned by the API.
 
-![all the tests are green](status-all-the-tests-are-green.png)
+![all the tests are green](/status-all-the-tests-are-green.png)
 
 ## Refactor
 

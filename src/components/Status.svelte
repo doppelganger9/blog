@@ -1,5 +1,4 @@
 <script>
-  import { fetch } from 'cross-fetch';
   import { writable } from 'svelte/store';
   import { onMount } from 'svelte';
 

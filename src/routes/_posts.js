@@ -20,7 +20,7 @@ const renderHeadingWithAnchor = (slug) => (text, level) => {
   var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
   return `
     <h${level}>
-      <a name="${escapedText}" aria-hidden="true" class="anchor" href="${slug}#${escapedText}">
+      <a name="${escapedText}" aria-hidden="true" class="anchor" href="/${slug}#${escapedText}">
         <span class="header-link"></span>
       </a>
       ${text}

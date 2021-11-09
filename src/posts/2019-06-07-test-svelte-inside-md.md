@@ -25,12 +25,12 @@ I found a few gems again:
 I made `.svelte` pages from samples found from different sources, and adapted them.
 I plan to mix them all to do something really fun.
 
-- [Web Audio API test page](playground/audio)
-- [Chrono](playground/chrono)
-- [Text to speech](playground/blabla)
-- [ELIZA](playground/eliza)
-- [Big Editable Text](playground/bigeditabletext)
-- [falling money](playground/falling-money)
+- [Web Audio API test page](/playground/audio)
+- [Chrono](/playground/chrono)
+- [Text to speech](/playground/blabla)
+- [ELIZA](/playground/eliza)
+- [Big Editable Text](/playground/bigeditabletext)
+- [falling money](/playground/falling-money)
 
 They are Vanilla Svelte and I had to handle the `window` global object with `onMount`.
 

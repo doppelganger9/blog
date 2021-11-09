@@ -1,9 +1,23 @@
 <script context="module">
-  export function preload({ params, query }) {
-    return this.fetch(`index.json`).then(r => r.json()).then(posts => {
-      return { posts };
-    });
+/**
+ * @type {import('@sveltejs/kit').Load}
+ */
+export async function load({ page, fetch, session, stuff }) {
+  const res = await fetch(`/index.json`);
+  
+  if (res.ok) {
+    return {
+      props: {
+        posts: await res.json()
+      }
+    };
   }
+
+  return {
+    status: res.status,
+    error: new Error(`could not load posts`)
+  }
+}
 </script>
 
 <script>
@@ -75,7 +89,7 @@
     <li data-cy="blog-posts-item">
       <a rel='prefetch' href='{post.slug}'>
         <h3>{post.title}</h3>
-        <div class='subtitle'><date>{post.date}</date> &dash; {post.minutesToRead}<br/></div>
+        <div class='subtitle'><date>{post.date}</date> - {post.minutesToRead}<br/></div>
         <p>{post.description}</p>
       </a>
     </li>

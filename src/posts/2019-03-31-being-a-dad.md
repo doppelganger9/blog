@@ -22,7 +22,7 @@ So, "changing for better" was the original intent from 2013, and as things conti
 
 PS: I love them ❤️
 
-![2 kids](kids.png)
+![2 kids](/kids.png)
 
 So during those 6 last years, they made me adopt these roles/postures:
 
@@ -49,7 +49,7 @@ And I still hope, it is in a better version of myself -- even though with 3 kids
 
 Why am I telling you all this? What's the link with this blog? Well, this leads me to the mighty power of **transfer**.
 
-![some drawing with green and red with arrows](G4ivO0TB.jpeg)
+![some drawing with green and red with arrows](/G4ivO0TB.jpeg)
 
 ### What is transfer???
 
@@ -90,7 +90,7 @@ Really, I don't think about all this when I'm with them, but I have become consc
 
 As a gift to you, my dear reader, I will from now on, share their beautiful drawings as art for this blog. You can already see my Twitter banner that displays a zoomed in part of a colorful scrawl from the littlest one of the family. They deserve a better place than the fridge or a dusty box in the attic. I will try not to make your eyes bleed. Promise 🤞!
 
-![caca](caca.jpeg)
+![caca](/caca.jpeg)
 
 > Thank you, kids!<br/>
 > With love, daddy.

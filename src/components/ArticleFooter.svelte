@@ -24,7 +24,7 @@
 <div class='article-footer' data-cy='article-footer'>
 
 <div class='image-wrapper'>
-  <img src='profile-pic-small.jpg' alt='portrait'>
+  <img src='/profile-pic-small.jpg' alt='portrait'>
 </div>
 
 <p>{@html $i18n`article.footer.html`}

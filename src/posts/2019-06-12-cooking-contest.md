@@ -38,7 +38,7 @@ In order to do this, I know that I need a practical and fun subject to explore.
 
 ## Enters the Cooking Contests
 
-![Cake Battle 1 - before](cake-battle1-before.jpg)
+![Cake Battle 1 - before](/cake-battle1-before.jpg)
 
 We regularly have cooking contests between our feature teams at work.
 
@@ -47,7 +47,7 @@ Okay, we *NAILED IT* this time with the Pesto-Mozzarella cake and it got the wor
 
 but, look! 👇 my coworkers ate almost all of it, which for me is the best heuristic to select a winner!
 
-![Cake Battle 1 - after](cake-battle1-after.jpg)
+![Cake Battle 1 - after](/cake-battle1-after.jpg)
 
 ## [cooking-contest.web.app](https://cooking-contest.web.app/)
 
@@ -74,15 +74,15 @@ You can play with the deployed version : [https://cooking-contest.web.app/](http
 
 ### Animated Leaderboard
 
-![Cooking-contest leaderboard screen](coco1.jpg)
+![Cooking-contest leaderboard screen](/coco1.jpg)
 
 ### Home: my evaluations
 
-![Cooking-contest my evaluations screen](coco2.jpg)
+![Cooking-contest my evaluations screen](/coco2.jpg)
 
 ### Evaluating one meal
 
-![Cooking-contest evaluation screen](coco3.jpg)
+![Cooking-contest evaluation screen](/coco3.jpg)
 
 ---
 
@@ -94,7 +94,7 @@ It's okay if your eyes are bleeding. Wipe the blood, and please continue reading
 
 By the way, it is deployed on Firebase Hosting. It helped me rank up the PWA points in the Lighthouse Audit scan.
 
-![PWA ranking Lighthouse Audit](PWA-score-coco.png)
+![PWA ranking Lighthouse Audit](/PWA-score-coco.png)
 
 ## Orange
 
@@ -104,7 +104,7 @@ Because Svelte is *Orange* and I like *Orange*. Did you know I had *an orange ca
 
 That is until someone smashed it to pieces:
 
-![my orange car is broken](my-orange-car-is-broken.jpg)
+![my orange car is broken](/my-orange-car-is-broken.jpg)
 
 _I work for an insurance company, don't worry, it took 2 months, but everything is back to normal. Except now I miss my Orange car_
 

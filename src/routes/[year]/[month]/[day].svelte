@@ -1,18 +1,27 @@
 <script context="module">
-  export async function preload({ params, query }) {
-    // the `slug` parameter is available because
-    // this file is called [day].html
-    const res = await this.fetch(`${params.year}/${params.month}/${params.day}.json`);
-    const data = await res.json();
+/**
+ * @type {import('@sveltejs/kit').Load}
+ */
+export async function load({ page, fetch, session, stuff }) {
+  // the `slug` parameter is available because
+  // this file is called [day].html
+  const { params } = page;
+  const url = `/${params.year}/${params.month}/${params.day}.json`;
 
-    if (res.status === 200) {
-      return {
-        post: data,
-      };
-    } else {
-      this.error(res.status, data.message);
-    }
+  const res = await fetch(url);
+
+  if (res.ok) {
+    return {
+      props: {
+        post: await res.json(),
+      }
+    };
+  } 
+  return {
+    status: res.status,
+    error: new Error(`could not load ${url}`)
   }
+}
 </script>
 
 <script>

@@ -13,10 +13,15 @@ const contents = JSON.stringify(getPosts()
   };
 }));
 
-export function get(req, res) {
-  res.writeHead(200, {
-    'Content-Type': 'application/json'
-  });
-
-  res.end(contents);
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({ params }) {
+  return {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: contents
+  };
 }

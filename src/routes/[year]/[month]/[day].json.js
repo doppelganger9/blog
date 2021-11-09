@@ -9,24 +9,32 @@ getPosts()
     lookup.set(post.slug, JSON.stringify(post));
   });
 
-export function get(req, res, next) {
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({ params }) {
   // the `month` and `day` parameters are available because
   // this file is called [year]/[month]/[day].json.js
-  const { year, month, day } = req.params;
+  const { year, month, day } = params;
   const slug = `${year}/${month}/${day}`;
+
   if (lookup.has(slug)) {
-    res.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(lookup.get(slug));
+    return {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: lookup.get(slug)
+    };
   } else {
-    res.writeHead(404, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(JSON.stringify({
-      message: `2019 Blog Not found`
-    }));
+    return {
+      status: 404,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          message: `2019 Blog Not found`
+        })
+    };
   }
 }

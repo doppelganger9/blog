@@ -9,7 +9,7 @@ slug: 2019/06/16
 thumb: https://lacourt.dev/thumb-seo-svelte.png
 ---
 
-![SEO code for svelte](thumb-seo-svelte.png)
+![SEO code for svelte](/thumb-seo-svelte.png)
 
 Today, we will look into how I migrated the SEO features of my previous GatsbyJS/React blog stack to Sapper/Svelte.
 As you'll see, like a lot of feature, it was really easy and straightforward to do, and made me better understand what was the purpose of this feature, and how to make it work; better than just using a plugin.
@@ -35,7 +35,7 @@ That's the current extent of my SEO knowledge, which is a fulltime job in itself
 
 Last time I tried this Google Search: https://www.google.com/search?q=sapper+svelte+david+lacourt, I got this:
 
-![example Google Result](example-google-result.png)
+![example Google Result](/example-google-result.png)
 
 As you see,
 
@@ -69,7 +69,7 @@ See http://ogp.me/
 
 Here is a sample rendering in a Facebook preview:
 
-![facebook integration](ogp-facebook-preview.png)
+![facebook integration](/ogp-facebook-preview.png)
 
 Again, a title, the name of the originating website, a description.
 
