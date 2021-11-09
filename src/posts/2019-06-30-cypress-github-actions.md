@@ -40,7 +40,7 @@ If you want more basic details about the GitHub Actions Workflow, take a look at
 
 Of course, since then, the workflow has evolved, and now it looks like this:
 
-![Workflow visual overview with Cypress.io E2E testing](WorkflowVisualOverviewWithCypressE2E.png)
+![Workflow visual overview with Cypress.io E2E testing](/WorkflowVisualOverviewWithCypressE2E.png)
 
 Here are the `main.workflow` file contents:
 
@@ -99,9 +99,9 @@ Compared to [GitHub Pages](https://pages.github.com/), I prefer [Netlify](https:
 
 So I merely added this action:
 
-![Cypress E2E step editing](CypressE2EStepEditing.png)
+![Cypress E2E step editing](/CypressE2EStepEditing.png)
 
-![Cypress GitHub Action Configuration](CypressGitHubActionConfig.png)
+![Cypress GitHub Action Configuration](/CypressGitHubActionConfig.png)
 
 Frankly, I'm a command line guy, this time I just edited the `main.workflow` file to add text to it. Okay, it did not work out so well, as I had to `git commit --amend` and `push --force` to make it work because I had forgotten to had the step name in the `resolves` array.
 
@@ -137,13 +137,13 @@ I think you deserve an explanation because I might have said it too quickly.
 
 The real gist of the tests as reported in the cypress logs took 42 seconds in this latest sample:
 
-![Did Cypress run in 3 minutes or 42 seconds?](cypress-run-3min-or-42seconds.png)
+![Did Cypress run in 3 minutes or 42 seconds?](/cypress-run-3min-or-42seconds.png)
 
 And we also see that the step took all in all 3 minutes and 13 seconds to complete.
 
 This is confirmed in the GitHub Action UI:
 
-![Cypress E2E Test step took 3 minutes](cypress-github-action-3min.png)
+![Cypress E2E Test step took 3 minutes](/cypress-github-action-3min.png)
 
 Here is some details on the time spent:
 

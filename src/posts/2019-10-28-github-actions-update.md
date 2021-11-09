@@ -109,19 +109,19 @@ I just pushed this on a Pull Request.
 
 Wow, nice, now there are checks in the Pull Request:
 
-![checks in the Pull Request](ghactions-update-pr-checks.jpg)
+![checks in the Pull Request](/ghactions-update-pr-checks.jpg)
 
 And you can see in a dedicated *Checks* tab:
 
-![Checks tab](ghactions-update-checks-tab.jpg)
+![Checks tab](/ghactions-update-checks-tab.jpg)
 
 Now, it is running...
 
-![Cypress tests running](ghactions-update-cyrunning.jpg)
+![Cypress tests running](/ghactions-update-cyrunning.jpg)
 
 And, luckily, everything went green! No more need for a dedicated Cypress action, it works out of the box!
 
-![Cypress tests green](ghactions-update-cyrunok.jpg)
+![Cypress tests green](/ghactions-update-cyrunok.jpg)
 
 ## Conclusion
 

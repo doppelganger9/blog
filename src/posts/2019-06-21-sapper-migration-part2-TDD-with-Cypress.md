@@ -270,19 +270,19 @@ Here are what you can see when you run the `cypress open commands`, which will h
 
 You start with all your tests in a list:
 
-![Cypress all the tests](cypress-tests.png)
+![Cypress all the tests](/cypress-tests.png)
 
 You can run a test collection and see them unfold to the right pane:
 
-![Cypress test details](cypress-test-detail.png)
+![Cypress test details](/cypress-test-detail.png)
 
 You can check each instructions' effects on the browser, going back each step to visually see what happened:
 
-![Cypress test step details](cypress-test-step-detail.png)
+![Cypress test step details](/cypress-test-step-detail.png)
 
 Using it to test CSS selectors for your `cy.get('...')` instructions:
 
-![Cypress CSS Selector](cypress-selector.png)
+![Cypress CSS Selector](/cypress-selector.png)
 
 ## Conclusion
 

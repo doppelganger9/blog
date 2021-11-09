@@ -22,7 +22,7 @@
 <Favicons/>
 
 <main>
-  <slot></slot>
+  <slot />
 </main>
 
 <Footer />

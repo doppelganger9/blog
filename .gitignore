@@ -4,5 +4,6 @@ yarn-error.log
 /cypress/screenshots/
 /cypress/videos/
 /__sapper__/
+/.svelte-kit/
 /.nyc_output/
 /coverage/

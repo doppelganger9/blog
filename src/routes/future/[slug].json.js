@@ -5,24 +5,30 @@ getPosts().filter(p => p.slug.indexOf('future/') >= 0).forEach(post => {
   lookup.set(post.slug.split('future/')[1], JSON.stringify(post));
 });
 
-export function get(req, res, next) {
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({ params }) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
-  const { slug } = req.params;
-
+  const { slug } = params;
   if (lookup.has(slug)) {
-    res.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(lookup.get(slug));
+    return {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: lookup.get(slug)
+    };
   } else {
-    res.writeHead(404, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(JSON.stringify({
-      message: `Not found`
-    }));
+    return {
+      status: 404,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          message: `Not found`
+        })
+    };
   }
 }

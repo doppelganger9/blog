@@ -43,11 +43,11 @@ Also the [GitHub Actions documentation](https://developer.github.com/actions/).
 
 Now let's take a tour of what I've done so far.
 
-In the [Github Repository for this blog](https://github.com/doppelganger9/blog), click on the Actions Tab : ![Actions Tab](./ActionsTab.png)
+In the [Github Repository for this blog](https://github.com/doppelganger9/blog), click on the Actions Tab : ![Actions Tab](/ActionsTab.png)
 
 You will see the `main.workflow` file beautifully rendered as a graph presenting the initial trigger, each step, and how they are linked, their name, and the execution status:
 
-![Main Workflow Running](./MainWorkflowRunning.png)
+![Main Workflow Running](/MainWorkflowRunning.png)
 
 This is the raw file in all its textual splendor (not YAML or JSON, more like Terraform):
 
@@ -103,29 +103,29 @@ For our workflow, the trigger is set on every `Push`.
 It means that when I run a `git push origin master` from my local computer, it will register the Workflow for execution.
 
 You can actually verify this with a little orange dot on the pushed commit:
-![Commit Orange Dot](./CommitOrangeDot.png)
+![Commit Orange Dot](/CommitOrangeDot.png)
 
 Kind of a hidden UI (*such secret! very hidden! wow details!*), clicking on the dot will open a popover with some details regarding the step currently running or waiting for execution:
-![Commit Action Running Popover](./CommitActionRunningPopover.png)
+![Commit Action Running Popover](/CommitActionRunningPopover.png)
 
 Clicking on **details** it will send you to a dedicated page where you can gather more information and logs about a particular step execution in the workflow.
 
 > For example, this looks bad as my previous execution of the workflow was red, which means, **FAILED**.
-![Workflow Running History](./WorkflowRunningHistory.png)
+![Workflow Running History](/WorkflowRunningHistory.png)
 
 Looking at the failed workflow execution:
 
-![Detail Action Failed](./DetailActionFailed.png)
+![Detail Action Failed](/DetailActionFailed.png)
 
 Scrolling down, we can see the failing step:
 
-![Visual Step Failed](./VisualStepFailed.png)
+![Visual Step Failed](/VisualStepFailed.png)
 
 Clicking on the **log** link will give us the complete docker image execution logs.
 
 On the left side, there is a panel with a list of steps:
 
-![Actions Failed](./ActionsFailed.png)
+![Actions Failed](/ActionsFailed.png)
 
 Almost SUCCEEDED...
 
@@ -171,11 +171,11 @@ GIT_COMMITTER_DATE is used for the timestamp in the “committer” field.
 So let's edit from Github the main.workflow:
 "Actions" tab, click on "View main.workflow", click the little pen 🖊 to edit the file (you must be on a branch), scroll down and click "edit" on the step you wish to modify.
 
-![Action Step Edit](./ActionStepEdit.png)
+![Action Step Edit](/ActionStepEdit.png)
 
 You will see this panel:
 
-![Action Modification Panel](./ActionModificationPanel.png)
+![Action Modification Panel](/ActionModificationPanel.png)
 
 Click "create a new environment variable" and add the git ones listed above.
 

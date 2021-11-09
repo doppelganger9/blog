@@ -36,7 +36,7 @@ Gatsby comes with a lot of starter templates provided by the core team and the c
 To start this blog I chose the first Starter I found on [the official marketplace](https://www.gatsbyjs.org/starters/?v=2).
 It being the [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/).
 
-![Doge](doge.jpg)
+![Doge](/doge.jpg)
 
 It's the Open Source dream! You get huge quantities of free shared stuff, and you just have to assemble and customize it to make it your own. You can still study all the code and engage in diverse ways to improve it for others who will, in turn, reap the benefits.
 
