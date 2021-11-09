@@ -2,8 +2,7 @@
   "baseUrl": "http://localhost:3000",
   "video": false,
   "env": {
-    "BLOG_JAMSTACK": "sapper",
-    "coverage": true
+    "BLOG_JAMSTACK": "sapper"
   },
   "chromeWebSecurity": false
 }
