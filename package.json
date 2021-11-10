@@ -29,6 +29,7 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
     "serve": "npx http-server TODOOOO-quel-repertoire",
     "start": "node build",
     "cy:run": "cypress run",
