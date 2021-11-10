@@ -25,25 +25,30 @@ const renderXmlRssFeed = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 </channel>
 </rss>`;
 
-export function get(req, res) {
-
-  res.writeHead(200, {
-    'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
-    'Content-Type': 'application/rss+xml'
-  });
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({params}) {
 
   const posts = getPosts()
-    .filter(it => it.metadata.published == 'true')
-    .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
-    .map(post => {
-      return {
-        title: post.metadata.title,
-        date: post.metadata.date,
-        description: post.metadata.description,
-        slug: post.slug,
-      };
-    });
+  .filter(it => it.metadata.published == 'true')
+  .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
+  .map(post => {
+    return {
+      title: post.metadata.title,
+      date: post.metadata.date,
+      description: post.metadata.description,
+      slug: post.slug,
+    };
+  });
   const feed = renderXmlRssFeed(posts);
-  res.end(feed);
 
+  return {
+    status: 200,
+    headers: {
+      'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
+      'Content-Type': 'application/rss+xml'
+    },
+    body: feed
+  }
 }
