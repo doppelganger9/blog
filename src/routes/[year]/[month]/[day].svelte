@@ -19,7 +19,7 @@ export async function load({ page, fetch, session, stuff }) {
   } 
   return {
     status: res.status,
-    error: new Error(`could not load ${url}`)
+    error: new Error(`No data found for post date ${params.year}/${params.month}/${params.day}`)
   }
 }
 </script>

@@ -12,7 +12,7 @@ describe(`The 404 page`, () => {
   });
 
   it(`should show up for unknown URLs`, () => {
-    cy.get('h1').contains(/Not Found/i)
+    cy.get('h1').contains(/404/i)
   });
 
   it(`should show have a TUMBLR TARDIS lost in space GIF`, () => {
