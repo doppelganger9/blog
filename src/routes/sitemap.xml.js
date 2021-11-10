@@ -12,17 +12,22 @@ ${contextPaths.map(path => `
 `).join('\n')}
 </urlset>`;
 
-export function get(req, res) {
-
-  res.writeHead(200, {
-    'Cache-Control': `public, max-age=0, must-revalidate`,
-    'Content-Type': 'application/xml'
-  });
-
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({ params }) {
   const posts = getPosts()
     .filter(it => it.metadata.published == 'true')
     .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
     .map(post => post.slug);
   const feed = renderSitemapXml([...posts, 'privacy-policy', '']);
-  res.end(feed);
+
+  return {
+    status: 200,
+    headers: {
+      'Cache-Control': `public, max-age=0, must-revalidate`,
+      'Content-Type': 'application/xml'
+    },
+    body: feed
+  }
 }

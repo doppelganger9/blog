@@ -12,13 +12,18 @@ const renderBrowserConfigXML = () => `<?xml version="1.0" encoding="utf-8"?>
   </msapplication>
 </browserconfig>`;
 
-export function get(req, res) {
-
-  res.writeHead(200, {
-    'Cache-Control': `public, max-age=0, must-revalidate`,
-    'Content-Type': 'application/xml'
-  });
-
+/**
+ * @type {import('@sveltejs/kit').RequestHandler}
+ */
+export function get({ params }) {
   const browserConfigXMLContents = renderBrowserConfigXML();
-  res.end(browserConfigXMLContents);
+
+  return {
+    status: 200,
+    headers: {
+      'Cache-Control': `public, max-age=0, must-revalidate`,
+      'Content-Type': 'application/xml'
+    },
+    body: browserConfigXMLContents
+  }
 }
