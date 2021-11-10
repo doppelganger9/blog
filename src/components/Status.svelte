@@ -10,7 +10,9 @@
     '8': { text:'seems down', class:'seems_down'},
     '9': { text:'down', class:'down'},
     '404': { text:'api-404', class:'api-404'},
+    '429': { text:'api-429', class:'api-429'},
     '500': { text:'api-500', class:'api-500'},
+    'err': { text:'api-500', class:'api-500'},
   };
 
   const API_KEY = 'm782954097-5449c0939742ace6ade5d999';
@@ -32,11 +34,16 @@
           $status = ''+json.monitors[0].status;
         });
       } else {
-        $status = ''+response.status;
+        if (response.status === 404 || response.status === 500 || response.status === 429) {
+          $status = ''+response.status;
+        } else {
+          console.error(`unknown status : ${response.status}`);
+          $status = 'err';
+        }
       }
     }).catch(err => {
       console.error(err);
-      $status = '-1';
+      $status = 'err';
     });
   });
 </script>
@@ -67,6 +74,10 @@ a.status.down::after {
 
 a.status.api-404::after {
   content:': 🕵️‍♂️'
+}
+
+a.status.api-429::after {
+  content:': 🔫'
 }
 
 a.status.api-500::after {
