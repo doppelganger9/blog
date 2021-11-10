@@ -17,14 +17,12 @@
 <svelte:head>
 	<title>{status}</title>
 </svelte:head>
-
 <Favicons/>
 <TitleBar level="h3" />
 
 <div class="col-md-9">
 	<h1>{status}</h1>
-
-	<p>{error.message}</p>
+	<h2>{error.message}</h2>
 
   {#if status == 404}
   <img
@@ -39,8 +37,7 @@
 </div>
 
 <style>
-	h1,
-	p {
+	h1 {
 		margin: 0 auto;
 	}
 
@@ -48,10 +45,6 @@
 		font-size: 2.8em;
 		font-weight: 700;
 		margin: 0 0 0.5em 0;
-	}
-
-	p {
-		margin: 1em auto;
 	}
 
 	@media (min-width: 480px) {

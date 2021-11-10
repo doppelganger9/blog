@@ -15,7 +15,7 @@ export async function load({ page, fetch, session, stuff }) {
 
   return {
     status: res.status,
-    error: new Error(`could not load posts`)
+    error: new Error(`No data found for posts`)
   }
 }
 </script>

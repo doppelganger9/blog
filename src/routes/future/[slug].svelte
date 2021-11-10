@@ -19,7 +19,7 @@
 
   return {
     status: res.status,
-    error: new Error(`could not load ${url}`)
+    error: new Error(`No data found in the future at URL ${url}`)
   }
 }
 </script>
