@@ -10,8 +10,8 @@ let stack =
   } : {
     mainFrameworkURL: 'https://svelte.dev',
     mainFrameworkName: 'Svelte',
-    jamStackFrameworkName: 'Sapper',
-    jamStackFrameworkURL: 'https://sapper.svelte.dev',
+    jamStackFrameworkName: 'SvelteKit',
+    jamStackFrameworkURL: 'https://kit.svelte.dev',
     }
 export const mainFrameworkName = stack.mainFrameworkName;
 export const mainFrameworkURL = stack.mainFrameworkURL;

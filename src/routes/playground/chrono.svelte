@@ -8,7 +8,7 @@
   let frame;
 
   onMount(() => {
-    // window, cancelAnimationFrame are not defined when Sapper compiles & crawls from server-side node.
+    // window, cancelAnimationFrame are not defined when SvelteKit compiles & crawls from server-side node.
     last_time = window.performance.now();
 
     onDestroy(() => {

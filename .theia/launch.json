@@ -14,7 +14,7 @@
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "program": "${workspaceRoot}/node_modules/sapper/dist/bin/sapper",
+      "program": "${workspaceRoot}/node_modules/@sveltejs/kit/svelte-kit.js",
       "args": ["dev"],
       "stopOnEntry": false,
       "runtimeArgs": ["--nolazy"],
