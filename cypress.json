@@ -4,5 +4,6 @@
   "env": {
     "BLOG_JAMSTACK": "svelte-kit"
   },
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "pluginsFile": false
 }
