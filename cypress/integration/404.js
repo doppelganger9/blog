@@ -2,12 +2,12 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown } from '../common';
+import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown, force404 } from '../common';
 
 describe(`The 404 page`, () => {
 
   beforeEach(() => {
-    cy.server({force404: true}); // for the status indicator
+    force404(); // for the status indicator
     cy.visitWithLang('/404', 'en-US', { failOnStatusCode: false });
   });
 

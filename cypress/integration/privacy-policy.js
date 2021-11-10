@@ -2,11 +2,11 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-import { articleFooterShouldBeShown, builtByFooterShouldBeShown } from '../common.js';
+import { articleFooterShouldBeShown, builtByFooterShouldBeShown, force404 } from '../common.js';
 
 describe(`Privacy Policy page`, () => {
   beforeEach(() => {
-    cy.server({force404: true}); // for the status indicator
+    force404(); // for the status indicator
     cy.visitWithLang('/privacy-policy', 'en-US')
   })
 

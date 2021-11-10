@@ -2,11 +2,11 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-import { articleFooterShouldBeShown, builtByFooterShouldBeShown } from '../common';
+import { articleFooterShouldBeShown, builtByFooterShouldBeShown, force404 } from '../common';
 
 describe(`David's Blog app`, () => {
   beforeEach(() => {
-    cy.server({force404: true}); // for the status indicator
+    force404(); // for the status indicator
     cy.visitWithLang('/', 'en-US')
   });
 

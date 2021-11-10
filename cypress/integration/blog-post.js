@@ -2,12 +2,12 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-import { titleBarShouldBeShown, builtByFooterShouldBeShown, articleFooterShouldBeShown, aBackLinkShouldBeShownTo } from '../common';
+import { titleBarShouldBeShown, builtByFooterShouldBeShown, articleFooterShouldBeShown, aBackLinkShouldBeShownTo, force404 } from '../common';
 
 describe(`a blog post`, () => {
   
   it(`should show the title bar in h3`, () => {
-    cy.server({force404: true}); // for the status indicator
+    force404(); // for the status indicator
     cy.visitWithLang('/', 'en-US');
     cy.wait(100); // if we don't wait, SvelteKit hydration will not work propertly. Yeah, I know, I'd prefer not to.
     cy.get(`a > h3`).last().click();

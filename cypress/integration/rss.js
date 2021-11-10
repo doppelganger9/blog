@@ -2,10 +2,13 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
+
+import { force404 } from "../common";
+
 describe(`RSS feed endpoint`, () => {
 
   beforeEach(() => {
-    cy.server({force404: true}); // for the status indicator
+    force404(); // for the status indicator
     cy.request('/rss').as('rss');
   });
 
