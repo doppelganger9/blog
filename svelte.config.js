@@ -1,11 +1,11 @@
 /** @type {import('@sveltejs/kit').Config} */
-import netlify from '@sveltejs/adapter-netlify';
+import staticAdapter from '@sveltejs/adapter-static';
 
 // TODO : remettre le processing Istanbul instrumentation du code pour Cypress Code Coverage
 
 export default {
 	kit: {
-		adapter: netlify(),
+		adapter: staticAdapter(),
 		target: '#svelte'
 	}
 };
