@@ -7,3 +7,5 @@ yarn-error.log
 /.svelte-kit/
 /.nyc_output/
 /coverage/
+/build/
+/.netlify/
