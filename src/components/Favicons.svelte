@@ -5,7 +5,7 @@
  * - different devices/browsers requirements (iOS, etc.)
  * - it can be coupled to the routes/favicon-[size1]x[size2].[format].svelte to
  *    take a unique picture file in, and generate multiple files out with an
- *    endpoint using Sapper preload.
+ *    endpoint using SvelteKit pre-load.
  */
 
 </script>

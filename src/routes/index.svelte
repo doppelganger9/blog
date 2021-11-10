@@ -59,7 +59,7 @@ export async function load({ page, fetch, session, stuff }) {
   <title>{$i18n`title`}</title>
 
   <meta name="description" content="David Lacourt's Blog. Posts about web technology, modern JavaScript frameworks, Agile methodologies, Software Craftmanship." />
-  <meta name="keywords" content="sapper,saper,sappr,svelte,sevlte,svetle,blog,david,dave,lacourt,lacour,la cour,la court,developpeur,developer,daveloper,devloper,devlopr,gatsbyjs,gatsby,gatsbi,gastby"/>
+  <meta name="keywords" content="sveltekit,svletekit,svlete-kit,svelte-kit,sapper,saper,sappr,svelte,sevlte,svetle,blog,david,dave,lacourt,lacour,la cour,la court,developpeur,developer,daveloper,devloper,devlopr,gatsbyjs,gatsby,gatsbi,gastby"/>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -83,7 +83,7 @@ export async function load({ page, fetch, session, stuff }) {
 <ul data-cy="blog-posts-list">
   {#each posts as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
-        tell Sapper to load the data for the page as soon as
+        tell SvelteKit to load the data for the page as soon as
         the user hovers over the link or taps it, instead of
         waiting for the 'click' event -->
     <li data-cy="blog-posts-item">

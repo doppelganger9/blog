@@ -1,7 +1,7 @@
 {
   "name": "david-blog",
   "private": true,
-  "description": "David Lacourt's personal blog, powered by Svelte-kit and Markdown",
+  "description": "David Lacourt's personal blog, powered by SvelteKit and Markdown",
   "version": "3.0.0",
   "type": "module",
   "author": "David Lacourt <david.lacourt@gmail.com>",

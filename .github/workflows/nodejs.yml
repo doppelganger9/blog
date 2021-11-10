@@ -1,4 +1,4 @@
-name: Sapper Blog CI
+name: SvelteKit Blog CI
 
 on: [push]
 
