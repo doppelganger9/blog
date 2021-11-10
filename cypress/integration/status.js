@@ -69,11 +69,10 @@ describe(`The Status component`, () => {
   });
 
   function givenAPIReturnStatus(status) {
-    cy.server();
-    cy.route({
-      method: 'POST',
-      url: `https://api.uptimerobot.com/v2/getMonitors`,
-      response: {
+    cy.intercept(
+      'POST',
+      `https://api.uptimerobot.com/v2/getMonitors`,
+      {
         monitors: [
           {
             url: 'https://lacourt.dev',
@@ -82,17 +81,19 @@ describe(`The Status component`, () => {
           }
         ]
       }
-    }).as('mocked-uptime-getMonitors-API');
+    ).as('mocked-uptime-getMonitors-API');
   }
 
   function givenAPIReturnHTTPStatus(status, message = undefined) {
-    cy.server();
-    cy.route({
-      method: 'POST',
-      url: `https://api.uptimerobot.com/v2/getMonitors`,
-      status,
-      ...(message && { response: message})
-    }).as('mocked-uptime-getMonitors-API');
+    cy.intercept({
+        method: 'POST',
+        url: `https://api.uptimerobot.com/v2/getMonitors`,
+      },
+      {
+        statusCode: status,
+        ...(message && { message })
+      }
+    ).as('mocked-uptime-getMonitors-API');
   }
 
   function visitAndShouldShowWaiting() {

@@ -34,3 +34,16 @@ export function aBackLinkShouldBeShownTo(target = '/') {
 export function titleBarShouldBeShown(level = 'h1') {
   cy.get(level).should('contain', `David's Blog`)
 }
+
+// see https://glebbahmutov.com/blog/cypress-intercept-problems/#force404
+export function force404() {
+  // define "regular" intercept stubs, make sure they respond
+  // now let's stop all other Ajax application/json requests
+  cy.intercept({
+    headers: {
+      accept: 'application/json'
+    }
+  }, {
+    statusCode: 404
+  });
+}
