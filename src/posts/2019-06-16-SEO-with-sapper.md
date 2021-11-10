@@ -51,7 +51,7 @@ You can add meta tags to help Twitter create a card preview of a linked URL in a
 
 Here is an example:
 
-![sample twitter card](cooking-contest-twitter-card.jpg)
+![sample twitter card](/cooking-contest-twitter-card.jpg)
 
 As you see, there is a title, a description, an image, an origin website name.
 

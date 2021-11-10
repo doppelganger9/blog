@@ -23,7 +23,7 @@ Lately I've been spending some time trying Svelte.
 - It just is so *simple*.
 - The learning curve is low, 3 days later I was really efficient at creating components, stores, etc.
 - It does all its things at compiler time, so the runtime is really lightweight!
-- In a [previous post](/2019/06/12), I told you about this little <a href='https://github.com/doppelganger9/cooking-contest'>Cooking Contest</a> project to iterate on learning by creating something that might be useful.
+- In a [previous post](/2019/05/20), I told you about this little <a href='https://github.com/doppelganger9/cooking-contest'>Cooking Contest</a> project to iterate on learning by creating something that might be useful.
 - Animations are so easy! There will be [a future post about this](/future/svelte-animations)
 - Stores are so simple to use! I will [dedicate a future post about this](/future/svelte-stores).
 - I just 🧡 it!
@@ -87,7 +87,7 @@ I already [wrote an article about that](/2019/06/16).
 
 ### RSS Feed
 
-Also [wrote an article about that](/2019/06/24).
+Also [wrote an article about that](/2019/06/29).
 
 
 ### replacing gatsby-plugin-typography
