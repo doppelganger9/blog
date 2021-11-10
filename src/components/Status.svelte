@@ -34,7 +34,10 @@
       } else {
         $status = ''+response.status;
       }
-    }).catch(console.error);
+    }).catch(err => {
+      console.error(err);
+      $status = '-1';
+    });
   });
 </script>
 
