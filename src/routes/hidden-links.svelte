@@ -12,3 +12,4 @@
 <a href="/rss">RSS Feed</a><br/>
 <a href="/sitemap.xml">XML Sitemap</a><br/>
 <a href="/browserconfig.xml">browserconfig XML</a><br/>
+<a href="/404.html">404</a>
