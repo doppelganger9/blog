@@ -1,13 +1,25 @@
 /** @type {import('@sveltejs/kit').Config} */
 import staticAdapter from '@sveltejs/adapter-static';
-
-// TODO : remettre le processing Istanbul instrumentation du code pour Cypress Code Coverage
+import istanbulPlugin from 'vite-plugin-istanbul';
+import { defineConfig } from 'vite';
 
 export default {
 	kit: {
 		adapter: staticAdapter(),
-		target: '#svelte'
-	}
+		target: '#svelte',
+		vite: defineConfig({
+			plugins: [ 
+				istanbulPlugin({
+					include: 'src/*',
+					extension: [ '.js', '.svelte' ],
+					requireEnv: true,
+					cypress: true,
+          // NOTE: last 2 options mean if you do not run with CYPRESS_COVERAGE=true 
+          // as an env var, no instrumentation will occur
+				}),
+			],
+		}),
+	},
 };
 
 // const config = {

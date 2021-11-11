@@ -5,5 +5,5 @@
     "BLOG_JAMSTACK": "svelte-kit"
   },
   "chromeWebSecurity": false,
-  "pluginsFile": false
+  "pluginsFile": "cypress/plugins/index.cjs"
 }

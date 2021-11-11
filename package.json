@@ -28,6 +28,7 @@
   },
   "scripts": {
     "dev": "svelte-kit dev",
+    "dev-with-instrumentation-for-coverage": "CYPRESS_COVERAGE=true svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "serve": "npx http-server TODOOOO-quel-repertoire",
@@ -35,10 +36,11 @@
     "cy:run": "cypress run",
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
-    "test": "start-server-and-test dev 3000 cy:run",
+    "test": "start-server-and-test dev-with-instrumentation-for-coverage 3000 cy:run",
     "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "3.9.11",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "cypress": "9.0.0",
@@ -46,6 +48,20 @@
     "marked": "4.0.1",
     "rxjs": "7.4.0",
     "start-server-and-test": "1.14.0",
-    "svelte": "3.44.1"
+    "svelte": "3.44.1",
+    "vite-plugin-istanbul": "2.2.2"
+  },
+  "nyc": {
+    "cache": false,
+    "all": true,
+    "include": [
+      "src/**/*.js",
+      "src/**/*.svelte"
+    ],
+    "exclude": [
+      "coverage/**",
+      "build/**",
+      "cypress/**"
+    ]
   }
 }

@@ -19,5 +19,4 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-// TODO put it back after migration to SvelteKit is ok
-//import '@cypress/code-coverage/support'
+import '@cypress/code-coverage/support'
