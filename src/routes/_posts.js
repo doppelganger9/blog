@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import marked from 'marked';
+import { marked } from 'marked';
 import { computeMinutesToRead } from './_minutesToRead.js';
 import { siteUrl } from '../stores/_config.js';
 
