@@ -45,7 +45,7 @@
     "elizabot": "0.0.3",
     "marked": "4.0.1",
     "rxjs": "7.0.1",
-    "start-server-and-test": "1.12.5",
+    "start-server-and-test": "1.14.0",
     "svelte": "3.44.1"
   }
 }
