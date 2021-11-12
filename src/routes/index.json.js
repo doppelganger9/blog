@@ -1,4 +1,4 @@
-import { getPosts } from './_posts.js';
+import { getPosts } from '$lib/posts.js';
 
 const contents = JSON.stringify(getPosts()
   .filter(it => it.metadata.published == 'true')

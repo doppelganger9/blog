@@ -5,7 +5,7 @@ const a = 'toto';
 
 <script>
 import { onMount } from 'svelte';
-import TitleBar from '../../components/TitleBar.svelte';
+import TitleBar from '$lib/components/TitleBar.svelte';
 let b = a;
 
 onMount(() => console.log('log from inside onMount.'));

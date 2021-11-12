@@ -21,39 +21,13 @@ export async function load({ page, fetch, session, stuff }) {
 </script>
 
 <script>
-  import TitleBar from '../components/TitleBar.svelte';
-  import ArticleFooter from '../components/ArticleFooter.svelte';
-  import { i18n } from '../stores/_i18n.js';
-  import { siteUrl } from '../stores/_config.js';
+  import TitleBar from '$lib/components/TitleBar.svelte';
+  import ArticleFooter from '$lib/components/ArticleFooter.svelte';
+  import { i18n } from '$lib/stores/i18n.js';
+  import { siteUrl } from '$lib/stores/config.js';
 
   export let posts;
 </script>
-
-<style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
-  }
-  h3 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #ff5e00;
-    font-size: 18pt;
-    margin: 0 0 .3em 0;
-  }
-  div.subtitle {
-    font-size: 9pt;
-    margin-bottom: 1em;
-    display: block;
-  }
-  li p {
-    font-size: 12pt;
-  }
-  li a {
-    box-shadow: none;
-    text-decoration: none;
-    color: inherit;
-  }
-</style>
 
 <svelte:head>
   <title>{$i18n`title`}</title>
@@ -95,3 +69,29 @@ export async function load({ page, fetch, session, stuff }) {
     </li>
   {/each}
 </ul>
+
+<style>
+  ul {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+  }
+  h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #ff5e00;
+    font-size: 18pt;
+    margin: 0 0 .3em 0;
+  }
+  div.subtitle {
+    font-size: 9pt;
+    margin-bottom: 1em;
+    display: block;
+  }
+  li p {
+    font-size: 12pt;
+  }
+  li a {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>

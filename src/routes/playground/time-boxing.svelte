@@ -1,8 +1,8 @@
 <script>
-  import { Speech } from './speech.js';
-  import { Timer } from './chrono.js';
   import { tick, onMount, onDestroy } from 'svelte';
-  import FallingEmojis from '../../components/FallingEmojis.svelte';
+  import { Speech } from '$lib/speech.js';
+  import { Timer } from '$lib/chrono.js';
+  import FallingEmojis from '$lib/components/FallingEmojis.svelte';
 
   let speech;
   let timer;

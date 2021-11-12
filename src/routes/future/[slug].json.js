@@ -1,4 +1,4 @@
-import { getPosts } from '../_posts.js';
+import { getPosts } from '$lib/posts.js';
 
 const lookup = new Map();
 getPosts().filter(p => p.slug.indexOf('future/') >= 0).forEach(post => {

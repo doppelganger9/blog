@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
-import { computeMinutesToRead } from './_minutesToRead.js';
-import { siteUrl } from '../stores/_config.js';
+import { computeMinutesToRead } from './minutesToRead.js'
+import { siteUrl } from './stores/config.js';
 
 const WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE = './src/posts';
 
-export function getPosts () {
+export function getPosts() {
   const slugs = fs.readdirSync(WHERE_ALL_THE_MARKDOWN_BLOG_POSTS_ARE)
     .filter(file => path.extname(file) === '.md')
     .map(file => file.slice(0, -3));
