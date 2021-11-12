@@ -1,4 +1,4 @@
-import { getPosts } from '$lib/posts.js';
+import { getPublishedPosts } from '$lib/posts.js';
 import { siteUrl } from '$lib/stores/config.js';
 
 const renderSitemapXml = (contextPaths) => `<?xml version="1.0" encoding="UTF-8"?>
@@ -16,10 +16,7 @@ ${contextPaths.map(path => `
  * @type {import('@sveltejs/kit').RequestHandler}
  */
 export function get({ params }) {
-  const posts = getPosts()
-    .filter(it => it.metadata.published == 'true')
-    .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
-    .map(post => post.slug);
+  const posts = getPublishedPosts().map(post => post.slug);
   const feed = renderSitemapXml([...posts, 'privacy-policy', '']);
 
   return {
