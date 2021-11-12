@@ -1,6 +1,6 @@
 <script>
-  import { i18n } from '../stores/_i18n.js';
-  import Status from '../components/Status.svelte';
+  import { i18n } from '$lib/stores/i18n.js';
+  import Status from '$lib/components/Status.svelte';
 </script>
 
 <style>

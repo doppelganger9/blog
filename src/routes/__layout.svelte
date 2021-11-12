@@ -1,6 +1,6 @@
 <script>
-  import Footer from '../components/Footer.svelte';
-  import Favicons from '../components/Favicons.svelte';
+  import Footer from '$lib/components/Footer.svelte';
+  import Favicons from '$lib/components/Favicons.svelte';
 </script>
 
 <style>

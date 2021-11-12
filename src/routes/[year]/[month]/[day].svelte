@@ -25,7 +25,7 @@ export async function load({ page, fetch, session, stuff }) {
 </script>
 
 <script>
-  import Post from '../../../components/Post.svelte';
+  import Post from '$lib/components/Post.svelte';
 
   export let post;
 </script>

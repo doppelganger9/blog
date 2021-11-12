@@ -1,4 +1,4 @@
-import { getPosts } from '../../_posts.js';
+import { getPosts } from '$lib/posts.js';
 
 const regexp = /(\d){4}\/(\d){2}\/(\d){2}/;
 

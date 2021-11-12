@@ -1,6 +1,6 @@
 <script>
-  import Lang from './Lang.svelte';
-  import { i18n } from '../stores/_i18n.js';
+  import Lang from '$lib/components/Lang.svelte';
+  import { i18n } from '$lib/stores/i18n.js';
 </script>
 <style>
   img {

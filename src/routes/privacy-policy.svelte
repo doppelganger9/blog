@@ -1,7 +1,7 @@
 <script>
-  import TitleBar from '../components/TitleBar.svelte';
-  import ArticleFooter from '../components/ArticleFooter.svelte';
-  import Separator from '../components/Separator.svelte';
+  import TitleBar from '$lib/components/TitleBar.svelte';
+  import ArticleFooter from '$lib/components/ArticleFooter.svelte';
+  import Separator from '$lib/components/Separator.svelte';
 </script>
 
 <style>

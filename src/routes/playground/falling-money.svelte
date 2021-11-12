@@ -1,5 +1,5 @@
 <script>
-	import FallingEmojis from '../../components/FallingEmojis.svelte';
+	import FallingEmojis from '$lib/components/FallingEmojis.svelte';
 
 	export let characters = ['💎', '💵', '💶', '💰', '💷', '💴'];
 	export let numberOfFallingItems = 50;

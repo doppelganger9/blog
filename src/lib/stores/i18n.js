@@ -5,7 +5,7 @@ import { writable } from 'svelte/store';
  * How to use:
  *
  * In your component's <script> part:
- *     import { i18n } from '../stores/i18n.js';
+ *     import { i18n } from '$lib/stores/i18n.js';
  *
  * i18n is an ES6 template literals function.
  *

@@ -1,9 +1,9 @@
 <script>
-  import TitleBar from './TitleBar.svelte';
-  import Separator from './Separator.svelte';
-  import ArticleFooter from './ArticleFooter.svelte';
+  import TitleBar from '$lib/components/TitleBar.svelte';
+  import Separator from '$lib/components/Separator.svelte';
+  import ArticleFooter from '$lib/components/ArticleFooter.svelte';
 
-  import { siteUrl } from '../stores/_config.js';
+  import { siteUrl } from '$lib/stores/config.js';
 
   export let post;
 </script>

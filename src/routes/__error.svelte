@@ -7,8 +7,8 @@
 </script>
 
 <script>
-  import TitleBar from '../components/TitleBar.svelte';
-  import Favicons from '../components/Favicons.svelte';
+  import TitleBar from '$lib/components/TitleBar.svelte';
+  import Favicons from '$lib/components/Favicons.svelte';
 	import { dev } from '$app/env';
 
 	export let error, status;

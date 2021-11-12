@@ -1,5 +1,5 @@
 <script>
-  import { i18n } from '../stores/_i18n.js';
+  import { i18n } from '$lib/stores/i18n.js';
 
   export let level = 'h1';
 </script>

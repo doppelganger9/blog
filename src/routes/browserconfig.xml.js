@@ -1,4 +1,4 @@
-import { siteUrl } from '../stores/_config.js';
+import { siteUrl } from '$lib/stores/config.js';
 
 const renderBrowserConfigXML = () => `<?xml version="1.0" encoding="utf-8"?>
 <browserconfig>

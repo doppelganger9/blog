@@ -1,5 +1,5 @@
 <script>
-  import { switchLang, lang } from '../stores/_i18n.js';
+  import { switchLang, lang } from '$lib/stores/i18n.js';
   import { onMount } from 'svelte';
 
   onMount(() => {
