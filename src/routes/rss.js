@@ -1,4 +1,4 @@
-import { getPosts } from '$lib/posts.js';
+import { getPublishedPosts } from '$lib/posts.js';
 import { siteUrl } from '$lib/stores/config.js';
 
 const renderXmlRssFeed = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
@@ -30,10 +30,7 @@ const renderXmlRssFeed = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
  */
 export function get({params}) {
 
-  const posts = getPosts()
-  .filter(it => it.metadata.published == 'true')
-  .filter(p => p.slug.indexOf('future/') < 0 && p.slug.indexOf('alternate-reality/') < 0)
-  .map(post => {
+  const posts = getPublishedPosts().map(post => {
     return {
       title: post.metadata.title,
       date: post.metadata.date,

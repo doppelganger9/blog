@@ -1,13 +1,4 @@
-import { getPosts } from '$lib/posts.js';
-
-const regexp = /(\d){4}\/(\d){2}\/(\d){2}/;
-
-const lookup = new Map();
-getPosts()
-  .filter(p => regexp.test(p.slug))
-  .forEach(post => {
-    lookup.set(post.slug, JSON.stringify(post));
-  });
+import { getPostForDateSlug } from '$lib/posts.js';
 
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
@@ -18,13 +9,15 @@ export function get({ params }) {
   const { year, month, day } = params;
   const slug = `${year}/${month}/${day}`;
 
-  if (lookup.has(slug)) {
+  const post = getPostForDateSlug(slug);
+
+  if (post) {
     return {
       status: 200,
       headers: {
         'Content-Type': 'application/json'
       },
-      body: lookup.get(slug)
+      body: JSON.stringify(post)
     };
   } else {
     return {
