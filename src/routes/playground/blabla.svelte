@@ -53,8 +53,8 @@
 <h1>🤖 Web Speech Synthesis</h1>
 <p>The current <code>navigator.lang</code> is <code>{lang}</code></p>
 {#if langs}
-  <p><label>You can select the lang (it defaults to {lang}) from <code>global.speechSynthesis.getVoices()</code>:</label>
-  <select bind:value={selectedLang} on:blur={populateVoiceList}>
+  <p><label for="select-lang">You can select the lang (it defaults to {lang}) from <code>global.speechSynthesis.getVoices()</code>:</label>
+  <select name="select-lang" bind:value={selectedLang} on:blur={populateVoiceList}>
     {#each langs as lang}
     <option label="{lang}" value="{lang}"/>
     {/each}
@@ -63,8 +63,8 @@
   <p>Searching for langs...</p>
 {/if}
 {#if voiceOptions}
-  <p><label>For this lang, you can select a voice:</label>
-  <select bind:value={selectedVoice}>
+  <p><label for="select-voice">For this lang, you can select a voice:</label>
+  <select name="select-voice" bind:value={selectedVoice}>
     {#each voiceOptions as voice}
     <option label="{voice.textContent}" value="{voice.value}"/>
     {/each}
