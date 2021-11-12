@@ -31,7 +31,7 @@
   }
 </style>
 
-<h1>The total cost of ownership of a developer's computer</h1>
+<h1>The total cost of ownership of a developer's computer (2017 rant from previous job)</h1>
 <h2>
   showing 💰 figures to explain why we want better laptops, not fricking VDIs.
 </h2>
@@ -50,10 +50,10 @@
 <p>  Your annual salary is <input class="w-l" type="number" bind:value={$annualSalary}/>€.</p>
 <p>  You work <input class="w-m" type="number" bind:value={$nbDaysWorkAYear}/> days each Year.</p>
 <p>  So you cost <b>{''+(costPerDay/3).toFixed(2)}</b>€/day. Wait, you really cost your employer 3 times that, <b>{''+(costPerDay).toFixed(2)}</b>€/day.</p>
-<p>  A day is <input class="w-xs" type="number" bind:value={$nbHoursADay}/>hours.</p>
+<p>  A day is <input class="w-xs" type="number" bind:value={$nbHoursADay}/>hours. (Okay, it does not matter in our formula)</p>
 <p>  So {$timeWaiting} minutes a day represents {''+(costPerTimeWaiting).toFixed(2)}€/day.</p>
-<p>  This is {costPerTimeWaiting * $nbDaysWorkAYear} for a year.</p>
-<p>  So how {moneyWastedWaitingPerYear} (money lost while waiting) compares to {$computerCost} (money that could be invested in a decent laptop)? </p>
+<p>  This is {costPerTimeWaiting * $nbDaysWorkAYear}€ for a year.</p>
+<p>  So how {moneyWastedWaitingPerYear}€ (money lost while waiting) compares to {$computerCost}€ (money that could be invested in a decent laptop)? </p>
 <p>  Let's say a good developer laptop costs the company <input class="w-m" type="number" bind:value={$computerCost}/>€. 
   This cost should be 'amorti' on 3 years, so really, expect a new computer every 3 years ({($computerCost / 3).toFixed(2)}€/year)</p>
 <p>
