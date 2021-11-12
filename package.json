@@ -45,7 +45,7 @@
     "@sveltejs/kit": "next",
     "cypress": "9.0.0",
     "elizabot": "0.0.3",
-    "marked": "4.0.1",
+    "marked": "4.0.2",
     "rxjs": "7.4.0",
     "start-server-and-test": "1.14.0",
     "svelte": "3.44.1",
