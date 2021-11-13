@@ -2,30 +2,15 @@
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-  export async function load({ page, fetch, session, stuff }) {
-  // the `slug` parameter is available because
-  // this file is called [slug].html
+  export function load({ page }) {
   const { params } = page;
-  const url = `/future/${params.slug}.json`;
-  const res = await fetch(url);
-
-  if (res.ok) {
-    return { 
-      props: {
-        post: await res.json() 
-      }
-    };
-  }
-
-  return {
-    status: res.status,
-    error: new Error(`No data found in the future at URL ${url}`)
-  }
+  return loadPostForSlug(`future/${params.slug}`);
 }
 </script>
 
 <script>
   import Post from '$lib/components/Post.svelte';
+  import { loadPostForSlug } from '$lib/posts';
 
   export let post;
 </script>

@@ -2,21 +2,23 @@
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-export async function load({ page, fetch, session, stuff }) {
-  const res = await fetch(`/index.json`);
-  
-  if (res.ok) {
+export function load({ page, fetch, session, stuff }) {
+  // this appears during build and in the browser while `npx http-server build`
+  const publishedPosts = getPublishedPosts();
+  const contents = publishedPosts.map(post => {
     return {
-      props: {
-        posts: await res.json()
-      }
+      title: post.metadata.title,
+      date: post.metadata.dateString,
+      description: post.metadata.description,
+      slug: post.slug,
+      minutesToRead: post.minutesToRead,
     };
-  }
-
+  });
   return {
-    status: res.status,
-    error: new Error(`No data found for posts`)
-  }
+    props: {
+      posts: contents
+    }
+  };
 }
 </script>
 
@@ -25,6 +27,7 @@ export async function load({ page, fetch, session, stuff }) {
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
   import { i18n } from '$lib/stores/i18n.js';
   import { siteUrl } from '$lib/stores/config.js';
+  import { getPublishedPosts } from '$lib/posts';
 
   export let posts;
 </script>
@@ -63,7 +66,7 @@ export async function load({ page, fetch, session, stuff }) {
     <li data-cy="blog-posts-item">
       <a rel='prefetch' href='{post.slug}'>
         <h3>{post.title}</h3>
-        <div class='subtitle'><date>{post.date}</date> - {post.minutesToRead}<br/></div>
+        <div class='subtitle'><date>{post.date}</date>{#if post.minutesToRead} - {post.minutesToRead}{/if}<br/></div>
         <p>{post.description}</p>
       </a>
     </li>

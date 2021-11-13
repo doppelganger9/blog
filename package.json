@@ -29,14 +29,15 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "dev-with-instrumentation-for-coverage": "CYPRESS_COVERAGE=true svelte-kit dev",
+    "preview-with-instrumentation-for-coverage": "CYPRESS_COVERAGE=true svelte-kit preview",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
-    "serve": "npx http-server TODOOOO-quel-repertoire",
+    "serve": "npx http-server build",
     "start": "node build",
     "cy:run": "cypress run",
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
-    "test": "start-server-and-test dev-with-instrumentation-for-coverage 3000 cy:run",
+    "test": "start-server-and-test preview-with-instrumentation-for-coverage 3000 cy:run",
     "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage"
   },
   "devDependencies": {

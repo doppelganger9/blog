@@ -21,6 +21,7 @@ const config = {
 					include: 'src/*',
 					extension: [ '.js', '.svelte' ],
 					requireEnv: true,
+					checkProd: false, // only check CYPRESS_COVERAGE
 					cypress: true,
           // NOTE: last 2 options mean if you do not run with CYPRESS_COVERAGE=true 
           // as an env var, no instrumentation will occur
