@@ -2,30 +2,15 @@
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-export async function load({ page, fetch, session, stuff }) {
-  // the `slug` parameter is available because
-  // this file is called [day].html
+export function load({ page }) {
   const { params } = page;
-  const url = `/${params.year}/${params.month}/${params.day}.json`;
-
-  const res = await fetch(url);
-
-  if (res.ok) {
-    return {
-      props: {
-        post: await res.json(),
-      }
-    };
-  } 
-  return {
-    status: res.status,
-    error: new Error(`No data found for post date ${params.year}/${params.month}/${params.day}`)
-  }
+  return loadPostForSlug(`${params.year}/${params.month}/${params.day}`);
 }
 </script>
 
 <script>
   import Post from '$lib/components/Post.svelte';
+  import { loadPostForSlug } from '$lib/posts';
 
   export let post;
 </script>

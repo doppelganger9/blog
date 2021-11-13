@@ -13,7 +13,7 @@
     By default, CSS is locally scoped to the component,
     and any unused styles are dead-code-eliminated.
     In this page, Svelte can't know which elements are
-    going to appear inside the {{{post.html}}} block,
+    going to appear inside the <slot/> block,
     so we have to use the :global(...) modifier to target
     all elements inside .content
   */
@@ -95,10 +95,10 @@
 
 <h1 data-cy='blog-post-heading'>{post.metadata.title}</h1>
 <p data-cy='blog-post-date' class='date'>{post.metadata.dateString}</p>
-<p data-cy='blog-post-readtime' class='reading-time'>{post.minutesToRead}</p>
+<p data-cy='blog-post-readtime' class='reading-time'>{#if post.minutesToRead}{post.minutesToRead}{/if}</p>
 
 <div data-cy='blog-post-content' class='content'>
-  {@html post.html}
+  <svelte:component this="{post.component}" />
 </div>
 
 <Separator />
