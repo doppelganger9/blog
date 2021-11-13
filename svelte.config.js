@@ -2,8 +2,16 @@
 import staticAdapter from '@sveltejs/adapter-static';
 import istanbulPlugin from 'vite-plugin-istanbul';
 import { defineConfig } from 'vite';
+import { mdsvex } from 'mdsvex';
+import mdsvexConfig from './mdsvex.config.js';
+import sveltePreprocess from 'svelte-preprocess';
 
-export default {
+const config = {
+	extensions: ['.svelte', ...mdsvexConfig.extensions],
+	preprocess: [
+		mdsvex(mdsvexConfig),
+		sveltePreprocess(),
+	],
 	kit: {
 		adapter: staticAdapter(),
 		target: '#svelte',
@@ -79,4 +87,4 @@ export default {
 // 	preprocess: null
 // };
 
-// export default config;
+export default config;
