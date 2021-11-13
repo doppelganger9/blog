@@ -14,7 +14,7 @@ You've accidentally stumbled upon a hidden post.
 
 This post belongs to another dimension.
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/igGApTvcxnJkgzOIVb" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/season-1-episode-6-s1-igGApTvcxnJkgzOIVb">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe title="another dimension" src="https://giphy.com/embed/igGApTvcxnJkgzOIVb" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/season-1-episode-6-s1-igGApTvcxnJkgzOIVb">via GIPHY</a></p>
 
 
 The author is trying to bring it to our space-time through mental power and the most advanced technology.

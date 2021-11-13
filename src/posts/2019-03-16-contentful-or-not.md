@@ -20,7 +20,7 @@ On the plus side, this will be a short read 🤣
 
 By the way, thanks again MPJ for articulating all this so clearly, go watch this video:
 
-<iframe id="ytplayer" type="text/html" width="640" height="360"
+<iframe title="MPJ avout failing" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/oAt5E2xrXH8?autoplay=0&origin=https://lacourt.dev&t=910"
   frameborder="0"/>
 
@@ -39,7 +39,7 @@ So, wow, I found an article showing how to set up [GatsbyJS+Contentful in 5 minu
 
 Nice move, Contentful! 👍
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/l4FBdfoF9kNr1yw2A" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-6-l4FBdfoF9kNr1yw2A">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe title="nice move" src="https://giphy.com/embed/l4FBdfoF9kNr1yw2A" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-6-l4FBdfoF9kNr1yw2A">via GIPHY</a></p>
 
 Well... hum... not really 🤔☹️. This *how-to* would have been useful If I did not already have a Gatsby blog because it describes how to start a new one from a starter.
 
@@ -49,7 +49,7 @@ So, Awesome! I found [another one from Gatsby's documentation website: "sourcing
 
 This one seems to better fit the context of this blog.
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/3ohzAybS8DIscjZ78I" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-3ohzAybS8DIscjZ78I">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe title="later" src="https://giphy.com/embed/3ohzAybS8DIscjZ78I" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-3ohzAybS8DIscjZ78I">via GIPHY</a></p>
 
 Bwah 🤢 seems too much hassle.
 
@@ -67,7 +67,7 @@ Time to re-evaluate the effort based on my "business" need:
 Me talking to myself using "business" hat versus "dev team" hat:
 > Well, let's decide to avoid **Hype Driven Development** and just stick to doing what is strictly necessary from a "business" point of view!
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/FY2ew2Zii9VOE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/train-hype-FY2ew2Zii9VOE">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe title="train hype" src="https://giphy.com/embed/FY2ew2Zii9VOE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/train-hype-FY2ew2Zii9VOE">via GIPHY</a></p>
 
 ## Conclusion
 
