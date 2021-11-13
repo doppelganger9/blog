@@ -31,11 +31,11 @@ So, as soon as I closed their door when time to sleep has had come, they would g
 
 A war of turning on & off lights ensued.
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/3ohzdFHDBEG32PmWJO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/animation-cute-illustration-3ohzdFHDBEG32PmWJO">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe title="cute" src="https://giphy.com/embed/3ohzdFHDBEG32PmWJO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/animation-cute-illustration-3ohzdFHDBEG32PmWJO">via GIPHY</a></p>
 
 As a geek dad, I wanted to automate this into an evil AI, so that I can laugh madly while petting my cat, *mwahahahahah*!
 
-<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe src="https://giphy.com/embed/MgwVy8YxMqJ56" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mrw-MgwVy8YxMqJ56">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:75%;position:relative;"><iframe title="mwahahaha" src="https://giphy.com/embed/MgwVy8YxMqJ56" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mrw-MgwVy8YxMqJ56">via GIPHY</a></p>
 
 ## Gitlab Repository
 
@@ -53,7 +53,7 @@ For once, I did not write tests, because my kids tested it for me directly on pr
 
 The APIs are really easy to "HUE"-se.
 
-<div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe src="https://giphy.com/embed/qs6ev2pm8g9dS" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/austin-powers-dr-evil-air-quotes-qs6ev2pm8g9dS">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe title="dr evil" src="https://giphy.com/embed/qs6ev2pm8g9dS" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/austin-powers-dr-evil-air-quotes-qs6ev2pm8g9dS">via GIPHY</a></p>
 
 Just read the documentation and follow the tutorial, I did not meet any obstacle on the way. So I could hack an evil "AI" really quickly.
 
@@ -67,7 +67,7 @@ IF you get data from API
    THEN turn it off
 ```
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/xl5QdxfNonh3q" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mike-korea-north-xl5QdxfNonh3q">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe title="mwah" src="https://giphy.com/embed/xl5QdxfNonh3q" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mike-korea-north-xl5QdxfNonh3q">via GIPHY</a></p>
 
 #### Google Home
 
@@ -86,7 +86,7 @@ I used [node-googlehome](https://www.npmjs.com/package/node-googlehome) reposito
 
 The RaspberryPi Zero W is a mini version of the RaspberryPi which is already a really small computer.
 
-<div style="width:100%;height:0;padding-bottom:41%;position:relative;"><iframe src="https://giphy.com/embed/8Q62oGruZu0BG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mini-8Q62oGruZu0BG">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:41%;position:relative;"><iframe title="mini me" src="https://giphy.com/embed/8Q62oGruZu0BG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mini-8Q62oGruZu0BG">via GIPHY</a></p>
 
 Once installed and built, I deployed this project on the RPi0W, which was really slow to `npm install` all the libs, but 10 minutes later, I could run the main loop.
 
@@ -97,7 +97,7 @@ For more details, I just followed [this Medium article](https://medium.com/@andr
 
 ## Results
 
-<div style="width:100%;height:0;padding-bottom:83%;position:relative;"><iframe src="https://giphy.com/embed/l3vR6aasfs0Ae3qdG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/80s-hannibal-the-a-team-l3vR6aasfs0Ae3qdG">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:83%;position:relative;"><iframe title="A Team" src="https://giphy.com/embed/l3vR6aasfs0Ae3qdG" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/80s-hannibal-the-a-team-l3vR6aasfs0Ae3qdG">via GIPHY</a></p>
 
 Well, it worked perfectly.
 
@@ -106,7 +106,7 @@ Except kids learn more quickly than my evil "AI"!
 They learned that switching on/off a few dozen times made my code break. And even, instead of simply putting the lights on, for them it became a new
 game!
 
-<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/2iBsieTJ3eO1q" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/reaction-puns-pun-2iBsieTJ3eO1q">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe title="the irony" src="https://giphy.com/embed/2iBsieTJ3eO1q" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/reaction-puns-pun-2iBsieTJ3eO1q">via GIPHY</a></p>
 
 So I ended the experiment there.
 

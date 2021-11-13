@@ -28,7 +28,7 @@ What I did not like at the time was the templating language. It felt like [old 2
 
 On the 22nd of April 2019, [Rich Harris](https://twitter.com/Rich_Harris), creator of Svelte, published this article about Svelte V3 ['Rethinking Reactivity'](https://svelte.dev/blog/svelte-3-rethinking-reactivity) and an associated video from *You Gotta Love Frontend*:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AdNJ3fydeao" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="Rethinking Creativity" width="560" height="315" src="https://www.youtube.com/embed/AdNJ3fydeao" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 It was mind-blowing 🤯. Go watch it. Now.
 
@@ -88,7 +88,7 @@ You can play with the deployed version : [https://cooking-contest.web.app/](http
 
 It's okay if your eyes are bleeding. Wipe the blood, and please continue reading.
 
-<div style="width:100%;height:0;padding-bottom:51%;position:relative;"><iframe src="https://giphy.com/embed/YsOpzCbCfLJfO" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/someone-wiki-phobia-YsOpzCbCfLJfO">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:51%;position:relative;"><iframe title="eyes bleed" src="https://giphy.com/embed/czOM9AjyWfi8w" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/image-things-czOM9AjyWfi8w">via GIPHY</a></p>
 
 #### Firebase Hosting
 

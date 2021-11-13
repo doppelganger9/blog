@@ -24,7 +24,7 @@ You may have noticed from [previous](/2019/03/14) [posts](/2019/03/16) that I'm 
 
 Inspired by [MPJ](https://twitter.com/mpjme), I tried to use the [ObservableHQ website](https://observablehq.com/) to do some kind of literate programming or expressive playground: combining code with text in a readable form.
 
-<iframe id="ytplayer" type="text/html" width="640" height="360"
+<iframe title="MPJ" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/MmRmxzrr4lk?autoplay=0&origin=https://lacourt.dev"
   frameborder="0"/>
 

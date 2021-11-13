@@ -42,15 +42,15 @@ It had a mix of 2D and 2.5D which was real innovation at that time, at least for
 
 There are a few YouTube videos showing the gameplay.
 
-<iframe id="ytplayer" type="text/html" width="640" height="360"
+<iframe title="Amberstar 1" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/Q3u6Ar4PPO8?autoplay=0&origin=https://lacourt.dev"
   frameborder="0"/>
 
-<iframe id="ytplayer" type="text/html" width="640" height="360"
+<iframe title="Amberstar 2" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/fi-VaNlAKJw?autoplay=0&origin=https://lacourt.dev"
   frameborder="0"/>
 
-<iframe id="ytplayer" type="text/html" width="640" height="360"
+<iframe title="Amberstar 3" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/ubzdMzzsIBg?autoplay=0&origin=https://lacourt.dev"
   frameborder="0"/>
 
@@ -98,14 +98,12 @@ Finished it.
 
 It was awesome... I think...
 
-<div style="width:100%;height:0;padding-bottom:139%;position:relative;"><iframe src="https://giphy.com/embed/mIZ9rPeMKefm0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/dancing-happy-mIZ9rPeMKefm0">via GIPHY</a></p>
+<div style="width:100%;height:0;padding-bottom:139%;position:relative;"><iframe title="dancing happy" src="https://giphy.com/embed/mIZ9rPeMKefm0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/dancing-happy-mIZ9rPeMKefm0">via GIPHY</a></p>
 
 
 ### ...Take 3
 
 ...Because I totally forgot about this.
-
-<div style="width:100%;height:0;padding-bottom:68%;position:relative;"><iframe src="https://giphy.com/embed/NIOLYNNK2JCMg" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/mrw-sit-realize-NIOLYNNK2JCMg">via GIPHY</a></p>
 
 And I still had the feeling I had not finished it the first time and felt the need to play it again.
 
