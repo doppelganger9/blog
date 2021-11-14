@@ -86,7 +86,9 @@ Thank you Cypress for being helpful with this error message, I just added the op
 
 ![blue and yellow playground by unsplash user @wildfirewilly](https://source.unsplash.com/nrcpPfXwYBo/640x480)
 
-[@MPJ already explained this in his videos about TDD](https://www.youtube.com/watch?v=Eu35xM76kKY), he uses a playground file to try calling APIs. 
+@MPJ already explained this in his videos about TDD, he uses a playground file to try calling APIs. 
+
+https://youtu.be/Eu35xM76kKY
 
 The idea is: 
 - read the documentation, for example in my case [The Uptime API documenation](https://uptimerobot.com/api), 

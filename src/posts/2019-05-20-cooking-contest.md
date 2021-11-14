@@ -28,7 +28,7 @@ What I did not like at the time was the templating language. It felt like [old 2
 
 On the 22nd of April 2019, [Rich Harris](https://twitter.com/Rich_Harris), creator of Svelte, published this article about Svelte V3 ['Rethinking Reactivity'](https://svelte.dev/blog/svelte-3-rethinking-reactivity) and an associated video from *You Gotta Love Frontend*:
 
-<iframe title="Rethinking Creativity" width="560" height="315" src="https://www.youtube.com/embed/AdNJ3fydeao" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://youtu.be/AdNJ3fydeao
 
 It was mind-blowing 🤯. Go watch it. Now.
 

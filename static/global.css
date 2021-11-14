@@ -65,6 +65,10 @@ li {
   margin: 0 0 3em 0;
 }
 
+iframe[src*=youtube] {
+  width: 640px;
+  height: 360px;
+}
 
 img.emoji {
   width: 1em;

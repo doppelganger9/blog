@@ -23,7 +23,7 @@ This article is part of a series of posts about migrating from GatsbyJS/React to
 
 Y'all asked for this on twitter:
 
-<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Using <a href="https://twitter.com/hashtag/GithubActions?src=hash&amp;ref_src=twsrc%5Etfw">#GithubActions</a> with <a href="https://t.co/LDJt14VHBD">https://t.co/LDJt14VHBD</a>, I managed to run my <a href="https://twitter.com/Cypress_io?ref_src=twsrc%5Etfw">@Cypress_io</a> <a href="https://twitter.com/hashtag/E2E?src=hash&amp;ref_src=twsrc%5Etfw">#E2E</a> tests from within my <a href="https://twitter.com/hashtag/GitHub?src=hash&amp;ref_src=twsrc%5Etfw">#GitHub</a> <a href="https://twitter.com/hashtag/Workflow?src=hash&amp;ref_src=twsrc%5Etfw">#Workflow</a>!<br>Awesome! <br>And still very fast 1:31 for 36 tests. <a href="https://t.co/PJvPrtg3Hb">pic.twitter.com/PJvPrtg3Hb</a></p>&mdash; David Lacourt 🛣🏡 (@doppelganger9) <a href="https://twitter.com/doppelganger9/status/1140384297813254144?ref_src=twsrc%5Etfw">16 juin 2019</a></blockquote>
+https://twitter.com/doppelganger9/status/1140384297813254144
 
 So I will try to give more details below.
 

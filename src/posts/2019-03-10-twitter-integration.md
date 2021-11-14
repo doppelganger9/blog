@@ -25,7 +25,7 @@ Such [selective memory and history rewriting](/future/bias-of-using-too-much-bia
 
 Let me try to search Twitter for that tweet... wow, that was quicker than I thought: 3 minutes later only!
 
-<blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">So, do you expect to find it here first next time you search? 😀</p>&mdash; Patrick Decat (@patric2k) <a href="https://twitter.com/patric2k/status/1000078979209056256?ref_src=twsrc%5Etfw">25 mai 2018</a></blockquote>
+https://twitter.com/patric2k/status/1000078979209056256
 
 My memories were indeed deeply flawed!
 
