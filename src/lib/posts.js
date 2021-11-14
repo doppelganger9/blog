@@ -1,4 +1,6 @@
 //import { computeMinutesToRead } from "$lib/minutesToRead";
+import Prism from 'prismjs';
+import 'prism-svelte';
 
 export const slugFromPath = (path) => path.match(/\/src\/posts\/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
