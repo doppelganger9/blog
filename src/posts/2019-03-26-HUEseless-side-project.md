@@ -9,6 +9,12 @@ keywords: node, NodeJS","Phillips, Philips, HUE, PhilipsHUE","PhillipsHUE, Googl
 slug: 2019/03/26
 ---
 
+<script>
+  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+</script>
+
+<AddTwitterWidgetScript />
+
 ![Like this one from ThinkGeek](https://www.thinkgeek.com/images/products/zoom/ivlq_useless_light_switch.gif)
 (This is a physical one from [ThinkGeek](https://www.thinkgeek.com/product/ivlq/) *(not an affiliate link)*)
 
@@ -17,8 +23,6 @@ In this post, I will recount how I made a silly side-project playing with the [P
 I made a tweet about this some time ago, and today I'd like to elaborate a little on the subject:
 
 <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">&quot;&quot;HUEseless&quot;&quot; gift for you 😈... or your kids 🤭<a href="https://t.co/gPK0Q3Fwwu">https://t.co/gPK0Q3Fwwu</a><a href="https://twitter.com/hashtag/PhilipsHUE?src=hash&amp;ref_src=twsrc%5Etfw">#PhilipsHUE</a> <a href="https://twitter.com/hashtag/RaspberryPi?src=hash&amp;ref_src=twsrc%5Etfw">#RaspberryPi</a> <a href="https://twitter.com/hashtag/NodeJS?src=hash&amp;ref_src=twsrc%5Etfw">#NodeJS</a> <a href="https://twitter.com/hashtag/GoogleHome?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleHome</a> <a href="https://twitter.com/hashtag/KidsKeepSwitchingLightOnInsteadOfSleeping?src=hash&amp;ref_src=twsrc%5Etfw">#KidsKeepSwitchingLightOnInsteadOfSleeping</a> <a href="https://twitter.com/hashtag/BestDadEver?src=hash&amp;ref_src=twsrc%5Etfw">#BestDadEver</a> <a href="https://twitter.com/hashtag/BadParentalAdvice?src=hash&amp;ref_src=twsrc%5Etfw">#BadParentalAdvice</a> <a href="https://t.co/ugu0KsSfGG">pic.twitter.com/ugu0KsSfGG</a></p>&mdash; David Lacourt 🛣🏡 (@doppelganger9) <a href="https://twitter.com/doppelganger9/status/1102260938810540037?ref_src=twsrc%5Etfw">3 mars 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 
 ## My genius evil plan
 
