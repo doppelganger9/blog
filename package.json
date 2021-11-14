@@ -41,6 +41,7 @@
     "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage"
   },
   "devDependencies": {
+    "@akebifiky/remark-simple-plantuml": "1.0.2",
     "@cypress/code-coverage": "3.9.11",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
