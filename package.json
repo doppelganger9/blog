@@ -53,7 +53,7 @@
     "mdsvex": "0.9.8",
     "patch-package": "6.4.7",
     "prism-svelte": "0.4.7",
-    "prismjs": "1.23.0",
+    "prismjs": "1.25.0",
     "rehype-add-classes": "1.0.0",
     "rehype-autolink-headings": "6.1.0",
     "rehype-figure": "1.0.1",
