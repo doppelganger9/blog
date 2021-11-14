@@ -8,7 +8,11 @@ lang: en
 keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-source-twitter
 slug: 2019/03/10
 ---
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+</script>
+
+<AddTwitterWidgetScript />
 
 ## Remembering things
 

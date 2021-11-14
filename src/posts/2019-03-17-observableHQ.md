@@ -9,10 +9,15 @@ keywords: observablehq, notebook, javascript, fun fun function, mpj, generators,
 slug: 2019/03/17
 ---
 
+<script>
+  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+</script>
+
+<AddTwitterWidgetScript />
+
 Unearthing some old tweet to share with you today:
 
 <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">I made a thing in <a href="https://twitter.com/observablehq?ref_src=twsrc%5Etfw">@observablehq</a>. <br>🤓<br>Visualizing an Algorithm loop 🔁 iterations with <a href="https://twitter.com/hashtag/JavaScript?src=hash&amp;ref_src=twsrc%5Etfw">#JavaScript</a> <a href="https://twitter.com/hashtag/ES6?src=hash&amp;ref_src=twsrc%5Etfw">#ES6</a> <a href="https://twitter.com/hashtag/Generator?src=hash&amp;ref_src=twsrc%5Etfw">#Generator</a>, and a <a href="https://twitter.com/hashtag/Proxy?src=hash&amp;ref_src=twsrc%5Etfw">#Proxy</a> for time-travelling 👨‍🔬.<br><br>I like literate programming!<a href="https://t.co/FaQcvZ9deN">https://t.co/FaQcvZ9deN</a></p>&mdash; David Lacourt 🛣🏡 (@doppelganger9) <a href="https://twitter.com/doppelganger9/status/1052854967512510464?ref_src=twsrc%5Etfw">18 octobre 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Observable HQ
 

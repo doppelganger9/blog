@@ -9,6 +9,12 @@ slug: 2019/06/30
 thumb: https://lacourt.dev/WorkflowVisualOverviewWithCypressE2E.png
 ---
 
+<script>
+  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+</script>
+
+<AddTwitterWidgetScript />
+
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 3](/2019/06/29), and more to come!
 
 > Hey there! This is a little interlude. I totally forgot in **part 2** to tell you about how I automated **Cypress.io** End-to-End tests within my Github Actions workflow, as part of my blog's *Continuous Integration* pipeline!
@@ -18,7 +24,6 @@ This article is part of a series of posts about migrating from GatsbyJS/React to
 Y'all asked for this on twitter:
 
 <blockquote class="twitter-tweet" data-lang="fr"><p lang="en" dir="ltr">Using <a href="https://twitter.com/hashtag/GithubActions?src=hash&amp;ref_src=twsrc%5Etfw">#GithubActions</a> with <a href="https://t.co/LDJt14VHBD">https://t.co/LDJt14VHBD</a>, I managed to run my <a href="https://twitter.com/Cypress_io?ref_src=twsrc%5Etfw">@Cypress_io</a> <a href="https://twitter.com/hashtag/E2E?src=hash&amp;ref_src=twsrc%5Etfw">#E2E</a> tests from within my <a href="https://twitter.com/hashtag/GitHub?src=hash&amp;ref_src=twsrc%5Etfw">#GitHub</a> <a href="https://twitter.com/hashtag/Workflow?src=hash&amp;ref_src=twsrc%5Etfw">#Workflow</a>!<br>Awesome! <br>And still very fast 1:31 for 36 tests. <a href="https://t.co/PJvPrtg3Hb">pic.twitter.com/PJvPrtg3Hb</a></p>&mdash; David Lacourt 🛣🏡 (@doppelganger9) <a href="https://twitter.com/doppelganger9/status/1140384297813254144?ref_src=twsrc%5Etfw">16 juin 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 So I will try to give more details below.
 
