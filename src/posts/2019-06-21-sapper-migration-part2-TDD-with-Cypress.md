@@ -14,7 +14,7 @@ It will be the perfect time for me to talk about *Test Driven Development* (TDD)
 
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 3](/2019/06/29), [part 2 bis](/2019/06/30), and more to come!
 
-![colorful trees at night by @winstonchen, unsplash](https://source.unsplash.com/l7y4Z8s1sNk/600x400)
+![colorful trees at night by unsplash user @winstonchen](https://source.unsplash.com/l7y4Z8s1sNk/600x400)
 
 ## Test Driven Development
 
@@ -57,7 +57,7 @@ So the process was:
 
 So as you see, the last part is test-driven. The first part is the exact opposite. But the whole process enabled me to quickly reproduce the existing features I wrote as tests into the new website.
 
-![trees with fog from below by @randytarampi, unsplash](https://source.unsplash.com/T8nwEwiM90k/600x400)
+![trees with fog from below by unsplash user @randytarampi](https://source.unsplash.com/T8nwEwiM90k/600x400)
 
 ## Writing tests with Cypress
 
@@ -182,7 +182,7 @@ As you see the tests are like an executable specification of the expected featur
 
 And this specification can be checked by executing the tests.
 
-![landscape with cypress trees by Chris Barbalis @cbarbalis, unsplash](https://source.unsplash.com/dyVHwbWcu6g/600x400)
+![landscape with cypress trees by unsplash user @cbarbalis](https://source.unsplash.com/dyVHwbWcu6g/600x400)
 
 ## Sample test
 

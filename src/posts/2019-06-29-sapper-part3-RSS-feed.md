@@ -11,7 +11,7 @@ thumb: https://source.unsplash.com/o4-YyGi5JBc/600x400
 
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 2 bis](/2019/06/30), and more to come!
 
-![Alley of books by @glennoble](https://source.unsplash.com/o4-YyGi5JBc/600x400)
+![Alley of books by unsplash user @glennoble](https://source.unsplash.com/o4-YyGi5JBc/600x400)
 
 ## Sapper migration: part 3
 
@@ -137,7 +137,7 @@ Such schizophrenia.
 
 Dear reader, welcome to **"Test After" mode**.
 
-![Mailbox with books by @samuelzeller](https://source.unsplash.com/G_xJrvHN9nk/600x400)
+![Mailbox with books by unsplash user @samuelzeller](https://source.unsplash.com/G_xJrvHN9nk/600x400)
 
 ### Using Cypress to test HTTP requests
 
@@ -195,7 +195,7 @@ That's what happens when you test after. And right now, I don't feel the need to
 
 This is the perfect example of why writing tests first is more motivating to write tests than writing them after the fact.
 
-![Woman with a tattoo holding up a stack of books.@thoughtcatalog](https://source.unsplash.com/o0Qqw21-0NI/600x400)
+![Woman with a tattoo holding up a stack of books. By unsplash user @thoughtcatalog](https://source.unsplash.com/o0Qqw21-0NI/600x400)
 
 ## Conclusion
 
