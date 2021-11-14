@@ -42,17 +42,11 @@ It had a mix of 2D and 2.5D which was real innovation at that time, at least for
 
 There are a few YouTube videos showing the gameplay.
 
-<iframe title="Amberstar 1" id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/Q3u6Ar4PPO8?autoplay=0&origin=https://lacourt.dev"
-  frameborder="0"/>
+https://youtu.be/Q3u6Ar4PPO8
 
-<iframe title="Amberstar 2" id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/fi-VaNlAKJw?autoplay=0&origin=https://lacourt.dev"
-  frameborder="0"/>
+https://youtu.be/fi-VaNlAKJw
 
-<iframe title="Amberstar 3" id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/ubzdMzzsIBg?autoplay=0&origin=https://lacourt.dev"
-  frameborder="0"/>
+https://youtu.be/ubzdMzzsIBg
 
 #### This Haunting Music!
 

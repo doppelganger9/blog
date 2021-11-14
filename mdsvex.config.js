@@ -6,6 +6,8 @@ import addClasses from "rehype-add-classes"
 import figure from "rehype-figure"
 import twemoji from "remark-twemoji"
 import plantuml from "@akebifiky/remark-simple-plantuml"
+import remarkEmbedder from '@remark-embedder/core';
+import oembedTransformer from '@remark-embedder/transformer-oembed'
 
 function processUrl(url, node) {
 	if (node.tagName === "a") {
@@ -25,6 +27,7 @@ function processUrl(url, node) {
 const mdsvexConfig = {
   extensions: [ '.md', '.svx' ],
   remarkPlugins: [
+    [remarkEmbedder.default, {transformers: [oembedTransformer.default]}],
     abbr, // adds support for footnote-like abbreviations
     [twemoji, {
       ext: '.svg',
