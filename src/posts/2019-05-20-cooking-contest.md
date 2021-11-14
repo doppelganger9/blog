@@ -10,7 +10,7 @@ slug: 2019/05/20
 thumb: https://source.unsplash.com/TYlR9NGFrPs/600x400
 ---
 
-![unsplash photo by @jibarofoto](https://source.unsplash.com/TYlR9NGFrPs/600x400)
+![violet and blue abstract painting by unsplash user @jibarox](https://source.unsplash.com/TYlR9NGFrPs/600x400)
 
 *After a few weeks of silence, I'm back with new content!
 I'll show you my new side-project about a silly cooking contest, built with [Svelte](https://svelte.dev).
@@ -112,7 +112,7 @@ In the end, It was not used because the rating rules changed at the last minute 
 
 ## GitHub and leaked Firebase API Keys
 
-![lost key from unsplash @iantuck](https://source.unsplash.com/OQxJd-eGuhg/600x400)
+![lost key from unsplash user @iantuck](https://source.unsplash.com/OQxJd-eGuhg/600x400)
 
 When I pushed the content on GitHub I paid extra attention not to push API Keys there.
 
@@ -128,7 +128,7 @@ I've just finished recreating the Firebase project.
 
 ## Next: Sapper
 
-![unsplash photo by @brizmaker](https://source.unsplash.com/_ZfLlKxilpw/600x400)
+![orange, yellow and blue papers by unsplash user @brizmaker](https://source.unsplash.com/_ZfLlKxilpw/600x400)
 
 So given my extremely positive experience so far with Svelte, I decided to go on, exploring [Sapper](https://sapper.svelte.dev), its [JAMStack](https://jamstack.org/) framework.
 
@@ -151,4 +151,4 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 > I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @jibarofoto, @brizmaker, @iantuck.
+Photo credit from [Unsplash](https://unsplash.com) by @jibarox, @brizmaker, @iantuck.

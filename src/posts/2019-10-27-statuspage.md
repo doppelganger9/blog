@@ -13,7 +13,7 @@ thumb: https://source.unsplash.com/DdVCpBoHlv0/640x480
 
 Once, I saw a nice little green dot on another fellow programmer's blog and sadly I was not able to find it back.
 
-![red and green-leafed plants by @inika, unsplash](https://source.unsplash.com/DdVCpBoHlv0/640x480)
+![red and green-leafed plants by unsplash user @inika](https://source.unsplash.com/DdVCpBoHlv0/640x480)
 
 So today I'll try my best at explaining this feature and implementing it on this blog.
 
@@ -84,7 +84,7 @@ Thank you Cypress for being helpful with this error message, I just added the op
 
 ## Playground
 
-![blue and yellow playground by @wildfirewilly, unsplash](https://source.unsplash.com/nrcpPfXwYBo/640x480)
+![blue and yellow playground by unsplash user @wildfirewilly](https://source.unsplash.com/nrcpPfXwYBo/640x480)
 
 [@MPJ already explained this in his videos about TDD](https://www.youtube.com/watch?v=Eu35xM76kKY), he uses a playground file to try calling APIs. 
 
@@ -149,7 +149,7 @@ I wrote a lot of other tests to triangulate the implementation and to write the 
 
 ## Refactor
 
-![person holding tool during daytime by @christopher__burns](https://source.unsplash.com/8KfCR12oeUM/640x480)
+![person holding tool during daytime by unsplash user @christopher__burns](https://source.unsplash.com/8KfCR12oeUM/640x480)
 
 When it was done, I looked at my tests which were showing a lot of duplicated code and proceeded to refactor them.
 
@@ -183,7 +183,7 @@ Clearly, I used TDD to develop this feature, but I added a step that transforms 
 
 ## Not perfect
 
-![Brown and black wooden handle by @viktortalashuk](https://source.unsplash.com/zeDFAi3MtuQ/640x480)
+![Brown and black wooden handle by unsplash user @viktortalashuk](https://source.unsplash.com/zeDFAi3MtuQ/640x480)
 
 Right now, I'm still thinking about separating more my tests between the tests that rely on the real API, and the ones that just test the Status component behavior. Also writing the last sentence, I recognize that the Status component is tightly coupled with the fetch request and the Uptime API, maybe I should refactor this and extract it in another file.
 
