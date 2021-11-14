@@ -27,6 +27,7 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
+    "postinstall": "npx patch-package",
     "dev": "svelte-kit dev",
     "dev-with-instrumentation-for-coverage": "CYPRESS_COVERAGE=true svelte-kit dev",
     "preview-with-instrumentation-for-coverage": "CYPRESS_COVERAGE=true svelte-kit preview",
@@ -49,6 +50,7 @@
     "elizabot": "0.0.3",
     "marked": "4.0.2",
     "mdsvex": "0.9.8",
+    "patch-package": "6.4.7",
     "prism-svelte": "0.4.7",
     "prismjs": "1.23.0",
     "rehype-add-classes": "1.0.0",

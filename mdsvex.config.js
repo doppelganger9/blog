@@ -36,12 +36,10 @@ const mdsvexConfig = {
     figure, // convert images into <figure> elements
     [urls, processUrl], // adds rel and target to <a> elements
     slug, // adds slug to <h1>-<h6> elements
-    [autoLinkHeadings, { behavior: "prepend" }], // adds a <a> around slugged <h1>-<h6> elements
+    [autoLinkHeadings, { behavior: "prepend" }], // prepends slugged <h1>-<h6> elements with an <a>
     [addClasses, { "ul,ol": "list" }] // add classes to these elements
   ],
-  //frontmatter: {},
   smartypants: true,
-  //highlight: true, // il y a des options supplémentaires ici
 };
 
 export default mdsvexConfig;

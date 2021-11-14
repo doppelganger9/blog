@@ -1,0 +1,47 @@
+diff --git a/node_modules/hast-util-to-string/index.js b/node_modules/hast-util-to-string/index.js
+index 961b923..b940a59 100644
+--- a/node_modules/hast-util-to-string/index.js
++++ b/node_modules/hast-util-to-string/index.js
+@@ -41,7 +41,7 @@ export function toString(node) {
+   }
+ 
+   // “Context object’s data.”
+-  return 'value' in node ? node.value : ''
++  return 'value' in node ? handleRawWithImgTag(node) : ''
+ }
+ 
+ /**
+@@ -51,6 +51,8 @@ export function toString(node) {
+ function one(node) {
+   if (node.type === 'text') {
+     return node.value
++  } else if (node.type === 'raw') {
++    return handleRawWithImgTag(node)
+   }
+ 
+   return 'children' in node ? all(node) : ''
+@@ -64,6 +66,10 @@ function all(node) {
+   let index = -1
+   /** @type {string[]} */
+   const result = []
++  if ('value' in node) {
++    result.push(node.value)
++    index++
++  }
+ 
+   while (++index < node.children.length) {
+     result[index] = one(node.children[index])
+@@ -71,3 +77,12 @@ function all(node) {
+ 
+   return result.join('')
+ }
++
++function handleRawWithImgTag(node) {
++  if (node.value.indexOf('<img')>=0) {
++    // NOTE : twemoji creates a raw node with an img tag inside.
++    // here, I extract the alt to use as text.
++    return node.value.replace(/\<img.+ alt=\"(.+?)\" .+\>/, '$1')
++  }
++  return node.value
++}
+\ No newline at end of file
