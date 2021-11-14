@@ -65,6 +65,12 @@ li {
   margin: 0 0 3em 0;
 }
 
+
+img.emoji {
+  width: 1em;
+  height: 1em;
+}
+
 p code {
   font-family: menlo, inconsolata, monospace;
   font-size: calc(1em - 2px);

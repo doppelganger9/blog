@@ -4,6 +4,7 @@ import slug from "rehype-slug"
 import autoLinkHeadings from "rehype-autolink-headings"
 import addClasses from "rehype-add-classes"
 import figure from "rehype-figure"
+import twemoji from "remark-twemoji"
 
 function processUrl(url, node) {
 	if (node.tagName === "a") {
@@ -23,7 +24,11 @@ function processUrl(url, node) {
 const mdsvexConfig = {
   extensions: [ '.md', '.svx' ],
   remarkPlugins: [
-    abbr // adds support for footnote-like abbreviations
+    abbr, // adds support for footnote-like abbreviations
+    [twemoji, {
+      ext: '.svg',
+      folder: 'svg',
+    }],
   ],
   rehypePlugins:[
     figure, // convert images into <figure> elements
