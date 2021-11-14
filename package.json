@@ -50,7 +50,6 @@
     "@sveltejs/kit": "next",
     "cypress": "9.0.0",
     "elizabot": "0.0.3",
-    "marked": "4.0.2",
     "mdsvex": "0.9.8",
     "patch-package": "6.4.7",
     "prism-svelte": "0.4.7",
