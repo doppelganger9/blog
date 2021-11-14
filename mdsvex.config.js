@@ -5,6 +5,7 @@ import autoLinkHeadings from "rehype-autolink-headings"
 import addClasses from "rehype-add-classes"
 import figure from "rehype-figure"
 import twemoji from "remark-twemoji"
+import plantuml from "@akebifiky/remark-simple-plantuml"
 
 function processUrl(url, node) {
 	if (node.tagName === "a") {
@@ -29,6 +30,7 @@ const mdsvexConfig = {
       ext: '.svg',
       folder: 'svg',
     }],
+    [plantuml, { baseUrl: "https://www.plantuml.com/plantuml/svg" }],
   ],
   rehypePlugins:[
     figure, // convert images into <figure> elements
