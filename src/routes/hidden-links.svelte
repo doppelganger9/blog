@@ -12,6 +12,7 @@
 <a href="/playground/falling-money">falling money</a><br/>
 <a href="/playground/time-boxing">time boxing</a><br/>
 <a href="/playground/typing-train">typing train</a><br/>
+<a href="/playground/dev-tools">Developer tools</a><br/>
 
 <p>And below some technical endpoints:</p>
 <a href="/rss">RSS Feed</a><br/>
