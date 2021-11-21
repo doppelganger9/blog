@@ -8,6 +8,7 @@ import twemoji from "remark-twemoji"
 import plantuml from "@akebifiky/remark-simple-plantuml"
 import remarkEmbedder from '@remark-embedder/core';
 import oembedTransformer from '@remark-embedder/transformer-oembed'
+import { visit } from "unist-util-visit";
 
 function processUrl(url, node) {
 	if (node.tagName === "a") {
@@ -23,10 +24,25 @@ function processUrl(url, node) {
 	}
 }
 
+function addWordCountToFrontmatterData({
+  attribute = "wordCount",
+} = {}) {
+  return function (info, file) {
+    let text = "";
+
+    visit(info, ["text", "code"], (node) => {
+      text += node.value;
+    });
+      
+    file.data.fm[attribute] = text.split(/\s+/).length;
+  };
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexConfig = {
   extensions: [ '.md', '.svx' ],
   remarkPlugins: [
+    addWordCountToFrontmatterData, // adds wordCount to frontmatter
     [remarkEmbedder.default, {transformers: [oembedTransformer.default]}],
     abbr, // adds support for footnote-like abbreviations
     [twemoji, {

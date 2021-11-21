@@ -1,4 +1,4 @@
-//import { computeMinutesToRead } from "$lib/minutesToRead";
+import { computeMinutesToRead } from "$lib/minutesToRead";
 import Prism from 'prismjs';
 import 'prism-svelte';
 
@@ -15,10 +15,10 @@ for (const path in imports) {
 
     const alternateSlug = postModule.metadata.slug;
     const component = postModule.default;
-    //const rendered = component.render();
-    //const minutesToRead = computeMinutesToRead(rendered.html); // Error with static server
+    const wordCount = postModule.metadata.wordCount;
     const date = new Date(postModule.metadata.date);
     const lang = postModule.metadata.lang || 'en';
+    const minutesToRead = computeMinutesToRead(wordCount, 180, lang);
     const dateString = date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
     posts.push({
@@ -26,7 +26,7 @@ for (const path in imports) {
       slug: alternateSlug || slug, // possibilité de surcharger le slug via le frontmatter
       metadata: {...postModule.metadata, dateString},
       //html: undefined now
-      //minutesToRead,
+      minutesToRead,
       component,
     });
   }
