@@ -24,7 +24,7 @@ describe(`a blog post`, () => {
       .should('contain', '2019')
   });
 
-  xit(`should show the time to read in a second <p> following the <h1> article title`, () => {
+  it(`should show the time to read in a second <p> following the <h1> article title`, () => {
     cy.get(`h1 + p + p`).should('contain', 'min read')
   });
 
