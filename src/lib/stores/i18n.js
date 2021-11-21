@@ -30,7 +30,19 @@ const labelsByLang = {
     "article.footer.html": `Written by <strong>David Lacourt</strong> who lives in 
   <a href="https://en.wikipedia.org/wiki/Senlis">Senlis <span role="img" aria-label="Stag">🦌</span></a>, 
   works in Paris <span role="img" aria-label="France">🇫🇷</span>, 
-  <span role="img" aria-label="Love">🧡</span>&nbsp;building things with code.`
+  <span role="img" aria-label="Love">🧡</span>&nbsp;building things with code.`,
+    "label.encode.base64": "Type here to encode in Base64 (btoa)",
+    "label.decode.base64": "Type here to decode from Base64 (atob)",
+    "decoded.text.base64url": "Decoded text is in the Base64URL format",
+    "encode.using.base64url": "Encode using Base64URL format",
+    // JSONFormatter
+    "label.json.textarea": "Type here some JSON Data to pretty-print",
+    "button.format.json": "Pretty print JSON Data now!",
+    "label.tab.size": "Tab size:",
+    // URI Components De/Encoder
+    "label.encode.uricomponents":"Type here to encode URI Components",
+    "label.decode.uricomponents":"Type here to decode URI Components",
+
   },
   "fr": {
     "title": "Le Blog de David",
@@ -40,7 +52,19 @@ const labelsByLang = {
     "article.footer.html": `Ecrit par <strong>David Lacourt</strong>, qui habite à 
   <a href="https://en.wikipedia.org/wiki/Senlis">Senlis <span role="img" aria-label="Stag">🦌</span></a>, 
   travaille à Paris <span role="img" aria-label="France">🇫🇷</span>, 
-  <span role="img" aria-label="Love">🧡</span>&nbsp;construire des choses avec du code.`
+  <span role="img" aria-label="Love">🧡</span>&nbsp;construire des choses avec du code.`,
+    // Base64Tool
+    "label.encode.base64": "Ici, mettez le texte à encoder en Base64 (btoa)",
+    "label.decode.base64": "Ici, mettez le Base64 à décoder en texte (atob)",
+    "decoded.text.base64url": "Le texte décodé est au format Base64URL",
+    "encode.using.base64url": "Encoder avec le format Base64URL",
+    // JSONFormatter
+    "label.json.textarea": "Ici, mettez des données JSON à formatter",
+    "button.format.json": "Formatter le JSON maintenant",
+    "label.tab.size": "Taille des tabulations :",
+    // URI Components De/Encoder
+    "label.encode.uricomponents": "Mettez ici le texte à encoder en URI Components",
+    "label.decode.uricomponents": "Mettez ici le texte à décoder en URI Components",
   }
 };
 
