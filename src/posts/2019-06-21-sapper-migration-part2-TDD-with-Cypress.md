@@ -210,7 +210,7 @@ I used the following Cypress config file:
 
 Which can later be used in JavaScript files to reference environment variables with (sample from `cypress/common.js`):
 
-```js
+```javascript
 const configuredJamStack = Cypress.env('BLOG_JAMSTACK');
 ```
 
@@ -232,7 +232,7 @@ The second one `npm run cy:open-legacy` would target the Gatsby version (old blo
 
 In tests I can then use variables that depend on the target website, like this:
 
-```js
+```javascript
 import { mainFrameworkName, mainFrameworkURL } from '../common';
 
 describe('has a footer', () => { // main section = website component or feature

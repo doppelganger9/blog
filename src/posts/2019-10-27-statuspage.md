@@ -40,7 +40,7 @@ At least I can test first the "widget" part.
 
 I first added a test that proves the feature is present in the blog's footer section.
 
-```js
+```javascript
 describe(`The Status component`, () => {
  it(`should be present in the footer`, () => {
  cy.visit('/');
@@ -61,7 +61,7 @@ Going back to our test, of course, It went red.
 ![red](/status-tdd-red.png)
 
 Then I added the anchor in the Footer.svelte component
-```js
+```javascript
 <!-- in Footer.svelte -->
 <a data-cy="status-indicator" href='bleh'>
  Status: Not even tested
@@ -116,7 +116,7 @@ In this case, it was the Uptime Robot API.
 
 In the following Cypress test I configured an API Stub that would return status code `2` which means `WAITING` as far as the Uptime Robot API is concerned:
 
-```js
+```javascript
  it(`should first show a waiting indicatorbefore the API returns its response`, () => {
     // configuring the API stub to return WAITING code value
     cy.server();

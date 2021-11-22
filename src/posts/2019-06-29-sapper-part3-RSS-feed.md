@@ -33,7 +33,7 @@ Adding an RSS endpoint to this Sapper website was almost too easy.
 
 Let's have a look at [`src/rss.js`](https://github.com/doppelganger9/blog/blob/master/src/routes/rss.js):
 
-```js
+```javascript
 import { getPosts } from './_posts.js';
 
 const siteUrl = 'https://lacourt.dev';
@@ -147,7 +147,7 @@ Can **Cypress.io** help me here?
 
 Of course, it can! With `cy.request` and some assertions about the HTTP response to check a few basic things:
 
-```js
+```javascript
 describe(`RSS feed endpoint`, () => {
 
   beforeEach(() => {
