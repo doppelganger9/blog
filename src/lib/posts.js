@@ -1,18 +1,18 @@
 import { computeMinutesToRead } from "$lib/minutesToRead";
 import Prism from 'prismjs';
 import 'prism-svelte';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-yaml';
-import 'prismjs/components/prism-markdown';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-json5';
-import 'prismjs/components/prism-hcl';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-typescript.js';
+import 'prismjs/components/prism-javascript.js';
+import 'prismjs/components/prism-java.js';
+import 'prismjs/components/prism-yaml.js';
+import 'prismjs/components/prism-markdown.js';
+import 'prismjs/components/prism-css.js';
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-json.js';
+import 'prismjs/components/prism-json5.js';
+import 'prismjs/components/prism-hcl.js';
+import 'prismjs/components/prism-jsx.js';
+import 'prismjs/components/prism-bash.js';
 
 export const slugFromPath = (path) => path.match(/\/src\/posts\/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
