@@ -33,7 +33,10 @@ for (const path in imports) {
 }
 
 // sort posts by date
-posts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? 1 : -1));
+posts.sort((a, b) => {
+  if (a.metadata.date === b.metadata.date) return 0;
+  return (new Date(a.metadata.date) < new Date(b.metadata.date)) ? 1 : -1;
+});
 
 export function getPublishedPosts() {
   const publishedPosts = posts.filter(p => p.metadata.published); // mdsvex make it a real boolean!
