@@ -2,7 +2,8 @@
   import TitleBar from '$lib/components/TitleBar.svelte';
   import Separator from '$lib/components/Separator.svelte';
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
-
+  import AddGiscusScript from './AddGiscusScript.svelte';
+  
   import { siteUrl } from '$lib/stores/config.js';
 
   export let post;
@@ -78,6 +79,8 @@
   {/if}
 </svelte:head>
 
+<AddGiscusScript />
+
 <TitleBar level='h3' />
 
 <h1 data-cy='blog-post-heading'>{post.metadata.title}</h1>
@@ -87,6 +90,8 @@
 <div data-cy='blog-post-content' class='content'>
   <svelte:component this="{post.component}" />
 </div>
+
+<div class="giscus"></div>
 
 <Separator />
 <ArticleFooter />
