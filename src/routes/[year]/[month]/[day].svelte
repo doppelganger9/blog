@@ -2,8 +2,7 @@
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-export function load({ page }) {
-  const { params } = page;
+export function load({ params }) {
   return loadPostForSlug(`${params.year}/${params.month}/${params.day}`);
 }
 </script>

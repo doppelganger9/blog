@@ -2,7 +2,7 @@
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-export function load({ page, fetch, session, stuff }) {
+export function load({ params, fetch, session, stuff }) {
   // this appears during build and in the browser while `npx http-server build`
   const publishedPosts = getPublishedPosts();
   const contents = publishedPosts.map(post => {
