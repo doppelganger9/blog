@@ -67,7 +67,7 @@
     "svelte-preprocess": "4.9.8",
     "twemoji": "13.1.0",
     "unist-util-visit": "4.1.0",
-    "vite-plugin-istanbul": "2.2.2"
+    "vite-plugin-istanbul": "2.9.0"
   },
   "nyc": {
     "cache": false,
