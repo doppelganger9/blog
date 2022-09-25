@@ -63,7 +63,7 @@
     "remark-twemoji": "0.1.1",
     "rxjs": "7.4.0",
     "start-server-and-test": "1.14.0",
-    "svelte": "3.44.2",
+    "svelte": "3.50.1",
     "svelte-preprocess": "4.9.8",
     "twemoji": "13.1.0",
     "unist-util-visit": "4.1.0",
