@@ -9,3 +9,5 @@ yarn-error.log
 /coverage/
 /build/
 /.netlify/
+.env
+.npmrc
