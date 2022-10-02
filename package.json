@@ -36,7 +36,7 @@
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "serve": "npx http-server build",
-    "start": "node build",
+    "start": "npm run build",
     "cy:run": "cypress run",
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
