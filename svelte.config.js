@@ -14,7 +14,6 @@ const config = {
 	],
 	kit: {
 		adapter: staticAdapter(),
-		target: '#svelte',
 		vite: defineConfig({
 			plugins: [ 
 				istanbulPlugin({
