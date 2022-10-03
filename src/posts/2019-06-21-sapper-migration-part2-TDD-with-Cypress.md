@@ -200,7 +200,7 @@ I used the following Cypress config file:
 
 ```json
 {
-  "baseUrl": "http://localhost:4173",
+  "baseUrl": "http://localhost:3000",
   "video": false,
   "env": {
     "BLOG_JAMSTACK": "sapper"

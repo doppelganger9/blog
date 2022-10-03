@@ -4,7 +4,10 @@ import istanbulPlugin from 'vite-plugin-istanbul';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [
+  server: {
+    port: 3000
+  },
+  plugins: [
     sveltekit(),
     istanbulPlugin({
       include: 'src/*',

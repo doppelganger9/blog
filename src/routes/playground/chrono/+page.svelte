@@ -2,10 +2,10 @@
   // TODO : broken !
   import { onMount, onDestroy } from 'svelte';
 
-	let elapsed = 0;
-	let duration = 5000;
+  let elapsed = 0;
+  let duration = 5000;
 
-	let last_time;
+  let last_time;
   let frame;
 
   onMount(() => {
@@ -13,8 +13,8 @@
     last_time = window.performance.now();
 
     onDestroy(() => {
-	  	cancelAnimationFrame(frame);
-  	});
+      cancelAnimationFrame(frame);
+    });
   });
 
   let changeDuration = () => {
@@ -42,8 +42,8 @@
 <button on:click={() => changeDuration()}>Go!</button>
 <p>
 <label>
-	elapsed time:
-	<progress value="{elapsed / duration}"></progress>{#if elapsed-duration == 0} DONE {:else} ... {/if}
+  elapsed time:
+  <progress value="{elapsed / duration}"></progress>{#if elapsed-duration == 0} DONE {:else} ... {/if}
 </label>
 </p>
 <!-- https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API -->

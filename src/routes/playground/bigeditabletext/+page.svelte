@@ -38,5 +38,5 @@ let adaptTextSize = () => {
 </style>
 <h1>Big Text {text}</h1>
 <div class="image-container" bind:clientWidth={w} bind:clientHeight={h}>
-	<input type="text" class="text" style="font-size: {size};" on:keydown={() => adaptTextSize()} on:keyup={() => adaptTextSize()}  bind:value={text} />
+  <input type="text" class="text" style="font-size: {size};" on:keydown={() => adaptTextSize()} on:keyup={() => adaptTextSize()}  bind:value={text} />
 </div>
