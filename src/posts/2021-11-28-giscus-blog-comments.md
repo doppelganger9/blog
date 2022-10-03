@@ -51,7 +51,7 @@ I found in the Advanced Giscus documentation, that you can add a `giscus.json` f
 
 ### Topics
 
-In my case, I configured on the Giscus App page to match a blog post with a GH Discussion using `pathname` , so I think Giscus will create topics for each origin, be it http://localhost:3000 or https://lacourt.dev
+In my case, I configured on the Giscus App page to match a blog post with a GH Discussion using `pathname` , so I think Giscus will create topics for each origin, be it http://localhost:4173 or https://lacourt.dev
 
 ### @giscus/svelte?
 

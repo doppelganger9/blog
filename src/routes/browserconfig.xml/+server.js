@@ -15,15 +15,13 @@ const renderBrowserConfigXML = () => `<?xml version="1.0" encoding="utf-8"?>
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export function get({ params }) {
+export function GET({ params }) {
   const browserConfigXMLContents = renderBrowserConfigXML();
 
-  return {
-    status: 200,
+  return new Response(browserConfigXMLContents, {
     headers: {
       'Cache-Control': `public, max-age=0, must-revalidate`,
       'Content-Type': 'application/xml'
-    },
-    body: browserConfigXMLContents
-  }
+    }
+  });
 }

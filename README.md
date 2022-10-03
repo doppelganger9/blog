@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Open up [localhost:3000](http://localhost:3000) and start clicking around.
+Open up [localhost:4173](http://localhost:4173) and start clicking around.
 
 Consult [kit.svelte.dev](https://kit.svelte.dev) for help getting started.
 

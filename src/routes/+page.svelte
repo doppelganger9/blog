@@ -1,35 +1,11 @@
-<script context="module">
-/**
- * @type {import('@sveltejs/kit').Load}
- */
-export function load({ params, fetch, session, stuff }) {
-  // this appears during build and in the browser while `npx http-server build`
-  const publishedPosts = getPublishedPosts();
-  const contents = publishedPosts.map(post => {
-    return {
-      title: post.metadata.title,
-      date: post.metadata.dateString,
-      description: post.metadata.description,
-      slug: post.slug,
-      minutesToRead: post.minutesToRead,
-    };
-  });
-  return {
-    props: {
-      posts: contents
-    }
-  };
-}
-</script>
-
 <script>
   import TitleBar from '$lib/components/TitleBar.svelte';
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
   import { i18n } from '$lib/stores/i18n.js';
   import { siteUrl } from '$lib/stores/config.js';
-  import { getPublishedPosts } from '$lib/posts';
 
-  export let posts;
+  /** @type {import('./$types').PageData} */
+  export let data;
 </script>
 
 <svelte:head>
@@ -58,7 +34,7 @@ export function load({ params, fetch, session, stuff }) {
 <ArticleFooter />
 
 <ul data-cy="blog-posts-list">
-  {#each posts as post}
+  {#each data.posts as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
         tell SvelteKit to load the data for the page as soon as
         the user hovers over the link or taps it, instead of

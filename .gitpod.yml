@@ -1,5 +1,5 @@
 image: gitpod/workspace-full-vnc
 ports:
-- port: 3000
+- port: 4173
 tasks:
 - command: npm ci && .theia/.bash_profile
