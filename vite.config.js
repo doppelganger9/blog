@@ -4,6 +4,9 @@ import istanbulPlugin from 'vite-plugin-istanbul';
 
 /** @type {import('vite').UserConfig} */
 const config = {
+  build: {
+    sourcemap: true,
+  },
   server: {
     // npm run dev use this one
     port: 3000
