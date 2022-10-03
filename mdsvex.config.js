@@ -11,17 +11,17 @@ import oembedTransformer from '@remark-embedder/transformer-oembed'
 import { visit } from "unist-util-visit";
 
 function processUrl(url, node) {
-	if (node.tagName === "a") {
-		node.properties.class = "text-link"
+  if (node.tagName === "a") {
+    node.properties.class = "text-link"
 
-		if (!url.href.startsWith("/")) {
-			// Open external links in new tab
-			node.properties.target = "_blank"
-			// Fix a security concern with offsite links
-			// See: https://web.dev/external-anchors-use-rel-noopener/
-			node.properties.rel = "noopener"
-		}
-	}
+    if (!url.href.startsWith("/")) {
+      // Open external links in new tab
+      node.properties.target = "_blank"
+      // Fix a security concern with offsite links
+      // See: https://web.dev/external-anchors-use-rel-noopener/
+      node.properties.rel = "noopener"
+    }
+  }
 }
 
 function addWordCountToFrontmatterData({

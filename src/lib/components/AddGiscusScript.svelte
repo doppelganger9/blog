@@ -1,8 +1,8 @@
 <script>
-	import {onMount} from 'svelte';
-	
-	onMount(() => {
-		const child = document.createElement('script');
+  import {onMount} from 'svelte';
+  
+  onMount(() => {
+    const child = document.createElement('script');
     child.async = 'async';
     child.src = "https://giscus.app/client.js"
     child.setAttribute('data-repo', "doppelganger9/blog");
@@ -16,6 +16,6 @@
     child.setAttribute('data-lang', "en");
     child.setAttribute('crossorigin', "anonymous");
     const body = document.getElementsByTagName('body')[0];
-		body.appendChild(child);
-	});
+    body.appendChild(child);
+  });
 </script>

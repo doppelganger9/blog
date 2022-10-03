@@ -3,20 +3,20 @@
 
   let synth;
   let lang;
-	let text2speech = 'Il reste 10 minutes';
-	let pitch = 1;
-	let rate = 1;
-	let voiceOptions, selectedVoice;
+  let text2speech = 'Il reste 10 minutes';
+  let pitch = 1;
+  let rate = 1;
+  let voiceOptions, selectedVoice;
   let langs, selectedLang;
   let volume = 1;
 
   let populateVoiceList;
   let utter;
 
-	onMount(async () => {
+  onMount(async () => {
     // example adapted from MDN
     synth = globalThis.speechSynthesis;
-  	lang = globalThis.navigator ? globalThis.navigator.language : undefined;
+    lang = globalThis.navigator ? globalThis.navigator.language : undefined;
 
     populateVoiceList = () => {
       const voices = synth.getVoices();

@@ -51,7 +51,7 @@ I found in the Advanced Giscus documentation, that you can add a `giscus.json` f
 
 ### Topics
 
-In my case, I configured on the Giscus App page to match a blog post with a GH Discussion using `pathname` , so I think Giscus will create topics for each origin, be it http://localhost:4173 or https://lacourt.dev
+In my case, I configured on the Giscus App page to match a blog post with a GH Discussion using `pathname` , so I think Giscus will create topics for each origin, be it http://localhost:3000 or https://lacourt.dev
 
 ### @giscus/svelte?
 
@@ -65,10 +65,10 @@ The contents come from the Giscus App web page script: just change the values to
 
 ```svelte
 <script>
-	import {onMount} from 'svelte';
-	
-	onMount(() => {
-		const child = document.createElement('script');
+  import {onMount} from 'svelte';
+  
+  onMount(() => {
+    const child = document.createElement('script');
     child.async = 'async';
     child.src = "https://giscus.app/client.js"
     child.setAttribute('data-repo', "doppelganger9/blog");
@@ -82,8 +82,8 @@ The contents come from the Giscus App web page script: just change the values to
     child.setAttribute('data-lang', "en");
     child.setAttribute('crossorigin', "anonymous");
     const body = document.getElementsByTagName('body')[0];
-		body.appendChild(child);
-	});
+    body.appendChild(child);
+  });
 </script>
 ```
 

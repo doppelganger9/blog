@@ -7,8 +7,8 @@
     $: allErrorKeys = [];
     $: allSuccessKeys = [];
 
-	function handleKeydown(event) {
-		let keyPressed = event.key;
+  function handleKeydown(event) {
+    let keyPressed = event.key;
         if ((keyPressed === 'Meta') || (keyPressed === 'Control') || (keyPressed === 'Shift')) {
             console.log("ignored!");
             return;
@@ -84,13 +84,13 @@
 </script>
 
 <style>
-	div.test {
-		display: flex;
+  div.test {
+    display: flex;
         height: 30vh;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
     .error {
         background-color: red;
         color: white;
@@ -99,25 +99,25 @@
         background-color: greenyellow;
     }
 
-	kbd {
-		background-color: #eee;
-		border-radius: 4px;
-		font-size: 6em;
-		padding: 0.2em 0.5em;
-		border-top: 5px solid rgba(255,255,255,0.5);
-		border-left: 5px solid rgba(255,255,255,0.5);
-		border-right: 5px solid rgba(0,0,0,0.2);
-		border-bottom: 5px solid rgba(0,0,0,0.2);
-		color: #555;
-	}
+  kbd {
+    background-color: #eee;
+    border-radius: 4px;
+    font-size: 6em;
+    padding: 0.2em 0.5em;
+    border-top: 5px solid rgba(255,255,255,0.5);
+    border-left: 5px solid rgba(255,255,255,0.5);
+    border-right: 5px solid rgba(0,0,0,0.2);
+    border-bottom: 5px solid rgba(0,0,0,0.2);
+    color: #555;
+  }
 
     .small {
         font-size: 1em;
-		padding: 0.1em 0.2em;
-		border-top: 2px solid rgba(255,255,255,0.5);
-		border-left: 2px solid rgba(255,255,255,0.5);
-		border-right: 2px solid rgba(0,0,0,0.2);
-		border-bottom: 2px solid rgba(0,0,0,0.2);
+    padding: 0.1em 0.2em;
+    border-top: 2px solid rgba(255,255,255,0.5);
+    border-left: 2px solid rgba(255,255,255,0.5);
+    border-right: 2px solid rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.2);
     }
 </style>
 
@@ -126,13 +126,13 @@
 <button on:click={start} disabled={intervalID ? 'disabled': ''}>Start</button>
 <button on:click={stop} disabled={!intervalID ? 'disabled': ''}>Stop</button>
 <div class="test" style="text-align: center">
-	{#if currentKeyTarget}
-		<kbd class:success class:error>
+  {#if currentKeyTarget}
+    <kbd class:success class:error>
             {currentKeyTarget === ' ' ? 'Space' : currentKeyTarget}
         </kbd>
-	{:else}
-		<p>Press Start button</p>
-	{/if}
+  {:else}
+    <p>Press Start button</p>
+  {/if}
 </div>
 
 <div>

@@ -40,8 +40,8 @@
     "cy:run": "cypress run",
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
-    "test": "start-server-and-test preview-with-instrumentation-for-coverage 4173 cy:run",
-    "test:no-coverage": "start-server-and-test dev 4173 cy:run:no-coverage"
+    "test": "start-server-and-test preview-with-instrumentation-for-coverage 3000 cy:run",
+    "test:no-coverage": "start-server-and-test dev 3000 cy:run:no-coverage"
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "1.0.2",
