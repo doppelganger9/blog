@@ -1,5 +1,7 @@
 import { getPublishedPosts } from '$lib/posts';
 
+export const prerender = true;
+
 /**
  * @type {import('@sveltejs/kit').PageLoad}
  */
