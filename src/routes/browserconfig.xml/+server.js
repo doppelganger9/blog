@@ -1,5 +1,7 @@
 import { siteUrl } from '$lib/stores/config.js';
 
+export const prerender = true;
+
 const renderBrowserConfigXML = () => `<?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
   <msapplication>
