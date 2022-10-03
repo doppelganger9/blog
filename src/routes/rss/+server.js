@@ -28,7 +28,7 @@ const renderXmlRssFeed = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export function get({params}) {
+export function GET({params}) {
 
   const posts = getPublishedPosts().map(post => {
     return {
@@ -40,12 +40,10 @@ export function get({params}) {
   });
   const feed = renderXmlRssFeed(posts);
 
-  return {
-    status: 200,
+  return new Response(feed, {
     headers: {
       'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
       'Content-Type': 'application/rss+xml'
-    },
-    body: feed
-  }
+    }
+  });
 }

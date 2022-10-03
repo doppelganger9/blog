@@ -1,4 +1,5 @@
 <script>
+  // TODO : broken !
   import { onMount, onDestroy } from 'svelte';
 
 	let elapsed = 0;

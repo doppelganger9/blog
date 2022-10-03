@@ -73,7 +73,7 @@ $ npm run dev
 ✔ client (59ms)
 ✔ service worker (7ms)
 Hello, simple-module-example.svelte script module.
-> Listening on http://localhost:3000
+> Listening on http://localhost:4173
 plain script JS code
 ```
 

@@ -15,16 +15,14 @@ ${contextPaths.map(path => `
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export function get({ params }) {
+export function GET({ params }) {
   const posts = getPublishedPosts().map(post => post.slug);
   const feed = renderSitemapXml([...posts, 'privacy-policy', '']);
 
-  return {
-    status: 200,
+  return new Response(feed, {
     headers: {
       'Cache-Control': `public, max-age=0, must-revalidate`,
       'Content-Type': 'application/xml'
-    },
-    body: feed
-  }
+    }
+  });
 }

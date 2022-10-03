@@ -28,7 +28,7 @@
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
 
-    gongAudioFileBuffer = await loadDogSound(context, `gong.mp3`);
+    gongAudioFileBuffer = await loadDogSound(context, `/gong.mp3`);
   })
 
 </script>

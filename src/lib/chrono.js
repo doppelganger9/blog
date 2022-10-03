@@ -26,4 +26,8 @@ export class Timer {
     this.last_time = this.perf.now();
     this.update();
   }
+
+  stop() {
+    // nothing.
+  }
 }

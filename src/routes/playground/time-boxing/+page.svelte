@@ -73,7 +73,7 @@
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     audioContext = new AudioContext();
 
-    gongAudioFileBuffer = await loadSound(audioContext, `gong.mp3`);
+    gongAudioFileBuffer = await loadSound(audioContext, `/gong.mp3`);
   });
   onDestroy(() => {
     timer && timer.stop();

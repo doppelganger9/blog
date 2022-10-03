@@ -13,6 +13,8 @@ import 'prismjs/components/prism-json5.js';
 import 'prismjs/components/prism-hcl.js';
 import 'prismjs/components/prism-jsx.js';
 import 'prismjs/components/prism-bash.js';
+import { error } from '@sveltejs/kit';
+
 
 export const slugFromPath = (path) => path.match(/\/src\/posts\/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
@@ -69,15 +71,8 @@ export function getPostForDateSlug(slug) {
 export function loadPostForSlug(slug) {
   const post = getPostForSlug(slug);
   if (!post) {
-    return {
-      status: 404,
-      error: new Error('Oh no! The requested page could not be found.')
-    };
+    throw error(404, 'Oh no! The requested page could not be found.');
   }
 
-  return {
-    props: {
-      post
-    }
-  };  
+  return post;
 }

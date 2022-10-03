@@ -1,17 +1,8 @@
-<script context="module">
-/**
- * @type {import('@sveltejs/kit').Load}
- */
-export function load({ params }) {
-  return loadPostForSlug(params.slug);
-}
-</script>
-
 <script>
   import Post from '$lib/components/Post.svelte';
-  import { loadPostForSlug } from '$lib/posts';
 
-  export let post;
+  /** @type {import('./$types').PageData} */
+  export let data;
 </script>
 
-<Post {post}/>
+<Post post={data}/>

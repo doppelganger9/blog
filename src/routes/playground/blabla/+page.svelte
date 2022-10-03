@@ -15,8 +15,8 @@
 
 	onMount(async () => {
     // example adapted from MDN
-    synth = global.speechSynthesis;
-  	lang = global.navigator ? global.navigator.language : undefined;
+    synth = globalThis.speechSynthesis;
+  	lang = globalThis.navigator ? globalThis.navigator.language : undefined;
 
     populateVoiceList = () => {
       const voices = synth.getVoices();
@@ -28,8 +28,8 @@
       selectedVoice = voiceOptions && voiceOptions.length>0 ? voiceOptions[0].value : undefined;
     };
     populateVoiceList();
-    if (global.speechSynthesis && global.speechSynthesis.onvoiceschanged !== undefined) {
-      global.speechSynthesis.onvoiceschanged = populateVoiceList;
+    if (globalThis.speechSynthesis && globalThis.speechSynthesis.onvoiceschanged !== undefined) {
+      globalThis.speechSynthesis.onvoiceschanged = populateVoiceList;
     }
 
     utter = (event) => {
@@ -53,7 +53,7 @@
 <h1>🤖 Web Speech Synthesis</h1>
 <p>The current <code>navigator.lang</code> is <code>{lang}</code></p>
 {#if langs}
-  <p><label for="select-lang">You can select the lang (it defaults to {lang}) from <code>global.speechSynthesis.getVoices()</code>:</label>
+  <p><label for="select-lang">You can select the lang (it defaults to {lang}) from <code>globalThis.speechSynthesis.getVoices()</code>:</label>
   <select name="select-lang" bind:value={selectedLang} on:blur={populateVoiceList}>
     {#each langs as lang}
     <option label="{lang}" value="{lang}"/>

@@ -1,7 +1,5 @@
 /** @type {import('@sveltejs/kit').Config} */
 import staticAdapter from '@sveltejs/adapter-static';
-import istanbulPlugin from 'vite-plugin-istanbul';
-import { defineConfig } from 'vite';
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import sveltePreprocess from 'svelte-preprocess';
@@ -14,19 +12,6 @@ const config = {
 	],
 	kit: {
 		adapter: staticAdapter(),
-		vite: defineConfig({
-			plugins: [ 
-				istanbulPlugin({
-					include: 'src/*',
-					extension: [ '.js', '.svelte' ],
-					requireEnv: true,
-					checkProd: false, // only check CYPRESS_COVERAGE
-					cypress: true,
-          // NOTE: last 2 options mean if you do not run with CYPRESS_COVERAGE=true 
-          // as an env var, no instrumentation will occur
-				}),
-			],
-		}),
 	},
 };
 
