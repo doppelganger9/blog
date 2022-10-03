@@ -5,6 +5,11 @@ import istanbulPlugin from 'vite-plugin-istanbul';
 /** @type {import('vite').UserConfig} */
 const config = {
   server: {
+    // npm run dev use this one
+    port: 3000
+  },
+  preview: {
+    // npm test / cypress tests use this one
     port: 3000
   },
   plugins: [
