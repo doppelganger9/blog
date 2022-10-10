@@ -50,7 +50,7 @@
     "@remark-embedder/transformer-oembed": "2.0.0",
     "@sveltejs/adapter-static": "1.0.0-next.44",
     "@sveltejs/kit": "1.0.0-next.512",
-    "cypress": "9.3.1",
+    "cypress": "9.7.0",
     "elizabot": "0.0.3",
     "mdsvex": "0.9.8",
     "patch-package": "6.4.7",
