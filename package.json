@@ -63,7 +63,7 @@
     "rehype-urls": "1.1.1",
     "remark-abbr": "1.4.1",
     "remark-twemoji": "0.1.1",
-    "rxjs": "7.4.0",
+    "rxjs": "7.5.7",
     "start-server-and-test": "1.14.0",
     "svelte": "3.50.1",
     "svelte-check": "2.9.2",
