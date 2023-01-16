@@ -1,0 +1,13 @@
+diff --git a/node_modules/twemoji-parser/dist/index.js b/node_modules/twemoji-parser/dist/index.js
+index 6a2fe7d..7160578 100644
+--- a/node_modules/twemoji-parser/dist/index.js
++++ b/node_modules/twemoji-parser/dist/index.js
+@@ -19,7 +19,7 @@ var TypeName = exports.TypeName = 'emoji';
+ function parse(text, options) {
+   var assetType = options && options.assetType ? options.assetType : 'svg';
+   var getTwemojiUrl = options && options.buildUrl ? options.buildUrl : function (codepoints, assetType) {
+-    return assetType === 'png' ? 'https://twemoji.maxcdn.com/v/latest/72x72/' + codepoints + '.png' : 'https://twemoji.maxcdn.com/v/latest/svg/' + codepoints + '.svg';
++    return assetType === 'png' ? 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/latest/72x72/' + codepoints + '.png' : 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/latest/svg/' + codepoints + '.svg';
+   };
+ 
+   var entities = [];
