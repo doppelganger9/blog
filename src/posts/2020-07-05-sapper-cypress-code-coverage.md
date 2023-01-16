@@ -10,7 +10,9 @@ slug: 2020/07/05
 thumb: https://lacourt.dev/code-coverage-sapper-app.png
 ---
 
-_It's been quite a few months since [the last post](/2019/10/28), I will [tell you about this later on](/future/hiatus), but right now I wanted to show you and explain the little updates I did on this blog's code, starting with code coverage_
+_It's been quite a few months since [the last post](/2019/10/28) ; right now I wanted to show you and explain the little updates I did on this blog's code, starting with code coverage_
+
+> **_2022 EDIT:_** 🚨 code coverage is currently broken, so this content might be deprecated
 
 ![Colourpop Room - @rotor_](https://source.unsplash.com/OMzZ_dt5ovg/640x554)
 
