@@ -1,9 +1,0 @@
-{
-  "baseUrl": "http://127.0.0.1:8080",
-  "video": false,
-  "env": {
-    "BLOG_JAMSTACK": "svelte-kit"
-  },
-  "chromeWebSecurity": false,
-  "pluginsFile": "cypress/plugins/index.cjs"
-}
