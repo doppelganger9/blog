@@ -90,7 +90,7 @@ action "Send Push Notification" {
 
 As you can see, I removed some steps as I migrated from **GitHub Pages** to **Netlify** to publish & host my blog.
 
-I [already talked briefly about it](/2019/03/06#Removing-GH-Page,-and-reconfigure-all-the-things), but let's recap:
+I [already talked briefly about it](/2019/03/06#removing-gh-page-and-reconfigure-all-the-things), but let's recap:
 
 Compared to [GitHub Pages](https://pages.github.com/), I prefer [Netlify](https://www.netlify.com) because:
 
