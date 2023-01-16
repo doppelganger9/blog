@@ -16,11 +16,17 @@ I'm sure I'll write a lot more interesting things in the future.
 
 ## Purpose 🤔
 
+### Open Source
+
 My intent for this blog is for it to be fully **Open Source**.
 
 You can check all the commits [on the Github Repository](https://github.com/doppelganger9/blog).
 
+### Tech stack
+
 At first, I built it with [GatsbyJS](https://www.gatsbyjs.org/) and ⚛️**React**.
+
+#### and migrations
 
 Since then, it has been migrated to [Sapper](https://sapper.svelte.dev), powered by [Svelte](https://svelte.dev).
 
