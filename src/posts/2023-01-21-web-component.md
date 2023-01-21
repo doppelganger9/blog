@@ -7,10 +7,10 @@ tags: blog
 lang: en
 keywords: StencilJS, webcomponent, web-component, web component, custom element, sveltekit, svelte
 slug: 2023/01/21
-thumb: https://lacourt.dev/IMG_3474.jpeg
+thumb: https://source.unsplash.com/KZNTEn2r6tw/640x480
 ---
 
-TODO image
+![Photo Boards](https://source.unsplash.com/KZNTEn2r6tw/640x480)
 
 ## A quick post showing how to integrate a StencilJS Web Component
 
@@ -111,6 +111,8 @@ See you in a year! ...well, just kidding, I hope not, we'll see 🤞!
 ## Reference
 
 See https://github.com/doppelganger9/stencil-qrcode-component
+
+Image credit : _"Photo Boards" from Unsplash user [@createandbloom](https://unsplash.com/fr/@createandbloom)_
 
 ## Discussion
 
