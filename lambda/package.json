@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "airtable": "0.11.6",
-    "netlify-cli": "12.9.2"
+    "netlify-cli": "12.10.0"
   }
 }
