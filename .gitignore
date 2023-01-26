@@ -11,3 +11,4 @@ yarn-error.log
 /.netlify/
 .env
 .npmrc
+lambda/functions-build/

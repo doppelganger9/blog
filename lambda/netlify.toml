@@ -3,5 +3,5 @@
   publish = "build"
 
 [functions]
-  directory = "lambda/src"
+  directory = "src"
   node_bundler = "esbuild"

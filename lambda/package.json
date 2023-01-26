@@ -1,0 +1,25 @@
+{
+  "name": "david-blog-functions",
+  "private": true,
+  "description": "David Lacourt's personal blog, powered by SvelteKit and Markdown",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "David Lacourt <david.lacourt@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/doppelganger9/blog/issues"
+  },
+  "homepage": "https://github.com/doppelganger9/blog#readme",
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doppelganger9/blog.git"
+  },
+  "scripts": {
+    "start": "netlify serve:lambda ./src"
+  },
+  "devDependencies": {
+    "airtable": "0.11.6",
+    "netlify-cli": "12.9.2"
+  }
+}

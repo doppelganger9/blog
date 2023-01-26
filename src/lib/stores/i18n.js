@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+
 /**
  * Dumb i18n
  *
@@ -21,7 +22,7 @@ import { writable } from 'svelte/store';
  **/
 
 const langs = ['en', 'fr'];
-const labelsByLang = {
+let labelsByLang = {
   "en": {
     "title": "David's Blog",
     "built with": "built with",
@@ -68,6 +69,21 @@ const labelsByLang = {
   }
 };
 
+/**
+ * Use it in some Svelte component to add more labels locally.
+ * Or in another JS file, whatever, as long as it is not above.
+ */
+export function registerMoreLabels(labelsByLangToAdd) {
+  let newLabels = {};
+  for(let l of langs) {
+    newLabels[l] = {
+      ...labelsByLang[l],
+      ...labelsByLangToAdd[l]
+    };
+  }
+  labelsByLang = newLabels;
+}
+
 export function switchLang(newLang) {
   if (langs.indexOf(newLang) < 0) {
     return;
@@ -81,9 +97,13 @@ const DEFAULT_LANG = 'en';
 
 const i18nTemplateLiteralCurried = (lang) => (literals, ...expressions) => {
   let safeXP = [...expressions, ''];
-  return labelsByLang[lang][literals.map((literal, i) => literal + safeXP[i]).join('')];
+  const originalString = literals.map((literal, i) => literal + safeXP[i]).join('');
+  const res = labelsByLang[lang][originalString];
+  if (!res) {
+    console.warn('i18n missing for '+ lang, originalString);
+  }
+  return res ? res : originalString;
 }
-
 
 console.log(`i18n defaulting to "${DEFAULT_LANG}"`);
 export const lang = writable(DEFAULT_LANG);

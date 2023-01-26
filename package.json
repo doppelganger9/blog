@@ -27,18 +27,21 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
-    "postinstall": "npx patch-package",
+    "postinstall": "npx patch-package && cd lambda && npm install",
     "dev": "vite dev",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "build": "vite build",
+    "build": "run-p build:*",
+    "build:app": "vite build",
     "preview": "vite preview",
     "serve": "npx http-server build",
-    "start": "npm run build",
+    "start": "run-p start:*",
+    "start:app": "npm run build",
     "cy:run": "cypress run",
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
-    "test": "start-server-and-test serve http://127.0.0.1:8080 cy:run:no-coverage"
+    "test": "start-server-and-test serve http://127.0.0.1:8080 cy:run:no-coverage",
+    "start:lambda": "cd lambda && npm start"
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "1.0.2",
@@ -50,6 +53,7 @@
     "cypress": "12.3.0",
     "elizabot": "0.0.3",
     "mdsvex": "0.10.6",
+    "npm-run-all": "4.1.5",
     "patch-package": "6.5.1",
     "prism-svelte": "0.5.0",
     "prismjs": "1.29.0",
