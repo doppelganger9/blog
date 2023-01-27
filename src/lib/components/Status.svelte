@@ -1,6 +1,6 @@
 <script>
-  import { writable } from 'svelte/store';
   import { onMount } from 'svelte';
+  import { status, updateStatus } from '$lib/stores/status';
 
   const all_status = {
     '-1': { text:'...', class:'waiting'},
@@ -15,36 +15,9 @@
     'err': { text:'api-500', class:'api-500'},
   };
 
-  const API_KEY = 'm782954097-5449c0939742ace6ade5d999';
-  let status = writable('-1');
-
   onMount(() => {
     console.debug('onMount called');
-
-    fetch('https://api.uptimerobot.com/v2/getMonitors', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      mode: 'cors',
-      body: `{"api_key":"${API_KEY}","monitors":["782954097"],"format":"json"}`,
-    }).then((response) => {
-      if (response.ok) {
-        response.json().then(json => {
-          $status = ''+json.monitors[0].status;
-        });
-      } else {
-        if (response.status === 404 || response.status === 500 || response.status === 429) {
-          $status = ''+response.status;
-        } else {
-          console.error(`unknown status : ${response.status}`);
-          $status = 'err';
-        }
-      }
-    }).catch(err => {
-      console.error(err);
-      $status = 'err';
-    });
+    updateStatus();
   });
 </script>
 
