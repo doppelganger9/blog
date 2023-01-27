@@ -1,4 +1,4 @@
-const { getAnswers, saveAnswer } = require('./airtable-poll-api');
+const { describeTable } = require("./airtable-poll-api");
 
 exports.handler = async event => {
   try {
@@ -13,27 +13,14 @@ exports.handler = async event => {
         body: ''
       };
     } else if (event.httpMethod === 'GET') {
-      const body = JSON.stringify(await getAnswers());
+      const tableDescription = await describeTable();
+      const body = JSON.stringify(tableDescription);
       return {
         statusCode: 200,
         headers: {
           "Access-Control-Allow-Origin": event.headers.origin,
         },
         body
-      };
-    } else if (event.httpMethod === 'POST') {
-      const data = JSON.parse(event.body);
-    
-      await saveAnswer(data);
-  
-      return {
-        statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": event.headers.origin,
-        },
-        body: JSON.stringify({
-          message: "Réponse sauvegardée"
-        })
       };
     } else {
       return {
@@ -46,7 +33,6 @@ exports.handler = async event => {
         body: 'Method not allowed'
       };
     }
-
 
   } catch (e) {
     console.error(e);
