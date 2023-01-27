@@ -5,6 +5,7 @@ published: true
 description: Adding code coverage report and badge to this blog.
 tags: CI/CD, GitHub Actions, Quality, Cypress
 lang: en
+category: Dev
 keywords: pipeline, build, automation, continuous integration, continuous deployment, github actions, github, netlify, git, ci/cd, github actions workflow, cypress, code coverage, coveralls
 slug: 2020/07/05
 thumb: https://lacourt.dev/code-coverage-sapper-app.png

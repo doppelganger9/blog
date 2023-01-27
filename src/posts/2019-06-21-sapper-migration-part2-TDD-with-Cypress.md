@@ -4,6 +4,7 @@ date: 2019-06-21T20:00:00
 description: part 2 of my series on describing how I migrated from a GatsbyJS/React blog to Sapper/Svelte. This one is about non-regression testing and test-driven development with End-to-End browser tests using Cypress.io
 published: true
 lang: en
+category: Dev
 keywords: Sapper, Svelte, Cypress.io, Cypress, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr
 slug: 2019/06/21
 thumb: https://source.unsplash.com/T8nwEwiM90k/600x400

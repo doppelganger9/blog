@@ -32,6 +32,7 @@ for (const path in imports) {
     const wordCount = postModule.metadata.wordCount;
     const date = new Date(postModule.metadata.date);
     const lang = postModule.metadata.lang || 'en';
+    const category = postModule.metadata.category?.split(/, ?/);
     const minutesToRead = computeMinutesToRead(wordCount, 180, lang);
     const dateString = date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -41,6 +42,7 @@ for (const path in imports) {
       metadata: {...postModule.metadata, dateString},
       //html: undefined now
       minutesToRead,
+      category,
       component,
     });
   }

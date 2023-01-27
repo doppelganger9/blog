@@ -18,6 +18,10 @@ describe(`David's Blog app`, () => {
     cy.get('div').find('h3').its('length').should('be.gt', 4)
   });
 
+  it('show blog post categories with at least 8 categories', () => {
+    cy.get('[data-cy=categories]').find('li').its('length').should('be.gte', 8)
+  });
+
   it('shows the Article Footer', () => {
     articleFooterShouldBeShown();
   })

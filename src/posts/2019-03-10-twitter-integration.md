@@ -4,6 +4,7 @@ date: 2019-03-10T22:30:03
 published: true
 description: A post about how I added Twitter integration, based from a vague memory of an old tweet.
 tags: Twitter, Gatsby
+category: Dev
 lang: en
 keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-source-twitter
 slug: 2019/03/10

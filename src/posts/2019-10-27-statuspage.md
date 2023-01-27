@@ -4,6 +4,7 @@ date: 2019-10-27T23:00:00
 description: I've been talking about Test Driven Development lately, and this time, I  committed to it to add a Status indicator Svelte component, using the Uptime Robot APIs. I kinda wrote the blog post while implementing it, so it is also a Blog Driven Development 🤓
 published: true
 lang: en
+category: Dev
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/10/27
 thumb: https://source.unsplash.com/DdVCpBoHlv0/640x480

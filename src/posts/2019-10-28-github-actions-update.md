@@ -5,6 +5,7 @@ published: true
 description: A post about migrating from the HCL to the YAML Github Actions workflow syntax.
 tags: CI/CD, GitHub Actions, Netlify, git
 lang: en
+category: Dev
 keywords: pipeline, build, automation, continuous integration, continuous deployment, github actions, github, netlify, git, ci/cd, github actions workflow, git push, git amend, github pages, hcl, yaml
 slug: 2019/10/28
 thumb: https://lacourt.dev/ghactions-update-cyrunning.jpg

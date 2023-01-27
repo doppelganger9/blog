@@ -10,6 +10,11 @@
 </script>
 
 <style>
+  h1 {
+      font-size: 2.5rem;
+      margin: 0 0 .5rem 0;
+  }
+
   /*
     By default, CSS is locally scoped to the component,
     and any unused styles are dead-code-eliminated.
@@ -37,21 +42,33 @@
     margin: 0 0 0.875rem 0;
   }
 
-  p.reading-time {
+  .reading-time {
     margin: 0 0 4rem 0;
     font-size: 8pt;
+    grid-row: 2;
+    grid-column: 1;
   }
 
-  p.date {
-      margin: 0 0 .5rem 0;
-      font-size: 10pt;
+  .date {
+    margin: 0 0 .5rem 0;
+    font-size: 10pt;
+    grid-row: 1;
+    grid-column: 1;
   }
 
-  h1 {
-      font-size: 2.5rem;
-      margin: 0 0 .5rem 0;
+  .categories {
+    font-size: 10pt;
+    margin: 0;
+    padding: 0 2em 0 0;
+    grid-row: 1 / 2;
+    grid-column: 2;
   }
-
+  .metadata {
+    display: grid;
+    justify-content: space-between;
+    align-items: start;
+    justify-items: stretch;
+  }
 
 </style>
 
@@ -84,8 +101,13 @@
 <TitleBar level='h3' />
 
 <h1 data-cy='blog-post-heading'>{post.metadata.title}</h1>
-<p data-cy='blog-post-date' class='date'>{post.metadata.dateString}</p>
-<p data-cy='blog-post-readtime' class='reading-time'>{#if post.minutesToRead}{post.minutesToRead}{/if}</p>
+
+<div class='metadata'>
+  <div data-cy='blog-post-date' class='date'>{post.metadata.dateString}</div>
+  <div data-cy='blog-post-readtime' class='reading-time'>{#if post.minutesToRead}{post.minutesToRead}{/if}</div>
+  <!-- TODO : faire un composant comme la liste des categories qui au clic renvoie sur la liste en selectionnant la categorie cliquée -->
+  <div data-cy='blog-post-categories' class='categories'>{post.metadata.category}</div>
+</div>
 
 <div data-cy='blog-post-content' class='content'>
   <svelte:component this="{post.component}" />
