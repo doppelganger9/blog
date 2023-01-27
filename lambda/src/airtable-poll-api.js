@@ -1,4 +1,5 @@
 const Airtable = require('airtable');
+const fetch = require('node-fetch').default;
 
 /**
  * nécessite d'avoir positionner les variables d'environnements suivantes:
@@ -34,9 +35,9 @@ exports.describeTable = async () => {
     }
 
     const url = `https://api.airtable.com/v0/meta/bases/${AT_BASE}/tables` 
-    return fetch(url, {headers: new Headers({
+    return fetch(url, { headers: {
       "Authorization": `Bearer ${apiKey}`
-    })})
+    }})
     .then(response => {
       response.json().then(data => {
         // only keep our table
