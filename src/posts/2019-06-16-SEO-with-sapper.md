@@ -4,6 +4,7 @@ date: 2019-06-16T20:00:00
 description: part 1 of my series on describing how I migrated from a GatsbyJS/React blog to Sapper/Svelte. This one is about SEO; Twitter Cards, Facebook/OpenGraph, Google Search, sitemap.xml and robots.txt.
 published: true
 lang: en
+category: Dev
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/06/16
 thumb: https://lacourt.dev/thumb-seo-svelte.png

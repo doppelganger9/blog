@@ -15,6 +15,7 @@ export function load() {
       description: post.metadata.description,
       slug: post.slug,
       minutesToRead: post.minutesToRead,
+      category: post.metadata.category,
     };
   });
   return {

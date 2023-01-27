@@ -4,6 +4,7 @@ date: 2019-06-20T19:00:03
 published: false
 description: A post about how I tested using svelte components inside markdown content. And ended up doing something completely diffenrent!
 tags: svelte, inception, markdown
+category: Dev
 lang: en
 keywords: svelte, markdown, web-components, components, web audio, animations, eliza, timer, 7guis
 slug: 2019/06/20

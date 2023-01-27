@@ -1,11 +1,17 @@
 <script>
   import TitleBar from '$lib/components/TitleBar.svelte';
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
-  import { i18n } from '$lib/stores/i18n.js';
+  import { i18n, registerMoreLabels } from '$lib/stores/i18n.js';
   import { siteUrl } from '$lib/stores/config.js';
+  import { selectedCategory } from '$lib/stores/category'
+  import Categories from '$lib/components/Categories.svelte'
 
   /** @type {import('./$types').PageData} */
   export let data;
+
+  registerMoreLabels({
+    "fr": { "sadly, no results": "Aucun contenu; quelle tristesse"}
+  });
 </script>
 
 <svelte:head>
@@ -33,8 +39,10 @@
 
 <ArticleFooter />
 
+<Categories mode="horizontal" />
+
 <ul data-cy="blog-posts-list">
-  {#each data.posts as post}
+  {#each data.posts.filter(p => !$selectedCategory || !p.category || p.category?.indexOf($selectedCategory)>=0) as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
         tell SvelteKit to load the data for the page as soon as
         the user hovers over the link or taps it, instead of
@@ -46,6 +54,11 @@
         <p>{post.description}</p>
       </a>
     </li>
+  {:else}
+  <div class="no-results">
+    <img src="sad.png" alt="{$i18n`sadly, no results`}">
+    <p>{$i18n`sadly, no results`}</p>
+  </div>
   {/each}
 </ul>
 
@@ -72,5 +85,13 @@
     box-shadow: none;
     text-decoration: none;
     color: inherit;
+  }
+  .no-results {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 </style>

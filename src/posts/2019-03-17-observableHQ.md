@@ -4,6 +4,7 @@ date: 2019-03-17T14:50:03
 published: true
 description: A post about how I used ObservableHQ a few months ago to create a notebook about using JavaScript Generators to create a time-traveling visualization of an algorithm.
 tags: ObservableHQ, notebook, javascript, generators
+category: Dev
 lang: en
 keywords: observablehq, notebook, javascript, fun fun function, mpj, generators, es6, ecmascript, javascript
 slug: 2019/03/17

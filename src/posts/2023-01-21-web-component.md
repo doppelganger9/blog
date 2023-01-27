@@ -4,6 +4,7 @@ date: 2023-01-21T22:20:00
 published: true
 description: Sample QR Code component usage in a SvelteKit page.
 tags: blog
+category: Dev
 lang: en
 keywords: StencilJS, webcomponent, web-component, web component, custom element, sveltekit, svelte
 slug: 2023/01/21

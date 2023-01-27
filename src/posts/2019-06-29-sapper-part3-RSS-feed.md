@@ -4,6 +4,7 @@ date: 2019-06-29T22:00:00
 description: part 3 of GatsbyJS/React to Sapper/Svelte blog migration. This one is about adding an unneeded feature that will help you follow this blog with Google Reader... wait... what?
 published: true
 lang: en
+category: Dev
 keywords: Sapper, Svelte, GatsbyJS, React, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, rss, syndication, feed, endpoint, test after
 slug: 2019/06/29
 thumb: https://source.unsplash.com/o4-YyGi5JBc/600x400

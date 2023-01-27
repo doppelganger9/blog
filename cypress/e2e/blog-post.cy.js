@@ -20,14 +20,18 @@ describe(`a blog post`, () => {
     aBackLinkShouldBeShownTo('/')
   });
 
-  it(`should show the published date in the first <p> following the <h1> article title`, () => {
-    cy.get(`h1 + p`)
+  it(`should show the published date`, () => {
+    cy.get(`[data-cy=blog-post-date]`)
       .should('exist')
       .should('contain', '2019')
   });
 
-  it(`should show the time to read in a second <p> following the <h1> article title`, () => {
-    cy.get(`h1 + p + p`).should('contain', 'min read')
+  it(`should show the time to read`, () => {
+    cy.get(`[data-cy=blog-post-readtime]`).should('contain', 'min read')
+  });
+
+  it(`should show the categories`, () => {
+    cy.get(`[data-cy=blog-post-categories]`).should('contain', 'all')
   });
 
   it(`should show the "written by" footer`, () => {

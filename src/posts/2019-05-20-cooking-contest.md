@@ -5,6 +5,7 @@ description: I tried and learned how to use Svelte by making a small side-projec
 published: true
 lang: en
 tags: Svelte, cooking, contest, orange, car, fail, Sapper
+category: Dev
 keywords: Svelte, cooking, contest, orange, car, fail, Sapper, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, side project
 slug: 2019/05/20
 thumb: https://source.unsplash.com/TYlR9NGFrPs/600x400
