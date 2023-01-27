@@ -19,7 +19,10 @@
     "start": "netlify serve:lambda ./src"
   },
   "devDependencies": {
-    "airtable": "0.11.6",
     "netlify-cli": "12.10.0"
+  },
+  "dependencies": {
+    "airtable": "0.11.6",
+    "node-fetch": "3.3.0"
   }
 }
