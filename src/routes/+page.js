@@ -1,4 +1,5 @@
 import { getPublishedPosts } from '$lib/posts';
+import { getAllCategoriesOfPublishedPosts, getAllTagsOfPublishedPosts } from '../lib/posts';
 
 export const prerender = true;
 
@@ -8,6 +9,9 @@ export const prerender = true;
 export function load() {
   // this appears during build and in the browser while `npx http-server build`
   const publishedPosts = getPublishedPosts();
+  const allTags = getAllTagsOfPublishedPosts();
+  const allCategories = getAllCategoriesOfPublishedPosts();
+
   const contents = publishedPosts.map(post => {
     return {
       title: post.metadata.title,
@@ -15,10 +19,13 @@ export function load() {
       description: post.metadata.description,
       slug: post.slug,
       minutesToRead: post.minutesToRead,
-      category: post.metadata.category,
+      categories: post.metadata.category,
+      tags: post.metadata.tags,
     };
   });
   return {
-    posts: contents
+    posts: contents,
+    tags: allTags,
+    categories: allCategories,
   };
 }

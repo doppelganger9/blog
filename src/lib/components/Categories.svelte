@@ -1,23 +1,9 @@
 <script lang="ts">
   import { selectedCategory } from "$lib/stores/category"
-  import { i18n, registerMoreLabels } from "$lib/stores/i18n"
+  import { i18n } from "$lib/stores/i18n"
 
-  let categories = ["", "Dev", "TTRPG", "Musique", "Famille", "Sport", "Agile", "Gaming"]; 
-  // TODO récupérer la liste des category de l'ensemble des posts...
-  // TODO récupérer le nombre de post pour chaque Category
+  export let data;
   export let mode: "horizontal"|"vertical" = "horizontal"; // or "vertical"
-
-  registerMoreLabels({
-    "en": {
-      "Dev": "Code",
-      "Famille": "Family",
-      "Musique": "Music",
-      "Sport": "Sports"
-    },
-    "fr": {
-      "TTRPG": "JdR",
-    }
-  });
 
   function selectCategory(category) {
     selectedCategory.set(category);
@@ -25,8 +11,8 @@
 </script>
 
 <ul data-cy="categories" class="categories {mode}">
-  {#each categories as category}
-    <li on:keyup={() => selectCategory(category)} on:click={() => selectCategory(category)} class:category={true} class:selected={$selectedCategory === category}>{category ? $i18n`${category}`:$i18n`All`}</li>
+  {#each data as d}
+    <li on:keyup={() => selectCategory(d?.category)} on:click={() => selectCategory(d?.category)} class:category={true} class:selected={$selectedCategory === d?.category}>{d && d.category ? $i18n`${d.category}`:$i18n`All`} ({d.nb})</li>
   {/each}
 </ul>
 
@@ -34,12 +20,12 @@
   .categories.horizontal {
     list-style: none;
     margin: 0 0 3em 0;
-    padding: 1em;
-    height: 2em;
+    padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .categories.vertical {
     list-style: none;
@@ -48,12 +34,11 @@
     height: 20em;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
   }
   .category {
-    margin: .25em;
-    padding: .25em 1em;
+    margin: 0 2px;
+    padding: 5px 10px;
     box-sizing: border-box;
     border-bottom: 3px solid transparent;
     transition: all .5s;
