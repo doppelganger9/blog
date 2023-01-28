@@ -34,7 +34,7 @@
     "build": "run-p build:*",
     "build:app": "vite build",
     "preview": "vite preview",
-    "serve": "npx http-server build",
+    "serve": "npx http-server build -s",
     "start": "run-p start:*",
     "start:app": "npm run build",
     "cy:run": "cypress run",

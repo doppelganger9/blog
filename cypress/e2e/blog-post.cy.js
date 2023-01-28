@@ -31,7 +31,7 @@ describe(`a blog post`, () => {
   });
 
   it(`should show the categories`, () => {
-    cy.get(`[data-cy=blog-post-categories]`).should('contain', 'all')
+    cy.get(`[data-cy=blog-post-categories]`).should('exist')
   });
 
   it(`should show the "written by" footer`, () => {

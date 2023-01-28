@@ -5,7 +5,6 @@ description: The first post on this blog! About my intent and this blog's purpos
 published: true
 lang: en
 tags: first, starting
-category: all
 keywords: hello world, first post, starting new blog
 slug: hello-world
 ---
