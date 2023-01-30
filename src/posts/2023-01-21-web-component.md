@@ -37,7 +37,11 @@ Here is a QR Code Custom Element with Svelte bindings to make it more reactive.
   let qrCodeContents = "test";
 
   onMount(async () => {
+    // this one is a StencilJS component
     await import("https://doppelganger9.github.io/stencil-qrcode-component/build/stqrcmp.esm.js");
+    // this one is an Angular Element application and needs Zone.js
+    await import("https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js");
+    await import("https://doppelganger9.github.io/tables-multiplications/table-multiplication-app.js");
   });
 
 </script>
@@ -57,6 +61,12 @@ Here is a QR Code Custom Element with Svelte bindings to make it more reactive.
     margin: 0 auto;
   }
 </style>
+
+## And now an Angular Application (packaged as a Web Component using Angular Elements)
+
+Maybe I'll need to import `zone.js`...
+
+<tables-multiplications-app></tables-multiplications-app>
 
 ## The code
 
@@ -69,7 +79,11 @@ Seems simple, after having spent a few hours on trying to make it work 😂!
   let qrCodeContents = "test";
 
   onMount(async () => {
+    // this one is a StencilJS component
     await import("https://doppelganger9.github.io/stencil-qrcode-component/build/stqrcmp.esm.js");
+    // this one is an Angular Element application and needs Zone.js
+    await import("https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js");
+    await import("https://doppelganger9.github.io/tables-multiplications/table-multiplication-app.js");
   });
 
 </script>
@@ -89,25 +103,30 @@ Seems simple, after having spent a few hours on trying to make it work 😂!
     margin: 0 auto;
   }
 </style>
+
+<!-- And the Angular App Custom Element:  -->
+<tables-multiplications-app></tables-multiplications-app>
+
 ```
 
 ## towards Micro-Frontends ?
 
-This is an example to show how to mix 2 frameworks (Svelte and StencilJS) with SvelteKit as the Host, and StencilJS providing custom web components. This custom element could be an entire app!
+This is an example to show how to mix 3 frameworks (Svelte, StencilJS, Angular) with SvelteKit as the Host, and StencilJS or Angular providing custom web components. One of these custom elements is an entire app (albeit small)!
 
 My ultimate goal is to learn by experimenting on how to integrate/federate different apps built with different technologies (React, Angular, StencilJS, Svelte, Vue).
 
 To do that, this blog is an interesting playground. Also I have other side projects in these technologies, that I could federate and explain more in this blog.
 
 - a Vue app : https://github.com/doppelganger9/hystoire-de-fou 
-- a Stackblitz Angular App : https://stackblitz.com/edit/angular-ivy-ppxvsj
 - a React app : https://github.com/doppelganger9/react-cv-template
 
-So, my next goal is to try integrating one of those 3 apps.
+So, my next goal is to try integrating one of those 2 apps.
 
 Maybe this blog will become a complete website, we'll see...
 
 See you in a year! ...well, just kidding, I hope not, we'll see 🤞!
+
+_(EDIT: I integrated an Angular App a few days later. I will complete this post with more details.)_
 
 ## Reference
 
