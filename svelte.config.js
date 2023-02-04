@@ -13,7 +13,29 @@ const config = {
   kit: {
     adapter: adapter(),
   },
+  // some config to compile Svelte components as Custom Elements if they have `<svelte:options tag=`
+  vitePlugin: {
+    experimental: {
+        dynamicCompileOptions({code}) {
+            if(isWebComponentSvelte(code)) {
+                return {
+                    customElement: true
+                }
+            }
+        }
+    }
+  }
 };
+
+function isWebComponentSvelte(code) {
+  const svelteOptionsIdx = code.indexOf('<svelte:options ')
+  if(svelteOptionsIdx < 0) {
+      return false
+  }
+  const tagOptionIdx = code.indexOf('tag=', svelteOptionsIdx)
+  const svelteOptionsEndIdx = code.indexOf('>',svelteOptionsIdx);
+  return tagOptionIdx > svelteOptionsIdx && tagOptionIdx < svelteOptionsEndIdx
+}
 
 // const config = {
 //   // options passed to svelte.compile (https://svelte.dev/docs#svelte_compile)
