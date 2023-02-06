@@ -42,6 +42,12 @@ I discovered this when migrating my Vue 2 app to Vue 3 to be able to expose it a
 See https://www.honeybadger.io/blog/import-maps/
 https://html.spec.whatwg.org/multipage/webappapis.html#import-maps
 
+_(EDIT 2023-02-06)_ Unfortunately, when writing this post, [importmaps were not yet supported on Safari and Firefox](https://caniuse.com/?search=import%20maps). There is an [existing polyfill for ES Modules including importmaps](https://github.com/guybedford/es-module-shims), So I added it after reading [this great post explaining how it works](https://guybedford.com/es-module-shims-production-import-maps).
+
+I used `importShim` instead of `import` in the code above to allow dynamic imports to work as expected.
+
+It should work on Safari, Safari Mobile, Chrome and Firefox, now.
+
 ## Interoperability
 
 On https://custom-elements-everywhere.com/ you can check which frameworks works well with Custom Elements and as Custom Elements.
@@ -80,7 +86,10 @@ Below, there are:
     // I'm using an importmap for vue/vuex/vue devtools, I had to add it to my index.html
     // or else it would error.
     // the required Google Font Caveat is included below
-    await import("https://doppelganger9.github.io/hystoire-de-fou/vue-app.mjs");
+    // On Safari and Firefox, importmaps are not yet supported, so we use ES Module Shim to polyfill it.
+    // Furthermore, dynamic imports in this case need another tweak, 
+    // we'll use importShim instead of import to make them work.
+    await importShim("https://doppelganger9.github.io/hystoire-de-fou/vue-app.mjs");
 
     // For the React App, I did not manage yet to package Fonts inside the Web Component.
     // Adding a link rel="stylesheet" for Google Roboto Font
@@ -93,7 +102,7 @@ Below, there are:
     styleLinkForFontAwesome.rel = 'stylesheet';
     styleLinkForFontAwesome.href = 'https://doppelganger9.github.io/react-cv-template/assets/index.css';
     document.head.appendChild(styleLinkForFontAwesome);
-    await import("https://doppelganger9.github.io/react-cv-template/assets/index.mjs");
+    await importShim("https://doppelganger9.github.io/react-cv-template/assets/index.mjs");
   });
 </script>
 
@@ -177,7 +186,10 @@ Seems simple, after having spent a few hours on trying to make it work 😂!
     // so we have to find another way!
     // So I had to add it the HEAD tag of the index.html file.
     // the required Google Font Caveat is included below
-    await import("https://doppelganger9.github.io/hystoire-de-fou/vue-app.mjs");
+    // On Safari and Firefox, importmaps are not yet supported, so we use ES Module Shim to polyfill it.
+    // Furthermore, dynamic imports in this case need another tweak, 
+    // we'll use importShim instead of import to make them work.
+    await importShim("https://doppelganger9.github.io/hystoire-de-fou/vue-app.mjs");
 
     // For the React App, I did not manage yet to package Fonts inside the Web Component.
     // Adding a link rel="stylesheet" for Google Roboto Font
@@ -190,8 +202,7 @@ Seems simple, after having spent a few hours on trying to make it work 😂!
     styleLinkForFontAwesome.rel = 'stylesheet';
     styleLinkForFontAwesome.href = 'https://doppelganger9.github.io/react-cv-template/assets/index.css';
     document.head.appendChild(styleLinkForFontAwesome);
-    await import("https://doppelganger9.github.io/react-cv-template/assets/index.mjs");
-
+    await importShim("https://doppelganger9.github.io/react-cv-template/assets/index.mjs");
   });
 
 </script>
