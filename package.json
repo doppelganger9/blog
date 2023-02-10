@@ -41,7 +41,8 @@
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
     "test": "start-server-and-test serve http://127.0.0.1:8080 cy:run:no-coverage",
-    "start:lambda": "cd lambda && npm start"
+    "start:lambda": "cd lambda && npm start",
+    "migration:check": "npm run build && npm run test"
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "1.0.2",
@@ -49,7 +50,7 @@
     "@remark-embedder/core": "2.0.0",
     "@remark-embedder/transformer-oembed": "2.0.0",
     "@sveltejs/adapter-static": "1.0.0-next.47",
-    "@sveltejs/kit": "1.0.0-next.545",
+    "@sveltejs/kit": "1.0.0-next.559",
     "cypress": "12.5.1",
     "elizabot": "0.0.3",
     "mdsvex": "0.10.6",
