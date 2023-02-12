@@ -49,7 +49,7 @@
     "@cypress/code-coverage": "3.10.0",
     "@remark-embedder/core": "3.0.1",
     "@remark-embedder/transformer-oembed": "3.0.0",
-    "@sveltejs/adapter-static": "1.0.6",
+    "@sveltejs/adapter-static": "2.0.1",
     "@sveltejs/kit": "1.5.5",
     "cypress": "12.5.1",
     "elizabot": "0.0.3",
