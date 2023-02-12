@@ -11,7 +11,7 @@ describe(`a blog post`, () => {
     cy.interceptGiscusAPI(); // block Giscus Discussions calls
     cy.visitWithLang('/', 'en-US')
       .wait(200)  // if we don't wait, SvelteKit hydration will not work propertly. Yeah, I know, I'd prefer not to.
-      .get(`a > h3`).wait(200).last().wait(200).click().wait(200);
+      .get(`a > h3`).last().click();
   });
 
   it(`should show the title bar in h3`, () => {

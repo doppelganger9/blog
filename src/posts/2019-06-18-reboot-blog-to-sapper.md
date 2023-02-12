@@ -110,7 +110,7 @@ font-family: 'Montserrat', sans-serif;
 
 ### migrating markdown content
 
-This Sapper markdown blog template used [`marked`]() library
+This Sapper markdown blog template used [`marked`](https://github.com/markedjs/marked) library.
 
 I had an issue with the metadata date, for which I needed to remove the double-quote aroud the string date.
 Also, marked extension seem to convert everything in text, even boolean values, so beware of that (published field).
