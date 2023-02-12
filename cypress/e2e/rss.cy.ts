@@ -1,16 +1,12 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-
-import { force404 } from "../common";
+import { cy, describe, beforeEach, it, expect } from 'local-cypress';
+import { force404, interceptGiscusAPI, interceptStatusAPI } from '../common';
 
 describe(`RSS feed endpoint`, () => {
 
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
     cy.request('/rss').as('rss');
   });
 

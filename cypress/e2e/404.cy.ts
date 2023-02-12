@@ -1,16 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown, force404, 
+  interceptGiscusAPI, interceptStatusAPI, visitWithLang } from '../common';
 
 describe(`The 404 page`, () => {
-
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/404', 'en-US', { failOnStatusCode: false });
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/404', 'en-US', { failOnStatusCode: false });
   });
 
   it(`should show up for unknown URLs`, () => {
@@ -33,5 +30,4 @@ describe(`The 404 page`, () => {
   it(`should have a back link to home`, () => {
     aBackLinkShouldBeShownTo('/');
   });
-
 });

@@ -1,7 +1,5 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
+import { cy, describe, xit, expect } from 'local-cypress';
+
 describe(`The Uptime Robot API`, () => {
 
   // NOTE can fail because of new limitation rate-limit of 10 rq/min for free plan.

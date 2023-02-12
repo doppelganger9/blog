@@ -1,32 +1,24 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { aBackLinkShouldBeShownTo, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { aBackLinkShouldBeShownTo, force404, interceptGiscusAPI, interceptStatusAPI, visitWithLang } from '../common';
 
 describe(`The "Article Footer"`, () => {
-  const articleFooterSelector = 'p';
-  //const articleFooterSelector = '.article-footer';
+  const articleFooterSelector = `[data-cy='article-footer']`;
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/', 'en-US')
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/', 'en-US')
   });
 
-  // it(`has David's profile picture`, () => {
-  //   cy.get(`${articleFooterSelector} img`)
-  //     .should('have.attr', 'src')
-  //     .and('include', 'profile-pic.png');
-  // });
+  it(`has David's profile picture`, () => {
+    cy.get(`${articleFooterSelector} img`)
+      .should('have.attr', 'src')
+      .and('include', 'profile-pic');
+  });
 
   it(`has David's name in it`, () => {
     cy.get(`${articleFooterSelector}`)
       .should('contain', 'David Lacourt')
-  });
-
-  if (`has a back link to the list of posts`, () => {
-    aBackLinkShouldBeShownTo('/blog')
   });
 
   it('has a link to Senlis Wikipedia page', () => {

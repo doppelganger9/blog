@@ -1,14 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-const statusPageURL = 'https://stats.uptimerobot.com/ZYDp0hJL8';
+import { cy, describe, it } from 'local-cypress';
+import { interceptGiscusAPI, interceptStatusAPI } from '../common';
+
+  const statusPageURL = 'https://stats.uptimerobot.com/ZYDp0hJL8';
 
 describe(`The Status component`, () => {
 
   it(`should be present in the footer`, () => {
     cy.visit('/');
-    cy.interceptGiscusAPI();
+    interceptGiscusAPI();
     footerStatusAnchor(cy)
       .should('exist');
   });
@@ -70,10 +69,10 @@ describe(`The Status component`, () => {
   });
 
   function givenAPIReturnStatus(status) {
-    cy.interceptStatusAPI(status);
+    interceptStatusAPI(status);
   }
 
-  function givenAPIReturnHTTPStatus(status, message = undefined) {
+  function givenAPIReturnHTTPStatus(status: number, message?: string) {
     cy.intercept({
         method: 'POST',
         url: `https://api.uptimerobot.com/v2/getMonitors`,

@@ -1,15 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { articleFooterShouldBeShown, builtByFooterShouldBeShown, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { builtByFooterShouldBeShown, force404, 
+  interceptGiscusAPI, interceptStatusAPI, visitWithLang, articleFooterShouldBeShown } from '../common';
 
 describe(`Privacy Policy page`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/privacy-policy', 'en-US')
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/privacy-policy', 'en-US')
   })
 
   it(`should have the proper title`, () => {

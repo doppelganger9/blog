@@ -1,15 +1,12 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { force404 } from '../common';
+import { cy, describe, beforeEach, it, xit } from 'local-cypress';
+import { force404, interceptGiscusAPI, interceptStatusAPI, visitWithLang } from '../common';
 
 describe(`David's Blog app`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/', 'en-US')
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/', 'en-US')
   });
 
   it('show blog post categories with at least 4 categories', () => {

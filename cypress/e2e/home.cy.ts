@@ -1,15 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { articleFooterShouldBeShown, builtByFooterShouldBeShown, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { builtByFooterShouldBeShown, force404, 
+  interceptGiscusAPI, interceptStatusAPI, visitWithLang, articleFooterShouldBeShown } from '../common';
 
 describe(`David's Blog app`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/', 'en-US')
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/', 'en-US')
   });
 
   it('has the correct <h1>', () => {

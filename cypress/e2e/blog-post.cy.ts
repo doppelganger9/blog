@@ -1,15 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { titleBarShouldBeShown, builtByFooterShouldBeShown, articleFooterShouldBeShown, aBackLinkShouldBeShownTo, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { builtByFooterShouldBeShown, aBackLinkShouldBeShownTo, titleBarShouldBeShown, force404, 
+  interceptGiscusAPI, interceptStatusAPI, visitWithLang, articleFooterShouldBeShown } from '../common';
 
 describe(`a blog post`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptStatusAPI(2); // mock status as "up"
-    cy.interceptGiscusAPI(); // block Giscus Discussions calls
-    cy.visitWithLang('/', 'en-US')
+    interceptStatusAPI(2); // mock status as "up"
+    interceptGiscusAPI(); // block Giscus Discussions calls
+    visitWithLang('/', 'en-US')
       .wait(200)  // if we don't wait, SvelteKit hydration will not work propertly. Yeah, I know, I'd prefer not to.
       .get(`a > h3`).last().click();
   });

@@ -1,3 +1,5 @@
+import { Cypress, cy } from 'local-cypress';
+
 const configuredJamStack = Cypress.env('BLOG_JAMSTACK') || 'gatsby';
 
 console.log(configuredJamStack);
@@ -46,4 +48,52 @@ export function force404() {
   }, {
     statusCode: 404
   });
+}
+
+export function visitWithLang(target: string, lang: string, options?: any) {
+  return cy.visit(target, {
+    ...options,
+    onBeforeLoad(win) {
+      Object.defineProperty(win.navigator, 'language',
+        {
+          get: cy
+            .stub()
+            .returns(lang)
+            .as('language')
+        }
+      );
+    },
+  });
+}
+
+export function getByDataCy(selector: string) {
+  return cy.get(`[data-cy='${selector}']`)
+}
+
+export function interceptStatusAPI(status: number) {
+  return cy.intercept(
+    'POST',
+    `https://api.uptimerobot.com/v2/getMonitors`,
+    {
+      monitors: [
+        {
+          url: 'https://lacourt.dev',
+          friendly_name: 'Lacourt.dev',
+          status,
+        }
+      ]
+    }
+  ).as('mocked-uptime-getMonitors-API');
+}
+
+export function interceptGiscusAPI() {
+  return cy.intercept(
+    'GET',
+    `https://giscus.app/api/discussions`,
+    (req) => {
+      req.reply(res => {
+        res.statusCode = 404;
+        res.body = 'Giscus Discussions blocked';
+      })
+  }).as('mocked-giscus-getDiscussions-API');
 }

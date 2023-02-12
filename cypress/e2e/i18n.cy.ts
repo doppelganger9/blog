@@ -1,9 +1,5 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-
-import { force404 } from "../common";
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { force404, interceptGiscusAPI, interceptStatusAPI, visitWithLang } from '../common';
 
 // TODO
 // when browser locale is fr-FR,
@@ -20,9 +16,9 @@ describe(`i18n`, () => {
   describe(`Given the browser's language is 🇫🇷`, () => {
     beforeEach(() => {
       force404(); // for the status indicator
-      cy.interceptGiscusAPI();
-      cy.interceptStatusAPI(2);  
-      cy.visitWithLang('/', 'fr-FR');
+      interceptGiscusAPI();
+      interceptStatusAPI(2);  
+      visitWithLang('/', 'fr-FR');
     });
     it(`when viewing the home page, then the title bar is in 🇫🇷`, () => {
       cy
@@ -59,7 +55,7 @@ describe(`i18n`, () => {
   describe(`Given the browser's language is 🇺🇸`, () => {
     beforeEach(() => {
       force404(); // for the status indicator
-      cy.visitWithLang('/', 'en-US');
+      visitWithLang('/', 'en-US');
     });
     it(`when viewing the home page, then the title bar is in 🇺🇸`, () => {
       cy

@@ -1,15 +1,13 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="cypress" />
-/// <reference types="../support" />
-import { jamStackFrameworkName, mainFrameworkName, mainFrameworkURL, jamStackFrameworkURL, force404 } from '../common';
+import { cy, describe, beforeEach, it } from 'local-cypress';
+import { force404, interceptGiscusAPI, interceptStatusAPI, visitWithLang, 
+  mainFrameworkName, mainFrameworkURL, jamStackFrameworkName, jamStackFrameworkURL } from '../common';
 
 describe('has a footer', () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.interceptGiscusAPI();
-    cy.interceptStatusAPI(2);
-    cy.visitWithLang('/', 'en-US')
+    interceptGiscusAPI();
+    interceptStatusAPI(2);
+    visitWithLang('/', 'en-US')
   });
 
   it('shows a copyright year', () => {
