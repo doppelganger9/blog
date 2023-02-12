@@ -9,6 +9,8 @@ describe(`RSS feed endpoint`, () => {
 
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.request('/rss').as('rss');
   });
 

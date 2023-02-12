@@ -20,6 +20,8 @@ describe(`i18n`, () => {
   describe(`Given the browser's language is 🇫🇷`, () => {
     beforeEach(() => {
       force404(); // for the status indicator
+      cy.interceptGiscusAPI();
+      cy.interceptStatusAPI(2);  
       cy.visitWithLang('/', 'fr-FR');
     });
     it(`when viewing the home page, then the title bar is in 🇫🇷`, () => {

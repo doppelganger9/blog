@@ -7,6 +7,8 @@ import { articleFooterShouldBeShown, builtByFooterShouldBeShown, force404 } from
 describe(`David's Blog app`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/', 'en-US')
   });
 

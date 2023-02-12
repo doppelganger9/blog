@@ -2,13 +2,15 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 /// <reference types="../support" />
-import { aBackLinkShouldBeShownTo, force404 } from '../common.js';
+import { aBackLinkShouldBeShownTo, force404 } from '../common';
 
 describe(`The "Article Footer"`, () => {
   const articleFooterSelector = 'p';
   //const articleFooterSelector = '.article-footer';
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/', 'en-US')
   });
 

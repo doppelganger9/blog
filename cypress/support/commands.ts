@@ -35,3 +35,84 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add("visitWithLang", (target: string, lang: string, options?: any): Cypress.Chainable => {
+  return cy.visit(target, {
+    ...options,
+    onBeforeLoad(win) {
+      Object.defineProperty(win.navigator, 'language',
+        {
+          get: cy
+            .stub()
+            .returns(lang)
+            .as('language')
+        }
+      );
+    },
+  });
+})
+
+Cypress.Commands.add("getByDataCy", (selector: string): Cypress.Chainable => {
+  return cy.get(`[data-cy='${selector}']`)
+})
+
+Cypress.Commands.add("interceptStatusAPI", (status: number) => {
+  return cy.intercept(
+    'POST',
+    `https://api.uptimerobot.com/v2/getMonitors`,
+    {
+      monitors: [
+        {
+          url: 'https://lacourt.dev',
+          friendly_name: 'Lacourt.dev',
+          status,
+        }
+      ]
+    }
+  ).as('mocked-uptime-getMonitors-API');
+});
+
+Cypress.Commands.add("interceptGiscusAPI", () => {
+  return cy.intercept(
+    'GET',
+    `https://giscus.app/api/discussions`,
+    (req) => {
+      req.reply(res => {
+        res.statusCode = 404;
+        res.body = 'Giscus Discussions blocked';
+      })
+  }).as('mocked-giscus-getDiscussions-API');
+});
+
+declare namespace Cypress {
+    interface Chainable {
+      /**
+       * get an element targetting its `data-cy` attribute, as recommended by Cypress best practices.
+       * 
+       * @example
+       * cy.getByDataCy('main-heading')
+       * 
+       * @see 
+       * https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements
+       */
+      getByDataCy(selector: string): Chainable;
+
+      /**
+       * Override window.navigator.language to return some value.
+       * 
+       * @param target url to visit
+       * @param lang language to return when window.navigator.language is called
+       * @param options cy.visit() options
+       */
+      visitWithLang(target: string, lang: string, options?: any): Chainable;
+
+      /**
+       * Intercept and mock the Status API
+       * 
+       * @param status fake status to return
+       */
+      interceptStatusAPI(status: number): Chainable;
+
+      interceptGiscusAPI(): Chainable;
+    }
+  }

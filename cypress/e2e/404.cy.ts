@@ -8,6 +8,8 @@ describe(`The 404 page`, () => {
 
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/404', 'en-US', { failOnStatusCode: false });
   });
 

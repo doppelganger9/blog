@@ -8,6 +8,8 @@ import { force404 } from "../common";
 describe(`Links & Anchors in blog post markdown titles`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/hello-world', 'en-US')
   });
 

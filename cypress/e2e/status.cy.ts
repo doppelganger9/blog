@@ -8,6 +8,7 @@ describe(`The Status component`, () => {
 
   it(`should be present in the footer`, () => {
     cy.visit('/');
+    cy.interceptGiscusAPI();
     footerStatusAnchor(cy)
       .should('exist');
   });
@@ -69,19 +70,7 @@ describe(`The Status component`, () => {
   });
 
   function givenAPIReturnStatus(status) {
-    cy.intercept(
-      'POST',
-      `https://api.uptimerobot.com/v2/getMonitors`,
-      {
-        monitors: [
-          {
-            url: 'https://lacourt.dev',
-            friendly_name: 'Lacourt.dev',
-            status,
-          }
-        ]
-      }
-    ).as('mocked-uptime-getMonitors-API');
+    cy.interceptStatusAPI(status);
   }
 
   function givenAPIReturnHTTPStatus(status, message = undefined) {

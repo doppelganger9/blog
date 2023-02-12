@@ -7,6 +7,8 @@ import { force404 } from '../common';
 describe(`David's Blog app`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/', 'en-US')
   });
 

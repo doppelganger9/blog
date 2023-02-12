@@ -7,6 +7,8 @@ import { jamStackFrameworkName, mainFrameworkName, mainFrameworkURL, jamStackFra
 describe('has a footer', () => {
   beforeEach(() => {
     force404(); // for the status indicator
+    cy.interceptGiscusAPI();
+    cy.interceptStatusAPI(2);
     cy.visitWithLang('/', 'en-US')
   });
 

@@ -7,9 +7,11 @@ import { titleBarShouldBeShown, builtByFooterShouldBeShown, articleFooterShouldB
 describe(`a blog post`, () => {
   beforeEach(() => {
     force404(); // for the status indicator
-    cy.visitWithLang('/', 'en-US');
-    cy.wait(100); // if we don't wait, SvelteKit hydration will not work propertly. Yeah, I know, I'd prefer not to.
-    cy.get(`a > h3`).last().click();
+    cy.interceptStatusAPI(2); // mock status as "up"
+    cy.interceptGiscusAPI(); // block Giscus Discussions calls
+    cy.visitWithLang('/', 'en-US')
+      .wait(200)  // if we don't wait, SvelteKit hydration will not work propertly. Yeah, I know, I'd prefer not to.
+      .get(`a > h3`).wait(200).last().wait(200).click().wait(200);
   });
 
   it(`should show the title bar in h3`, () => {
