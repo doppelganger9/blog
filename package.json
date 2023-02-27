@@ -67,7 +67,7 @@
     "remark-abbr": "1.4.1",
     "remark-twemoji": "0.1.1",
     "rxjs": "7.8.0",
-    "start-server-and-test": "1.15.4",
+    "start-server-and-test": "1.15.5",
     "svelte": "3.55.1",
     "svelte-check": "3.0.4",
     "svelte-preprocess": "5.0.1",
