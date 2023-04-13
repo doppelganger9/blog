@@ -50,7 +50,7 @@
     "@remark-embedder/core": "3.0.1",
     "@remark-embedder/transformer-oembed": "3.0.0",
     "@sveltejs/adapter-static": "2.0.2",
-    "@sveltejs/kit": "1.15.4",
+    "@sveltejs/kit": "1.15.5",
     "cypress": "12.9.0",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.6",
