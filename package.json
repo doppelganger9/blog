@@ -69,7 +69,7 @@
     "rxjs": "7.8.1",
     "start-server-and-test": "2.0.0",
     "svelte": "3.59.2",
-    "svelte-check": "3.4.3",
+    "svelte-check": "3.4.4",
     "svelte-preprocess": "5.0.4",
     "tslib": "2.5.3",
     "twemoji": "14.0.2",
