@@ -63,7 +63,7 @@
     "rehype-autolink-headings": "6.1.1",
     "rehype-figure": "1.0.1",
     "rehype-slug": "5.1.0",
-    "rehype-urls": "1.1.1",
+    "rehype-urls": "1.2.0",
     "remark-abbr": "1.4.1",
     "remark-twemoji": "0.1.1",
     "rxjs": "7.8.1",
