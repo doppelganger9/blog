@@ -74,7 +74,7 @@
     "tslib": "2.6.1",
     "twemoji": "14.0.2",
     "typescript": "4.9.5",
-    "unist-util-visit": "4.1.2",
+    "unist-util-visit": "5.0.0",
     "vite": "4.4.9",
     "vite-plugin-istanbul": "4.1.0"
   },
