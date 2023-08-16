@@ -22,7 +22,7 @@
     "netlify-cli": "14.4.0"
   },
   "dependencies": {
-    "airtable": "0.12.1",
+    "airtable": "0.12.2",
     "node-fetch": "3.3.2"
   }
 }
