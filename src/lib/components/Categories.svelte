@@ -12,7 +12,7 @@
 
 <ul data-cy="categories" class="categories {mode}">
   {#each data as d}
-    <li on:keyup={() => selectCategory(d?.category)} on:click={() => selectCategory(d?.category)} class:category={true} class:selected={$selectedCategory === d?.category}>{d && d.category ? $i18n`${d.category}`:$i18n`All`} ({d.nb})</li>
+    <li class:category={true} class:selected={$selectedCategory === d?.category}><div role="button" tabindex=0 on:keyup={() => selectCategory(d?.category)} on:click={() => selectCategory(d?.category)}>{d && d.category ? $i18n`${d.category}`:$i18n`All`} ({d.nb})</div></li>
   {/each}
 </ul>
 
@@ -47,6 +47,7 @@
     border-bottom: 3px solid blueviolet;
     background-color: white;
     color: blueviolet;
+    cursor: pointer;
   }
   .category.selected {
     border-bottom: 3px solid #ff5e00;
