@@ -12,3 +12,5 @@ yarn-error.log
 .env
 .npmrc
 lambda/functions-build/
+lambda/.netlify/
+npm-cache/
