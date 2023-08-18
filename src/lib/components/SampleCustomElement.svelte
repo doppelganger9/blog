@@ -5,7 +5,7 @@
 </script>
 <svelte:options tag="sample-custom-element" />
 
-<div on:click={increment} on:keyup={increment}>Counter: {count}</div>
+<div role="button" tabindex=0 on:click={increment} on:keyup={increment}>Counter: {count}</div>
 
 <style>
   div {
