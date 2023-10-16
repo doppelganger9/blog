@@ -51,7 +51,7 @@
     "@remark-embedder/transformer-oembed": "3.0.0",
     "@sveltejs/adapter-static": "2.0.3",
     "@sveltejs/kit": "1.25.2",
-    "cypress": "12.17.4",
+    "cypress": "13.3.1",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.6",
     "mdsvex": "0.11.0",
