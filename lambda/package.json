@@ -19,7 +19,7 @@
     "start": "netlify serve:lambda ./src"
   },
   "devDependencies": {
-    "netlify-cli": "16.9.3"
+    "netlify-cli": "17.2.2"
   },
   "dependencies": {
     "airtable": "0.12.2",
