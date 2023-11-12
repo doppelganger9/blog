@@ -77,11 +77,10 @@ Below, there are:
   onMount(async () => {
     // this one is a StencilJS component
     await import("https://doppelganger9.github.io/stencil-qrcode-component/build/stqrcmp.esm.js");
-    
-    // this one is an Angular Element application and needs Zone.js
-    await import("https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js");
-    await import("https://doppelganger9.github.io/tables-multiplications/table-multiplication-app.js");
-    
+
+    // this one is an Angular Element application
+    await import("https://doppelganger9.github.io/tables-multiplications/main.js");
+
     // this one is a build-less Vue 3 Custom Element app.
     // I'm using an importmap for vue/vuex/vue devtools, I had to add it to my index.html
     // or else it would error.
@@ -137,7 +136,7 @@ Below, there are:
 
 ## And now an Angular Application (packaged as a Web Component using Angular Elements)
 
-- I had to import `zone.js`.
+- I switched to a _Zone-Less_ on-push detection strategy.
 - Styles are not yet correctly imported.
 
 <div style="background-color: lightblue; color: #333; padding: 0 1em;">
@@ -176,9 +175,8 @@ Seems simple, after having spent a few hours on trying to make it work 😂!
     // this one is a StencilJS component
     await import("https://doppelganger9.github.io/stencil-qrcode-component/build/stqrcmp.esm.js");
 
-    // this one is an Angular Element application and needs Zone.js
-    await import("https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.26/zone.min.js");
-    await import("https://doppelganger9.github.io/tables-multiplications/table-multiplication-app.js");
+    // this one is an Angular Element application
+    await import("https://doppelganger9.github.io/tables-multiplications/main.js");
 
     // this one is a build-less Vue 3 Custom Element app.
     // I'm using an importmap for vue/vuex/vue devtools, I need to import it before all other scripts (or else it will throw an error) 
