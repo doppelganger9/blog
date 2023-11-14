@@ -1,8 +1,8 @@
-diff --git a/node_modules/hast-util-to-string/index.js b/node_modules/hast-util-to-string/index.js
-index 961b923..b940a59 100644
---- a/node_modules/hast-util-to-string/index.js
-+++ b/node_modules/hast-util-to-string/index.js
-@@ -41,7 +41,7 @@ export function toString(node) {
+diff --git a/node_modules/hast-util-to-string/lib/index.js b/node_modules/hast-util-to-string/lib/index.js
+index 17fc432..7427395 100644
+--- a/node_modules/hast-util-to-string/lib/index.js
++++ b/node_modules/hast-util-to-string/lib/index.js
+@@ -19,7 +19,7 @@ export function toString(node) {
    }
  
    // “Context object’s data.”
@@ -11,7 +11,7 @@ index 961b923..b940a59 100644
  }
  
  /**
-@@ -51,6 +51,8 @@ export function toString(node) {
+@@ -31,6 +31,8 @@ export function toString(node) {
  function one(node) {
    if (node.type === 'text') {
      return node.value
@@ -20,9 +20,9 @@ index 961b923..b940a59 100644
    }
  
    return 'children' in node ? all(node) : ''
-@@ -64,6 +66,10 @@ function all(node) {
+@@ -46,6 +48,10 @@ function all(node) {
    let index = -1
-   /** @type {string[]} */
+   /** @type {Array<string>} */
    const result = []
 +  if ('value' in node) {
 +    result.push(node.value)
@@ -31,7 +31,7 @@ index 961b923..b940a59 100644
  
    while (++index < node.children.length) {
      result[index] = one(node.children[index])
-@@ -71,3 +77,12 @@ function all(node) {
+@@ -53,3 +59,12 @@ function all(node) {
  
    return result.join('')
  }
@@ -44,4 +44,3 @@ index 961b923..b940a59 100644
 +  }
 +  return node.value
 +}
-\ No newline at end of file
