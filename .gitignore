@@ -10,7 +10,6 @@ yarn-error.log
 /build/
 /.netlify/
 .env
-.npmrc
 lambda/functions-build/
 lambda/.netlify/
 npm-cache/
