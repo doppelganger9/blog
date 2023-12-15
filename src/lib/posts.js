@@ -19,7 +19,7 @@ import { error } from '@sveltejs/kit';
 export const slugFromPath = (path) => path.match(/\/src\/posts\/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
 // mdsvex exposes all posts as modules we can import dynamically
-const imports = import.meta.globEager(`/src/posts/*.{md,svx,svelte.md}`);
+const imports = import.meta.glob(`/src/posts/*.{md,svx,svelte.md}`, {eager: true});
 const posts = [];
 
 for (const path in imports) {
@@ -102,7 +102,7 @@ export function getPostForDateSlug(slug) {
 export function loadPostForSlug(slug) {
   const post = getPostForSlug(slug);
   if (!post) {
-    throw error(404, 'Oh no! The requested page could not be found.');
+    error(404, 'Oh no! The requested page could not be found.');
   }
 
   return post;
