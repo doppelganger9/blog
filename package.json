@@ -49,8 +49,9 @@
     "@cypress/code-coverage": "3.12.14",
     "@remark-embedder/core": "3.0.2",
     "@remark-embedder/transformer-oembed": "3.0.0",
-    "@sveltejs/adapter-static": "2.0.3",
+    "@sveltejs/adapter-static": "^3.0.0",
     "@sveltejs/kit": "2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "cypress": "13.6.1",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.6",
@@ -75,7 +76,7 @@
     "twemoji": "14.0.2",
     "typescript": "5.3.3",
     "unist-util-visit": "5.0.0",
-    "vite": "4.5.1",
+    "vite": "^5.0.0",
     "vite-plugin-istanbul": "5.0.0"
   },
   "nyc": {
