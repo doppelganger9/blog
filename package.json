@@ -50,7 +50,7 @@
     "@remark-embedder/core": "3.0.2",
     "@remark-embedder/transformer-oembed": "3.0.0",
     "@sveltejs/adapter-static": "^3.0.0",
-    "@sveltejs/kit": "2.0.0",
+    "@sveltejs/kit": "2.0.1",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "cypress": "13.6.1",
     "elizabot": "0.0.3",
