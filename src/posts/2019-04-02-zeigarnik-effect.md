@@ -47,8 +47,6 @@ https://youtu.be/Q3u6Ar4PPO8
 
 https://youtu.be/fi-VaNlAKJw
 
-https://youtu.be/ubzdMzzsIBg
-
 #### This Haunting Music!
 
 The music by [Jochen Hippel](https://en.wikipedia.org/wiki/Jochen_Hippel) was just awesome in all its 8-bit like glory, with rhythm, mystery, influences from medieval and Celtic music. I can remember most of the tracks.
