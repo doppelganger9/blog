@@ -1,18 +1,19 @@
 export class Timer {
+  private last_time: number;
 
-  constructor({ duration = 5000, elapsed = 0, perf = window.performance}) {
-    this.duration = duration;
-    this.elapsed = elapsed;
-    this.perf = perf;
-  }
+  constructor(
+      public duration: number = 5000, // milliseconds
+      public elapsed = 0,  // milliseconds
+      private perf = window.performance
+    ) {}
 
-  changeDuration() {
+  changeDuration(): void {
     this.elapsed = 0;
     this.last_time = this.perf.now();
     this.stop();
   }
 
-  update() {
+  update(): boolean {
     const time = this.perf.now();
     this.elapsed += Math.min(
       time - this.last_time,
@@ -22,12 +23,12 @@ export class Timer {
     return this.elapsed < this.duration;
   }
 
-  start() {
+  start(): void {
     this.last_time = this.perf.now();
     this.update();
   }
 
-  stop() {
+  stop(): void {
     // nothing.
   }
 }
