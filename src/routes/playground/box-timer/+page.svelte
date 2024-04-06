@@ -2,28 +2,189 @@
   import { tick, onMount, onDestroy } from 'svelte';
   import { Timer } from '$lib/chrono.ts';
 
-  let timer: Timer;
-  let frame: number;
-  let progress = 0;
-  let timerFinished = false;
-  // en faire des stores
-  let roundsCount = 6; // nb of rounds
-  let roundDurationMinutes = 1;
-  let roundDurationSeconds = 0;
-  let prepareDurationMinutes = 0;
-  let prepareDurationSeconds = 10;
-  let warningDurationMinutes = 0;
-  let warningDurationSeconds = 5;
-  let restDurationMinutes = 0;
-  let restDurationSeconds = 20;
-  let presetNumber = 3;
-  let currentPhaseClass = 'prepare';
-  let currentPhaseTitle = 'PREPARE';
-  let computedTotalWorkoutTime;
+  /**
+   * TODO:
+   *   - better UI (Graphics Design is my passion)
+   *   - fix timing bugs (last/first second...)
+   *   - show a progress overview with colors for each phase and a line moving to show where we are in the workout plan.
+   *   - load/save presets from local/session storage
+   */
+
+  function format(n:number) {
+      return ('0' + n).slice(-2);
+  }
+
+  class TimerConfig {
+    roundsCount = 2; // nb of rounds
+    roundDurationMinutes = 0;
+    roundDurationSeconds = 20;
+    prepareDurationMinutes = 0;
+    prepareDurationSeconds = 10;
+    warningDurationMinutes = 0;
+    warningDurationSeconds = 5;
+    restDurationMinutes = 0;
+    restDurationSeconds = 10;
+    presetNumber = 3;
+
+    decreaseRoundsCount(): void {
+      if (timerConfig.roundsCount > 0) timerConfig.roundsCount -= 1;
+    }
+    increaseRoundsCount(): void {
+      if (timerConfig.roundsCount < 99) timerConfig.roundsCount += 1;
+    }
+
+    get formattedRestDurationSeconds(): string {
+      return format(this.restDurationSeconds);
+    }
+    set formattedRestDurationSeconds(val: string) {
+      this.restDurationSeconds = +val;
+    }
+    get formattedRestDurationMinutes(): string {
+      return format(this.restDurationMinutes);
+    }
+    set formattedRestDurationMinutes(val: string) {
+      this.restDurationMinutes = +val;
+    }
+
+    get formattedRoundDurationSeconds(): string {
+      return format(this.roundDurationSeconds);
+    }
+    set formattedRoundDurationSeconds(val: string) {
+      this.roundDurationSeconds = +val;
+    }
+    get formattedRoundDurationMinutes(): string {
+      return format(this.roundDurationMinutes);
+    }
+    set formattedRoundDurationMinutes(val: string) {
+      this.roundDurationMinutes = +val;
+    }
+
+    get formattedWarningDurationSeconds(): string {
+      return format(this.warningDurationSeconds);
+    }
+    set formattedWarningDurationSeconds(val: string) {
+      this.warningDurationSeconds = +val;
+    }
+    get formattedWarningDurationMinutes(): string {
+      return format(this.warningDurationMinutes);
+    }
+    set formattedWarningDurationMinutes(val: string) {
+      this.warningDurationMinutes = +val;
+    }
+
+
+    get formattedPrepareDurationSeconds(): string {
+      return format(this.prepareDurationSeconds);
+    }
+    set formattedPrepareDurationSeconds(val: string) {
+      this.prepareDurationSeconds = +val;
+    }
+    get formattedPrepareDurationMinutes(): string {
+      return format(this.prepareDurationMinutes);
+    }
+    set formattedPrepareDurationMinutes(val: string) {
+      this.prepareDurationMinutes = +val;
+    }
+
+    // in seconds
+    get prepareDurationWarningTime() {
+      return ((this.prepareDurationMinutes - this.warningDurationMinutes)*60 + this.prepareDurationSeconds - this.warningDurationSeconds);
+    }
+    get prepareDurationEndTime() {
+      return (this.prepareDurationMinutes*60 + this.prepareDurationSeconds);
+    }
+    get roundDurationWarningTime() {
+      return ((this.roundDurationMinutes - this.warningDurationMinutes)*60 + this.roundDurationSeconds - this.warningDurationSeconds);
+    }
+    get roundDurationEndTime() {
+      return (this.roundDurationMinutes*60 + this.roundDurationSeconds);
+    }
+    get restDurationWarningTime() {
+      return ((this.restDurationMinutes - this.warningDurationMinutes)*60 + this.restDurationSeconds - this.warningDurationSeconds);
+    }
+    get restDurationEndTime() {
+      return (this.restDurationMinutes*60 + this.restDurationSeconds);
+    }
+
+    get computeTotalWorkoutTime() {
+      let total = (this.prepareDurationMinutes*60 + this.prepareDurationSeconds)
+          + (this.roundsCount * (this.roundDurationSeconds + this.roundDurationMinutes*60))
+          + ((this.roundsCount - 1) * (this.restDurationMinutes*60 + this.restDurationSeconds));
+      const computedTotalWorkoutTime = format(Math.floor(total / 60)) + ":" + format(total % 60);
+      return computedTotalWorkoutTime;
+    }
+
+
+    /**
+     * WORKOUT START
+     * PREPARE |0----5===9
+     * ROUND 1 |0--------90--------90--------90--------90--------90----5===9
+     * REST  1 |0--------90--------90----5===9
+     * ROUND 2 |0--------90--------90--------90--------90--------90----5===9
+     * REST  2 |0--------90--------90----5===9
+     * ROUND 3 |0--------90--------90--------90--------90--------90----5===9
+     * WORKOUT END
+     */
+    planWorkout(): PlannedPhaseEvent[] {
+      let plan: PlannedPhaseEvent[] = [];
+      plan.push({phase:'workout', event:'start', beginAt:0 });
+
+      plan.push({phase:'prepare', event:'start', beginAt:0 });
+      plan.push({phase:'prepare', event:'warn', beginAt:this.prepareDurationWarningTime });
+      plan.push({phase:'prepare', event:'tap', beginAt:this.prepareDurationEndTime-4 });
+      plan.push({phase:'prepare', event:'tap', beginAt:this.prepareDurationEndTime-3 });
+      plan.push({phase:'prepare', event:'tap', beginAt:this.prepareDurationEndTime-2 });
+      plan.push({phase:'prepare', event:'end', beginAt:this.prepareDurationEndTime-1 });
+      let lastEventEnd = +this.prepareDurationEndTime;
+
+      let currentRoundNumber = 0;
+      while(currentRoundNumber < this.roundsCount) {
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'start', beginAt:0+lastEventEnd });
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'warn', beginAt:lastEventEnd + this.roundDurationWarningTime });
+
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.roundDurationEndTime-4 });
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.roundDurationEndTime-3 });
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.roundDurationEndTime-2 });
+
+        plan.push({phase:'round', nb: currentRoundNumber+1, event:'end', beginAt:lastEventEnd + this.roundDurationEndTime-1 });
+        lastEventEnd += this.roundDurationEndTime;
+
+        if (currentRoundNumber < this.roundsCount-1) {
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'start', beginAt:0+lastEventEnd });
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'warn', beginAt:lastEventEnd + this.restDurationWarningTime });
+
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.restDurationEndTime-4 });
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.restDurationEndTime-3 });
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'tap', beginAt:lastEventEnd + this.restDurationEndTime-2 });
+
+          plan.push({phase:'rest', nb: currentRoundNumber+1, event:'end', beginAt:lastEventEnd + this.restDurationEndTime-1 });
+          lastEventEnd += this.restDurationEndTime;
+        }
+        currentRoundNumber++;
+      }
+      plan.push({phase:'workout', event:'end', beginAt:0+lastEventEnd});
+      
+      return plan;
+    }
+  };
+
+  class TimerStatus {
+    timer: Timer;
+    frame: number;
+    progress = 0;
+    elapsed = 0;
+    currentPhaseStart = 0;
+    //timerFinished = false;
+    currentPhaseClass = 'prepare';
+    currentPhaseTitle = 'PREPARE';
+  };
+
+  let timerStatus = new TimerStatus();
+  let timerConfig = new TimerConfig();
 
   interface PlannedPhaseEvent {
     phase: 'workout'|'prepare'|'round'|'rest';
-    event: 'start'|'warn'|'end';
+    event: 'start'|'warn'|'end'|'tap';
     beginAt: number;
     nb?: number;
   }
@@ -44,104 +205,128 @@
    *    if it was last round, END workout
    *    else start REST timer elapsed = 0
    *    if REST timer elapsed > restDuration - warningDuration : alert user for next round
+   * 
+   * PREPARE:
+   * tit
+   * ...
+   * 3.2.1 x3 tit
+   * ROUND 1:
+   * gong
+   * ...
+   * -10sec toctoctoc
+   * ...3.2.1 x3 tit
+   * REST 1:
+   * gong-gong-gong
+   * ...3.2.1 x3 tit
+   * ROUND 2..
+   * 
    */
 
   async function startWorkout() {
-    // TODO play start sound
-    //  playSound(audioContext, gongAudioFileBuffer)
-    let plan = planWorkout();
-    console.debug(plan);
-    timer = new Timer(
+    let plan = timerConfig.planWorkout();
+    timerStatus.timer = new Timer(
       plan[plan.length-1].beginAt * 1000,
       0,
       window.performance
     );
-    timer.start();
+    timerStatus.timer.start();
 
     (async function refreshTimer() {
-      if (timer.update()) {
-        frame = window.requestAnimationFrame(refreshTimer);
-        progress = +timer.elapsed / +timer.duration;
-        plan = tickProgress(timer, plan);
+      if (timerStatus.timer.update()) {
+        timerStatus.frame = window.requestAnimationFrame(refreshTimer);
+        timerStatus.progress = +timerStatus.timer.elapsed / +timerStatus.timer.duration;
+        plan = tickProgress(timerStatus.timer, plan);
         tick();
       } else {
-        resetProgress(timer);
-        timerFinished = true;
+        resetProgress(timerStatus.timer);
+        plan = tickProgress(timerStatus.timer, plan);
       };
     })();
   }
 
   function tickProgress(timer: Timer, plan: PlannedPhaseEvent[]) {
     if (timer.elapsed) {
+      timerStatus.elapsed = Math.floor(timer.elapsed / 1000) - timerStatus.currentPhaseStart;
       let triggerPhases = plan.filter(item => item.beginAt * 1000 <= timer.elapsed);
-      if (triggerPhases.length) console.log(triggerPhases);
       triggerPhases.forEach(p => triggerPhaseEvent(timer, p));
       let remainingFuturePhases = plan.filter(item => item.beginAt * 1000 > timer.elapsed);
-      //console.log(remainingFuturePhases);
       return remainingFuturePhases;
     } else {
-      console.log("nothing triggered");
       return plan;
     }
   }
 
   function resetProgress(timer: Timer) {
-    currentPhaseClass = undefined;
-    currentPhaseTitle = undefined;
-    playSound(audioContext, gongAudioFileBuffer)
+    timerStatus.currentPhaseClass = undefined;
+    timerStatus.currentPhaseTitle = undefined;
   }
 
   function triggerPhaseEvent(timer: Timer, phaseEvent : PlannedPhaseEvent) {
-      // phaseEvent.event; // TODO play sound
-      console.log('at ' + timer.elapsed + ' play sound for ' + phaseEvent.phase + "-" + phaseEvent.event);
-      currentPhaseClass = phaseEvent.phase.toLocaleLowerCase()+"-"+phaseEvent.event;
-      if (phaseEvent.phase === 'rest' || phaseEvent.phase === 'round') {
-        currentPhaseTitle = phaseEvent.phase.toUpperCase() + " #" + phaseEvent.nb;
-      } else {
-        currentPhaseTitle = phaseEvent.phase.toUpperCase();
+      //console.log('at ' + timer.elapsed + ' play sound for ' + phaseEvent.phase + "-" + phaseEvent.event);
+      let sound2play;
+      switch(phaseEvent.phase + '-' + phaseEvent.event) {
+        case 'workout-start':
+          sound2play = workoutFinishedAudioFileBuffer;
+          break;
+        case 'workout-warn':
+          break;
+        case 'workout-end':
+          timerStatus.currentPhaseStart += timerStatus.elapsed;
+          sound2play = workoutFinishedAudioFileBuffer;
+          break;
+        case 'prepare-start':
+          break;
+        case 'prepare-warn':
+          sound2play = warningAudioFileBuffer;
+          break;
+        case 'prepare-tap':
+          sound2play = tapAudioFileBuffer;
+          break;
+        case 'prepare-end':
+          timerStatus.currentPhaseStart += timerStatus.elapsed;
+          break;
+        case 'rest-start':
+          break;
+        case 'rest-warn':
+          sound2play = warningAudioFileBuffer;
+          break;
+        case 'rest-tap':
+          sound2play = tapAudioFileBuffer;
+          break;
+        case 'rest-end':
+          timerStatus.currentPhaseStart += timerStatus.elapsed;
+          break;
+        case 'round-start':
+          sound2play = gong1AudioFileBuffer;
+          break;
+        case 'round-warn':
+          sound2play = warningAudioFileBuffer;
+          break;
+        case 'round-tap':
+          sound2play = tapAudioFileBuffer;
+          break;
+        case 'round-end':
+          timerStatus.currentPhaseStart += timerStatus.elapsed;
+          sound2play = gong3AudioFileBuffer;
+          break;
+        default:
+          break;
+      }
+      if (sound2play) { 
+        playSound(audioContext, sound2play);
+      }
+      if (phaseEvent.phase != 'workout') {
+        timerStatus.currentPhaseClass = phaseEvent.phase.toLocaleLowerCase()+"-"+phaseEvent.event;
+        if (phaseEvent.phase === 'rest' || phaseEvent.phase === 'round') {
+          timerStatus.currentPhaseTitle = phaseEvent.phase.toUpperCase() + " #" + phaseEvent.nb;
+        } else {
+          timerStatus.currentPhaseTitle = phaseEvent.phase.toUpperCase();
+        }
       }
   }
 
-  /**
-   * WORKOUT START
-   * PREPARE |0----5===9
-   * ROUND 1 |0--------90--------90--------90--------90--------90----5===9
-   * REST  1 |0--------90--------90----5===9
-   * ROUND 2 |0--------90--------90--------90--------90--------90----5===9
-   * REST  2 |0--------90--------90----5===9
-   * ROUND 3 |0--------90--------90--------90--------90--------90----5===9
-   * WORKOUT END
-   */
-  function planWorkout() {
-    let plan: PlannedPhaseEvent[] = [];
-    plan.push({phase:'workout', event:'start', beginAt:0 });
 
-    plan.push({phase:'prepare', event:'start', beginAt:0 });
-    plan.push({phase:'prepare', event:'warn', beginAt:((prepareDurationMinutes - warningDurationMinutes)*60 + prepareDurationSeconds - warningDurationSeconds) });
-    plan.push({phase:'prepare', event:'end', beginAt:(prepareDurationMinutes*60 + prepareDurationSeconds)-1 });
-    let lastEventEnd = (prepareDurationMinutes*60 + prepareDurationSeconds);
-
-    let currentRoundNumber = 0;
-    while(currentRoundNumber < roundsCount) {
-      plan.push({phase:'round', nb: currentRoundNumber+1, event:'start', beginAt:0+lastEventEnd });
-      plan.push({phase:'round', nb: currentRoundNumber+1, event:'warn', beginAt:lastEventEnd + ((roundDurationMinutes - warningDurationMinutes)*60 + roundDurationSeconds - warningDurationSeconds) });
-      plan.push({phase:'round', nb: currentRoundNumber+1, event:'end', beginAt:lastEventEnd + (roundDurationMinutes*60 + roundDurationSeconds)-1 });
-      lastEventEnd += (roundDurationMinutes*60 + roundDurationSeconds);
-
-      if (currentRoundNumber < roundsCount-1) {
-        plan.push({phase:'rest', nb: currentRoundNumber+1, event:'start', beginAt:0+lastEventEnd });
-        plan.push({phase:'rest', nb: currentRoundNumber+1, event:'warn', beginAt:lastEventEnd + ((restDurationMinutes - warningDurationMinutes)*60 + restDurationSeconds - warningDurationSeconds) });
-        plan.push({phase:'rest', nb: currentRoundNumber+1, event:'end', beginAt:lastEventEnd + (restDurationMinutes*60 + restDurationSeconds)-1 });
-        lastEventEnd += (restDurationMinutes*60 + restDurationSeconds);
-      }
-      currentRoundNumber++;
-    }
-    plan.push({phase:'workout', event:'end', beginAt:0+lastEventEnd});
-    
-    return plan;
-  }
-
-  let gongAudioFileBuffer;
+  let gong1AudioFileBuffer, gong3AudioFileBuffer, warningAudioFileBuffer, whistleAudioFileBuffer, tapAudioFileBuffer, workoutFinishedAudioFileBuffer;
   let audioContext;
 
   async function loadSound(audioContext, url) {
@@ -156,8 +341,6 @@
   }
 
   function playSound(audioContext, buffer) {
-    console.log("playSound");
-    return; // TODO commenter pour avoir le son
     let source = audioContext.createBufferSource(); // creates a sound source
     source.buffer = buffer;                         // tell the source which sound to play
     source.connect(audioContext.destination);       // connect the source to the audioContext's destination (the speakers)
@@ -165,35 +348,62 @@
                                                     // note: on older systems, may have to use deprecated noteOn(time);
   }
 
+  function preset(index: number) {
+    // TODO better handle this to save/load presets. currently hardcoded
+    if (index === 1) {
+      timerConfig.roundsCount = 8; // nb of rounds
+      timerConfig.roundDurationMinutes = 0;
+      timerConfig.roundDurationSeconds = 15;
+      timerConfig.prepareDurationMinutes = 0;
+      timerConfig.prepareDurationSeconds = 10;
+      timerConfig.warningDurationMinutes = 0;
+      timerConfig.warningDurationSeconds = 5;
+      timerConfig.restDurationMinutes = 0;
+      timerConfig.restDurationSeconds = 10;
+      timerConfig.presetNumber = 1;
+    }
+    else if (index === 2) {
+      timerConfig.roundsCount = 5; // nb of rounds
+      timerConfig.roundDurationMinutes = 1;
+      timerConfig.roundDurationSeconds = 30;
+      timerConfig.prepareDurationMinutes = 0;
+      timerConfig.prepareDurationSeconds = 10;
+      timerConfig.warningDurationMinutes = 0;
+      timerConfig.warningDurationSeconds = 5;
+      timerConfig.restDurationMinutes = 0;
+      timerConfig.restDurationSeconds = 30;
+      timerConfig.presetNumber = 2;
+    }
+    else if (index === 3) {
+      timerConfig.roundsCount = 5; // nb of rounds
+      timerConfig.roundDurationMinutes = 2;
+      timerConfig.roundDurationSeconds = 0;
+      timerConfig.prepareDurationMinutes = 0;
+      timerConfig.prepareDurationSeconds = 10;
+      timerConfig.warningDurationMinutes = 0;
+      timerConfig.warningDurationSeconds = 5;
+      timerConfig.restDurationMinutes = 0;
+      timerConfig.restDurationSeconds = 45;
+      timerConfig.presetNumber = 3;
+    }
+  }
+
   onMount(async () => {
     // Fix up prefixing
     window.AudioContext = window.AudioContext || window['webkitAudioContext'];
     audioContext = new AudioContext();
 
-    gongAudioFileBuffer = await loadSound(audioContext, `/gong.mp3`);
-    // TODO autres sons
+    gong1AudioFileBuffer = await loadSound(audioContext, `/gong1.mp3`);
+    gong3AudioFileBuffer = await loadSound(audioContext, `/gong.mp3`);
+    tapAudioFileBuffer = await loadSound(audioContext, `/tap.mp3`);
+    warningAudioFileBuffer = await loadSound(audioContext, `/Warning.mp3`);
+    whistleAudioFileBuffer = await loadSound(audioContext, `/whistle.mp3`);
+    workoutFinishedAudioFileBuffer = await loadSound(audioContext, `/workout_finished.wav`);
   });
 
   onDestroy(() => {
-    timer && timer.stop();
+    timerStatus && timerStatus.timer && timerStatus.timer.stop();
   })
-
-  function decreaseRoundsCount() {
-    console.log("decrease");
-    if (roundsCount > 0) roundsCount -= 1;
-  }
-  function increaseRoundsCount() {
-    console.log("increase");
-    if (roundsCount < 99) roundsCount += 1;
-  }
-  // TODO en faire une variable/valeur dérivée
-  function computeTotalWorkoutTime() {
-    let total = (prepareDurationMinutes*60 + prepareDurationSeconds)
-        + (roundsCount * (roundDurationSeconds + roundDurationMinutes*60))
-        + ((roundsCount - 1) * (restDurationMinutes*60 + restDurationSeconds));
-    computedTotalWorkoutTime = (Math.floor(total / 60)) + ":" + (total % 60);
-    return computedTotalWorkoutTime;
-  }
 </script>
 
 <style>
@@ -233,32 +443,104 @@ button:active {
 button:focus {outline:0;}
 input:focus {outline:0;}
 
-.prepare-start {
-  color: yellow;
+#current-phase div.prepare-start {
+  color: yellow !important;
 }
-.prepare-warn {
-  color: orange;
+#current-phase div.prepare-warn {
+  color: orange !important;
 }
-.prepare-end {
-  color: yellowgreen;
+#current-phase div.prepare-tap {
+  color: orange !important;
 }
-.round-start {
-  color: green;
+#current-phase div.prepare-end {
+  color: yellowgreen !important;
 }
-.round-warn {
-  color: orange;
+#current-phase div.round-start {
+  color: green !important;
 }
-.round-end {
-  color: blue;
+#current-phase div.round-warn {
+  color: orange !important;
 }
-.rest-start {
-  color: lightskyblue;
+#current-phase div.round-tap {
+  color: orange !important;
 }
-.rest-warn {
-  color: orange;
+#current-phase div.round-end {
+  color: blue !important;
 }
-.rest-end {
-  color: blueviolet;
+#current-phase div.rest-start {
+  color: lightskyblue !important;
+}
+#current-phase div.rest-warn {
+  color: orange !important;
+}
+#current-phase div.rest-tap {
+  color: orange !important;
+}
+#current-phase div.rest-end {
+  color: blueviolet !important;
+}
+
+#roundsCounter {
+  display: flex;
+  background-color: azure;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid violet;
+  border-radius: 5px;
+  align-items: baseline;
+}
+#roundsCounter h3 {
+  margin: 1em;
+}
+#roundsCounter span {
+  font-size: xx-large;
+}
+
+.minus-round {
+
+}
+
+.plus-round {
+
+}
+
+.timing-conf-block {
+  display: flex;
+  background-color: gainsboro;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid violet;
+  border-radius: 5px;
+  align-items: baseline;
+}
+.timing-conf-block h3 {
+  margin: 1em;
+  min-width: 10em;
+}
+
+#current-phase {
+  display: flex;
+  background-color: black;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid violet;
+  border-radius: 5px;
+  align-items: center;
+  flex-direction: column;
+}
+
+#current-phase {
+  color: white;
+}
+
+#total-time {
+  display: flex;
+  background-color: lemonchiffon;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid magenta;
+  border-radius: 5px;
+  align-items: baseline;
 }
 
 </style>
@@ -268,54 +550,61 @@ input:focus {outline:0;}
 <p>It's based on the time-boxing page I made a few years ago.</p>
 <p>The content is open sourced on Github</p>
 
+<button on:click={() => preset(1)}>PRESET 1</button>
+<button on:click={() => preset(2)}>PRESET 2</button>
+<button on:click={() => preset(3)}>PRESET 3</button>
+
 <div id="roundsCounter">
   <h3>ROUNDS</h3>
-  <button on:click={decreaseRoundsCount}>-</button>
-  <p>{roundsCount}</p>
-  <button on:click={increaseRoundsCount}>+</button>
+  <button class="minus-round" on:click={timerConfig.decreaseRoundsCount}>-</button>
+  <span>{timerConfig.roundsCount}</span>
+  <button class="plus-round" on:click={timerConfig.increaseRoundsCount}>+</button>
 </div>
-<div>PREPARE
-  <input id="prepareMinutes" type="number" min="0" max="60" bind:value={prepareDurationMinutes}/>
-  <input id="prepareSeconds" type="number" min="0" max="59" bind:value={prepareDurationSeconds}/>
+
+<div class="timing-conf-block">
+  <h3>PREPARE</h3>
+  <input id="prepareMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedPrepareDurationMinutes}/>:
+  <input id="prepareSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedPrepareDurationSeconds}/>
 </div>
-<div>ROUND
-  <input id="roundMinutes" type="number" min="0" max="60" bind:value={roundDurationMinutes}/>
-  <input id="roundSeconds" type="number" min="0" max="59" bind:value={roundDurationSeconds}/>
+<div class="timing-conf-block">
+  <h3>ROUND</h3>
+  <input id="roundMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRoundDurationMinutes}/>:
+  <input id="roundSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRoundDurationSeconds}/>
 </div>
-<div>WARNING
-  <input id="warningMinutes" type="number" min="0" max="60" bind:value={warningDurationMinutes}/>
-  <input id="warningSeconds" type="number" min="0" max="59" bind:value={warningDurationSeconds}/>
+<div class="timing-conf-block">
+  <h3>WARNING</h3>
+  <input id="warningMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedWarningDurationMinutes}/>:
+  <input id="warningSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedWarningDurationSeconds}/>
 </div>
-<div>REST
-  <input id="restMinutes" type="number" min="0" max="60" bind:value={restDurationMinutes}/>
-  <input id="restSeconds" type="number" min="0" max="59" bind:value={restDurationSeconds}/>
+<div class="timing-conf-block">
+  <h3>REST</h3>
+  <input id="restMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRestDurationMinutes}/>:
+  <input id="restSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRestDurationSeconds}/>
 </div>
-<div>PRESET {presetNumber}</div>
-{#if progress && !timerFinished}
-<progress value="{progress}"></progress>
-<div class:rest-start={currentPhaseClass=='rest-start'}
-    class:rest-warn={currentPhaseClass=='rest-warn'}
-    class:rest-end={currentPhaseClass=='rest-end'}
-    class:round-start={currentPhaseClass=='round-start'}
-    class:round-warn={currentPhaseClass=='round-warn'}
-    class:round-end={currentPhaseClass=='round-end'}
-    class:prepare-start={currentPhaseClass=='prepare-start'}
-    class:prepare-warn={currentPhaseClass=='prepare-warn'}
-    class:prepare-end={currentPhaseClass=='prepare-end'}
-><h3>{currentPhaseTitle}</h3></div>
+
+{#if timerStatus.progress}
+<div id="current-phase">
+  <progress value="{timerStatus.progress}"></progress>
+  <div class:rest-start={timerStatus.currentPhaseClass=='rest-start'}
+      class:rest-warn={timerStatus.currentPhaseClass=='rest-warn'}
+      class:rest-tap={timerStatus.currentPhaseClass=='rest-tap'}
+      class:rest-end={timerStatus.currentPhaseClass=='rest-end'}
+      class:round-start={timerStatus.currentPhaseClass=='round-start'}
+      class:round-warn={timerStatus.currentPhaseClass=='round-warn'}
+      class:round-tap={timerStatus.currentPhaseClass=='round-tap'}
+      class:round-end={timerStatus.currentPhaseClass=='round-end'}
+      class:prepare-start={timerStatus.currentPhaseClass=='prepare-start'}
+      class:prepare-warn={timerStatus.currentPhaseClass=='prepare-warn'}
+      class:prepare-tap={timerStatus.currentPhaseClass=='prepare-tap'}
+      class:prepare-end={timerStatus.currentPhaseClass=='prepare-end'}
+  ><h3>{timerStatus.currentPhaseTitle}</h3>
+  <h4>Elapsed: {timerStatus.elapsed}</h4></div>
+</div>
 {/if}
-{#if !progress || timerFinished}
-<p><button on:click={startWorkout}>START</button> TOTAL Time : {computeTotalWorkoutTime()}</p>
+
+{#if !timerStatus.progress}
+<button on:click={startWorkout}>START</button>
+<div id="total-time">
+  <h3>TOTAL Time : {timerConfig.computeTotalWorkoutTime}</h3>
+</div>
 {/if}
-
-<!--
-  au clic sur prepare/round/warning:
-PREPARE
-00:10
-
-00:10  00:20  01:00
-
-roulette 00 mins 10 secs
-
-DONE
--->
