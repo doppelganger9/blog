@@ -407,88 +407,110 @@
 </script>
 
 <style>
+
+:global(main) {
+  background-color: black;
+  --main-color-rgb: 150, 10, 250;
+  --secondary-color-rgb: 255, 255, 255;
+  --prepare-start-color: yellow;
+  --prepare-warn-color: orange;
+  --prepare-tap-color: orange;
+  --prepare-end-color: yellowgreen;
+  --round-start-color: green;
+  --round-warn-color: orange;
+  --round-tap-color: orange;
+  --round-end-color: blue;
+  --rest-start-color: lightskyblue;
+  --rest-warn-color: orange;
+  --rest-tap-color: orange;
+  --rest-end-color: blueviolet;
+  padding: 0 !important;
+}
 h1 {
-  color: violet;
+  color: rgb(var(--main-color-rgb));
   text-align: center;
+  margin: 0 1em 1em 1em;
 }
 progress {
   width: 100%;
 }
 input {
   border: none;
-  border-bottom: 2px solid magenta;
-  padding: .5em;
-  font-size: 1em;
-  color: magenta;
+  border-bottom: 2px solid rgb(var(--main-color-rgb));
+  padding: .5em .1em .5em .5em;
+  font-size: 2em;
+  text-align: center;
+  color: var(--main-color);
 }
 button {
-  border: 2px solid magenta;
-  border-radius: 5px;
-  padding: 1em 2em;
-  margin: 1em auto;
+  border: 2px solid rgb(var(--main-color-rgb));
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 10px;
   display: block;
-  background: aquamarine;
+  background: rgb(var(--secondary-color-rgb), 1);
   font-family: "Merriweather";
-  color: magenta;
+  color: rgb(var(--main-color-rgb));
   font-weight: 900;
-  font-size: 1em;
-  box-shadow: 0 9px magenta;
+  font-size: 30px;
+  box-shadow: 0 9px rgb(var(--main-color-rgb));
 }
 button:active {
-  background-color:rgb(53, 165, 127);/* rgb(144, 26, 144);*/
-  box-shadow: 0 5px rgb(144, 26, 144);
-  border-color: rgb(144, 26, 144);
-  color: rgb(255, 155, 255);
+  background-color: rgb(var(--secondary-color-rgb), 0.75);
+  box-shadow: rgb(var(--main-color-rgb), 0.75);
+  border-color: rgb(var(--main-color-rgb), 0.75);
+  color: rgb(var(--main-color-rgb), 0.75);
   transform: translateY(4px);
 }
 button:focus {outline:0;}
 input:focus {outline:0;}
 
 #current-phase div.prepare-start {
-  color: yellow !important;
+  color: var(--prepare-start-color) !important;
 }
 #current-phase div.prepare-warn {
-  color: orange !important;
+  color: var(--prepare-warn-color) !important;
 }
 #current-phase div.prepare-tap {
-  color: orange !important;
+  color: var(--prepare-tap-color) !important;
 }
 #current-phase div.prepare-end {
-  color: yellowgreen !important;
+  color: var(--prepare-end-color) !important;
 }
 #current-phase div.round-start {
-  color: green !important;
+  color: var(--round-start-color)  !important;
 }
 #current-phase div.round-warn {
-  color: orange !important;
+  color: var(--round-warn-color)  !important;
 }
 #current-phase div.round-tap {
-  color: orange !important;
+  color: var(--round-tap-color) !important;
 }
 #current-phase div.round-end {
-  color: blue !important;
+  color: var(--round-end-color) !important;
 }
 #current-phase div.rest-start {
-  color: lightskyblue !important;
+  color: var(--rest-start-color) !important;
 }
 #current-phase div.rest-warn {
-  color: orange !important;
+  color: var(--rest-warn-color) !important;
 }
 #current-phase div.rest-tap {
-  color: orange !important;
+  color: var(--rest-tap-color) !important;
 }
 #current-phase div.rest-end {
-  color: blueviolet !important;
+  color: var(--rest-end-color) !important;
 }
 
 #roundsCounter {
   display: flex;
-  background-color: azure;
+  background-color: darkgray;
   padding: 5px;
   margin: 5px;
-  border: 2px solid violet;
+  border: none;
   border-radius: 5px;
   align-items: center;
+  justify-content: space-evenly;
 }
 #roundsCounter h3 {
   margin: 1em;
@@ -515,13 +537,51 @@ input:focus {outline:0;}
   background-color: gainsboro;
   padding: 5px;
   margin: 5px;
-  border: 2px solid violet;
+  border: none;
   border-radius: 5px;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .timing-conf-block h3 {
   margin: 1em;
-  min-width: 10em;
+  min-width: 5em;
+}
+
+.timing-conf-block.prepare-start {
+  background-color: var(--prepare-start-color) !important;
+}
+.timing-conf-block.prepare-warn {
+  background-color: var(--prepare-warn-color) !important;
+}
+.timing-conf-block.prepare-tap {
+  background-color: var(--prepare-tap-color) !important;
+}
+.timing-conf-block.prepare-end {
+  background-color: var(--prepare-end-color) !important;
+}
+.timing-conf-block.round-start {
+  background-color: var(--round-start-color)  !important;
+}
+.timing-conf-block.round-warn {
+  background-color: var(--round-warn-color)  !important;
+}
+.timing-conf-block.round-tap {
+  background-color: var(--round-tap-color) !important;
+}
+.timing-conf-block.round-end {
+  background-color: var(--round-end-color) !important;
+}
+.timing-conf-block.rest-start {
+  background-color: var(--rest-start-color) !important;
+}
+.timing-conf-block.rest-warn {
+  background-color: var(--rest-warn-color) !important;
+}
+.timing-conf-block.rest-tap {
+  background-color: var(--rest-tap-color) !important;
+}
+.timing-conf-block.rest-end {
+  background-color: var(--rest-end-color) !important;
 }
 
 #current-phase {
@@ -529,7 +589,7 @@ input:focus {outline:0;}
   background-color: black;
   padding: 5px;
   margin: 5px;
-  border: 2px solid violet;
+  border: none;
   border-radius: 5px;
   align-items: center;
   flex-direction: column;
@@ -538,17 +598,28 @@ input:focus {outline:0;}
 #current-phase {
   color: white;
 }
+#current-phase h3 {
+  font-size: 4em;
+}
+#current-phase h4 {
+  font-size: 3em;
+}
 
 #total-time {
   display: flex;
   background-color: lemonchiffon;
   padding: 5px;
   margin: 5px;
-  border: 2px solid magenta;
+  border: none;
   border-radius: 5px;
   align-items: baseline;
+  justify-content: space-evenly;
 }
-
+#total-time h3 {
+  margin: 10px;
+  font-size: 30px;
+  width: auto;
+}
 #presets {
   display: flex;
   justify-content: space-evenly;
@@ -557,6 +628,7 @@ input:focus {outline:0;}
   margin: 5px;
   width: auto;
   padding: 5px;
+  font-size: 20px;
   background: none;
   color: gray;
   box-shadow: none;
@@ -573,9 +645,18 @@ input:focus {outline:0;}
   display: none;
 }
 
-:global(body) {
-  background-color: black;
+#bottom-panel {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
+#bottom-panel button {
+  flex: 1;
+}
+#bottom-panel div {
+  flex: 6;
+}
+
 </style>
 
 
@@ -602,22 +683,22 @@ input:focus {outline:0;}
     <button class="plus-round" on:click={timerConfig.increaseRoundsCount}>+</button>
   </div>
 
-  <div class="timing-conf-block">
+  <div class="timing-conf-block prepare-start">
     <h3>PREPARE</h3>
     <input id="prepareMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedPrepareDurationMinutes}/>:
     <input id="prepareSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedPrepareDurationSeconds}/>
   </div>
-  <div class="timing-conf-block">
+  <div class="timing-conf-block round-start">
     <h3>ROUND</h3>
     <input id="roundMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRoundDurationMinutes}/>:
     <input id="roundSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRoundDurationSeconds}/>
   </div>
-  <div class="timing-conf-block">
+  <div class="timing-conf-block round-warn">
     <h3>WARNING</h3>
     <input id="warningMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedWarningDurationMinutes}/>:
     <input id="warningSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedWarningDurationSeconds}/>
   </div>
-  <div class="timing-conf-block">
+  <div class="timing-conf-block rest-start">
     <h3>REST</h3>
     <input id="restMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRestDurationMinutes}/>:
     <input id="restSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRestDurationSeconds}/>
@@ -644,9 +725,11 @@ input:focus {outline:0;}
   {/if}
 
   {#if !timerStatus.progress}
-  <button on:click={startWorkout}>START</button>
-  <div id="total-time">
-    <h3>TOTAL Time : {timerConfig.computeTotalWorkoutTime}</h3>
+  <div id="bottom-panel">
+    <button on:click={startWorkout}>START</button>
+    <div id="total-time">
+      <h3>TOTAL Time : {timerConfig.computeTotalWorkoutTime}</h3>
+    </div>
   </div>
   {/if}
 </div>
