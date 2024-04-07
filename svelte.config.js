@@ -15,15 +15,13 @@ const config = {
   },
   // some config to compile Svelte components as Custom Elements if they have `<svelte:options tag=`
   vitePlugin: {
-    experimental: {
-        dynamicCompileOptions({code}) {
-            if(isWebComponentSvelte(code)) {
-                return {
-                    customElement: true
-                }
-            }
-        }
-    }
+      dynamicCompileOptions({code}) {
+          if(isWebComponentSvelte(code)) {
+              return {
+                  customElement: true
+              }
+          }
+      }
   }
 };
 

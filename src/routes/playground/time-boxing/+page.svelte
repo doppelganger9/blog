@@ -1,16 +1,22 @@
-<script>
+<script lang="typescript">
   import { tick, onMount, onDestroy } from 'svelte';
   import { Speech } from '$lib/speech.js';
-  import { Timer } from '$lib/chrono.js';
+  import { Timer } from '$lib/chrono.ts';
   import FallingEmojis from '$lib/components/FallingEmojis.svelte';
 
-  let speech;
-  let timer;
-  let frame;
+  let speech: Speech;
+  let timer: Timer;
+  let frame: number;
   let progress = 0;
   let timerFinished = false;
 
-  let timebox={
+  interface Timebox {
+    name: string;
+    duration: number;
+    enableSpeech: boolean;
+  };
+
+  let timebox: Timebox = {
     name:'5 second test',
     duration: 5000,
     enableSpeech: true,
@@ -70,7 +76,7 @@
     speech = new Speech({synth: globalThis.speechSynthesis, rate:1, pitch:1, lang:'en-US', volume:10});
 
     // Fix up prefixing
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    window.AudioContext = window.AudioContext || window['webkitAudioContext'];
     audioContext = new AudioContext();
 
     gongAudioFileBuffer = await loadSound(audioContext, `/gong.mp3`);
