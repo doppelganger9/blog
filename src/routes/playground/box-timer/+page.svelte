@@ -409,6 +409,7 @@
 <style>
 h1 {
   color: violet;
+  text-align: center;
 }
 progress {
   width: 100%;
@@ -487,13 +488,18 @@ input:focus {outline:0;}
   margin: 5px;
   border: 2px solid violet;
   border-radius: 5px;
-  align-items: baseline;
+  align-items: center;
 }
 #roundsCounter h3 {
   margin: 1em;
 }
-#roundsCounter span {
-  font-size: xx-large;
+#roundsCounter #roundsNumber {
+  font-size: 6em;
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1em;
+  width: auto;
+  height: 1em;
 }
 
 .minus-round {
@@ -543,68 +549,104 @@ input:focus {outline:0;}
   align-items: baseline;
 }
 
+#presets {
+  display: flex;
+  justify-content: space-evenly;
+}
+#presets button {
+  margin: 5px;
+  width: auto;
+  padding: 5px;
+  background: none;
+  color: gray;
+  box-shadow: none;
+  border: none;
+  text-decoration: underline;
+}
+#presets button:active {
+  color:yellow;
+  transform: none;
+}
+
+#info {
+  background-color: lightblue;
+  display: none;
+}
+
+:global(body) {
+  background-color: black;
+}
 </style>
 
-<h1>Boxing Timer 💥🥊⏱💥</h1>
-<p>Here is an app to create workout timers.</p>
-<p>It's based on the time-boxing page I made a few years ago.</p>
-<p>The content is open sourced on Github</p>
 
-<button on:click={() => preset(1)}>PRESET 1</button>
-<button on:click={() => preset(2)}>PRESET 2</button>
-<button on:click={() => preset(3)}>PRESET 3</button>
+<h1>🥊 Boxing Timer ⏱️</h1>
 
-<div id="roundsCounter">
-  <h3>ROUNDS</h3>
-  <button class="minus-round" on:click={timerConfig.decreaseRoundsCount}>-</button>
-  <span>{timerConfig.roundsCount}</span>
-  <button class="plus-round" on:click={timerConfig.increaseRoundsCount}>+</button>
+<div id="info">
+  <!-- TODO: add(i) and show it only once or put it into an info button away from usable content -->
+  <p>Here is an app to create workout timers.</p>
+  <p>It's based on the time-boxing page I made a few years ago.</p>
+  <p>The content is open sourced on Github</p>
 </div>
 
-<div class="timing-conf-block">
-  <h3>PREPARE</h3>
-  <input id="prepareMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedPrepareDurationMinutes}/>:
-  <input id="prepareSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedPrepareDurationSeconds}/>
-</div>
-<div class="timing-conf-block">
-  <h3>ROUND</h3>
-  <input id="roundMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRoundDurationMinutes}/>:
-  <input id="roundSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRoundDurationSeconds}/>
-</div>
-<div class="timing-conf-block">
-  <h3>WARNING</h3>
-  <input id="warningMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedWarningDurationMinutes}/>:
-  <input id="warningSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedWarningDurationSeconds}/>
-</div>
-<div class="timing-conf-block">
-  <h3>REST</h3>
-  <input id="restMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRestDurationMinutes}/>:
-  <input id="restSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRestDurationSeconds}/>
-</div>
+<div id="">
+  <div id="presets">
+  <button on:click={() => preset(1)}>PRESET 1</button>
+  <button on:click={() => preset(2)}>PRESET 2</button>
+  <button on:click={() => preset(3)}>PRESET 3</button>
+  </div>
 
-{#if timerStatus.progress}
-<div id="current-phase">
-  <progress value="{timerStatus.progress}"></progress>
-  <div class:rest-start={timerStatus.currentPhaseClass=='rest-start'}
-      class:rest-warn={timerStatus.currentPhaseClass=='rest-warn'}
-      class:rest-tap={timerStatus.currentPhaseClass=='rest-tap'}
-      class:rest-end={timerStatus.currentPhaseClass=='rest-end'}
-      class:round-start={timerStatus.currentPhaseClass=='round-start'}
-      class:round-warn={timerStatus.currentPhaseClass=='round-warn'}
-      class:round-tap={timerStatus.currentPhaseClass=='round-tap'}
-      class:round-end={timerStatus.currentPhaseClass=='round-end'}
-      class:prepare-start={timerStatus.currentPhaseClass=='prepare-start'}
-      class:prepare-warn={timerStatus.currentPhaseClass=='prepare-warn'}
-      class:prepare-tap={timerStatus.currentPhaseClass=='prepare-tap'}
-      class:prepare-end={timerStatus.currentPhaseClass=='prepare-end'}
-  ><h3>{timerStatus.currentPhaseTitle}</h3>
-  <h4>Elapsed: {timerStatus.elapsed}</h4></div>
-</div>
-{/if}
+  <div id="roundsCounter">
+    <h3>ROUNDS</h3>
+    <button class="minus-round" on:click={timerConfig.decreaseRoundsCount}>-</button>
+    <div id="roundsNumber">{timerConfig.roundsCount}</div>
+    <button class="plus-round" on:click={timerConfig.increaseRoundsCount}>+</button>
+  </div>
 
-{#if !timerStatus.progress}
-<button on:click={startWorkout}>START</button>
-<div id="total-time">
-  <h3>TOTAL Time : {timerConfig.computeTotalWorkoutTime}</h3>
+  <div class="timing-conf-block">
+    <h3>PREPARE</h3>
+    <input id="prepareMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedPrepareDurationMinutes}/>:
+    <input id="prepareSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedPrepareDurationSeconds}/>
+  </div>
+  <div class="timing-conf-block">
+    <h3>ROUND</h3>
+    <input id="roundMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRoundDurationMinutes}/>:
+    <input id="roundSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRoundDurationSeconds}/>
+  </div>
+  <div class="timing-conf-block">
+    <h3>WARNING</h3>
+    <input id="warningMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedWarningDurationMinutes}/>:
+    <input id="warningSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedWarningDurationSeconds}/>
+  </div>
+  <div class="timing-conf-block">
+    <h3>REST</h3>
+    <input id="restMinutes" type="number" min="0" max="60" step="1" bind:value={timerConfig.formattedRestDurationMinutes}/>:
+    <input id="restSeconds" type="number" min="0" max="59" step="1" bind:value={timerConfig.formattedRestDurationSeconds}/>
+  </div>
+
+  {#if timerStatus.progress}
+  <div id="current-phase">
+    <progress value="{timerStatus.progress}"></progress>
+    <div class:rest-start={timerStatus.currentPhaseClass=='rest-start'}
+        class:rest-warn={timerStatus.currentPhaseClass=='rest-warn'}
+        class:rest-tap={timerStatus.currentPhaseClass=='rest-tap'}
+        class:rest-end={timerStatus.currentPhaseClass=='rest-end'}
+        class:round-start={timerStatus.currentPhaseClass=='round-start'}
+        class:round-warn={timerStatus.currentPhaseClass=='round-warn'}
+        class:round-tap={timerStatus.currentPhaseClass=='round-tap'}
+        class:round-end={timerStatus.currentPhaseClass=='round-end'}
+        class:prepare-start={timerStatus.currentPhaseClass=='prepare-start'}
+        class:prepare-warn={timerStatus.currentPhaseClass=='prepare-warn'}
+        class:prepare-tap={timerStatus.currentPhaseClass=='prepare-tap'}
+        class:prepare-end={timerStatus.currentPhaseClass=='prepare-end'}
+    ><h3>{timerStatus.currentPhaseTitle}</h3>
+    <h4>Elapsed: {timerStatus.elapsed}</h4></div>
+  </div>
+  {/if}
+
+  {#if !timerStatus.progress}
+  <button on:click={startWorkout}>START</button>
+  <div id="total-time">
+    <h3>TOTAL Time : {timerConfig.computeTotalWorkoutTime}</h3>
+  </div>
+  {/if}
 </div>
-{/if}
