@@ -19,7 +19,7 @@
     "start": "netlify dev ./src"
   },
   "devDependencies": {
-    "netlify-cli": "17.23.8"
+    "netlify-cli": "17.25.0"
   },
   "dependencies": {
     "airtable": "0.12.2",
