@@ -52,7 +52,7 @@
     "@sveltejs/adapter-static": "^3.0.0",
     "@sveltejs/kit": "2.5.22",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "cypress": "13.13.2",
+    "cypress": "13.13.3",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.6",
     "mdsvex": "0.11.2",
