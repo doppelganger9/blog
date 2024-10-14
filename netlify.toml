@@ -5,3 +5,7 @@
 [functions]
   directory = "lambda/src"
   node_bundler = "esbuild"
+
+[dev]
+  functions = "lambda/src"
+  functionsPort = 9999
