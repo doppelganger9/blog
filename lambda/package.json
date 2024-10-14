@@ -16,10 +16,11 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
-    "start": "netlify dev ./src"
+    "start": "netlify functions:serve"
   },
   "devDependencies": {
-    "netlify-cli": "17.37.0"
+    "netlify-cli": "17.37.0",
+    "@netlify/functions": "2.8.2"
   },
   "dependencies": {
     "airtable": "0.12.2",
