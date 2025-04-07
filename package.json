@@ -93,6 +93,6 @@
     ]
   },
   "dependencies": {
-    "marked": "15.0.7"
+    "marked": "15.0.8"
   }
 }
