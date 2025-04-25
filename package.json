@@ -93,6 +93,6 @@
     ]
   },
   "dependencies": {
-    "marked": "15.0.10"
+    "marked": "15.0.11"
   }
 }
