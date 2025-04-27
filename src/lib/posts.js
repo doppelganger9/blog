@@ -1,18 +1,4 @@
 import { computeMinutesToRead } from "$lib/minutesToRead";
-import Prism from 'prismjs';
-import 'prism-svelte';
-import 'prismjs/components/prism-typescript.js';
-import 'prismjs/components/prism-javascript.js';
-import 'prismjs/components/prism-java.js';
-import 'prismjs/components/prism-yaml.js';
-import 'prismjs/components/prism-markdown.js';
-import 'prismjs/components/prism-css.js';
-import 'prismjs/components/prism-bash.js';
-import 'prismjs/components/prism-json.js';
-import 'prismjs/components/prism-json5.js';
-import 'prismjs/components/prism-hcl.js';
-import 'prismjs/components/prism-jsx.js';
-import 'prismjs/components/prism-bash.js';
 import { error } from '@sveltejs/kit';
 
 

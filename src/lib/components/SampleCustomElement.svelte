@@ -3,7 +3,7 @@
 
   const increment = () => count++;
 </script>
-<svelte:options tag="sample-custom-element" />
+<svelte:options customElement="sample-custom-element" />
 
 <div role="button" tabindex=0 on:click={increment} on:keyup={increment}>Counter: {count}</div>
 
