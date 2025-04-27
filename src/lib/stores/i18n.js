@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-
+import { storable } from '$lib/stores/storable';
 /**
  * Dumb i18n
  *
@@ -22,7 +22,7 @@ import { writable } from 'svelte/store';
  **/
 
 const langs = ['en', 'fr'];
-let currentLang = '';
+let currentLang = undefined;
 
 let labelsByLang = {
   "en": {
@@ -115,8 +115,6 @@ export function switchLang(newLang) {
   i18n.set(i18nTemplateLiteralCurried(newLang));
 }
 
-const DEFAULT_LANG = 'en';
-
 const i18nTemplateLiteralCurried = (lang) => (literals, ...expressions) => {
   let safeXP = [...expressions, ''];
   const originalString = literals.map((literal, i) => literal + safeXP[i]).join('');
@@ -127,9 +125,10 @@ const i18nTemplateLiteralCurried = (lang) => (literals, ...expressions) => {
   return res ? res : originalString;
 }
 
-console.log(`i18n defaulting to "${DEFAULT_LANG}"`);
-export const lang = writable(DEFAULT_LANG);
+export const lang = storable('lang', null);
+
 lang.subscribe(newLang => {
   currentLang = ''+newLang;
 });
+const DEFAULT_LANG = 'en';
 export const i18n = writable(i18nTemplateLiteralCurried(DEFAULT_LANG));
