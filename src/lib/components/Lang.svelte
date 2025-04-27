@@ -1,9 +1,16 @@
 <script>
+  import { get } from 'svelte/store';
   import { switchLang, lang } from '$lib/stores/i18n.js';
   import { onMount } from 'svelte';
 
   onMount(() => {
-    switchLang(navigator.language.split('-')[0]);
+    const currentLang = get(lang);
+    if (!currentLang) {
+      const browserLang = navigator.language.split('-')[0];
+      switchLang(browserLang);
+    } else {
+      switchLang(currentLang);
+    }
   })
 
 </script>
