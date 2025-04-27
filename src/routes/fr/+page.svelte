@@ -1,7 +1,7 @@
 <script>
   import TitleBar from '$lib/components/TitleBar.svelte';
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
-  import { i18n, lang } from '$lib/stores/i18n.js';
+  import { i18n } from '$lib/stores/i18n.js';
   import { siteUrl } from '$lib/stores/config.js';
   import { selectedCategory } from '$lib/stores/category'
   import Categories from '$lib/components/Categories.svelte'
@@ -9,6 +9,9 @@
 
   /** @type {import('./$types').PageData} */
   export let data;
+
+  console.log(`view | lang=fr / pages : ${data.posts.length} / tags: ${data.tags.length} / categories: ${data.categories.length}`);
+
 </script>
 
 <svelte:head>
@@ -39,8 +42,7 @@
 <Categories mode="horizontal" data={data.categories}/>
 
 <ul data-cy="blog-posts-list">
-  {#each data.posts.filter(p => (!$selectedCategory || !p.categories || p.categories?.indexOf($selectedCategory)>=0) 
-    && (!$lang || !p.lang || p.lang === $lang)) as post}
+  {#each data.posts.filter(p => !$selectedCategory || !p.categories || p.categories?.indexOf($selectedCategory)>=0) as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
         tell SvelteKit to load the data for the page as soon as
         the user hovers over the link or taps it, instead of
