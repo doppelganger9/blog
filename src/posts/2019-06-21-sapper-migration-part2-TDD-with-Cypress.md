@@ -156,7 +156,7 @@ Here is a sample log of the output (edited to shorten it):
   Privacy Policy page
     ✓ should have the proper title (732ms)
     ✓ should have the cookie monster gif (167ms)
-    ✓ should have a maitlo link (154ms)
+    ✓ should have a mailto link (154ms)
     ✓ should have a back link (177ms)
     ✓ should show the Article Footer (556ms)
     ✓ should show Built-by footer (801ms)

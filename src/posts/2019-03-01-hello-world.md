@@ -29,7 +29,7 @@ At first, I built it with [GatsbyJS](https://www.gatsbyjs.org/) and ⚛️**Reac
 
 #### and migrations
 
-Since then, it has been migrated to [Sapper](https://sapper.svelte.dev), powered by [Svelte](https://svelte.dev).
+Since then, it has been migrated to [Sapper](https://sapper.svelte.dev), powered by [Svelte](https://svelte.dev). And now, [SvelteKit](https://svelte.dev/docs/kit/introduction)!
 
 ## Building
 
@@ -45,11 +45,10 @@ I intended to post at least once in a while. Oh, wow, now _that_ is ambition! �
 
 ## Contact
 
-At first I wanted to add the possibility to comment on posts, but if you really want to contribute or interact with me or this blog, choose whatever suits you:
-
-- my DMs are open on twitter:
-
-<a href="https://twitter.com/messages/compose?recipient_id=48112723&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-size="large" data-screen-name="doppelganger9" data-show-count="false">Message @doppelganger9</a>
+At first I wanted to [add the possibility to comment on posts](/2021/11/28), but if you really want to contribute or interact with me or this blog, choose whatever suits you:
 
 - mail me at [david@lacourt.dev](mailto://david@lacourt.dev)
 - on [this blog's repository on GitHub](https://github.com/doppelganger9/blog), open an Issue or comment a Pull-Request...
+- I don't use Twitter/X anymore...
+- you can try to reach me on [BlueSky](https://bsky.app/profile/doppelganger9.bsky.social)
+- ... or [LinkedIn](https://fr.linkedin.com/in/davidlacourt)

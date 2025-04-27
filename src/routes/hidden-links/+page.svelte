@@ -4,17 +4,22 @@
   to be able to generate them with prerendering and the static adapter.</p>
 
 <p>Those are experiments and silly stuff:</p>
+<a href="/playground/app-review-links">App Review Links</a><br/>
 <a href="/playground/audio">Web Audio API test page</a><br/>
-<a href="/playground/chrono">Chrono</a><br/>
-<a href="/playground/blabla">Text to speech</a><br/>
-<a href="/playground/eliza">ELIZA</a><br/>
 <a href="/playground/bigeditabletext">Big Editable Text</a><br/>
+<a href="/playground/blabla">Text to speech</a><br/>
+<a href="/playground/box-timer">Boxing Timer</a><br/>
+<a href="/playground/chrono">Chrono</a><br/>
+<a href="/playground/dev-tools">Developer tools</a><br/>
+<a href="/playground/eliza">ELIZA</a><br/>
 <a href="/playground/falling-money">falling money</a><br/>
+<a href="/playground/jwt">JWT tool</a><br/>
+<a href="/playground/md">Online Markdown editor/preview</a><br/>
+<a href="/playground/poll">Safety Check poll</a><br/>
+<a href="/playground/tab-counter">Timer displayed in a tab title</a><br/>
 <a href="/playground/time-boxing">time boxing</a><br/>
 <a href="/playground/typing-train">typing train</a><br/>
-<a href="/playground/dev-tools">Developer tools</a><br/>
-<a href="/playground/jwt">JWT tool</a><br/>
-<a href="/playground/poll">Safety Check poll</a><br/>
+<a href="/playground/web-components">experiment importing a web-component</a><br/>
 
 <p>And below some technical endpoints:</p>
 <a href="/rss">RSS Feed</a><br/>

@@ -5,6 +5,7 @@
   import AddGiscusScript from './AddGiscusScript.svelte';
   
   import { siteUrl } from '$lib/stores/config.js';
+  import { i18n } from '$lib/stores/i18n.js';
 
   export let post;
 </script>
@@ -106,7 +107,7 @@
   <div data-cy='blog-post-date' class='date'>{post.metadata.dateString}</div>
   <div data-cy='blog-post-readtime' class='reading-time'>{#if post.minutesToRead}{post.minutesToRead}{/if}</div>
   <!-- TODO : faire un composant comme la liste des categories qui au clic renvoie sur la liste en selectionnant la categorie cliquée -->
-  <div data-cy='blog-post-categories' class='categories'>{post.metadata.category}</div>
+  <div data-cy='blog-post-categories' class='categories'>{post.metadata.category ?? $i18n`None`}</div>
 </div>
 
 <div data-cy='blog-post-content' class='content'>

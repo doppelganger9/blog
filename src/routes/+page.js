@@ -4,25 +4,32 @@ import { getAllCategoriesOfPublishedPosts, getAllTagsOfPublishedPosts } from '..
 export const prerender = true;
 
 /**
+ * Transform a post extracted from markdown to a usable view model.
+ */
+function mapStoredPostToViewablePost(storedPost) {
+  return {
+    title: storedPost.metadata.title,
+    date: storedPost.metadata.dateString,
+    description: storedPost.metadata.description,
+    slug: storedPost.slug,
+    lang: storedPost.metadata.lang,
+    minutesToRead: storedPost.minutesToRead,
+    categories: storedPost.metadata.category,
+    tags: storedPost.metadata.tags,
+  };
+}
+
+/**
  * @type {import('@sveltejs/kit').PageLoad}
  */
 export function load() {
   // this appears during build and in the browser while `npx http-server build`
   const publishedPosts = getPublishedPosts();
-  const allTags = getAllTagsOfPublishedPosts();
-  const allCategories = getAllCategoriesOfPublishedPosts();
+  const allTags = getAllTagsOfPublishedPosts(publishedPosts);
+  const allCategories = getAllCategoriesOfPublishedPosts(publishedPosts);
 
-  const contents = publishedPosts.map(post => {
-    return {
-      title: post.metadata.title,
-      date: post.metadata.dateString,
-      description: post.metadata.description,
-      slug: post.slug,
-      minutesToRead: post.minutesToRead,
-      categories: post.metadata.category,
-      tags: post.metadata.tags,
-    };
-  });
+  const contents = publishedPosts.map(mapStoredPostToViewablePost);
+
   return {
     posts: contents,
     tags: allTags,
