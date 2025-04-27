@@ -1,3 +1,4 @@
+import { goto } from '$app/navigation';
 import { writable } from 'svelte/store';
 
 /**
@@ -110,9 +111,34 @@ export function switchLang(newLang) {
   if (langs.indexOf(newLang) < 0) {
     return;
   }
-  lang.set(newLang);
-  console.log(`i18n switching to "${newLang}"`);
-  i18n.set(i18nTemplateLiteralCurried(newLang));
+  const oldLang = ''+currentLang;
+  const urlContainsCurrentLang = window.location.pathname.indexOf(oldLang)>=0;
+  if (oldLang !== newLang) {
+    lang.set(newLang);
+    console.log(`i18n switching to "${newLang}"`);
+    i18n.set(i18nTemplateLiteralCurried(newLang));
+    if (window.location.pathname.indexOf(oldLang)>=0) {
+        // already contains a lang in url, change it
+        const targetUrl = '/' + newLang + window.location.pathname.substring(3);
+        console.debug(oldLang, newLang, window.location.pathname, targetUrl);
+        goto(targetUrl); // TODO add other stuff ?
+      }
+    if (window.location.pathname.indexOf(newLang)<0 
+      && window.location.pathname.indexOf(oldLang)<0) {
+        // already contains a lang in url, add it
+        const targetUrl = '/' + newLang + window.location.pathname;
+        console.debug(oldLang, newLang, window.location.pathname, targetUrl);
+        goto(targetUrl); // TODO add other stuff ?
+      }
+  } else {
+    if (!urlContainsCurrentLang) {
+      const targetUrl = '/' + newLang + window.location.pathname;
+      console.debug(oldLang, window.location.pathname, targetUrl);
+      goto(targetUrl); // TODO add other stuff ?      
+    }
+
+    console.debug("same lang, will do nothing");
+  }
 }
 
 const DEFAULT_LANG = 'en';

@@ -1,5 +1,5 @@
 <script>
-  import { i18n } from '$lib/stores/i18n.js';
+  import { i18n, lang } from '$lib/stores/i18n.js';
 
   export let level = 'h1';
 </script>
@@ -27,8 +27,8 @@
 </style>
 <div class='title-bar' data-cy='title-bar'>
 {#if level == 'h1'}
-  <h1><a href='/'>{$i18n`title`}</a></h1>
+  <h1><a href={'/' + $lang}>{$i18n`title`}</a></h1>
 {:else}
-  <h3><a href='/'>{$i18n`title`}</a></h3>
+  <h3><a href={'/' + $lang}>{$i18n`title`}</a></h3>
 {/if}
 </div>

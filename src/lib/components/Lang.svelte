@@ -3,7 +3,16 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    switchLang(navigator.language.split('-')[0]);
+    if (window.location.pathname.startsWith('/en') || window.location.pathname.startsWith('/fr')) {
+      // let's assume we already handled the default lang.
+      const langInWindowLocation = window.location.pathname.substring(1,3);
+      console.debug(`mounting Lang component, keeping lang store to the previous value (set in the current window.location) : ${langInWindowLocation}`);
+      switchLang(langInWindowLocation);
+    } else {
+      // nothing was setup so we will use the navigator language as a starting point.
+      console.debug(`mounting Lang component, defaulting lang store to navigator.language.split('-')[0]=${navigator.language.split('-')[0]}`);
+      switchLang(navigator.language.split('-')[0]);
+    }
   })
 
 </script>

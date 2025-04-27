@@ -95,8 +95,17 @@ function cleanAndDedupe(arrayWithDuplicateOrFalsyElements) {
   return Array.from(new Set(arrayWithoutFalsies));
 }
 
-export function getPostForSlug(slug) {
-  return POSTS.find(p => p.slug === slug);
+export function getPostForSlug(slug, lang) {
+  let found = null;
+  if (lang) {
+    found = POSTS.find(p => (p.slug === slug) && (p.metadata.lang === lang));
+  } else {
+    // no lang, slug only
+    found = POSTS.find(p => p.slug === slug);
+  }
+  if (found) console.log(`found post for slug ${slug} lang ${lang}`)
+    else console.log(`NOT FOUND post for slug ${slug} lang ${lang}`);
+  return found;
 }
 
 export function getPostForDateSlug(slug) {
@@ -104,11 +113,18 @@ export function getPostForDateSlug(slug) {
   return regexp_YYYY_MM_DD.test(slug) ? getPostForSlug(slug) : undefined;
 }
 
-export function loadPostForSlug(slug) {
-  const post = getPostForSlug(slug);
+export function loadPostForSlug(slug, lang) {
+  const post = getPostForSlug(slug, lang);
   if (!post) {
     error(404, 'Oh no! The requested page could not be found.');
   }
 
   return post;
+}
+
+export function filterForLang(postList, lang) {
+  const founds = postList.filter(post => post.metadata.lang === lang);
+  console.debug(lang);
+  console.log(`found ${founds.length} posts for lang ${lang} : ${founds.map(p => p.slug).reduce((prev, curr) => prev + '\n - ' + curr, '')}`);
+  return founds;
 }
