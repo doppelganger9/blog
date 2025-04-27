@@ -1,7 +1,7 @@
 <script>
   import TitleBar from '$lib/components/TitleBar.svelte';
   import ArticleFooter from '$lib/components/ArticleFooter.svelte';
-  import { i18n, registerMoreLabels } from '$lib/stores/i18n.js';
+  import { i18n } from '$lib/stores/i18n.js';
   import { siteUrl } from '$lib/stores/config.js';
   import { selectedCategory } from '$lib/stores/category'
   import Categories from '$lib/components/Categories.svelte'
@@ -9,21 +9,6 @@
 
   /** @type {import('./$types').PageData} */
   export let data;
-
-  registerMoreLabels({
-    "en": {
-      "Dev": "Code",
-      "Famille": "Family",
-      "Musique": "Music",
-      "Sport": "Sports"
-    },
-    "fr": { 
-      "sadly, no results": "Aucun contenu; quelle tristesse",
-      'Tags': 'Etiquettes',
-      'All': 'Tous',
-      "TTRPG": "JdR",
-    }
-  });
 </script>
 
 <svelte:head>
