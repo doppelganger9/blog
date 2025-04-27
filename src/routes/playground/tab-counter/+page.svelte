@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Timer } from "$lib/chrono";
   import { onMount } from "svelte";
   import { favicon } from "$lib/stores/favicon";

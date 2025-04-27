@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { tick, onMount, onDestroy } from 'svelte';
   import { Speech } from '$lib/speech.js';
   import { Timer } from '$lib/chrono.ts';

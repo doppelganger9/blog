@@ -1,6 +1,10 @@
 <script>
   import { i18n } from '$lib/stores/i18n.js';
 
+  // Add prism in the Title Bar
+  import Prism from 'prismjs';
+  import 'prism-svelte';
+
   export let level = 'h1';
 </script>
 <style>
