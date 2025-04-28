@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { status, updateStatus } from '$lib/stores/status';
+  import { twemoji } from '$lib/twemoji.svelte';
 
   const all_status = {
     '-1': { text:'...', class:'waiting'},
@@ -21,7 +22,7 @@
   });
 </script>
 
-<a data-cy="status-indicator" class="status {all_status[$status].class}" href='https://stats.uptimerobot.com/ZYDp0hJL8'>
+<a use:twemoji data-cy="status-indicator" class="status {all_status[$status].class}" href='https://stats.uptimerobot.com/ZYDp0hJL8'>
   Status: {all_status[$status].text}
 </a>
 
