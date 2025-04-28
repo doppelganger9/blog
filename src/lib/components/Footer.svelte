@@ -1,6 +1,7 @@
 <script>
   import { i18n } from '$lib/stores/i18n.js';
   import Status from '$lib/components/Status.svelte';
+  import { twemoji } from '$lib/twemoji.svelte';
 </script>
 
 <style>
@@ -9,7 +10,7 @@ footer {
 }
 </style>
 
-<footer data-cy='footer'>
+<footer use:twemoji data-cy='footer'>
   <p>
   © {new Date().getFullYear()} 
   -

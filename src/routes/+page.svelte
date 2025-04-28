@@ -6,6 +6,7 @@
   import { selectedCategory } from '$lib/stores/category'
   import Categories from '$lib/components/Categories.svelte'
   import Tags from '$lib/components/Tags.svelte'
+  import { twemoji } from '$lib/twemoji.svelte'
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -38,7 +39,7 @@
 
 <Categories mode="horizontal" data={data.categories}/>
 
-<ul data-cy="blog-posts-list">
+<ul use:twemoji data-cy="blog-posts-list">
   {#each data.posts.filter(p => !$selectedCategory || !p.categories || p.categories?.indexOf($selectedCategory)>=0) as post}
     <!-- we're using the non-standard `rel=prefetch` attribute to
         tell SvelteKit to load the data for the page as soon as

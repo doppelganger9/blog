@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { twemoji } from "$lib/twemoji.svelte";
+
   export let data;
 </script>
 
 {#if data}
-<ul class="tags" data-cy="tags">
+<ul use:twemoji class="tags" data-cy="tags">
   {#each data as d}
     <li>{d.tag}({d.nb})</li>
   {/each}

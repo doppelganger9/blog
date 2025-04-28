@@ -2,7 +2,6 @@
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
-import { sveltePreprocess } from 'svelte-preprocess';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const config = {
@@ -10,7 +9,6 @@ const config = {
   preprocess: [
     mdsvex(mdsvexConfig),
     vitePreprocess({script: true}), // to transpile typescript when using `npm run dev` for ex.
-    sveltePreprocess(),
   ],
   kit: {
     adapter: adapter(),

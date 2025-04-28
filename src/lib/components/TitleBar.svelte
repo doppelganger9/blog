@@ -4,6 +4,7 @@
   // Add prism in the Title Bar
   import Prism from 'prismjs';
   import 'prism-svelte';
+  import { twemoji } from '$lib/twemoji.svelte';
 
   export let level = 'h1';
 </script>
@@ -29,7 +30,7 @@
   color: inherit;
 }
 </style>
-<div class='title-bar' data-cy='title-bar'>
+<div use:twemoji class='title-bar' data-cy='title-bar'>
 {#if level == 'h1'}
   <h1><a href='/'>{$i18n`title`}</a></h1>
 {:else}
