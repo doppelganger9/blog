@@ -7,6 +7,8 @@
     "automerge": false
   },
   "schedule": [
-    "every weekday"
-  ]
+    "every Saturday"
+  ],
+  "stabilityDays": 14,
+  "prConcurrentLimit": 2
 }
