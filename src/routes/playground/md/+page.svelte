@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { marked } from 'marked';
+  import TabCounter from '../tab-counter/+page.svelte';
+  import SampleCustomElement from '/src/lib/components/SampleCustomElement.svelte';
 
 	// Clé pour le localStorage
 	const CONTENT_STORAGE_KEY = 'svelte-markdown-editor-content';
@@ -83,6 +85,25 @@ code
    alors
 \`\`\`
 ---
+
+## Custom Web Element:
+
+Voir [la doc de Svelte](https://svelte.dev/docs/svelte/custom-elements).
+
+### un compteur :
+
+\`<sample-custom-element></sample-custom-element>\`
+
+<sample-custom-element></sample-custom-element>
+
+## Wow, j'importe une autre page :
+
+Et il y a même des attributs qui pilotent son comportement !
+
+\`<tab-counter showHelp="false" updateTitleWithTimeElapsed="false" />\`
+
+<tab-counter showHelp="false" updateTitleWithTimeElapsed="false" />
+
 `;
 
 
