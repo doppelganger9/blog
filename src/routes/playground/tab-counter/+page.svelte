@@ -84,13 +84,49 @@
     }, 1000);
   };
 
-  onMount(async () => {
-    favicon.set("https://fav.farm/%E2%8F%B1");
+  onMount(() => {
+    const initialFaviconValue = '' + $favicon;
+    if (updateTitleWithTimeElapsed === "true") {
+      favicon.set("https://fav.farm/%E2%8F%B1");
+    }
 
     // il faut attendre pour avoir accès à `window` sinon on est hors navigateur (SSR, etc.)
     perf = window.performance;
+
+    return () => {
+      // unMount function
+      favicon.set(initialFaviconValue); 
+    };
   });
 </script>
+
+<svelte:options customElement="tab-counter" />
+
+<svelte:head>
+  {#if updateTitleWithTimeElapsed === 'true'}
+    <title>{title}{suffix ? " " + suffix : ""}</title>
+  {/if}
+</svelte:head>
+
+<div>
+  <h1>Tab Counter</h1>
+  <div class="flexed">
+    <h2>Temps écoulé {suffix}:</h2>
+    <div class="elapsed">{title}</div>
+
+    <div class="buttons">
+      <button onclick={startTimer}>↪ | redémarrer</button>
+      <button onclick={stopTimer}>⏸ | arrêter</button>
+      <button onclick={continueTimer}>▶ | continuer</button>
+    </div>
+    {#if showHelp === 'true'}
+      <div class="about">
+        <p>Un time-boxer qui s’affiche dans le titre de l'onglet (title page)</p>
+        <p>La favicon vient de <a href="https://fav.farm">fav.farm</a></p>
+      </div>
+    {/if}
+  </div>
+</div>
 
 <style>
   h1 {
@@ -125,34 +161,3 @@
     background-color: lightcyan;
   }
 </style>
-
-<svelte:options customElement="tab-counter" />
-
-<svelte:head>
-  {#if updateTitleWithTimeElapsed === 'true'}
-    <title>{title}{suffix ? " " + suffix : ""}</title>
-  {/if}
-</svelte:head>
-
-<h1>Tab Counter</h1>
-<div class="flexed">
-  <h2>Temps écoulé {suffix}:</h2>
-  <div class="elapsed">{title}</div>
-
-  <div class="buttons">
-    <button onclick={startTimer}>↪ | redémarrer</button>
-    <button onclick={stopTimer}>⏸ | arrêter</button>
-    <button onclick={continueTimer}>▶ | continuer</button>
-  </div>
-  {#if showHelp === 'true'}
-    <div class="about">
-      <p>Un time-boxer qui s’affiche dans le titre de l'onglet (title page)</p>
-      <p>La favicon vient de <a href="https://fav.farm">fav.farm</a></p>
-    </div>
-  {/if}
-</div>
-
-<br />
-<br />
-<br />
-<br />
