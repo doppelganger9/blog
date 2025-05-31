@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "netlify-cli": "21.4.2",
-    "@netlify/functions": "3.1.8"
+    "@netlify/functions": "3.1.10"
   },
   "dependencies": {
     "airtable": "0.12.2",
