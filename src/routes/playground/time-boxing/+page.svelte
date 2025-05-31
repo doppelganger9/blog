@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { tick, onMount, onDestroy } from 'svelte';
   import { Speech } from '$lib/speech.js';
   import { Timer } from '$lib/chrono.ts';
@@ -28,10 +28,11 @@
       playSound(audioContext, gongAudioFileBuffer)
       await speech.utterAndWaitUntilFinished('starting time box!');
     }
-    timer = new Timer({
-      perf: window.performance,
-      duration: timebox.duration || 5000,
-    });
+    timer = new Timer(
+      timebox.duration || 5000,
+      0,
+      window.performance,
+    );
     timer.start();
     (async function refreshTimer() {
       if (timer.update()) {
