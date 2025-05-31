@@ -28,11 +28,10 @@
       playSound(audioContext, gongAudioFileBuffer)
       await speech.utterAndWaitUntilFinished('starting time box!');
     }
-    timer = new Timer(
-      timebox.duration || 5000,
-      0,
-      window.performance,
-    );
+    timer = new Timer({
+      perf: window.performance,
+      duration: timebox.duration || 5000,
+    });
     timer.start();
     (async function refreshTimer() {
       if (timer.update()) {

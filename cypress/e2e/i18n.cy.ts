@@ -47,7 +47,7 @@ describe(`i18n`, () => {
       cy.get(`[data-cy=switch-lang-button]`)
         .should('exist')
         .should('be.visible')
-        .should('contain', '🇫🇷 ➡️ 🇺🇸');
+        .should('have.attr', 'aria-label', 'passer en anglais');
     });
 
   });
@@ -84,7 +84,7 @@ describe(`i18n`, () => {
       cy.get(`[data-cy=switch-lang-button]`)
         .should('exist')
         .should('be.visible')
-        .should('contain', '🇺🇸 ➡️ 🇫🇷');
+        .should('have.attr', 'aria-label', 'switch to french');
     });
   });
 });

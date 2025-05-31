@@ -224,11 +224,11 @@
 
   async function startWorkout() {
     let plan = timerConfig.planWorkout();
-    timerStatus.timer = new Timer(
-      plan[plan.length-1].beginAt * 1000,
-      0,
-      window.performance
-    );
+    timerStatus.timer = new Timer({
+      duration: plan[plan.length-1].beginAt * 1000,
+      elapsed: 0,
+      perf: window.performance
+    });
     timerStatus.timer.start();
 
     (async function refreshTimer() {

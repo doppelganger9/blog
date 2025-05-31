@@ -1,12 +1,10 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:recommended"],
   "automerge": true,
   "major": {
     "automerge": false
   },
-  "schedule": [
-    "every weekday"
-  ]
+  "schedule": ["every weekend"],
+  "minimumReleaseAge": "14 days",
+  "prConcurrentLimit": 2
 }

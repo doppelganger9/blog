@@ -1,4 +1,6 @@
 <script>
+  import { favicon } from "$lib/stores/favicon";
+
 /**
  * This component just insert all favicon links in the <head> part of a page.
  * - different sizes (16,32,96)
@@ -12,6 +14,11 @@
 
 <svelte:head>
 
+  {#if $favicon !== 'favicon'}
+  <link rel='icon' href='{$favicon}'>
+  {/if}
+
+  {#if $favicon === 'favicon'}
   <link rel="shortcut icon" href="/favicon.ico">
 
   <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
@@ -36,5 +43,6 @@
   <meta name="msapplication-TileColor" content="#FF3E00">
   <meta name="msapplication-TileImage" content="/favicon-144.png">
   <meta name="msapplication-config" content="/browserconfig.xml">
+  {/if}
 
 </svelte:head>

@@ -283,4 +283,4 @@ Image credit : _"Photo Boards" from Unsplash user [@createandbloom](https://unsp
 
 ## Discussion
 
-As always, feel free to reply to this post below 👇, also [my DMs are open on Twitter](https://twitter.com/doppelganger9) or you can find me on Mastodon: <a rel="me" href="https://mastodon.social/@david_lacourt@mamot.fr">@david_lacourt@mamot.fr</a>!
+As always, feel free to reply to this post below 👇, also ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9) or~~ you can find me ~~on Mastodon: <a rel="me" href="https://mastodon.social/@david_lacourt@mamot.fr">@david_lacourt@mamot.fr</a>~~ lately, on [BlueSky](https://bsky.app/profile/doppelganger9.bsky.social) !

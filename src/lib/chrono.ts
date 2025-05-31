@@ -1,11 +1,14 @@
 export class Timer {
   private last_time: number;
+  public duration: number = 5000; // milliseconds
+  public elapsed = 0;  // milliseconds
+  private perf = window.performance;
 
-  constructor(
-      public duration: number = 5000, // milliseconds
-      public elapsed = 0,  // milliseconds
-      private perf = window.performance
-    ) {}
+  constructor({duration = 5000, elapsed = 0, perf}) {
+    this.duration = duration;
+    this.elapsed = elapsed;
+    this.perf = perf;
+  }
 
   changeDuration(): void {
     this.elapsed = 0;

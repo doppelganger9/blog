@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-
+import { storable } from '$lib/stores/storable';
 /**
  * Dumb i18n
  *
@@ -22,6 +22,8 @@ import { writable } from 'svelte/store';
  **/
 
 const langs = ['en', 'fr'];
+let currentLang = undefined;
+
 let labelsByLang = {
   "en": {
     "title": "David's Blog",
@@ -43,7 +45,16 @@ let labelsByLang = {
     // URI Components De/Encoder
     "label.encode.uricomponents":"Type here to encode URI Components",
     "label.decode.uricomponents":"Type here to decode URI Components",
-
+    "Tags":"Tags",
+    "All":"All",
+    "Agile":"Agile",
+    "Dev":"Dev",
+    "Family":"Family",
+    "Gaming":"Gaming",
+    "Music":"Music",
+    "Sports":"Sports",
+    "TTRPG":"TTRPG",
+    "None":"None"
   },
   "fr": {
     "title": "Le Blog de David",
@@ -66,6 +77,17 @@ let labelsByLang = {
     // URI Components De/Encoder
     "label.encode.uricomponents": "Mettez ici le texte à encoder en URI Components",
     "label.decode.uricomponents": "Mettez ici le texte à décoder en URI Components",
+    "Tags":"Etiquettes",
+    "All":"Tous",
+    "Agile":"Agilité",
+    "Dev":"Code",
+    "Family":"Famille",
+    "Gaming":"Jeux",
+    "Music":"Musique",
+    "Sports":"Sport",
+    "TTRPG":"JDR",
+    "None":"Aucune",
+    "sadly, no results": "Aucun contenu; quelle tristesse"
   }
 };
 
@@ -93,8 +115,6 @@ export function switchLang(newLang) {
   i18n.set(i18nTemplateLiteralCurried(newLang));
 }
 
-const DEFAULT_LANG = 'en';
-
 const i18nTemplateLiteralCurried = (lang) => (literals, ...expressions) => {
   let safeXP = [...expressions, ''];
   const originalString = literals.map((literal, i) => literal + safeXP[i]).join('');
@@ -105,6 +125,10 @@ const i18nTemplateLiteralCurried = (lang) => (literals, ...expressions) => {
   return res ? res : originalString;
 }
 
-console.log(`i18n defaulting to "${DEFAULT_LANG}"`);
-export const lang = writable(DEFAULT_LANG);
+export const lang = storable('lang', null);
+
+lang.subscribe(newLang => {
+  currentLang = ''+newLang;
+});
+const DEFAULT_LANG = 'en';
 export const i18n = writable(i18nTemplateLiteralCurried(DEFAULT_LANG));

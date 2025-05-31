@@ -4,7 +4,7 @@ date: 2019-03-31T10:04:00
 published: true
 description: A post about reflecting on how being a dad can help you with soft skills 🤣!
 tags: parenting, soft skills, meta
-category: Famille
+category: Family
 lang: en
 keywords: parenting, soft skills, management, introvert, roles, postures, geek dad
 slug: 2019/03/31

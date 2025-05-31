@@ -20,7 +20,7 @@ describe(`Privacy Policy page`, () => {
     cy.get(`img[alt*='Cookie Monster']`).should('exist')
   })
 
-  it(`should have a maitlo link`, () => {
+  it(`should have a mailto link`, () => {
     cy.get(`a[href*='mailto:']`)
       .should('exist')
   })

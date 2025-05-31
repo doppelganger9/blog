@@ -1,9 +1,17 @@
 <script>
+  import { get } from 'svelte/store';
   import { switchLang, lang } from '$lib/stores/i18n.js';
   import { onMount } from 'svelte';
+  import { twemoji } from '$lib/twemoji.svelte';
 
   onMount(() => {
-    switchLang(navigator.language.split('-')[0]);
+    const currentLang = get(lang);
+    if (!currentLang) {
+      const browserLang = navigator.language.split('-')[0];
+      switchLang(browserLang);
+    } else {
+      switchLang(currentLang);
+    }
   })
 
 </script>
@@ -29,7 +37,7 @@
 </style>
 
 {#if $lang === 'fr'}
-<button data-cy='switch-lang-button' on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
+<button aria-label="passer en anglais" use:twemoji data-cy='switch-lang-button' on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
 {:else if $lang === 'en'}
-<button data-cy='switch-lang-button' on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
+<button aria-label="switch to french" use:twemoji data-cy='switch-lang-button' on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
 {/if}

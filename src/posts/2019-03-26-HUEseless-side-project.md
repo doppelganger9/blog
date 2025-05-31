@@ -4,7 +4,7 @@ date: 2019-03-26T22:00:00
 published: true
 description: Here is my silly side-project as a geek dad with kids playing with their lights instead of sleeping.
 tags: NodeJS, PhilipsHUE, Google Home, Side-project
-category: Dev, Famille
+category: Dev, Family
 lang: en
 keywords: node, NodeJS","Phillips, Philips, HUE, PhilipsHUE","PhillipsHUE, Google Home","Google Assistant, Dr Evil, Side-project, parenting, raspberrypi, raspberrypi Zero, raspberrypi Zero W
 slug: 2019/03/26
