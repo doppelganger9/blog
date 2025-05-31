@@ -2,8 +2,8 @@
   import { onMount } from "svelte"
   import { i18n, registerMoreLabels } from "$lib/stores/i18n";
 
-  let functionUrl = '/.netlify/functions/polls'; // 'http://localhost:9999/.netlify/functions/polls' // with netlify dev tools
-  let functionDescriptionUrl = '/.netlify/functions/poll-description'; // 'http://localhost:9999/.netlify/functions/polls' // with netlify dev tools
+  let functionUrl = '/.netlify/functions/polls';
+  let functionDescriptionUrl = '/.netlify/functions/poll-description';
 
   registerMoreLabels({
     'fr': {
