@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@extractus/oembed-extractor": "4.0.8",
-    "marked": "15.0.11",
+    "marked": "15.0.12",
     "plantuml-encoder": "1.4.0"
   }
 }
