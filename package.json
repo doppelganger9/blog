@@ -51,7 +51,7 @@
     "@remark-embedder/transformer-oembed": "5.0.1",
     "@sveltejs/adapter-static": "3.0.8",
     "@sveltejs/kit": "2.21.2",
-    "@sveltejs/vite-plugin-svelte": "5.0.3",
+    "@sveltejs/vite-plugin-svelte": "5.1.0",
     "cypress": "14.4.1",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.6",
