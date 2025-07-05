@@ -19,6 +19,8 @@ export interface PusherMember {
 
 // état de la salle de poker planning
 export interface RoomState {
+  name: string;
+  description?: string;
   participants: Participant[];
   votesVisible: boolean;
   activeSequence: string[];

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import type { PresenceChannel } from 'pusher-js';  
   import Pusher from 'pusher-js';
   import { type RoomState, type Participant, resetAllVotes, hideVotes, showVotes, setSequenceByName, PUSHER_SUBSCRIPTION_SUCCEEDED, PUSHER_MEMBER_ADDED, PUSHER_MEMBER_REMOVED, EVENT_CLIENT_VOTE, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_RESET, EVENT_CLIENT_CHANGE_SEQUENCE, setParticipants, type PusherMember, addParticipant } from '$lib/types';
@@ -8,26 +7,51 @@
 
 	let user = $state({ name: '', hasJoined: false });
 	let roomState = $state<RoomState>({
+		name: 'Salle de Poker Planning',
+		description: 'Une salle de Poker Planning pour estimer des tâches',
 		participants: [],
 		votesVisible: false,
 		activeSequence: SEQUENCES.fibonacci
 	});
 
-	const roomId = page.params.roomId;
-	const channelName = `presence-poker-room-${roomId}`;
+	// générer un UUID pour l'identifiant de la salle
+	function generateUUID() {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
+	}
+	let roomId = '';
+	if (typeof window !== 'undefined') {
+		const roomIdFromLocationHash = window.location.hash.replace(/^#/, '');
+		if (roomIdFromLocationHash) {
+			roomId = roomIdFromLocationHash;
+		} else {
+			// Si pas de hash, on essaie de lire l'ID de la salle
+			const params = new URLSearchParams(window.location.search);
+			roomId = params.get('roomId') || generateUUID(); // Si pas de paramètre, on garde l'ID de la salle actuel
+			window.location.hash = roomId; // Mettre à jour le hash de l'URL pour que les autres utilisateurs puissent rejoindre la même salle
+		}
+	} else {
+			roomId = generateUUID();
+	}
+	
 	let pusherChannel = $state<PresenceChannel>();
 
 	function handleJoin(e: SubmitEvent) {
 		const formData = new FormData(e.target as HTMLFormElement);
 		const name = formData.get('name') as string;
+		const room = formData.get('room') as string;
+		roomId = room.trim() || roomId; // Si le champ est vide, on garde l'ID de la salle actuel
+		window.location.hash = roomId; // Mettre à jour le hash de l'URL pour que les autres utilisateurs puissent rejoindre la même salle
 		if (name.trim()) {
 			user.name = name.trim();
 			user.hasJoined = true;
-			connectToPusher(user);
+			connectToPusher(user, roomId);
 		}
 	}
 
-	function connectToPusher(user: { name: string, hasJoined: boolean }) {
+	function connectToPusher(user: { name: string, hasJoined: boolean }, roomId: string) {
     // TODO mieux gérer les erreurs de connexion !!
     console.log("connectToPusher");
 		const pusher = new Pusher(import.meta.env.VITE_PUSHER_KEY, {
@@ -38,6 +62,7 @@
 			}
 		});
 
+		const channelName = `presence-poker-room-${roomId}`;
 		pusherChannel = pusher.subscribe(channelName) as PresenceChannel;
 
 		// S'abonner aux événements
@@ -127,9 +152,9 @@
 	{#if !user.hasJoined}
 		<div class="modal-overlay">
 			<div class="modal-content">
-				<h2>Rejoindre la salle de Poker Planning</h2>
-				<p>Salle : <strong>{roomId}</strong></p>
 				<form onsubmit={e => {e.preventDefault(); handleJoin(e);}}>
+					<h2>Rejoindre la salle de Poker Planning</h2>
+					<p>Salle : <input type="text" name="room" placeholder="Votre salle" required bind:value={roomId}/></p>
 					<input type="text" name="name" placeholder="Votre pseudo" required />
 					<button type="submit">Rejoindre</button>
 				</form>

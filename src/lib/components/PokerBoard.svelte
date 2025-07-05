@@ -65,6 +65,8 @@
 <main>
 	<header>
 		<h1>Planning Poker</h1>
+		<h2>{roomState.name}</h2>
+		<p>{roomState.description}</p>
 		<div class="controls">
 			<select onchange={handleSequenceChange}>
 				{#each Object.keys(SEQUENCES) as seqName}
