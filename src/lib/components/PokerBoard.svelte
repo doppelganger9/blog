@@ -14,7 +14,7 @@
 	function handleVote(vote: string) {
 		setMyVote(roomState, meId, vote);
 		// pour que ça fonctionne, il faut avoir activé les client events
-		// voir https://dashboard.pusher.com/apps/2015156/settings
+		// voir https://dashboard.pusher.com/apps/{appId}/settings
 
 		// propagate vote action to others users' UI/State.
 		pusherChannel.trigger(EVENT_CLIENT_VOTE, { userId: meId, vote });
