@@ -33,8 +33,10 @@ export const PUSHER_SUBSCRIPTION_SUCCEEDED = 'pusher:subscription_succeeded';
 export const PUSHER_MEMBER_ADDED = 'pusher:member_added';
 export const PUSHER_MEMBER_REMOVED = 'pusher:member_removed';
 // Client events
-export const EVENT_CLIENT_VOTE = 'client-vote';
-export const EVENT_CLIENT_CHANGE_SEQUENCE = 'client-change-sequence';
+export const EVENT_CLIENT_VOTE = 'client-voted';
+export const EVENT_CLIENT_CHANGED_SEQUENCE = 'client-changed-sequence';
+export const EVENT_CLIENT_CHANGED_ROOM_NAME = 'client-changed-room-name';
+export const EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION = 'client-changed-room-description';
 export const EVENT_CLIENT_RESET = 'client-reset';
 export const EVENT_CLIENT_HIDE_VOTES = 'client-hide-votes';
 export const EVENT_CLIENT_SHOW_VOTES = 'client-show-votes';

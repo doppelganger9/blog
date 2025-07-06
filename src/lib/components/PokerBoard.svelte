@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RoomState } from '$lib/types';
-	import {setMyVote, resetMyVote, showVotes, hideVotes, resetAllVotes, setSequenceByName, EVENT_CLIENT_CHANGE_SEQUENCE, EVENT_CLIENT_RESET, EVENT_CLIENT_VOTE, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_SHOW_VOTES} from '$lib/types';
+	import {setMyVote, resetMyVote, showVotes, hideVotes, resetAllVotes, setSequenceByName, EVENT_CLIENT_CHANGED_SEQUENCE, EVENT_CLIENT_RESET, EVENT_CLIENT_VOTE, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION} from '$lib/types';
 	import Card from './Card.svelte';
 	import { SEQUENCES } from '$lib/planningSequences';
 	import type { PresenceChannel } from 'pusher-js';  
@@ -49,7 +49,15 @@
 		resetMyVote(roomState, meId);
 		resetAllVotes(roomState);
 		// propagate sequence change to others users' UI/State.
-		pusherChannel.trigger(EVENT_CLIENT_CHANGE_SEQUENCE, { sequenceName: target.value });
+		pusherChannel.trigger(EVENT_CLIENT_CHANGED_SEQUENCE, { sequenceName: target.value });
+	}
+
+	function handleRoomNameChange(e: Event) {
+		pusherChannel.trigger(EVENT_CLIENT_CHANGED_ROOM_NAME, { name: roomState.name });
+	}
+
+	function handleRoomDescriptionChange(e: Event) {
+		pusherChannel.trigger(EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION, { description: roomState.description });
 	}
 
 	let selectedVote = $state(roomState.participants.find(p => p.id === meId)?.vote || null);
@@ -65,8 +73,8 @@
 <main>
 	<header>
 		<h1>Planning Poker</h1>
-		<h2>{roomState.name}</h2>
-		<p>{roomState.description}</p>
+		<h2 contenteditable bind:innerText={roomState.name} oninput={handleRoomNameChange}></h2>
+		<p contenteditable bind:innerText={roomState.description} oninput={handleRoomDescriptionChange}></p>
 		<div class="controls">
 			<select onchange={handleSequenceChange}>
 				{#each Object.keys(SEQUENCES) as seqName}

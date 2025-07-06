@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PresenceChannel } from 'pusher-js';  
   import Pusher from 'pusher-js';
-  import { type RoomState, type Participant, resetAllVotes, hideVotes, showVotes, setSequenceByName, PUSHER_SUBSCRIPTION_SUCCEEDED, PUSHER_MEMBER_ADDED, PUSHER_MEMBER_REMOVED, EVENT_CLIENT_VOTE, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_RESET, EVENT_CLIENT_CHANGE_SEQUENCE, setParticipants, type PusherMember, addParticipant } from '$lib/types';
+  import { type RoomState, type Participant, resetAllVotes, hideVotes, showVotes, setSequenceByName, PUSHER_SUBSCRIPTION_SUCCEEDED, PUSHER_MEMBER_ADDED, PUSHER_MEMBER_REMOVED, EVENT_CLIENT_VOTE, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_RESET, EVENT_CLIENT_CHANGED_SEQUENCE, setParticipants, type PusherMember, addParticipant, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION } from '$lib/types';
 	import PokerBoard from '$lib/components/PokerBoard.svelte';
 	import { SEQUENCES } from '$lib/planningSequences';
 
@@ -129,13 +129,21 @@
       hideVotes(roomState);
 		});
 
-		pusherChannel.bind(EVENT_CLIENT_CHANGE_SEQUENCE, (data: { sequenceName: string }) => {
+		pusherChannel.bind(EVENT_CLIENT_CHANGED_SEQUENCE, (data: { sequenceName: string }) => {
       setSequenceByName(roomState, data.sequenceName);
       // On reset aussi les votes lors du changement de séquence
       hideVotes(roomState);
       resetAllVotes(roomState);
 
       pusherChannel.trigger(EVENT_CLIENT_RESET, {});
+		});
+
+		pusherChannel.bind(EVENT_CLIENT_CHANGED_ROOM_NAME, (data: { name: string }) => {
+			roomState.name = data.name;
+		});
+		
+		pusherChannel.bind(EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION, (data: { description: string }) => {
+			roomState.description = data.description;
 		});
 	}
 
