@@ -54,7 +54,7 @@
 	function connectToPusher(user: { name: string, hasJoined: boolean }, roomId: string) {
     // TODO mieux gérer les erreurs de connexion !!
     console.log("connectToPusher");
-		const pusher = new Pusher(import.meta.env.VITE_PUSHER_KEY, {
+		const pusher = new Pusher(import.meta.env.VITE_PUSHER_PUBLIC_KEY, {
 			cluster: import.meta.env.VITE_PUSHER_CLUSTER,
 			authEndpoint: import.meta.env.VITE_PUSHER_AUTH_ENDPOINT || '/.netlify/functions/pusher-auth',
       auth: {

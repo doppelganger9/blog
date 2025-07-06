@@ -6,7 +6,7 @@ import Pusher from 'pusher';
 // Initialisez Pusher avec les clés secrètes depuis les variables d'environnement
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
-  key: process.env.VITE_PUSHER_KEY,
+  key: process.env.VITE_PUSHER_PUBLIC_KEY,
   secret: process.env.PUSHER_SECRET,
   cluster: process.env.VITE_PUSHER_CLUSTER,
   useTLS: true,
