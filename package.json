@@ -94,6 +94,7 @@
   "dependencies": {
     "@extractus/oembed-extractor": "4.0.8",
     "marked": "15.0.12",
-    "plantuml-encoder": "1.4.0"
+    "plantuml-encoder": "1.4.0",
+    "pusher-js": "8.4.0"
   }
 }
