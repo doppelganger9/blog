@@ -10,6 +10,8 @@
 	// --- Nos états avec les runes Svelte 5 ---
 	let isRecording = $state(false);
 	let tracks = $state<TrackData[]>([]);
+  let nextId = $state(1); // Utilisons un ID qui ne dépend pas de la longueur du tableau
+
 
 	// Variables pour gérer l'enregistrement
 	let mediaRecorder: MediaRecorder | null = null;
@@ -24,7 +26,7 @@
 			mediaRecorder = new MediaRecorder(stream);
 			
 			// On vide les anciens morceaux
-			audioChunks = []; 
+			audioChunks = [];
 			
 			// Quand des données sont disponibles, on les stocke
 			mediaRecorder.ondataavailable = (event) => {
@@ -38,10 +40,11 @@
 
 				// Ajoute la nouvelle piste à notre état réactif
 				tracks.push({
-					id: tracks.length + 1,
+					id: nextId,
 					audioURL,
 					audioBlob
 				});
+        nextId += 1; // Incrémente l'ID pour la prochaine piste
 
 				// On arrête les pistes du micro pour que le navigateur n'affiche plus l'icône "enregistrement"
 				stream.getTracks().forEach(track => track.stop());
@@ -60,6 +63,10 @@
 			mediaRecorder.stop();
 			isRecording = false;
 		}
+	}
+  
+	function deleteTrack(idToDelete: number) {
+		tracks = tracks.filter(t => t.id !== idToDelete);
 	}
 </script>
 
@@ -89,7 +96,7 @@
 			<h2>Mes Pistes</h2>
 			<div class="tracks-container">
 				{#each tracks as track}
-					<Track {track} />
+					<Track {track} onDelete={() => deleteTrack(track.id)} />
 				{/each}
 			</div>
 		{:else}
