@@ -1,6 +1,9 @@
 <script lang="ts">
+  import * as Tone from 'tone';
+  import { bufferToWav } from '$lib/wavEncoder';
+
 	// --- ÉTAT & PROPS ---
-	interface TrackData {
+	export interface TrackData {
 		id: number;
 		audioURL: string;
 		audioBlob: Blob;
@@ -11,6 +14,10 @@
 	let isPlaying = $state(false);
 	let isLooping = $state(false);
 	let trim = $state({ start: 0, end: 1 });
+  let player = $state<'audioContext' | 'toneJS'>('audioContext'); // Choix du moteur de lecture
+
+  let tonePlayer: Tone.Player | null = null;
+  let pitchShift: Tone.PitchShift | null = null;
 	
 	// --- RÉFÉRENCES & AUDIO API ---
 	let canvas: HTMLCanvasElement;
@@ -82,17 +89,7 @@
 		});
 	});
 
-	// $effect pour les mises à jour (quand `trim` change)
 	$effect(() => {
-    console.log("Trim effect triggered", trim);
-		// On lit `trim` pour que Svelte sache que cet effet dépend de lui.
-		if (trim) {
-      console.log("Trim effect active", trim);
-      // On redessine la forme d'onde à chaque changement de trim.
-      if (audioBuffer && canvas) {
-        draw();
-      }
-    }
 		// On redessine uniquement si tout est prêt.
 		if (audioBuffer && canvas) {
 			draw();
@@ -100,7 +97,7 @@
 	});
 
 	// Les fonctions de contrôle restent les mêmes
-	function play() {
+	function playWithAudioContext() {
 		if (!audioContext || !audioBuffer) return;
 		if (isPlaying) {
 			sourceNode?.stop();
@@ -123,12 +120,89 @@
 		sourceNode.onended = () => { isPlaying = false; };
 	}
 
+  async function playWithToneJS() {
+    if (isPlaying) {
+      tonePlayer?.stop();
+      isPlaying = false;
+      return;
+    }
+
+    await Tone.start();
+
+    // Create PitchShift effect
+    if (!pitchShift) {
+      pitchShift = new Tone.PitchShift().toDestination();
+    }
+
+    // Calculate pitch correction in semitones
+    // If playbackRate < 1, pitch drops, so we need to raise it
+    // Correction = -12 * log2(playbackRate)
+    const correction = -12 * Math.log2(playbackRate);
+
+    pitchShift.pitch = correction;
+
+    // Create Player
+    if (tonePlayer) {
+      tonePlayer.dispose();
+    }
+    tonePlayer = new Tone.Player({
+      url: track.audioURL,
+      playbackRate,
+      loop: isLooping,
+      autostart: false,
+      onstop: () => { isPlaying = false; }
+    }).connect(pitchShift);
+
+    // Wait for the player to load
+    await tonePlayer.load(track.audioURL);
+
+    // Calculate offset and duration for trimming
+    const audioDuration = tonePlayer.buffer?.duration ?? 0;
+    const offset = trim.start * audioDuration;
+    const duration = (trim.end - trim.start) * audioDuration;
+
+    tonePlayer.start(0, offset, duration);
+    isPlaying = true;
+  }
+
 	function saveSample() {
+		if (!audioBuffer || !audioContext) return;
+
+		// 1. Calculer les caractéristiques de la portion découpée
+		const startSample = Math.floor(trim.start * audioBuffer.length);
+		const endSample = Math.floor(trim.end * audioBuffer.length);
+		const trimmedLength = endSample - startSample;
+
+		if (trimmedLength <= 0) return; // Ne rien faire si la sélection est vide
+
+		// 2. Créer un nouveau AudioBuffer pour la partie découpée
+		const trimmedBuffer = audioContext.createBuffer(
+			audioBuffer.numberOfChannels,
+			trimmedLength,
+			audioBuffer.sampleRate
+		);
+
+		// 3. Copier les données de la portion sélectionnée dans le nouveau buffer
+		for (let i = 0; i < audioBuffer.numberOfChannels; i++) {
+			const channelData = audioBuffer.getChannelData(i);
+			const trimmedData = trimmedBuffer.getChannelData(i);
+			trimmedData.set(channelData.subarray(startSample, endSample));
+		}
+
+		// 4. Utiliser notre encodeur pour créer un Blob WAV valide
+		const wavBlob = bufferToWav(trimmedBuffer);
+		
+		// 5. Créer une URL temporaire pour ce Blob et déclencher le téléchargement
+		const url = URL.createObjectURL(wavBlob);
 		const link = document.createElement('a');
-		link.href = track.audioURL;
-		link.download = `sample-piste-${track.id}.wav`;
+		link.href = url;
+		link.download = `sample-piste-${track.id}-trimmed.wav`;
+		document.body.appendChild(link);
 		link.click();
+		document.body.removeChild(link);
+		URL.revokeObjectURL(url); // Nettoyer l'URL temporaire
 	}
+
 
 	function handleMouseDown(e: MouseEvent) {
 		const rect = canvas.getBoundingClientRect();
@@ -172,13 +246,16 @@
 <div class="track">
 	<div class="main-controls">
 		<span class="track-id">Piste {track.id}</span>
-		<button onclick={play} class="play-btn" title={isPlaying ? 'Pause' : 'Play'}>{isPlaying ? '❚❚' : '▶'}</button>
+    {player}
+    <select bind:value={player} class="player-select" title="Sélectionner le moteur de lecture">
+      <option value="audioContext" selected>AudioContext</option>
+      <option value="toneJS">Tone.js</option>
+    </select>
+		<button onclick={player === 'audioContext' ? playWithAudioContext : playWithToneJS} class="play-btn" title={isPlaying ? 'Pause' : 'Play'}>{isPlaying ? '❚❚' : '▶'}</button>
 		<button onclick={() => isLooping = !isLooping} class="loop-btn" class:active={isLooping} title="Boucle">⥀</button>
 		<button onclick={saveSample} title="Enregistrer le sample">💾</button>
 		<button onclick={onDelete} title="Supprimer la piste" class="delete-btn">🗑️</button>
 	</div>
-
-  {JSON.stringify(trim)}
 
 	<div 
     role="waveform"

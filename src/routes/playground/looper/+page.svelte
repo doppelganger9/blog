@@ -1,11 +1,5 @@
 <script lang="ts">
-	import Track from '$lib/components/Track.svelte';
-
-	interface TrackData {
-		id: number;
-		audioURL: string;
-		audioBlob: Blob;
-	}
+	import Track, { type TrackData } from '$lib/components/Track.svelte';
 
 	// --- Nos états avec les runes Svelte 5 ---
 	let isRecording = $state(false);
