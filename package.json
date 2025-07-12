@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "1.0.2",
-    "@cypress/code-coverage": "3.14.4",
+    "@cypress/code-coverage": "3.14.5",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
     "@sveltejs/adapter-static": "3.0.8",
