@@ -96,6 +96,8 @@
     "marked": "15.0.12",
     "plantuml-encoder": "1.4.0",
     "pusher-js": "8.4.0",
-    "tonal": "6.4.2"
+    "tonal": "6.4.2",
+    "tone": "15.1.22",
+    "vexflow": "5.0.0"
   }
 }
