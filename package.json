@@ -54,7 +54,7 @@
     "@sveltejs/vite-plugin-svelte": "5.1.1",
     "cypress": "14.5.4",
     "elizabot": "0.0.3",
-    "local-cypress": "1.2.6",
+    "local-cypress": "1.2.8",
     "mdsvex": "0.12.6",
     "npm-run-all2": "8.0.4",
     "patch-package": "8.0.1",
