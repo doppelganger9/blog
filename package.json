@@ -27,7 +27,7 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
-    "postinstall": "npx patch-package && cd lambda && npm install",
+    "postinstall": "svelte-kit sync && npx patch-package && cd lambda && npm install",
     "dev": "vite dev",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -51,7 +51,7 @@
     "@remark-embedder/transformer-oembed": "5.0.1",
     "@sveltejs/adapter-static": "3.0.10",
     "@sveltejs/kit": "2.49.0",
-    "@sveltejs/vite-plugin-svelte": "5.1.1",
+    "@sveltejs/vite-plugin-svelte": "6.2.1",
     "cypress": "14.5.4",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.8",
