@@ -27,7 +27,7 @@
     "url": "git+https://github.com/doppelganger9/blog.git"
   },
   "scripts": {
-    "postinstall": "npx patch-package && cd lambda && npm install",
+    "postinstall": "svelte-kit sync && npx patch-package && cd lambda && npm install",
     "dev": "vite dev",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
