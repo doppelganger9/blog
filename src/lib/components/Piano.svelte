@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { toSolfege } from '$lib/music';
-  import { Note } from "tonal"
+  import { Note } from "tonal";
+	import { audioEngine } from '$lib/AudioEngine';
   
   let { 
     notesToHighlight = [], 
@@ -20,7 +21,7 @@
 		{ note: 'B', type: 'white' }
 	];
 
-	// LOGIQUE AMÉLIORÉE : On se base sur le "chroma" (valeur numérique de 0 à 11)
+	// On se base sur le "chroma" (valeur numérique de 0 à 11)
 	// pour gérer les notes enharmoniques (ex: C# et Db).
 	const highlightedChromaSet = $derived(
 		new Set(notesToHighlight.map(n => Note.chroma(n)))
@@ -34,14 +35,17 @@
 
 <div class="piano">
 	{#each pianoKeys as { note, type }}
-		<div
+		<button
 			class="key {type}"
 			class:highlighted={isKeyHighlighted(note)}
+			onclick={() => {audioEngine.playNote(note, 0.2); console.log(`Clicked on ${note}`);}}
+			aria-roledescription="piano key"
+			aria-label={notation === 'solfege' ? toSolfege(note) : note}
 		>
 			<div class="note-name">
 				{notation === 'solfege' ? toSolfege(note) : note}
 			</div>
-		</div>
+		</button>
 	{/each}
 </div>
 
