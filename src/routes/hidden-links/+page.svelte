@@ -32,4 +32,9 @@
 <a href="/browserconfig.xml">browserconfig XML</a><br/>
 <a href="/404.html">404</a>
 
+<p>Musical experiments:</p>
+<a href="/playground/tabasse">TaBasse</a><br/>
+<a href="/playground/accords">Gammes et accords</a><br/>
+<a href="/playground/poupoulse">Poupoulse</a><br/>
+
 <p>I tried tweaking the prerendering options in svelte.config.js file but to no avail.</p>
