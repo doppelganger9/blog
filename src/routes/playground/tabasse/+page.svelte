@@ -1,5 +1,7 @@
 <script lang="ts">
   import Fretboard from '$lib/components/Fretboard.svelte';
+  import { Scale } from "tonal"
+  import { audioEngine } from '$lib/AudioEngine';
   
   // États réactifs pour piloter le manche
   let selectedRoot = $state("E");
@@ -8,6 +10,9 @@
 
   const roots = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
   const scales = ["major", "minor", "major pentatonic", "minor pentatonic", "dorian", "mixolydian"];
+
+  // Notes à mettre en évidence sur le manche (ex: les notes de la gamme)
+  let notesToHighlight = $derived(Scale.get(`${selectedRoot} ${selectedScale}`).notes);
 </script>
 
 <main class="container">
@@ -39,13 +44,19 @@
     </label>
   </div>
 
+  <p>La gamme sélectionnée est : <strong>{selectedScale}</strong> en <strong>{selectedRoot}</strong>. 
+    Elle contient les notes suivantes : {notesToHighlight.join(", ")}</p>
+
   <hr />
 
   <div class="fretboard-wrapper">
     <Fretboard 
-      root={selectedRoot} 
-      scaleType={selectedScale} 
-      fretCount={frets} 
+      specialNotesToHighlight={[selectedRoot]}
+      notesToHighlight={notesToHighlight}
+      fretCount={frets}
+      tuning={["G2", "D2", "A1", "E1"]}     
+      preferredAccidental={notesToHighlight.some(n => n.includes('#')) ? 'sharp' : 'flat'} 
+      onNote={(note) => audioEngine.playNote(note)}
     />
   </div>
 </main>

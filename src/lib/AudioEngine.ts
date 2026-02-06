@@ -45,8 +45,10 @@ export const audioEngine = {
 
 	playNote: (note: string, duration = 1, at = audioContext?.currentTime): void => {
 		initAudio();
-		console.log('Playing note:', note, at);
-		playNote(`${note}4`, duration, at || audioContext.currentTime);
+		// Si la note n'a pas d'octave (dernier caractère n'est pas un chiffre), on ajoute "4"
+		const noteWithOctave = /\d$/.test(note) ? note : `${note}4`;
+		console.log('Playing note:', noteWithOctave, at);
+		playNote(noteWithOctave, duration, at ?? audioContext.currentTime);
 	},
 
 	/**
@@ -74,7 +76,7 @@ export const audioEngine = {
 	 */
 	playArpeggio: (notes: string[], at = audioContext?.currentTime, delay: number = 0.25): number => {
 		initAudio();
-		let nextTime = at;
+		let nextTime = at ?? audioContext.currentTime;
 
 		notes.forEach(note => {
 			// calcul l'octave pour que les notes de l'arpège se suivent

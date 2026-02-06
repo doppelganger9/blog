@@ -6,6 +6,7 @@
   let chordsInput = $state('Cmaj7 | Am7 | Dm7 | G7');
   let tempo = $state(100);
   let loop = $state(false);
+  let clef = $state<'bass' | 'treble'>('bass');
   let generatedNotes = $state<string[]>([]);
 
   let container: HTMLDivElement;
@@ -24,7 +25,7 @@
   }
 
   function generateBassLine(chords: string[]): string[] {
-    const defaultOctave = 2;
+    const defaultOctave = clef === 'bass' ? 2 : 4;
     return chords.flatMap((chord, i) => {
       const notes = Chord.get(chord).notes;
       const root = addOctave(notes[0] ?? 'C', defaultOctave);
@@ -73,8 +74,8 @@
     const notesPerBar = 4;
     const numBars = Math.ceil(notes.length / notesPerBar);
     const renderer = new Renderer(container, Renderer.Backends.SVG);
-    const barWidth = 140;
-    const totalWidth = numBars * barWidth + 20;
+    const barWidth = 180; // augmenté pour accommoder les accidentels
+    const totalWidth = numBars * (barWidth + 40) + 20;
     renderer.resize(totalWidth, 200);
     const context = renderer.getContext();
 
@@ -82,7 +83,7 @@
     for (let bar = 0; bar < numBars; bar++) {
       const stave = new Stave(x, 40, barWidth);
       if (bar === 0) {
-        stave.addClef('bass');
+        stave.addClef(clef);
         stave.addTimeSignature('4/4');
       }
       stave.setContext(context).draw();
@@ -104,7 +105,7 @@
       const staveNote = new StaveNote({
         keys: [key],
         duration: 'q',
-        clef: 'bass'
+        clef: clef
       });
 
       if (accidental) {
@@ -115,7 +116,7 @@
 
       Formatter.FormatAndDraw(context, stave, vexNotes);
 
-      x += barWidth;
+      x += barWidth + 5;
     }
   }
 
@@ -170,6 +171,14 @@
   </label>
 
   <label>
+    Clef:
+    <select bind:value={clef}>
+      <option value="bass">Fa</option>
+      <option value="treble">Sol</option>
+    </select>
+  </label>
+
+  <label>
     <input type="checkbox" bind:checked={loop} /> Lecture en boucle
   </label>
 
@@ -194,7 +203,7 @@
     flex-direction: column;
     gap: 1rem;
   }
-  textarea, input[type="number"] {
+  textarea, input[type="number"], select {
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.5rem;

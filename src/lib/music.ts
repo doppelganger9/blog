@@ -13,8 +13,37 @@ export const SCALES = ['major', 'minor', 'dorian', 'phrygian', 'lydian', 'mixoly
 export const CHORDS = ['M', 'm', '7', 'M7', 'm7', 'dim', 'aug', 'sus2', 'sus4'];
 
 // Notations
-export const NOTES_ENGLISH = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-export const NOTES_SOLFEGE = ['Do', 'Do#', 'Ré', 'Ré#', 'Mi', 'Fa', 'Fa#', 'Sol', 'Sol#', 'La', 'La#', 'Si'];
+// Avec dièses
+export const NOTES_SHARPS_ENGLISH = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+export const NOTES_DIESE_SOLFEGE = ['Do', 'Do#', 'Ré', 'Ré#', 'Mi', 'Fa', 'Fa#', 'Sol', 'Sol#', 'La', 'La#', 'Si'];
+// Avec bémols
+export const NOTES_FLATS_ENGLISH  = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+export const NOTES_BEMOL_SOLFEGE = ['Do','Réb','Ré','Mib','Mi','Fa','Solb','Sol','Lab','La','Sib','Si'];
+
+export function toBemol(note: string): string {
+    const index = NOTES_SHARPS_ENGLISH.indexOf(note);
+    if (index === -1) {
+        // on essaie aussi avec les noms en solfège
+        const indexSolfege = NOTES_DIESE_SOLFEGE.indexOf(note);
+        if (indexSolfege === -1) {
+            return note; // si la note n'est pas trouvée, on retourne tel quel
+        }
+        return NOTES_BEMOL_SOLFEGE[indexSolfege];
+    }
+    return NOTES_FLATS_ENGLISH[index];
+}
+export function toDiese(note: string): string {
+    const index = NOTES_FLATS_ENGLISH.indexOf(note);
+    if (index === -1) {
+        // on essaie aussi avec les noms en solfège
+        const indexSolfege = NOTES_BEMOL_SOLFEGE.indexOf(note);
+        if (indexSolfege === -1) {
+            return note; // si la note n'est pas trouvée, on retourne tel quel
+        }
+        return NOTES_DIESE_SOLFEGE[indexSolfege];
+    }
+    return NOTES_SHARPS_ENGLISH[index];
+}
 
 // Quelques progressions d'accords en notation degrés chiffres romain
 export const PROGRESSIONS = [ 'IIm7 VMaj7 IMaj7', 'Im7 IV7 Vm7', 'I7 IV7 V7 I7', 'IMaj7 VI7 II7 V7' ];
