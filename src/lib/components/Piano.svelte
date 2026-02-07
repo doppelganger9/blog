@@ -50,7 +50,13 @@
 </div>
 
 <style>
-	.piano { display: flex; height: 180px; }
+	.piano { 
+		display: flex; 
+		height: 180px;
+		justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+	}
 	.key {
 		border: 1px solid #333;
 		border-radius: 0 0 5px 5px;
@@ -61,12 +67,19 @@
 		font-weight: bold;
 		position: relative;
 	}
+
 	.white {
 		width: 60px;
 		height: 100%;
 		background-color: white;
 		color: #333;
 		z-index: 1;
+	}
+	.white:hover {
+		background-color: #f0f0f0;
+	}
+	.white:active {
+		background-color: #e0e0e0;
 	}
 	.black {
 		width: 38px;
@@ -76,9 +89,21 @@
 		margin: 0 -19px;
 		z-index: 2;
 	}
+	.black:hover {
+		background-color: #555;
+	}
+	.black:active {
+		background-color: #777;
+	}
 	.highlighted {
 		background-color: #3b82f6; /* Un joli bleu pour la surbrillance */
 		color: white;
+	}
+	.highlighted:hover {
+		background-color: #2563eb; /* Bleu plus foncé au survol */
+	}
+	.highlighted:active {
+		background-color: #1e40af; /* Bleu encore plus foncé à l'activation */
 	}
 	.note-name {
 		opacity: 0.7;

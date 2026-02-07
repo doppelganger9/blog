@@ -12,6 +12,8 @@ import { Scale, Chord, Progression } from 'tonal';
 	} from '$lib/music';
 	import { audioEngine } from '$lib/AudioEngine';
 	import Piano from '$lib/components/Piano.svelte';
+  import Fretboard from "$lib/components/Fretboard.svelte"
+  import Portee from "$lib/components/Portee.svelte"
 
 	// --- ÉTAT (Modifié pour une sélection plus fine) ---
 	let selectedPitch = $state('C');
@@ -105,6 +107,8 @@ import { Scale, Chord, Progression } from 'tonal';
 				<span class="invalid">Gamme non valide pour cette tonique.</span>
 			{/if}
 		</p>
+		<Fretboard preferredAccidental={selectedAccidental == 'b' ? 'flat' : 'sharp'} specialNotesToHighlight={[selectedRoot]} notesToHighlight={scale.notes} onNote={(note) => audioEngine.playNote(note, 0.2)} fretCount={22} />
+		<Portee notes={scale.notes.map(n => n + '2')} clef={'bass'} />
 	</section>
 
 	<section class="card">
@@ -139,10 +143,12 @@ import { Scale, Chord, Progression } from 'tonal';
 			{/if}
 		</p>
 		<Piano notesToHighlight={chord.notes} {notation} />
+		<Fretboard preferredAccidental={selectedAccidental == 'b' ? 'flat' : 'sharp'} specialNotesToHighlight={[selectedRoot]} notesToHighlight={chord.notes} onNote={(note) => audioEngine.playNote(note, 0.2)} fretCount={22} />
+		<Portee notes={chord.notes.map(n => n + '2')} clef={'bass'} />
 	</section>
 
-	<section>
-		<h3>Progression d'accords</h3>
+	<section class="card">
+		<h2>Progression d'accords</h2>
 		<div class="selection">
 			<select bind:value={selectedProgression} onchange={() =>  inputChordProgression = selectedProgression}>
 				{#each PROGRESSIONS as prog}
@@ -172,6 +178,7 @@ import { Scale, Chord, Progression } from 'tonal';
 </div>
 
 <style>
+	h1, h2, h3 { margin: 0 0 2rem 0; }
 	/* ... Le CSS précédent ... */
 	.container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif; }
 	header { text-align: center; margin-bottom: 2rem; }
