@@ -19,7 +19,7 @@
     "start": "netlify functions:serve"
   },
   "devDependencies": {
-    "netlify-cli": "23.13.3",
+    "netlify-cli": "23.14.0",
     "@netlify/functions": "4.3.0"
   },
   "dependencies": {
