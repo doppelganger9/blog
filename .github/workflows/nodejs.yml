@@ -2,16 +2,21 @@ name: SvelteKit Blog CI
 
 on: [push]
 
+# Cette section gère la limitation des builds
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v6
-    - name: Use Node.js 20.x
+    - name: Use Node.js 24.x
       uses: actions/setup-node@v6
       with:
-        node-version: 22.x
+        node-version: 24.x
     - name: npm install, build, and test
       run: |
         npm ci
