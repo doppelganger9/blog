@@ -51,6 +51,9 @@
           'Accept': 'application/json',
         })
       }).then(response => response.json().then(data => {
+        if (!response.ok) {
+          return reject(new Error(data?.message || `HTTP ${response.status}`));
+        }
         resultsCache = data;
         resolve(data);
       }).catch(reject)).catch((err) => {
@@ -74,6 +77,9 @@
         body
       })
       .then(response => response.json().then(data => {
+        if (!response.ok) {
+          return reject(new Error(data?.message || `HTTP ${response.status}`));
+        }
         refreshResults();
         resolve(data);
       }).catch(reject))
@@ -91,7 +97,7 @@
       })
       .then(response => response.json()
         .then(data => {
-          if (data) {
+          if (data && response.ok) {
             const answerFieldDescription: any = Object.values(data.fields).filter((f: any) => f.name === 'answer')[0];
             const expectedAnswers = [...answerFieldDescription.options.choices.map(c => c.name)];
             return resolve(expectedAnswers);
