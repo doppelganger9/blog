@@ -38,7 +38,8 @@ CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm test` on 
 **Other areas:**
 - `src/routes/playground/*` — standalone interactive toys (music tools using tone/tonal/vexflow, poker planning, timers, etc.) not tied to posts.
 - `src/lib/stores/i18n.js` — homemade en/fr i18n via a tagged-template store (`$i18n\`key\``); add labels for both languages there.
-- `lambda/src/*` — Netlify functions (CommonJS, separate `package.json`) for the poll feature (Airtable + Pusher).
+- `lambda/src/*` — Netlify functions (separate `package.json`, bundled by esbuild): `polls`/`poll-description` (Airtable-backed safety-check poll) and `pusher-auth` (presence-channel auth for the poker planning playground). Shared CORS/JSON helpers live in `lambda/src/utils/http.js`: only allowed origins get CORS headers (lacourt.dev, the Netlify deploy previews, localhost; override with the `ALLOWED_ORIGINS` env var), and errors return a generic message. Never log the Pusher instance or raw events (they contain secrets), and keep validating inputs before they reach Airtable formulas or Pusher.
+- `static/_headers` — Netlify security headers (no CSP yet).
 - `svelte.config.js` compiles a component as a custom element when it detects a `tag=` option inside `<svelte:options>`.
 - `patches/` — patch-package fixes for twemoji, twemoji-parser and hast-util-to-string; keep them in sync if those dependency versions change.
 

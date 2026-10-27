@@ -79,7 +79,7 @@ function checkProcessEnvs(envs) {
  * 
  * Dans Airtable, aller sur https://airtable.com/create/tokens
  * 
- * @returns {Promise<AirtableTable|string|null>}
+ * @returns {Promise<{fields: {name: string, options: {choices: {name: string}[]}}[]}|string|null>}
  */
 exports.describeTable = async () => {
   return new Promise((resolve, reject) => {
@@ -103,15 +103,16 @@ exports.describeTable = async () => {
           .then(data => {
             // only keep our table
             const table = /** @type {AirtableTable} */(/** @type {unknown} */ (data.tables.filter(t => t.id === AT_POLLS_TABLE)[0]));
-            // only keep fields
-            if (table) {
+            // only expose the possible answers: no table/field ids, no views, no descriptions
+            const answerField = table?.fields.find(f => f.name === 'answer');
+            if (answerField) {
               return resolve({
-                id: table.id,
-                description: table.description,
-                name: table.name,
-                primaryFieldId: table.primaryFieldId,
-                fields: {...table.fields},
-                views: {...table.views},
+                fields: [{
+                  name: answerField.name,
+                  options: {
+                    choices: (answerField.options?.choices || []).map(c => ({ name: c.name })),
+                  },
+                }],
               });
             } else {
               return reject('No table found!');
@@ -139,6 +140,9 @@ exports.saveAnswer = async ({ userIdentifier, answer }) => {
   if (!answer) {
     return Promise.reject('answer obligatoire !');
   }
+  if (/["\\]/.test(userIdentifier)) {
+    return Promise.reject('userIdentifier invalide !');
+  }
 
   return new Promise((resolve, reject) => {
     try {
@@ -158,18 +162,12 @@ exports.saveAnswer = async ({ userIdentifier, answer }) => {
         return resolve(null);
       };
 
-      table.select().all().then(data => {
-        let found = undefined;
-        if (data && data.length > 0) {
-          for (let entry of data.entries()) {
-            //const id = entry[0];
-            const record = entry[1];
-            if (record.get('userIdentifier') === userIdentifier) {
-              found = record;
-              break;
-            }
-          }
-        }
+      // userIdentifier est validé par l'appelant (pas de guillemet ni d'antislash) : on peut l'insérer dans la formule.
+      table.select({
+        filterByFormula: `{userIdentifier} = "${userIdentifier}"`,
+        maxRecords: 1,
+      }).firstPage().then(data => {
+        const found = data && data.length > 0 ? data[0] : undefined;
         if (found) {
           table.update(found.id, { userIdentifier, answer })
           .then(resolve)
@@ -207,10 +205,8 @@ exports.getAnswers = () => {
         return resolve(null);
       };
 
-      table.select().all().then(data => {
+      table.select({ fields: ['answer'] }).all().then(data => {
         resolve(data.map(entry => ({
-          id: entry.id, 
-          userIdentifier: entry.get('userIdentifier'),
           answer: entry.get('answer'),
         })));
       }).catch(onErrorCallback('select'));  

@@ -94,8 +94,14 @@
 		});
 		
 		// Événements custom de notre application
-		pusherChannel.bind(EVENT_CLIENT_VOTE, (data: { userId: string, vote: string, targetUserId: string }) => {
+		pusherChannel.bind(EVENT_CLIENT_VOTE, (data: { userId: string, vote: string, targetUserId: string }, metadata?: { user_id?: string }) => {
       const myId = pusherChannel?.members.me.id;
+      // l'émetteur réel est fourni par Pusher (metadata.user_id) : on ne fait pas confiance au userId du message,
+      // sinon n'importe quel participant pourrait voter à la place d'un autre.
+      if (!metadata?.user_id || metadata.user_id !== data.userId) {
+        console.warn("vote ignoré : émetteur non vérifié", metadata?.user_id, data.userId);
+        return;
+      }
       // si pas de targetUserId, c'est pour tout le monde, on traite,
       // si targetUserId = moi, on traite aussi
       // sinon on ignore

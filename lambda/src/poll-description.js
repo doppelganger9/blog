@@ -1,54 +1,35 @@
 const { describeTable } = require("./airtable-poll-api");
+const { corsHeaders, isForbiddenOrigin, json } = require('./utils/http');
+
+const ALLOWED_METHODS = 'GET';
 
 /**
  * Netlify Function REST API for Poll table descriptions.
- * 
- * @param {*} event 
- * @returns 
+ *
+ * @param {*} event
+ * @returns
  */
 exports.handler = async event => {
+  if (isForbiddenOrigin(event)) {
+    return json(event, ALLOWED_METHODS, 403, { message: 'Forbidden' });
+  }
+
   try {
     if (event.httpMethod === 'OPTIONS') {
       return {
-        statusCode: 200,
-        headers: {
-          "access-control-allow-method": "POST,GET",
-          "access-control-allow-headers": "content-type",
-          ...(event.headers.origin && {"Access-Control-Allow-Origin": event.headers.origin}),
-        },
+        statusCode: 204,
+        headers: corsHeaders(event, ALLOWED_METHODS),
         body: ''
       };
     } else if (event.httpMethod === 'GET') {
       const tableDescription = await describeTable();
-      const body = JSON.stringify(tableDescription);
-      return {
-        statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          ...(event.headers.origin && {"Access-Control-Allow-Origin": event.headers.origin}),
-        },
-        body
-      };
+      return json(event, ALLOWED_METHODS, 200, tableDescription);
     } else {
-      return {
-        statusCode: 405,
-        headers: {
-          "access-control-allow-method": "POST,GET",
-          "access-control-allow-headers": "content-type",
-          ...(event.headers.origin && {"Access-Control-Allow-Origin": event.headers.origin}),
-        },
-        body: 'Method not allowed'
-      };
+      return json(event, ALLOWED_METHODS, 405, { message: 'Method not allowed' });
     }
 
   } catch (e) {
     console.error(e);
-    return {
-      statusCode: 500,
-      headers: {
-        ...(event.headers.origin && {"Access-Control-Allow-Origin": event.headers.origin}),
-      },
-      body: e.message ? e.message : e
-    };
+    return json(event, ALLOWED_METHODS, 500, { message: 'Internal Server Error' });
   }
 };

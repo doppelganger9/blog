@@ -1,0 +1,8 @@
+# En-têtes HTTP servis par Netlify (copié tel quel dans build/).
+# Pas encore de Content-Security-Policy : trop de tiers à recenser d'abord (giscus, giphy, twitter, CDN...).
+# Permissions-Policy : le looper du playground a besoin du micro.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(), payment=(), usb=(), microphone=(self)
