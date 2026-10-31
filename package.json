@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "1.0.2",
-    "@playwright/test": "1.63.0",
+    "@playwright/test": "1.64.1",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
     "@sveltejs/adapter-static": "4.0.1",
@@ -69,8 +69,8 @@
     "remark-abbr": "1.4.2",
     "remark-twemoji": "0.1.1",
     "rxjs": "7.8.2",
-    "svelte": "5.57.1",
-    "svelte-check": "4.7.6",
+    "svelte": "5.57.2",
+    "svelte-check": "4.7.7",
     "tslib": "2.8.1",
     "twemoji": "14.0.2",
     "typescript": "6.0.3",
@@ -82,7 +82,7 @@
     "marked": "16.4.2",
     "plantuml-encoder": "1.4.0",
     "pusher-js": "8.6.0",
-    "tonal": "6.4.3",
+    "tonal": "6.5.1",
     "tone": "15.1.22",
     "vexflow": "5.0.0"
   }
