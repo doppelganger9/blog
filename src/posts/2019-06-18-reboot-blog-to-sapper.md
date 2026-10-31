@@ -78,6 +78,7 @@ except for code blocks...
 **Today in SvelteKit (2026):** a small remark plugin in `mdsvex.config.js` counts the words of each post at build time (code included) and stores it in the frontmatter, the reading time is computed from it.
 
 </aside>
+
 #### Write articles using Markdown
 
 used a branch and adapted from there.
@@ -87,6 +88,7 @@ used a branch and adapted from there.
 **Today in SvelteKit (2026):** posts are Markdown files compiled by [mdsvex](https://mdsvex.pngwk.com/), so they can also embed Svelte components.
 
 </aside>
+
 #### What next
 
 <aside class="update-2026">
@@ -99,6 +101,7 @@ used a branch and adapted from there.
 - offline: the service worker did not survive the migrations, there is none today.
 
 </aside>
+
 ### Favicons
 
 Gatsby has a plugin for that too.
@@ -153,6 +156,7 @@ font-family: 'Montserrat', sans-serif;
 **Today in SvelteKit (2026):** still the same `@import` in `src/app.html` and the same `global.css`. Some things never change.
 
 </aside>
+
 ### migrating markdown content
 
 This Sapper markdown blog template used [`marked`](https://github.com/markedjs/marked) library.
@@ -236,6 +240,7 @@ So I'm not adding them for now, as I have to investigate further into this error
 **Today in SvelteKit (2026):** I never added those share and follow buttons back, and Twitter has since become X. Only the posts embedding tweets load the widget script, through a small `AddTwitterWidgetScript.svelte` component.
 
 </aside>
+
 ## How to map URLs
 
 My old blog's URL where like this:
@@ -281,6 +286,7 @@ In the svelte template, I changed the preload function into this:
 **Today in SvelteKit (2026):** the same idea survived, with a different file convention: `src/routes/[year]/[month]/[day]/+page.js` exports a `load` function that looks the post up from the `slug` frontmatter field (`slug: 2019/06/18`), and `+page.svelte` renders it. No more hard-coded `2019`.
 
 </aside>
+
 ## What seems to be missing from Sapper
 
 ### Sapper Export crawling
@@ -310,6 +316,7 @@ I found it not really practical as I did not want to have an index for my hidden
 **Today in SvelteKit (2026):** the prerendering still crawls links, and the invisible link to a `hidden-links` page is still there (in the privacy policy page), listing the playground pages and the technical endpoints. SvelteKit has a `prerender.entries` option that would make it unnecessary. Fun fact: this crawling is also how this very draft leaked: another post linked to it, so the crawler generated it although it was not published. Since 2026, unpublished posts are a 404 in the production build, and a link to one fails the build.
 
 </aside>
+
 ### Service Worker and JSON data
 
 Also, the service-worker is currently not indexing all the exported `.json` files.
@@ -319,6 +326,7 @@ Also, the service-worker is currently not indexing all the exported `.json` file
 **Today in SvelteKit (2026):** there is no service worker anymore.
 
 </aside>
+
 ### Sapper routing
 
 Another useful stuff would be to include another page without duplicating, for example a markdown post in another directory. Currently, I have opted for duplication, but it is not fully satisfying (see `routes/future`, `routes/[slug]`, `routes/2019`, `routes/alternate-reality`: they all have the same template except of course for imports with relative paths).
@@ -330,6 +338,7 @@ I resolved this by extracting the duplicated part in a shared `Post.svelte` comp
 **Today in SvelteKit (2026):** still four route folders (`[slug]`, `[year]/[month]/[day]`, `future/[slug]`, `alternate-reality/[slug]`), but each one is a 10-line `+page.js` calling the same post loader, and `Post.svelte` is still the shared component.
 
 </aside>
+
 ### npm run dev watch
 
 The watch part in `npm run dev` does not detect changes to Markdown files.
