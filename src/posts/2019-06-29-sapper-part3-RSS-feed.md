@@ -138,7 +138,7 @@ Such schizophrenia.
 
 Dear reader, welcome to **"Test After" mode**.
 
-![Wooden mailbox full of letters and magazines by Nellie Adamyan on Unsplash](/unsplash/nellie-adamyan-LcUgHNo9_WE-unsplash.jpg)
+![Wooden mailbox full of letters and magazines by unsplash user @nellie_adamyan](/unsplash/nellie-adamyan-LcUgHNo9_WE-unsplash.jpg)
 
 ### Using Cypress to test HTTP requests
 
@@ -209,4 +209,4 @@ At least, for an almost unneeded feature, that was quick.
 > If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @glennoble, Nellie Adamyan, @thoughtcatalog.
+Photo credit from [Unsplash](https://unsplash.com) by @glennoble, @nellie_adamyan, @thoughtcatalog.
