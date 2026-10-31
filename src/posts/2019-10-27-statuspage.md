@@ -85,7 +85,7 @@ Thank you Cypress for being helpful with this error message, I just added the op
 
 ## Playground
 
-![blue and yellow playground by unsplash user @wildfirewilly](/unsplash/ward-mercer-nrcpPfXwYBo-unsplash.jpg)
+![blue and yellow playground by Ward Mercer on Unsplash](/unsplash/ward-mercer-nrcpPfXwYBo-unsplash.jpg)
 
 @MPJ already explained this in his videos about TDD, he uses a playground file to try calling APIs. 
 
@@ -199,4 +199,4 @@ What do you think? What should I do? I tend to think that it is already good eno
 > If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by [Ine Carriquiry](https://unsplash.com/photos/DdVCpBoHlv0), [@wildfirewilly](https://unsplash.com/@wildfirewilly), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).
+Photo credit from [Unsplash](https://unsplash.com) by [Ine Carriquiry](https://unsplash.com/photos/DdVCpBoHlv0), [Ward Mercer](https://unsplash.com/photos/nrcpPfXwYBo), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).
