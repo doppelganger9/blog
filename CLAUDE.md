@@ -20,7 +20,7 @@ npx cypress run --spec cypress/e2e/home.cy.ts   # single spec (needs `npm run se
 npm run start:lambda # serve Netlify functions locally (netlify-cli, port 9999)
 ```
 
-CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm test` on every push. There are no unit tests or linter; Cypress e2e against the built site is the test suite. Coverage instrumentation (vite-plugin-istanbul) only activates when `CYPRESS_COVERAGE=true` is set, and then also instruments `vite build`; `@cypress/code-coverage` (task in `cypress.config.ts`, support in `cypress/support/e2e.ts`) collects it, and `npm test` skips it with `--env coverage=false`.
+CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm run test:coverage` on every push and uploads `coverage/lcov.info` to Coveralls. There are no unit tests or linter; Cypress e2e against the built site is the test suite. Coverage instrumentation (vite-plugin-istanbul) only activates when `CYPRESS_COVERAGE=true` is set, and then also instruments `vite build`; `@cypress/code-coverage` (task in `cypress.config.ts`, support in `cypress/support/e2e.ts`) collects it, and `npm test` skips it with `--env coverage=false`.
 
 ## Architecture
 
