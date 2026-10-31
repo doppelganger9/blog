@@ -12,7 +12,7 @@ slug: 2019/06/18
 
 <aside class="update-2026">
 
-**2026 update.** Well, it's 2026 and it turns out I never published this article, but it leaked as a link from another article so maybe you already saw it ? Anyway, thanks to AI analysis (Claude Opus 5.5 medium), it helped me finish it. So I'll publish it with minimum effort: because it's about deprecated tech, but it shows how the blog evolved and the problems and solutions encountered along the way. The old Sapper times, this frameworks for this blog change almost as frequently as I publish new articles.
+**2026 update.** Well, it's 2026 and it turns out I never published this article, but it leaked as a link from another article so maybe you already saw it? Anyway, thanks to AI analysis (Claude Opus 5.5 medium), it helped me finish it. So I'll publish it with minimum effort: because it's about deprecated tech, but it shows how the blog evolved and the problems and solutions encountered along the way. The old Sapper times, the frameworks for this blog change almost as frequently as I publish new articles.
 
 </aside>
 
