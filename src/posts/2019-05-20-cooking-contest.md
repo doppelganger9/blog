@@ -152,4 +152,4 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 > I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @jibarox, @philipsfuture, @iantuck.
+Photo credit from [Unsplash](https://unsplash.com) by [@jibarox](https://unsplash.com/@jibarox), [@philipsfuture](https://unsplash.com/@philipsfuture), [@iantuck](https://unsplash.com/@iantuck).
