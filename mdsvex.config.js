@@ -38,12 +38,40 @@ function addWordCountToFrontmatterData({
   };
 }
 
+function escapeHtml(text) {
+  return text.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c])
+}
+
+// When an oEmbed provider is down, blocked or the content was deleted (tweets, gfycat...),
+// fall back to a plain link instead of failing the whole build.
+function handleEmbedError({ error, url }) {
+  console.warn(`[oembed] ${url}: ${error.message} -> fallback to a plain link`)
+  const href = escapeHtml(url)
+  return `<p><a href="${href}">${href}</a></p>` // class, target and rel are added by processUrl
+}
+
+// The oEmbed transformer downloads https://oembed.com/providers.json in `shouldTransform`,
+// which `handleError` does not cover: if that download fails, treat the URL as embeddable
+// so that `getHTML` fails too and `handleEmbedError` renders the plain link.
+const resilientOembedTransformer = {
+  ...oembedTransformer.default,
+  shouldTransform: async (url) => {
+    try {
+      return await oembedTransformer.default.shouldTransform(url)
+    } catch (error) {
+      console.warn(`[oembed] providers list unavailable (${error.message})`)
+      // remark-embedder also hands single words as https://word/: only real hostnames qualify
+      return new URL(url).hostname.includes('.')
+    }
+  },
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexConfig = {
   extensions: [ '.md', '.svx' ],
   remarkPlugins: [
     addWordCountToFrontmatterData, // adds wordCount to frontmatter
-    [remarkEmbedder.default, {transformers: [oembedTransformer.default]}],
+    [remarkEmbedder.default, {transformers: [resilientOembedTransformer], handleError: handleEmbedError}],
     abbr, // adds support for footnote-like abbreviations
     [twemoji, {
       ext: '.svg',
