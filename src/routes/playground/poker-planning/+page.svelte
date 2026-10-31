@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { PresenceChannel } from 'pusher-js';  
   import Pusher from 'pusher-js';
-  import { type RoomState, type Participant, resetAllVotes, hideVotes, showVotes, setSequenceByName, PUSHER_SUBSCRIPTION_SUCCEEDED, PUSHER_MEMBER_ADDED, PUSHER_MEMBER_REMOVED, EVENT_CLIENT_VOTE, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_RESET, EVENT_CLIENT_CHANGED_SEQUENCE, setParticipants, type PusherMember, addParticipant, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION } from '$lib/types';
-	import PokerBoard from '$lib/components/PokerBoard.svelte';
-	import { SEQUENCES } from '$lib/planningSequences';
+  import { type RoomState, type Participant, resetAllVotes, hideVotes, showVotes, setSequenceByName, PUSHER_SUBSCRIPTION_SUCCEEDED, PUSHER_MEMBER_ADDED, PUSHER_MEMBER_REMOVED, EVENT_CLIENT_VOTE, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_RESET, EVENT_CLIENT_CHANGED_SEQUENCE, setParticipants, type PusherMember, addParticipant, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION } from '#lib/types.ts';
+	import PokerBoard from '#lib/components/PokerBoard.svelte';
+	import { SEQUENCES } from '#lib/planningSequences.ts';
 
 	let user = $state({ name: '', hasJoined: false });
 	let roomState = $state<RoomState>({

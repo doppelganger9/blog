@@ -1,4 +1,4 @@
-import { siteUrl } from '$lib/stores/config.js';
+import { siteUrl } from '#lib/stores/config.js';
 
 export const prerender = true;
 

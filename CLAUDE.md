@@ -40,7 +40,8 @@ CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm test` on 
 - `src/lib/stores/i18n.js` — homemade en/fr i18n via a tagged-template store (`$i18n\`key\``); add labels for both languages there.
 - `lambda/src/*` — Netlify functions (separate `package.json`, bundled by esbuild): `polls`/`poll-description` (Airtable-backed safety-check poll) and `pusher-auth` (presence-channel auth for the poker planning playground). Shared CORS/JSON helpers live in `lambda/src/utils/http.js`: only allowed origins get CORS headers (lacourt.dev, the Netlify deploy previews, localhost; override with the `ALLOWED_ORIGINS` env var), and errors return a generic message. Never log the Pusher instance or raw events (they contain secrets), and keep validating inputs before they reach Airtable formulas or Pusher.
 - `static/_headers` — Netlify security headers (no CSP yet).
-- `svelte.config.js` compiles a component as a custom element when it detects a `tag=` option inside `<svelte:options>`.
+- There is no `svelte.config.js` anymore (SvelteKit 3): the SvelteKit options (adapter, mdsvex preprocessing, extensions) are passed to the `sveltekit()` plugin in `vite.config.js`, which also compiles a component as a custom element when it detects a `tag=` option inside `<svelte:options>`.
+- `src/lib` is imported as `#lib/...` (subpath imports declared in `package.json`), with the file extension (`#lib/posts.js`, `#lib/music.ts`).
 - `patches/` — patch-package fixes for twemoji, twemoji-parser and hast-util-to-string; keep them in sync if those dependency versions change.
 
 **Cypress specifics.** Tests import `cy`/`Cypress` from `local-cypress` rather than globals. `cypress/common.ts` holds shared assertions and switches expected framework names on the `BLOG_JAMSTACK` env (set to `svelte-kit` in `cypress.config.ts`).

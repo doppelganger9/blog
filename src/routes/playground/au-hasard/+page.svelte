@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Avatar from '$lib/components/Avatar.svelte';
+	import Avatar from '#lib/components/Avatar.svelte';
 
 	// --- STATE MANAGEMENT ---
 	let participants: string[] = [];

@@ -9,6 +9,12 @@ import plantuml from "@akebifiky/remark-simple-plantuml"
 import remarkEmbedder from '@remark-embedder/core';
 import oembedTransformer from '@remark-embedder/transformer-oembed'
 import { visit } from "unist-util-visit";
+import { compile } from "mdsvex";
+
+// mdsvex loads Prism languages lazily, the first time a code block needs one, and CSS/JS nested
+// in an HTML block are only highlighted if those languages are already loaded. Load them upfront
+// so the result does not depend on the order in which posts are compiled.
+await compile("```css\na{}\n```\n\n```js\nx\n```\n\n```ts\nx\n```")
 
 function processUrl(url, node) {
   if (node.tagName === "a") {

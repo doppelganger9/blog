@@ -10,7 +10,7 @@ keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-
 slug: 2019/03/10
 ---
 <script>
-  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+  import AddTwitterWidgetScript from '#lib/components/AddTwitterWidgetScript.svelte';
 </script>
 
 <AddTwitterWidgetScript />

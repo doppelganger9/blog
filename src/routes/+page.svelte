@@ -1,12 +1,12 @@
 <script>
-  import TitleBar from '$lib/components/TitleBar.svelte';
-  import ArticleFooter from '$lib/components/ArticleFooter.svelte';
-  import { i18n } from '$lib/stores/i18n.js';
-  import { siteUrl } from '$lib/stores/config.js';
-  import { selectedCategory } from '$lib/stores/category'
-  import Categories from '$lib/components/Categories.svelte'
-  import Tags from '$lib/components/Tags.svelte'
-  import { twemoji } from '$lib/twemoji.svelte'
+  import TitleBar from '#lib/components/TitleBar.svelte';
+  import ArticleFooter from '#lib/components/ArticleFooter.svelte';
+  import { i18n } from '#lib/stores/i18n.js';
+  import { siteUrl } from '#lib/stores/config.js';
+  import { selectedCategory } from '#lib/stores/category.ts'
+  import Categories from '#lib/components/Categories.svelte'
+  import Tags from '#lib/components/Tags.svelte'
+  import { twemoji } from '#lib/twemoji.svelte.ts'
 
   /** @type {import('./$types').PageData} */
   export let data;

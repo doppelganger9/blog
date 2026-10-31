@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { selectedCategory } from "$lib/stores/category"
-  import { i18n } from "$lib/stores/i18n"
+  import { selectedCategory } from "#lib/stores/category.ts"
+  import { i18n } from "#lib/stores/i18n.js"
 
   export let data;
   export let mode: "horizontal"|"vertical" = "horizontal"; // or "vertical"

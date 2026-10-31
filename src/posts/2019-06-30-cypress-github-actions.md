@@ -11,7 +11,7 @@ thumb: https://lacourt.dev/WorkflowVisualOverviewWithCypressE2E.png
 ---
 
 <script>
-  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+  import AddTwitterWidgetScript from '#lib/components/AddTwitterWidgetScript.svelte';
 </script>
 
 <AddTwitterWidgetScript />

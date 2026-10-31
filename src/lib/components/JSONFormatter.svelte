@@ -1,5 +1,5 @@
 <script>
-import { i18n } from "$lib/stores/i18n";
+import { i18n } from "#lib/stores/i18n.js";
 
 // ---- JSON pretty-printing/formatting
 export let json = JSON.stringify({ "a": { "b": "c" } })

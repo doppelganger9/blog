@@ -4,6 +4,9 @@
   "description": "David Lacourt's personal blog, powered by SvelteKit and Markdown",
   "version": "3.0.0",
   "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
   "author": "David Lacourt <david.lacourt@gmail.com>",
   "bugs": {
     "url": "https://github.com/doppelganger9/blog/issues"
@@ -49,9 +52,9 @@
     "@cypress/code-coverage": "4.0.3",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
-    "@sveltejs/adapter-static": "3.0.10",
-    "@sveltejs/kit": "2.70.3",
-    "@sveltejs/vite-plugin-svelte": "6.2.4",
+    "@sveltejs/adapter-static": "4.0.1",
+    "@sveltejs/kit": "3.1.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
     "cypress": "15.21.1",
     "elizabot": "0.0.3",
     "local-cypress": "1.2.8",
@@ -73,9 +76,9 @@
     "svelte-check": "4.7.6",
     "tslib": "2.8.1",
     "twemoji": "14.0.2",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "unist-util-visit": "5.1.0",
-    "vite": "7.3.7",
+    "vite": "8.3.5",
     "vite-plugin-istanbul": "7.2.1"
   },
   "nyc": {

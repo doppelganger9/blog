@@ -1,5 +1,5 @@
 <script lang="ts">
-  import WalkingBassEditor from '$lib/components/WalkingBassEditor.svelte';
+  import WalkingBassEditor from '#lib/components/WalkingBassEditor.svelte';
 </script>
 
 <main class="page">

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Timer } from "$lib/chrono";
+  import { Timer } from "#lib/chrono.ts";
   import { onMount } from "svelte";
-  import { favicon } from "$lib/stores/favicon";
+  import { favicon } from "#lib/stores/favicon.ts";
 
   // CORRECT WAY to define props with default values and expose as attributes
   // The default value for the prop itself is handled by JavaScript's destructuring default.

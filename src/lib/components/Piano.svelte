@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { toSolfege } from '$lib/music';
+	import { toSolfege } from '#lib/music.ts';
   import { Note } from "tonal";
-	import { audioEngine } from '$lib/AudioEngine';
+	import { audioEngine } from '#lib/AudioEngine.ts';
   
   let { 
     notesToHighlight = [], 

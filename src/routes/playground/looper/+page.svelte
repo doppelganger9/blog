@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Track, { type TrackData } from '$lib/components/Track.svelte';
+	import Track, { type TrackData } from '#lib/components/Track.svelte';
 
 	// --- Nos états avec les runes Svelte 5 ---
 	let isRecording = $state(false);

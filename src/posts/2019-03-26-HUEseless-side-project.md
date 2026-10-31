@@ -11,7 +11,7 @@ slug: 2019/03/26
 ---
 
 <script>
-  import AddTwitterWidgetScript from '$lib/components/AddTwitterWidgetScript.svelte';
+  import AddTwitterWidgetScript from '#lib/components/AddTwitterWidgetScript.svelte';
 </script>
 
 <AddTwitterWidgetScript />

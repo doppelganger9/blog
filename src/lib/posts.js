@@ -1,4 +1,4 @@
-import { computeMinutesToRead } from "$lib/minutesToRead";
+import { computeMinutesToRead } from "#lib/minutesToRead.js";
 import { error } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 

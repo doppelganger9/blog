@@ -1,4 +1,4 @@
-import { getPublishedPosts } from '$lib/posts';
+import { getPublishedPosts } from '#lib/posts.js';
 import { getAllCategoriesOfPublishedPosts, getAllTagsOfPublishedPosts } from '../lib/posts';
 
 export const prerender = true;

@@ -1,8 +1,8 @@
 <script>
   import { get } from 'svelte/store';
-  import { switchLang, lang } from '$lib/stores/i18n.js';
+  import { switchLang, lang } from '#lib/stores/i18n.js';
   import { onMount } from 'svelte';
-  import { twemoji } from '$lib/twemoji.svelte';
+  import { twemoji } from '#lib/twemoji.svelte.ts';
 
   onMount(() => {
     const currentLang = get(lang);

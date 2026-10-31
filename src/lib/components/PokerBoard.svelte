@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RoomState } from '$lib/types';
-	import {setMyVote, resetMyVote, showVotes, hideVotes, resetAllVotes, setSequenceByName, EVENT_CLIENT_CHANGED_SEQUENCE, EVENT_CLIENT_RESET, EVENT_CLIENT_VOTE, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION} from '$lib/types';
+	import type { RoomState } from '#lib/types.ts';
+	import {setMyVote, resetMyVote, showVotes, hideVotes, resetAllVotes, setSequenceByName, EVENT_CLIENT_CHANGED_SEQUENCE, EVENT_CLIENT_RESET, EVENT_CLIENT_VOTE, EVENT_CLIENT_HIDE_VOTES, EVENT_CLIENT_SHOW_VOTES, EVENT_CLIENT_CHANGED_ROOM_NAME, EVENT_CLIENT_CHANGED_ROOM_DESCRIPTION} from '#lib/types.ts';
 	import Card from './Card.svelte';
-	import { SEQUENCES } from '$lib/planningSequences';
+	import { SEQUENCES } from '#lib/planningSequences.ts';
 	import type { PresenceChannel } from 'pusher-js';  
 
 	let { roomState = $bindable(), pusherChannel, meId } = $props<{

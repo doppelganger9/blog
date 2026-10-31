@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
-  import { status, updateStatus } from '$lib/stores/status';
-  import { twemoji } from '$lib/twemoji.svelte';
+  import { status, updateStatus } from '#lib/stores/status.ts';
+  import { twemoji } from '#lib/twemoji.svelte.ts';
 
   const all_status = {
     '-1': { text:'...', class:'waiting'},

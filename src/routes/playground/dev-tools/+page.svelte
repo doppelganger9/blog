@@ -1,10 +1,10 @@
 <script>
-  import ArticleFooter from "$lib/components/ArticleFooter.svelte";
-  import Separator from "$lib/components/Separator.svelte";
-  import TitleBar from "$lib/components/TitleBar.svelte";
-  import URIComponentsTool from "$lib/components/URIComponentsTool.svelte";
-  import Base64Tool from "$lib/components/Base64Tool.svelte";
-  import JSONFormatter from "$lib/components/JSONFormatter.svelte";
+  import ArticleFooter from "#lib/components/ArticleFooter.svelte";
+  import Separator from "#lib/components/Separator.svelte";
+  import TitleBar from "#lib/components/TitleBar.svelte";
+  import URIComponentsTool from "#lib/components/URIComponentsTool.svelte";
+  import Base64Tool from "#lib/components/Base64Tool.svelte";
+  import JSONFormatter from "#lib/components/JSONFormatter.svelte";
 </script>
 
 <svelte:head>

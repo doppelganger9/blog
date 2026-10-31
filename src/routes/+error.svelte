@@ -1,6 +1,6 @@
 <script>
-  import TitleBar from '$lib/components/TitleBar.svelte';
-  import Favicons from '$lib/components/Favicons.svelte';
+  import TitleBar from '#lib/components/TitleBar.svelte';
+  import Favicons from '#lib/components/Favicons.svelte';
   import { dev } from '$app/environment';
   import { page } from '$app/stores';
 </script>

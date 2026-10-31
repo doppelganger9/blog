@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Fretboard from '$lib/components/Fretboard.svelte';
+  import Fretboard from '#lib/components/Fretboard.svelte';
   import { Scale } from "tonal"
-  import { audioEngine } from '$lib/AudioEngine';
+  import { audioEngine } from '#lib/AudioEngine.ts';
   
   // États réactifs pour piloter le manche
   let selectedRoot = $state("E");
