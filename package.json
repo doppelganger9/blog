@@ -44,6 +44,7 @@
     "cy:run:no-coverage": "cypress run --env coverage=false",
     "cy:open": "cypress open",
     "test": "start-server-and-test serve http://127.0.0.1:8080 cy:run:no-coverage",
+    "test:coverage": "CYPRESS_COVERAGE=true npm run build && start-server-and-test serve http://127.0.0.1:8080 cy:run",
     "start:lambda": "cd lambda && npm start",
     "migration:check": "npm run build && npm run test"
   },
@@ -85,6 +86,7 @@
     "all": true,
     "include": [
       "src/**/*.js",
+      "src/**/*.ts",
       "src/**/*.svelte"
     ],
     "exclude": [

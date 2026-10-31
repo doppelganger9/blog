@@ -46,14 +46,16 @@ const config = {
         }
       },
     }),
+    // Code coverage for the Cypress tests: `npm run test:coverage`.
+    // Only instruments when CYPRESS_COVERAGE=true, and then also in `vite build`
+    // since the tests run against the built site.
     istanbulPlugin({
-      include: 'src/*',
-      extension: [ '.js', '.svelte' ],
+      include: 'src/**',
+      extension: [ '.js', '.ts', '.svelte' ],
       requireEnv: true,
-      checkProd: false, // only check CYPRESS_COVERAGE
-      cypress: true,
-      // NOTE: last 2 options mean if you do not run with CYPRESS_COVERAGE=true 
-      // as an env var, no instrumentation will occur
+      cypress: true, // read CYPRESS_COVERAGE
+      checkProd: false,
+      forceBuildInstrument: process.env.CYPRESS_COVERAGE === 'true',
     }),
   ]
 };
