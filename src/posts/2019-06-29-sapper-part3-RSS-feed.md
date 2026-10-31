@@ -7,12 +7,12 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, GatsbyJS, React, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, rss, syndication, feed, endpoint, test after
 slug: 2019/06/29
-thumb: https://source.unsplash.com/o4-YyGi5JBc/600x400
+thumb: https://lacourt.dev/unsplash/glen-noble-o4-YyGi5JBc-unsplash.jpg
 ---
 
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 2](/2019/06/21), [part 2 bis](/2019/06/30), and more to come!
 
-![Alley of books by unsplash user @glennoble](https://source.unsplash.com/o4-YyGi5JBc/600x400)
+![Alley of books by unsplash user @glennoble](/unsplash/glen-noble-o4-YyGi5JBc-unsplash.jpg)
 
 ## Sapper migration: part 3
 
@@ -138,7 +138,7 @@ Such schizophrenia.
 
 Dear reader, welcome to **"Test After" mode**.
 
-![Mailbox with books by unsplash user @samuelzeller](https://source.unsplash.com/G_xJrvHN9nk/600x400)
+![Wooden mailbox full of letters and magazines by Nellie Adamyan on Unsplash](/unsplash/nellie-adamyan-LcUgHNo9_WE-unsplash.jpg)
 
 ### Using Cypress to test HTTP requests
 
@@ -196,7 +196,7 @@ That's what happens when you test after. And right now, I don't feel the need to
 
 This is the perfect example of why writing tests first is more motivating to write tests than writing them after the fact.
 
-![Woman with a tattoo holding up a stack of books. By unsplash user @thoughtcatalog](https://source.unsplash.com/o0Qqw21-0NI/600x400)
+![Woman with a tattoo holding up a stack of books. By unsplash user @thoughtcatalog](/unsplash/thought-catalog-o0Qqw21-0NI-unsplash.jpg)
 
 ## Conclusion
 
@@ -209,4 +209,4 @@ At least, for an almost unneeded feature, that was quick.
 > If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @glennoble, @samuelzeller, @thoughtcatalog.
+Photo credit from [Unsplash](https://unsplash.com) by @glennoble, Nellie Adamyan, @thoughtcatalog.

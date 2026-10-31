@@ -7,14 +7,14 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/10/27
-thumb: https://source.unsplash.com/DdVCpBoHlv0/640x480
+thumb: https://lacourt.dev/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg
 ---
 
 *(NOTE: this is a post I started on the end of June, I kind of lost track of the time during summer holidays and then other things happened. Luckily I found 2 hours to finish it today... enjoy!)*
 
 Once, I saw a nice little green dot on another fellow programmer's blog and sadly I was not able to find it back.
 
-![red and green-leafed plants by unsplash user @inika](https://source.unsplash.com/DdVCpBoHlv0/640x480)
+![red and green-leafed plants by unsplash user @inika](/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg)
 
 So today I'll try my best at explaining this feature and implementing it on this blog.
 
@@ -85,7 +85,7 @@ Thank you Cypress for being helpful with this error message, I just added the op
 
 ## Playground
 
-![blue and yellow playground by unsplash user @wildfirewilly](https://source.unsplash.com/nrcpPfXwYBo/640x480)
+![blue and yellow playground by unsplash user @wildfirewilly](/unsplash/ward-mercer-nrcpPfXwYBo-unsplash.jpg)
 
 @MPJ already explained this in his videos about TDD, he uses a playground file to try calling APIs. 
 
@@ -152,7 +152,7 @@ I wrote a lot of other tests to triangulate the implementation and to write the 
 
 ## Refactor
 
-![person holding tool during daytime by unsplash user @christopher__burns](https://source.unsplash.com/8KfCR12oeUM/640x480)
+![person holding tool during daytime by unsplash user @christopher__burns](/unsplash/christopher-burns-8KfCR12oeUM-unsplash.jpg)
 
 When it was done, I looked at my tests which were showing a lot of duplicated code and proceeded to refactor them.
 
@@ -186,7 +186,7 @@ Clearly, I used TDD to develop this feature, but I added a step that transforms 
 
 ## Not perfect
 
-![Brown and black wooden handle by unsplash user @viktortalashuk](https://source.unsplash.com/zeDFAi3MtuQ/640x480)
+![Brown and black wooden handle by unsplash user @viktortalashuk](/unsplash/viktor-talashuk-zeDFAi3MtuQ-unsplash.jpg)
 
 Right now, I'm still thinking about separating more my tests between the tests that rely on the real API, and the ones that just test the Status component behavior. Also writing the last sentence, I recognize that the Status component is tightly coupled with the fetch request and the Uptime API, maybe I should refactor this and extract it in another file.
 
