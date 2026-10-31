@@ -14,7 +14,7 @@ thumb: https://lacourt.dev/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg
 
 Once, I saw a nice little green dot on another fellow programmer's blog and sadly I was not able to find it back.
 
-![red and green-leafed plants by unsplash user @inika](/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg)
+![red and green-leafed plants by Ine Carriquiry on Unsplash](/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg)
 
 So today I'll try my best at explaining this feature and implementing it on this blog.
 
@@ -199,4 +199,4 @@ What do you think? What should I do? I tend to think that it is already good eno
 > If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by [@inika](https://unsplash.com/@inika), [@wildfirewilly](https://unsplash.com/@wildfirewilly), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).
+Photo credit from [Unsplash](https://unsplash.com) by [Ine Carriquiry](https://unsplash.com/photos/DdVCpBoHlv0), [@wildfirewilly](https://unsplash.com/@wildfirewilly), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).
