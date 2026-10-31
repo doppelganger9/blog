@@ -1,7 +1,15 @@
 {
   "extends": "$app/tsconfig",
-  "include": ["src", "test", "*"],
-  "exclude": ["src/service-worker"],
+  "include": [
+    "src",
+    "test",
+    "*"
+  ],
+  "exclude": [
+    "src/service-worker",
+    "playwright.config.ts",
+    "e2e"
+  ],
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "checkJs": false,
