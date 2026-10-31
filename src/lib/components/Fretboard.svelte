@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Interval, Note } from "tonal";
-  import { toBemol, toDiese } from "$lib/music";
+  import { toBemol, toDiese } from "#lib/music.ts";
 
   // Définition des types pour la clarté
   interface Props {

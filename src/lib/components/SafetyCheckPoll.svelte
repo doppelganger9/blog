@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte"
-  import { i18n, registerMoreLabels } from "$lib/stores/i18n";
+  import { i18n, registerMoreLabels } from "#lib/stores/i18n.js";
 
   let functionUrl = '/.netlify/functions/polls';
   let functionDescriptionUrl = '/.netlify/functions/poll-description';

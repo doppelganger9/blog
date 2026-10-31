@@ -9,11 +9,11 @@ import { Scale, Chord, Progression } from 'tonal';
 		PROGRESSIONS,
 		toSolfege,
     relativeScale,
-	} from '$lib/music';
-	import { audioEngine } from '$lib/AudioEngine';
-	import Piano from '$lib/components/Piano.svelte';
-  import Fretboard from "$lib/components/Fretboard.svelte"
-  import Portee from "$lib/components/Portee.svelte"
+	} from '#lib/music.ts';
+	import { audioEngine } from '#lib/AudioEngine.ts';
+	import Piano from '#lib/components/Piano.svelte';
+  import Fretboard from "#lib/components/Fretboard.svelte"
+  import Portee from "#lib/components/Portee.svelte"
 
 	// --- ÉTAT (Modifié pour une sélection plus fine) ---
 	let selectedPitch = $state('C');

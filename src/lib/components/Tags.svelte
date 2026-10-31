@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { twemoji } from "$lib/twemoji.svelte";
+  import { twemoji } from "#lib/twemoji.svelte.ts";
 
   export let data;
 </script>

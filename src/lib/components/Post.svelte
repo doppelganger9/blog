@@ -1,12 +1,12 @@
 <script>
-  import TitleBar from '$lib/components/TitleBar.svelte';
-  import Separator from '$lib/components/Separator.svelte';
-  import ArticleFooter from '$lib/components/ArticleFooter.svelte';
+  import TitleBar from '#lib/components/TitleBar.svelte';
+  import Separator from '#lib/components/Separator.svelte';
+  import ArticleFooter from '#lib/components/ArticleFooter.svelte';
   import AddGiscusScript from './AddGiscusScript.svelte';
   
-  import { siteUrl } from '$lib/stores/config.js';
-  import { i18n } from '$lib/stores/i18n.js';
-  import { twemoji } from '$lib/twemoji.svelte';
+  import { siteUrl } from '#lib/stores/config.js';
+  import { i18n } from '#lib/stores/i18n.js';
+  import { twemoji } from '#lib/twemoji.svelte.ts';
 
   export let post;
 </script>

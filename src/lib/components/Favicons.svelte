@@ -1,5 +1,5 @@
 <script>
-  import { favicon } from "$lib/stores/favicon";
+  import { favicon } from "#lib/stores/favicon.ts";
 
 /**
  * This component just insert all favicon links in the <head> part of a page.

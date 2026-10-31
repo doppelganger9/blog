@@ -1,12 +1,12 @@
 import { writable } from 'svelte/store';
-import { storable } from '$lib/stores/storable';
+import { storable } from '#lib/stores/storable.ts';
 /**
  * Dumb i18n
  *
  * How to use:
  *
  * In your component's <script> part:
- *     import { i18n } from '$lib/stores/i18n.js';
+ *     import { i18n } from '#lib/stores/i18n.js';
  *
  * i18n is an ES6 template literals function.
  *

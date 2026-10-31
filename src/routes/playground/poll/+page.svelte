@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Lang from "$lib/components/Lang.svelte"
-  import SafetyCheckPoll from "$lib/components/SafetyCheckPoll.svelte";
-  import { i18n, registerMoreLabels } from "$lib/stores/i18n";
+  import Lang from "#lib/components/Lang.svelte"
+  import SafetyCheckPoll from "#lib/components/SafetyCheckPoll.svelte";
+  import { i18n, registerMoreLabels } from "#lib/stores/i18n.js";
 
   registerMoreLabels({
     'fr': {

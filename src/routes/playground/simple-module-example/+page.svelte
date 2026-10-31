@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import TitleBar from '$lib/components/TitleBar.svelte';
+  import TitleBar from '#lib/components/TitleBar.svelte';
   
   export let data;
 

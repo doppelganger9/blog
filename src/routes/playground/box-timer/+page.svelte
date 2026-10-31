@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tick, onMount, onDestroy } from 'svelte';
-  import { Timer } from '$lib/chrono.ts';
+  import { Timer } from '#lib/chrono.ts';
 
   /**
    * TODO:

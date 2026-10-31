@@ -1,7 +1,7 @@
 <script>
-  import Lang from '$lib/components/Lang.svelte';
-  import { i18n } from '$lib/stores/i18n.js';
-  import { twemoji } from '$lib/twemoji.svelte';
+  import Lang from '#lib/components/Lang.svelte';
+  import { i18n } from '#lib/stores/i18n.js';
+  import { twemoji } from '#lib/twemoji.svelte.ts';
 </script>
 <style>
   img {

@@ -1,5 +1,5 @@
 <script>
-import { i18n } from "$lib/stores/i18n";
+import { i18n } from "#lib/stores/i18n.js";
 import { onMount } from "svelte";
 
 // ---- URI component de/encoding

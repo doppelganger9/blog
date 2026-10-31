@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as Tone from 'tone';
-  import { bufferToWav } from '$lib/wavEncoder';
+  import { bufferToWav } from '#lib/wavEncoder.ts';
 
 	// --- ÉTAT & PROPS ---
 	export interface TrackData {

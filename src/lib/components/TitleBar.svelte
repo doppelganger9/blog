@@ -1,10 +1,10 @@
 <script>
-  import { i18n } from '$lib/stores/i18n.js';
+  import { i18n } from '#lib/stores/i18n.js';
 
   // Add prism in the Title Bar
   import Prism from 'prismjs';
   import 'prism-svelte';
-  import { twemoji } from '$lib/twemoji.svelte';
+  import { twemoji } from '#lib/twemoji.svelte.ts';
 
   export let level = 'h1';
 </script>

@@ -1,7 +1,7 @@
 <script>
-  import ArticleFooter from "$lib/components/ArticleFooter.svelte";
-  import Separator from "$lib/components/Separator.svelte";
-  import TitleBar from "$lib/components/TitleBar.svelte";
+  import ArticleFooter from "#lib/components/ArticleFooter.svelte";
+  import Separator from "#lib/components/Separator.svelte";
+  import TitleBar from "#lib/components/TitleBar.svelte";
   import { onMount } from "svelte";
 
   let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";

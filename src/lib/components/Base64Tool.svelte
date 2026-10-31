@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { i18n } from '$lib/stores/i18n.js';
+  import { i18n } from '#lib/stores/i18n.js';
 
   // ---- Base64 de/encoding
   export let encode = `Text to transform to Base64; never trust online tools; don't put sensitive data here`;
