@@ -20,6 +20,12 @@ This article is part of a series of posts about migrating from GatsbyJS/React to
 
 > Hey there! This is a little interlude. I totally forgot in **part 2** to tell you about how I automated **Cypress.io** End-to-End tests within my Github Actions workflow, as part of my blog's *Continuous Integration* pipeline!
 
+<aside class="update-2026">
+
+**2026 update.** These Cypress tests are still running in CI seven years later (on SvelteKit now), and in 2026 they were measured against a Playwright port: twice as fast, half the packages. See [this article, in French](/2026/10/31).
+
+</aside>
+
 ## I Promised
 
 Y'all asked for this on twitter:
