@@ -129,7 +129,7 @@ I've just finished recreating the Firebase project.
 
 ## Next: Sapper
 
-![orange, yellow and blue waves by Philip Oroni on Unsplash](/unsplash/philip-oroni-1aF8IIHMHm8-unsplash.jpg)
+![orange, yellow and blue waves by unsplash user @philipsfuture](/unsplash/philip-oroni-1aF8IIHMHm8-unsplash.jpg)
 
 So given my extremely positive experience so far with Svelte, I decided to go on, exploring [Sapper](https://sapper.svelte.dev), its [JAMStack](https://jamstack.org/) framework.
 
@@ -152,4 +152,4 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 > I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @jibarox, Philip Oroni, @iantuck.
+Photo credit from [Unsplash](https://unsplash.com) by @jibarox, @philipsfuture, @iantuck.
