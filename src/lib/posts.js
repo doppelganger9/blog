@@ -1,5 +1,6 @@
 import { computeMinutesToRead } from "$lib/minutesToRead";
 import { error } from '@sveltejs/kit';
+import { dev } from '$app/environment';
 
 const POSTS = _loadPosts();
 
@@ -96,5 +97,19 @@ export function loadPostForSlug(slug) {
     error(404, 'Oh no! The requested page could not be found.');
   }
 
+  return post;
+}
+
+/**
+ * Same as loadPostForSlug, but drafts (`published: false`) are a 404 in the production build,
+ * even when another page links to them: the prerender crawler would otherwise publish them.
+ * They stay visible with `npm run dev` for proofreading.
+ * (`future/` and `alternate-reality/` teaser pages are intentionally unpublished and keep using loadPostForSlug.)
+ */
+export function loadPublishedPostForSlug(slug) {
+  const post = loadPostForSlug(slug);
+  if (!post.metadata.published && !dev) {
+    error(404, 'Oh no! The requested page could not be found.');
+  }
   return post;
 }

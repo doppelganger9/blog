@@ -28,7 +28,7 @@ CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm test` on 
 **Frontmatter matters for routing.** The `slug` frontmatter field overrides the filename-derived slug and determines the URL:
 - Dated posts use `slug: YYYY/MM/DD` → served by `src/routes/[year]/[month]/[day]`. The filename date is not used for routing.
 - `slug: future/<name>` and `slug: alternate-reality/<name>` are hidden posts (files named `FUTURE-*` / `ALTERNATE-*`) served by their own routes and excluded from listings.
-- Only `published: true` posts appear on the home page/RSS (`getPublishedPosts`).
+- Only `published: true` posts appear on the home page/RSS (`getPublishedPosts`). Unpublished dated or `[slug]` posts are also a 404 in the production build (`loadPublishedPostForSlug`), so a published post linking to a draft fails the prerender; drafts stay visible with `npm run dev`. `future/` and `alternate-reality/` teaser pages are intentionally unpublished and still built.
 - Other fields: `title`, `date`, `description`, `lang` (`en` default or `fr`; affects date formatting and reading time), `category` and `tags` (comma-separated strings), `keywords`, `thumb`.
 
 **mdsvex config** (`mdsvex.config.js`) adds remark/rehype plugins: a custom plugin that injects `wordCount` into frontmatter (used for minutes-to-read), oEmbed embeds, abbreviations, twemoji, PlantUML (rendered via plantuml.com), figures, heading slugs/anchors, and external links opened in a new tab with `rel=noopener`. Markdown posts can embed Svelte components.

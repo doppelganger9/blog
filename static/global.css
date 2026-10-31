@@ -123,3 +123,18 @@ a span.icon-link::before {
 h1:hover a span.icon-link::before, h2:hover a span.icon-link::before, h3:hover a span.icon-link::before, h4:hover a span.icon-link::before {
   opacity: .7;
 }
+
+/* "2026 update" notes added to old posts kept for history */
+aside.update-2026 {
+  margin: 0 0 1.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed hsl(270, 50%, 55%);
+  border-left: 0.32813rem solid hsl(270, 50%, 55%);
+  border-radius: 4px;
+  background: hsl(270, 60%, 97%);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+aside.update-2026 > :last-child {
+  margin-bottom: 0;
+}
