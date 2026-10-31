@@ -1,10 +1,35 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "automerge": true,
-  "major": {
-    "automerge": false
-  },
-  "schedule": ["every weekend"],
+  "timezone": "Europe/Paris",
+  "schedule": ["* 0-6 1 * *"],
   "minimumReleaseAge": "14 days",
-  "prConcurrentLimit": 2
+  "prConcurrentLimit": 2,
+  "automerge": true,
+  "automergeType": "branch",
+  "packageRules": [
+    {
+      "description": "One branch per month for every minor/patch update, root and lambda/ together",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "non-major dependencies",
+      "groupSlug": "all-non-major"
+    },
+    {
+      "description": "Majors can break the build: keep them as PRs to review",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["* 0-6 1 * *"],
+    "automerge": true,
+    "automergeType": "branch"
+  },
+  "vulnerabilityAlerts": {
+    "schedule": ["at any time"],
+    "minimumReleaseAge": null,
+    "automerge": true,
+    "automergeType": "branch"
+  }
 }
