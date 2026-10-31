@@ -294,4 +294,4 @@ Using it to test CSS selectors for your `cy.get('...')` instructions:
 > If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @winstonchen, @cbarbalis, @randytarampi.
+Photo credit from [Unsplash](https://unsplash.com) by [@winstonchen](https://unsplash.com/@winstonchen), [@cbarbalis](https://unsplash.com/@cbarbalis), [@randytarampi](https://unsplash.com/@randytarampi).
