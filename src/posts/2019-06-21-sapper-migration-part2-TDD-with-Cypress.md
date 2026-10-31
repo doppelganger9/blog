@@ -7,7 +7,7 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, Cypress.io, Cypress, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr
 slug: 2019/06/21
-thumb: https://source.unsplash.com/T8nwEwiM90k/600x400
+thumb: https://lacourt.dev/unsplash/randy-tarampi-T8nwEwiM90k-unsplash.jpg
 ---
 
 Today, we will look into how I migrated from the previous GatsbyJS/React blog stack to the new Sapper/Svelte one.
@@ -15,7 +15,7 @@ It will be the perfect time for me to talk about *Test Driven Development* (TDD)
 
 This article is part of a series of posts about migrating from GatsbyJS/React to Sapper/Svelte. You can check the other posts: [part 1](/2019/06/16), [part 3](/2019/06/29), [part 2 bis](/2019/06/30), and more to come!
 
-![colorful trees at night by unsplash user @winstonchen](https://source.unsplash.com/l7y4Z8s1sNk/600x400)
+![colorful trees at night by unsplash user @winstonchen](/unsplash/winston-chen-l7y4Z8s1sNk-unsplash.jpg)
 
 ## Test Driven Development
 
@@ -58,7 +58,7 @@ So the process was:
 
 So as you see, the last part is test-driven. The first part is the exact opposite. But the whole process enabled me to quickly reproduce the existing features I wrote as tests into the new website.
 
-![trees with fog from below by unsplash user @randytarampi](https://source.unsplash.com/T8nwEwiM90k/600x400)
+![trees with fog from below by unsplash user @randytarampi](/unsplash/randy-tarampi-T8nwEwiM90k-unsplash.jpg)
 
 ## Writing tests with Cypress
 
@@ -183,7 +183,7 @@ As you see the tests are like an executable specification of the expected featur
 
 And this specification can be checked by executing the tests.
 
-![landscape with cypress trees by unsplash user @cbarbalis](https://source.unsplash.com/dyVHwbWcu6g/600x400)
+![landscape with cypress trees by unsplash user @cbarbalis](/unsplash/chris-barbalis-dyVHwbWcu6g-unsplash.jpg)
 
 ## Sample test
 

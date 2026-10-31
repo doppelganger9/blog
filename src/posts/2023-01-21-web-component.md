@@ -8,10 +8,10 @@ category: Dev
 lang: en
 keywords: StencilJS, webcomponent, web-component, web component, custom element, sveltekit, svelte
 slug: 2023/01/21
-thumb: https://source.unsplash.com/KZNTEn2r6tw/640x480
+thumb: https://lacourt.dev/unsplash/photo-boards-KZNTEn2r6tw-unsplash.jpg
 ---
 
-![Photo Boards](https://source.unsplash.com/KZNTEn2r6tw/640x480)
+![Photo Boards](/unsplash/photo-boards-KZNTEn2r6tw-unsplash.jpg)
 
 ## A quick post showing how to integrate a StencilJS Web Component
 

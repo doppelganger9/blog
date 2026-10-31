@@ -8,10 +8,10 @@ tags: Svelte, cooking, contest, orange, car, fail, Sapper
 category: Dev
 keywords: Svelte, cooking, contest, orange, car, fail, Sapper, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, side project
 slug: 2019/05/20
-thumb: https://source.unsplash.com/TYlR9NGFrPs/600x400
+thumb: https://lacourt.dev/unsplash/luis-quintero-TYlR9NGFrPs-unsplash.jpg
 ---
 
-![violet and blue abstract painting by unsplash user @jibarox](https://source.unsplash.com/TYlR9NGFrPs/600x400)
+![violet and blue abstract painting by unsplash user @jibarox](/unsplash/luis-quintero-TYlR9NGFrPs-unsplash.jpg)
 
 *After a few weeks of silence, I'm back with new content!
 I'll show you my new side-project about a silly cooking contest, built with [Svelte](https://svelte.dev).
@@ -113,7 +113,7 @@ In the end, It was not used because the rating rules changed at the last minute 
 
 ## GitHub and leaked Firebase API Keys
 
-![lost key from unsplash user @iantuck](https://source.unsplash.com/OQxJd-eGuhg/600x400)
+![lost key from unsplash user @iantuck](/unsplash/ian-tuck-OQxJd-eGuhg-unsplash.jpg)
 
 When I pushed the content on GitHub I paid extra attention not to push API Keys there.
 
@@ -129,7 +129,7 @@ I've just finished recreating the Firebase project.
 
 ## Next: Sapper
 
-![orange, yellow and blue papers by unsplash user @brizmaker](https://source.unsplash.com/_ZfLlKxilpw/600x400)
+![orange, yellow and blue waves by Philip Oroni on Unsplash](/unsplash/philip-oroni-1aF8IIHMHm8-unsplash.jpg)
 
 So given my extremely positive experience so far with Svelte, I decided to go on, exploring [Sapper](https://sapper.svelte.dev), its [JAMStack](https://jamstack.org/) framework.
 
@@ -152,4 +152,4 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 > I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
 
 
-Photo credit from [Unsplash](https://unsplash.com) by @jibarox, @brizmaker, @iantuck.
+Photo credit from [Unsplash](https://unsplash.com) by @jibarox, Philip Oroni, @iantuck.

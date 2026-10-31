@@ -15,7 +15,7 @@ _It's been quite a few months since [the last post](/2019/10/28) ; right now I w
 
 > **_2022 EDIT:_** 🚨 code coverage is currently broken, so this content might be deprecated
 
-![Colourpop Room - @rotor_](https://source.unsplash.com/OMzZ_dt5ovg/640x554)
+![Colourpop Room - @rotor_](/unsplash/nicolas-comte-OMzZ_dt5ovg-unsplash.jpg)
 
 Today, we'll see how Code Coverage report was added to this blog, which is [based on Sapper / Svelte](/2019/06/18).
 
@@ -55,7 +55,7 @@ This will happen if you practice TDD at a higher level of abstraction (like this
 
 ## How to measure code coverage?
 
-![Rocky and foggy mountainside - Mürren, Switzerland @cherath14](https://source.unsplash.com/uTEl14s8t9Q/640x410) 
+![Rocky and foggy mountainside - Mürren, Switzerland @cherath14](/unsplash/chris-herath-uTEl14s8t9Q-unsplash.jpg) 
 
 This blog has a lot of functional tests and a few other kinds of tests. 
 Everything is run via Cypress test runner. At the end of each test, the code covered is reported and merged with the existing code coverage report, which means that if we had another test runner for other kinds of tests, we could have merged both reports together.
@@ -99,7 +99,7 @@ To achieve this, I needed to align the blog to this Sapper + Rollup template:
 
 You can check the related commit on this blog repository or the linked sample Svelte or Sapper template repositories. If you are using Webpack, I did not yet manage to make this work, that's why I switched back to Rollup 🤣.
 
-![Kapuzinerberg, Salzburg, Austria - @esseish](https://source.unsplash.com/cdiIVIJkYc4/640x426)
+![Kapuzinerberg, Salzburg, Austria - @esseish](/unsplash/esse-chua-cdiIVIJkYc4-unsplash.jpg)
 
 ## Coveralls GitHub Action
 
