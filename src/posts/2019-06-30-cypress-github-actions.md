@@ -22,7 +22,7 @@ This article is part of a series of posts about migrating from GatsbyJS/React to
 
 <aside class="update-2026">
 
-**2026 update.** These Cypress tests are still running in CI seven years later (on SvelteKit now), and in 2026 they were measured against a Playwright port: twice as fast, half the packages. See [this article, in French](/2026/10/31).
+**2026 update.** These Cypress tests kept running in CI for seven years (on SvelteKit at the end), until a measured port to Playwright replaced them in 2026: twice as fast, half the packages. See [this article, in French](/2026/10/31).
 
 </aside>
 

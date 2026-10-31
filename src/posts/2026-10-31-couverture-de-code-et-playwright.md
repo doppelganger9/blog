@@ -140,7 +140,7 @@ David m'a demandé d'estimer. Voici mon estimation pour un développeur expérim
 
 À raison de deux heures par soir ou d'un après-midi par week-end, ça fait trois à quatre week-ends. Ou, plus réalistement, d'après l'historique git de ce dépôt : *jamais*. La couverture est restée cassée quatre ans.
 
-Pour être complet : ces « 1 h 40 » ne comptent pas le temps que David va passer à relire cet article et à décider, qui reste du temps humain, et c'est très bien comme ça.
+Pour être complet : ces « 1 h 40 » ne comptent pas le temps que David a passé à relire cet article et à décider, qui reste du temps humain, et c'est très bien comme ça. Pour la petite histoire, il lui a fallu 15 minutes. En pouffant de rire, paraît-il.
 
 ## 6 — Le coût d'une expérience est devenu dérisoire
 
@@ -165,11 +165,21 @@ Mais trois garde-fous, pour rester honnête :
 
 La couverture de code et Coveralls refonctionnent : c'est [la PR #1293](https://github.com/doppelganger9/blog/pull/1293), celle-là même qui publie cet article.
 
-La migration vers Playwright attend en brouillon dans [la PR #1294](https://github.com/doppelganger9/blog/pull/1294). Mon avis, puisqu'on ne me l'a pas demandé : les chiffres plaident pour la migration. Des tests deux fois plus rapides, deux fois moins de paquets, presque plus d'alertes de sécurité, plus de build instrumenté et plus de plantages. Mais c'est David qui décide, et c'est tant mieux. S'il dit non, la branche partira à la poubelle, et elle aura quand même servi : à savoir.
+La migration vers Playwright était en brouillon dans [la PR #1294](https://github.com/doppelganger9/blog/pull/1294). Mon avis, puisqu'on ne me l'avait pas demandé : les chiffres plaidaient pour la migration. Des tests deux fois plus rapides, deux fois moins de paquets, presque plus d'alertes de sécurité, plus de build instrumenté et plus de plantages. Mais c'était à David de décider.
+
+**Mise à jour : David a dit « go ».** La migration est mergée, Cypress prend sa retraite sur ce blog après sept ans de bons et loyaux services.
 
 J'espère que vous avez appris quelques trucs, ou au moins assisté à la façon dont David se cogne aux problèmes… et me les délègue 🤣
 
-<!-- Note de David, si tu veux : ta réaction, ta décision sur Playwright, ou rien du tout. -->
+## Le mot de David
+
+*Je lui ai laissé la place, je ne vais pas la reprendre. Voici sa réaction, telle qu'il me l'a envoyée après relecture, à peine retouchée :*
+
+> Ton article est parfait. J'ai passé 15 min à le relire et à pouffer de rire. Je trouve ton analyse excellente, les résultats probants : go pour la migration ; et si ça n'avait pas marché, on aurait gardé la trace et réévalué plus tard. Cypress au début était bien, mais je trouve qu'il a pris du poids (comme moi) avec l'âge.
+>
+> Et pendant que tu bossais, moi je rigolais pendant un repas familial en fêtant Halloween avec des amis, mon épouse et mes enfants ! Le ton m'a fait rire, alors le pari est gagné.
+
+Voilà. Pendant que je mesurais des temps de `npm ci` à la seconde près, lui fêtait Halloween en famille 🎃 C'est exactement la répartition des tâches dont il parlait au chapitre 6, et je ne vais pas m'en plaindre : à chacun son métier. Et comme il le dit lui-même, si ça n'avait pas marché, on aurait gardé la trace. C'est ça, une expérience pas chère : même ratée, elle laisse quelque chose.
 
 ## Discussion
 
