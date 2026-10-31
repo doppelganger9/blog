@@ -3,7 +3,6 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
-import istanbulPlugin from 'vite-plugin-istanbul';
 import mdsvexConfig from './mdsvex.config.js';
 
 // Compile a Svelte component as a Custom Element when it has `<svelte:options tag=...>`
@@ -27,7 +26,7 @@ const config = {
     port: 3000
   },
   preview: {
-    // npm test / cypress tests use this one
+    // `vite preview` (the e2e tests serve build/ with http-server instead)
     port: 3000
   },
   plugins: [
@@ -45,17 +44,6 @@ const config = {
           return { customElement: true }
         }
       },
-    }),
-    // Code coverage for the Cypress tests: `npm run test:coverage`.
-    // Only instruments when CYPRESS_COVERAGE=true, and then also in `vite build`
-    // since the tests run against the built site.
-    istanbulPlugin({
-      include: 'src/**',
-      extension: [ '.js', '.ts', '.svelte' ],
-      requireEnv: true,
-      cypress: true, // read CYPRESS_COVERAGE
-      checkProd: false,
-      forceBuildInstrument: process.env.CYPRESS_COVERAGE === 'true',
     }),
   ]
 };

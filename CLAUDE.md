@@ -13,14 +13,14 @@ npm install          # postinstall runs svelte-kit sync, applies patches/ via pa
 npm run dev          # Vite dev server on http://localhost:3000
 npm run build        # static build into build/ (adapter-static)
 npm run check        # svelte-check type checking
-npm test             # serves build/ on :8080 (http-server) and runs all Cypress e2e tests — run `npm run build` first
-npm run test:coverage # instrumented build (CYPRESS_COVERAGE=true) + Cypress, writes the nyc report to coverage/ (open coverage/lcov-report/index.html)
-npm run cy:open      # interactive Cypress
-npx cypress run --spec cypress/e2e/home.cy.ts   # single spec (needs `npm run serve` running on :8080)
+npm test             # Playwright e2e tests against build/ (served on :8080 by the webServer of playwright.config.ts) — run `npm run build` first
+npm run test:coverage # same, with V8 code coverage mapped to src/ via the sourcemaps: coverage/lcov.info + coverage/index.html
+npm run test:ui      # Playwright UI mode
+npx playwright test e2e/home.spec.ts   # single spec
 npm run start:lambda # serve Netlify functions locally (netlify-cli, port 9999)
 ```
 
-CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm run test:coverage` on every push and uploads `coverage/lcov.info` to Coveralls. There are no unit tests or linter; Cypress e2e against the built site is the test suite. Coverage instrumentation (vite-plugin-istanbul) only activates when `CYPRESS_COVERAGE=true` is set, and then also instruments `vite build`; `@cypress/code-coverage` (task in `cypress.config.ts`, support in `cypress/support/e2e.ts`) collects it, and `npm test` skips it with `--env coverage=false`.
+CI (`.github/workflows`, Node 24) runs `npm ci`, installs Playwright's Chromium, `npm run build` and `npm run test:coverage` on every push, uploads `coverage/lcov.info` to Coveralls and the Playwright report as an artifact on failure. There are no unit tests or linter; Playwright e2e against the built site is the test suite. Coverage is Chromium's V8 coverage of the production build (no instrumentation), collected per test by the auto fixture in `e2e/fixtures.ts` and merged by monocart-coverage-reports (`e2e/coverage-*.ts`).
 
 ## Architecture
 
@@ -45,6 +45,6 @@ CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm run test:
 - `src/lib` is imported as `#lib/...` (subpath imports declared in `package.json`), with the file extension (`#lib/posts.js`, `#lib/music.ts`).
 - `patches/` — patch-package fixes for twemoji, twemoji-parser and hast-util-to-string; keep them in sync if those dependency versions change.
 
-**Cypress specifics.** Tests import `cy`/`Cypress` from `local-cypress` rather than globals. `cypress/common.ts` holds shared assertions and switches expected framework names on the `BLOG_JAMSTACK` env (set to `svelte-kit` in `cypress.config.ts`).
+**Playwright specifics.** Specs import `test`/`expect` from `e2e/fixtures.ts` (not `@playwright/test`), which also holds the shared assertions, `visit()` (navigates without waiting for the `load` event: each test has a fresh, empty HTTP cache) and `mockNetwork()` (JSON requests answer 404, Giscus is blocked, the Uptime Robot status API is mocked). `BLOCK_HOSTS='host1,*suffix'` aborts requests to those hosts, like Cypress' `blockHosts`.
 
 Dependencies are pinned to exact versions and updated by Renovate.
