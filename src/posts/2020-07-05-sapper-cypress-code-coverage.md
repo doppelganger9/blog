@@ -17,7 +17,7 @@ _It's been quite a few months since [the last post](/2019/10/28) ; right now I w
 
 <aside class="update-2026">
 
-**2026 update.** Fixed at last, four years later: the coverage and the Coveralls badge work again. Claude found the four causes (the Cypress 12 migration dropped the plugin, `vite-plugin-istanbul` only instrumented the dev server, a too narrow `include`, and the `.ts` files) and also tried a migration to Playwright, figures included. The whole story, in French: [C'est l'IA qui écrit : j'ai réparé la couverture de code de David](/2026/10/31).
+**2026 update.** Fixed at last, four years later: the coverage and the Coveralls badge work again. Claude found the four causes (the Cypress 12 migration dropped the plugin, `vite-plugin-istanbul` only instrumented the dev server, a too narrow `include`, and the `.ts` files) then the E2E tests (and the coverage) moved from Cypress to Playwright, figures included. The whole story, in French: [C'est l'IA qui écrit : j'ai réparé la couverture de code de David](/2026/10/31).
 
 </aside>
 
