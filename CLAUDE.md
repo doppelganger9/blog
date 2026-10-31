@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-David Lacourt's personal blog (https://lacourt.dev), a fully prerendered SvelteKit 2 / Svelte 5 static site. Posts are Markdown compiled by mdsvex. Deployed to Netlify, which also hosts the serverless functions in `lambda/`.
+David Lacourt's personal blog (https://lacourt.dev), a fully prerendered SvelteKit 3 / Svelte 5 static site. Posts are Markdown compiled by mdsvex. Deployed to Netlify, which also hosts the serverless functions in `lambda/`.
 
 ## Commands
 
@@ -14,12 +14,13 @@ npm run dev          # Vite dev server on http://localhost:3000
 npm run build        # static build into build/ (adapter-static)
 npm run check        # svelte-check type checking
 npm test             # serves build/ on :8080 (http-server) and runs all Cypress e2e tests — run `npm run build` first
+npm run test:coverage # instrumented build (CYPRESS_COVERAGE=true) + Cypress, writes the nyc report to coverage/ (open coverage/lcov-report/index.html)
 npm run cy:open      # interactive Cypress
 npx cypress run --spec cypress/e2e/home.cy.ts   # single spec (needs `npm run serve` running on :8080)
 npm run start:lambda # serve Netlify functions locally (netlify-cli, port 9999)
 ```
 
-CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm test` on every push. There are no unit tests or linter; Cypress e2e against the built site is the test suite. Coverage instrumentation (vite-plugin-istanbul) only activates when `CYPRESS_COVERAGE=true` is set.
+CI (`.github/workflows`, Node 24) runs `npm ci && npm run build && npm run test:coverage` on every push and uploads `coverage/lcov.info` to Coveralls. There are no unit tests or linter; Cypress e2e against the built site is the test suite. Coverage instrumentation (vite-plugin-istanbul) only activates when `CYPRESS_COVERAGE=true` is set, and then also instruments `vite build`; `@cypress/code-coverage` (task in `cypress.config.ts`, support in `cypress/support/e2e.ts`) collects it, and `npm test` skips it with `--env coverage=false`.
 
 ## Architecture
 
