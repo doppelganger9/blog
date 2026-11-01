@@ -27,17 +27,18 @@
 <TitleBar level='h3' />
 
 <h1>Privacy Policy</h1>
-<p class='date'>March 06, 2019</p>
+<p class='date'>November 01, 2026</p>
 <p class='reading-time'>1 min read</p>
 
 <figure>
   <img alt='Cookie Monster' src='cookiemonster.gif'>
 </figure>
 
-<p>This blog does not share personal information with third parties nor do we store any information about your visit to this blog other than to analyze and optimize your content and reading experience through the use of cookies.</p>
-<p>You can turn off the use of cookies at any time by changing your specific browser settings.</p>
+<p>Sorry, Cookie Monster: this blog sets no cookies.</p>
+<p>To know which articles are read and where readers come from, page views are counted with <a href="https://www.goatcounter.com">GoatCounter</a>, an open source analytics service that does not use cookies and does not collect personal data. It records the page, its title, the referring page or campaign, the screen size, and a coarse location and browser derived from the request. Your IP address is not stored and you are not tracked across visits or websites. The statistics are only used to improve this blog and are never sold or shared.</p>
+<p>Some pages embed third-party content (comments with Giscus, YouTube or Twitter embeds, fonts and libraries from CDNs): those services apply their own privacy policies when your browser loads them.</p>
 <p>We are not responsible for republished content from this blog on other blogs or websites without our permission.</p>
-<p>This privacy policy is subject to change without notice and was last updated on March, 6th, 2019. If you have any questions feel free to contact me directly here: <a href="mailto:david@lacourt.dev">david@lacourt.dev</a></p>
+<p>This privacy policy is subject to change without notice and was last updated on November, 1st, 2026. If you have any questions feel free to contact me directly here: <a href="mailto:david@lacourt.dev">david@lacourt.dev</a></p>
 
 <Separator />
 <ArticleFooter />
