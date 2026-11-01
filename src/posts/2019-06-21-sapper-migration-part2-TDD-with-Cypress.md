@@ -80,6 +80,12 @@ Writing tests is also really simple compared to other E2E tools.
 
 Why? The moment you see a tool abstracting a tool abstracting a tool abstracting user interaction, you know you will have a hard time identifying issues when something breaks in one of those layers...even more, when they are asynchronous.
 
+<aside class="update-2026">
+
+**2026 update.** A correction: Protractor was built on top of WebDriverJS, the Selenium JavaScript bindings, not on Appium, and it reached its end of life in 2023 ([npm](https://www.npmjs.com/package/protractor)). WebDriver itself became a [W3C Recommendation](https://www.w3.org/TR/webdriver1/) in June 2018, and Selenium now lives at [selenium.dev](https://www.selenium.dev/). As for these Cypress tests, they served for seven years before Playwright replaced them in 2026 ([in French](/2026/10/31)).
+
+</aside>
+
 ## What Cypress fixes
 
 Now Cypress tests are:
@@ -92,7 +98,7 @@ Now Cypress tests are:
 
 So I wrote Cypress E2E tests as a non-regression layer, expressing "business" rules about blog features that would be green on the older blog, and red on the new one.
 
-You can check them [on the GitHub repository in `/cypress/integration`](https://github.com/doppelganger9/blog/tree/master/cypress/integration).
+You can check them [on the GitHub repository in `/cypress/integration`](https://github.com/doppelganger9/blog/tree/3432e25267b68af502a4d181a236c5e2e0834280/cypress/integration).
 
 Here is a sample log of the output (edited to shorten it):
 

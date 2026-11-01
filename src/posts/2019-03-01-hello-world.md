@@ -33,7 +33,7 @@ Since then, it has been migrated to [Sapper](https://sapper.svelte.dev), powered
 
 ## Building
 
-I will post here at first to explain & illustrate technicall stuff while building this blog, instead of using vague example use-cases.
+I will post here at first to explain & illustrate technical stuff while building this blog, instead of using vague example use-cases.
 
 I like being pragmatic & practical and I want to show this!
 
@@ -47,7 +47,7 @@ I intended to post at least once in a while. Oh, wow, now _that_ is ambition! ðŸ
 
 At first I wanted to [add the possibility to comment on posts](/2021/11/28), but if you really want to contribute or interact with me or this blog, choose whatever suits you:
 
-- mail me at [david@lacourt.dev](mailto://david@lacourt.dev)
+- mail me at [david@lacourt.dev](mailto:david@lacourt.dev)
 - on [this blog's repository on GitHub](https://github.com/doppelganger9/blog), open an Issue or comment a Pull-Request...
 - I don't use Twitter/X anymore...
 - you can try to reach me on [BlueSky](https://bsky.app/profile/doppelganger9.bsky.social)

@@ -7,6 +7,7 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, Cypress.io, Cypress, Cyrpress,Cyrpess, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, Github, actions, workflow, pipeline, ci, cd, ci/cd, continuous testing, worflow, wokflow, worklflow, wokrflow
 slug: 2019/06/30
+obsolete: "The HCL workflow syntax and the Cypress action shown here stopped working in September 2019, and Playwright replaced the Cypress tests in 2026."
 thumb: https://lacourt.dev/WorkflowVisualOverviewWithCypressE2E.png
 ---
 
@@ -106,6 +107,12 @@ Compared to [GitHub Pages](https://pages.github.com/), I prefer [Netlify](https:
 - it takes care of **automatically publishing the master branch on each push** by connecting directly to GitHub, that's why I removed this step from my GitHub Actions Workflow above!
 - The **"Deploy Previews"** feature enables publishing a temporary website linked to a Pull Request, which is great to check what a Pull-Request will make the blog look like!
 - it has also other features that I did not enable in fear of "bill overflow" (like stack overflow but from billing...).
+
+<aside class="update-2026">
+
+**2026 update.** To be fair to GitHub Pages: it has supported custom domains since 2009, and [HTTPS on custom domains since May 2018](https://github.blog/2018-05-01-github-pages-custom-domains-https), with Let's Encrypt too. The deploy previews were the real difference, and still are.
+
+</aside>
 
 ## The Cypress.io E2E Test Action
 

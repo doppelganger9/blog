@@ -135,6 +135,13 @@ So given my extremely positive experience so far with Svelte, I decided to go on
 
 And, by the way, you are looking at the end result: *this blog is now powered by Sapper + Svelte*, instead of Gatsby + React.
 
+<aside class="update-2026">
+
+**2026 update.** Sapper was superseded by SvelteKit, which runs this blog today, with Svelte 5.
+
+</aside>
+
+
 *Gatsby is so 2018!* 🤣
 
 Kidding aside, both are awesome, but Sapper feels more like native HTML + CSS + JS.

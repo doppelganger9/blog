@@ -130,7 +130,7 @@ Now, after the app is built and tested, the coverage report is generated, and th
 
 You can see it here: https://coveralls.io/github/doppelganger9/blog
 
-Also, I added a badge to the README file: ![Coverage Status](https://coveralls.io/repos/github/doppelganger9/blog/badge.svg?branch=feature/rollup-cypress-code-coverage)
+Also, I added a badge to the README file: ![Coverage Status](https://coveralls.io/repos/github/doppelganger9/blog/badge.svg?branch=master)
 
 ## Conclusion
 

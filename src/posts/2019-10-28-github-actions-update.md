@@ -8,6 +8,7 @@ lang: en
 category: Dev
 keywords: pipeline, build, automation, continuous integration, continuous deployment, github actions, github, netlify, git, ci/cd, github actions workflow, git push, git amend, github pages, hcl, yaml
 slug: 2019/10/28
+obsolete: "The YAML syntax is still current, but these Node and action versions are long gone: see the 2026 note at the end for today's workflow."
 thumb: https://lacourt.dev/ghactions-update-cyrunning.jpg
 ---
 
@@ -123,6 +124,12 @@ Now, it is running...
 And, luckily, everything went green! No more need for a dedicated Cypress action, it works out of the box!
 
 ![Cypress tests green](/ghactions-update-cyrunok.jpg)
+
+<aside class="update-2026">
+
+**2026 update.** Today's workflow (`.github/workflows/nodejs.yml`) runs on Node 24 with `actions/checkout@v7`: it builds the site, runs the Playwright tests with code coverage and sends the report to Coveralls. The push notification step is gone.
+
+</aside>
 
 ## Conclusion
 

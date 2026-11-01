@@ -16,7 +16,11 @@ slug: 2019/03/26
 
 <AddTwitterWidgetScript />
 
-https://gfycat.com/samewholeamericanbadger
+<aside class="update-2026">
+
+**2026 update.** The GIF that opened this post was hosted on Gfycat, which [shut down on September 1, 2023](https://en.wikipedia.org/wiki/Gfycat): it is lost.
+
+</aside>
 
 
 In this post, I will recount how I made a silly side-project playing with the [Philips HUE APIs](https://developers.meethue.com/develop/), NodeJS, Google Home, RaspberryPi Zero W, and my kids.

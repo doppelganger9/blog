@@ -8,6 +8,7 @@ category: Dev
 keywords: Sapper, Svelte, SvelteKit, deprecated
 tags: deprecated
 slug: 2019/06/18
+obsolete: "Sapper was superseded by SvelteKit, which runs this blog today: the 2026 notes below tell what became of each point."
 ---
 
 <aside class="update-2026">
@@ -85,7 +86,7 @@ used a branch and adapted from there.
 
 <aside class="update-2026">
 
-**Today in SvelteKit (2026):** posts are Markdown files compiled by [mdsvex](https://mdsvex.pngwk.com/), so they can also embed Svelte components.
+**Today in SvelteKit (2026):** posts are Markdown files compiled by [mdsvex](https://mdsvex.pngwn.io/), so they can also embed Svelte components.
 
 </aside>
 

@@ -8,6 +8,7 @@ category: Dev
 lang: en
 keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-source-twitter
 slug: 2019/03/10
+obsolete: "This blog no longer runs on Gatsby, and Twitter has since become X, whose API has been mostly paid since 2023."
 ---
 <script>
   import AddTwitterWidgetScript from '#lib/components/AddTwitterWidgetScript.svelte';
