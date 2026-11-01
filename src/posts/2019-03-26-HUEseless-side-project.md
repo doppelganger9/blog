@@ -16,7 +16,11 @@ slug: 2019/03/26
 
 <AddTwitterWidgetScript />
 
-https://gfycat.com/samewholeamericanbadger
+<aside class="update-2026">
+
+**2026 update.** The GIF that opened this post was hosted on Gfycat, which [shut down on September 1, 2023](https://en.wikipedia.org/wiki/Gfycat): it is lost.
+
+</aside>
 
 
 In this post, I will recount how I made a silly side-project playing with the [Philips HUE APIs](https://developers.meethue.com/develop/), NodeJS, Google Home, RaspberryPi Zero W, and my kids.
@@ -127,6 +131,6 @@ Anyway, I learned some things on the way.
 
 I hope you too learned a few things or at least piqued your curiosity.
 
-> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use [Twitter: my DMs are open](https://twitter.com/doppelganger9).
+> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use ~~[Twitter: my DMs are open](https://twitter.com/doppelganger9)~~.
 
 👋

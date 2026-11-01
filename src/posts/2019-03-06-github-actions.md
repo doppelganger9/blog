@@ -8,6 +8,7 @@ category: Dev
 lang: en
 keywords: pipeline, build, automation, continuous integration, continuous deployment, github actions, github, netlify, git, ci/cd, github actions workflow, git push, git amend, github pages
 slug: 2019/03/06
+obsolete: "The HCL workflow syntax and the beta described here were replaced by YAML workflows in September 2019 (see the update linked below)."
 ---
 
 *NOTE: the HCL format for Github Actions is deprecated, please read the [update to this post](/2019/10/28)!*

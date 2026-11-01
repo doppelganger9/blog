@@ -35,7 +35,7 @@ It was an *Atari ST (or Amiga)* Computer Role-Playing Game from a German studio 
 
 #### Those innovative graphics!
 
-It had a mix of 2D and 2.5D which was real innovation at that time, at least for me. The [Thalion Web Shrine](http://thalion.exotica.org.uk/games/amberstar/amberstar.html) has some screenshots:
+It had a mix of 2D and 2.5D which was real innovation at that time, at least for me. The Thalion Web Shrine (no longer online) had some screenshots:
 
 ![2D screenshot](/graveyard.gif)
 
@@ -110,6 +110,13 @@ I think this is a case of a [memory bias](https://en.wikipedia.org/wiki/List_of_
 
 > people remember uncompleted or interrupted tasks better than completed tasks
 
+<aside class="update-2026">
+
+**2026 update.** The memory part is shakier than I thought: a 2025 meta-analysis found that people reliably tend to *resume* interrupted tasks (the Ovsiankina effect), but that the memory advantage for unfinished tasks is not universal and hard to replicate ([Ghibellini & Meier, 2025](https://www.nature.com/articles/s41599-025-05000-w)). My urge to replay Amberstar fits the resuming part rather well.
+
+</aside>
+
+
 It feels like a curse, I imagine I will have to play it again in 20 years from now.
 
 ### ...Take 4 in 2038?
@@ -122,6 +129,6 @@ In this post, I wanted to tell you about some cognitive bias that periodically a
 
 I hope you learned a few things on the way or at least piqued your curiosity.
 
-> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use [Twitter: my DMs are open](https://twitter.com/doppelganger9).
+> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use ~~[Twitter: my DMs are open](https://twitter.com/doppelganger9)~~.
 
 👋

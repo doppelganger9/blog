@@ -7,6 +7,7 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/06/16
+obsolete: "Sapper was superseded by SvelteKit: the same tags now live in the Post.svelte component, and the sitemap in src/routes/sitemap.xml."
 thumb: https://lacourt.dev/thumb-seo-svelte.png
 ---
 
@@ -90,13 +91,13 @@ In GatsbyJS, inserting data in the `<head>` is done with [Helmet](https://github
 
 Luckily with Svelte we have the `<svelte:head>` tag that does a similar job.
 
-Give a look at the [tutorial on the Svelte site](https://svelte.dev/tutorial/svelte-head).
+Give a look at the [tutorial on the Svelte site](https://svelte.dev/tutorial/svelte/svelte-head).
 
 ### Sample
 
-In the [`src/template.html`](https://github.com/doppelganger9/blog/blob/master/src/template.html#L27) there is a `%sapper.head%` placeholder that will insert all the `<svelte.head>` components.
+In the [`src/template.html`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/template.html#L26) there is a `%sapper.head%` placeholder that will insert all the `<svelte.head>` components.
 
-Then in the article template file [`src/routes/[slug].svelte`](https://github.com/doppelganger9/blog/blob/master/src/routes/%5Bslug%5D.svelte#L85-L107), there is a `<svelte:head>` section.
+Then in the article template file [`src/routes/[slug].svelte`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/routes/%5Bslug%5D.svelte), there is a `<svelte:head>` section.
 
 ```html
 <svelte:head>
@@ -148,7 +149,7 @@ Sitemap: https://lacourt.dev/sitemap.xml
 
 ## sitemap.xml
 
-Look at [`src/sitemap.xml.js`](https://github.com/doppelganger9/blog/blob/master/src/routes/sitemap.xml.js), and the line in the [`template.html`](https://github.com/doppelganger9/blog/blob/master/src/template.html#L9).
+Look at [`src/sitemap.xml.js`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/routes/sitemap.xml.js), and the line in the [`template.html`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/template.html#L8).
 
 ```html
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">

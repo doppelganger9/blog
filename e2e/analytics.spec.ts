@@ -39,4 +39,13 @@ test.describe('Analytics (GoatCounter)', () => {
         },
       ]);
   });
+
+  test('counts the clicks on the contact block links as events', async ({ page }) => {
+    await visit(page, '/2023/01/21');
+    await page.waitForFunction(() => (window as any).goatcounter?.count);
+    await page.locator('[data-cy=blog-post-contact] a[href="#comments"]').click();
+    await expect
+      .poll(() => page.evaluate(() => (window as any).__counted))
+      .toEqual([{ path: 'contact-comments', title: '/2023/01/21', event: true }]);
+  });
 });

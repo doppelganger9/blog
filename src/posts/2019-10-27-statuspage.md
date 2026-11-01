@@ -145,6 +145,12 @@ In the following Cypress test I configured an API Stub that would return status 
  });
 ```
 
+<aside class="update-2026">
+
+**2026 correction.** Status code `2` does not mean "waiting": in the [Uptime Robot API](https://uptimerobot.com/api/) it means *up* (`0` paused, `1` not checked yet, `2` up, `8` seems down, `9` down). "Waiting" is the component's own state until the API answers, which is what this test checks. Also, `cy.server()` and `cy.route()` were deprecated in Cypress 6 in favour of `cy.intercept()` ([release notes](https://www.cypress.io/releases/6-0-0)), and these tests are Playwright ones today (`e2e/status.spec.ts`).
+
+</aside>
+
 Then I wrote the code to make it pass.
 I wrote a lot of other tests to triangulate the implementation and to write the specification of every expected status returned by the API.
 
@@ -171,9 +177,9 @@ This is a good time to tell you why I also love TDD: it helps you take a step ba
 
 You end up with some code that does something business-wise and some code that ensures that what is done is what you expect. And writing the last one first, and making it fail first, ensures that this code is really testing what it is supposed to test.
 
-The end result is `src/components/Status.svelte`, open sourced on [this blog's GitHub repository](https://github.com/doppelganger9/blog/tree/master/src/components/Status.svelte).
+The end result is `src/components/Status.svelte`, open sourced on [this blog's GitHub repository](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/components/Status.svelte).
 
-The integration test is also there: [`cypress/integration/status.js`](https://github.com/doppelganger9/blog/tree/master/cypress/integration/status.js)
+The integration test is also there: [`cypress/integration/status.js`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/cypress/integration/status.js)
 
 ## "Blog-Post Driven Development"
 
@@ -196,7 +202,7 @@ What do you think? What should I do? I tend to think that it is already good eno
 
 > In this post I've shown you the process of writing a new feature using Test Driven Development using End to End tests with Cypress.io
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [Ine Carriquiry](https://unsplash.com/photos/DdVCpBoHlv0), [Ward Mercer](https://unsplash.com/photos/nrcpPfXwYBo), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).

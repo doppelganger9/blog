@@ -48,6 +48,12 @@ I used `importShim` instead of `import` in the code above to allow dynamic impor
 
 It should work on Safari, Safari Mobile, Chrome and Firefox, now.
 
+<aside class="update-2026">
+
+**2026 update.** A correction: Firefox already supported import maps since version 108 (December 2022), and Safari followed with 16.4 in March 2023 ([web-features](https://web-platform-dx.github.io/web-features-explorer/features/import-maps)). They now work in every current browser, so the polyfill only helps older ones. Also, Svelte 4 replaced `<svelte:options tag=...>` with `customElement=...` ([docs](https://svelte.dev/docs/svelte/custom-elements)).
+
+</aside>
+
 ## Interoperability
 
 On https://custom-elements-everywhere.com/ you can check which frameworks works well with Custom Elements and as Custom Elements.
@@ -275,7 +281,7 @@ _(EDIT3: I finished by migrating my React App to be able to package it as a Cust
 - https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
 - https://angular.io/guide/elements
 - https://stenciljs.com/docs/introduction
-- https://svelte.dev/docs#run-time-custom-element-api
+- https://svelte.dev/docs/svelte/custom-elements
 - https://reactjs.org/docs/web-components.html
 - [What is the difference between Web Components and Custom Elements?](https://softwareengineering.stackexchange.com/a/289039)
 

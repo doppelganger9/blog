@@ -8,6 +8,7 @@ category: Dev
 lang: en
 keywords: gatsby, gatsbyjs, blog, yet another blog, writing, reflections, graphql, markdown
 slug: 2019/03/20
+obsolete: "This blog moved from Gatsby to Sapper in June 2019, then to SvelteKit."
 ---
 
 *NOTE: this should have been one of my first posts, so it's kind of a "pilot" post.*
@@ -69,7 +70,7 @@ I won't describe how to start, I followed [a post that already does this perfect
 ### gatsby-transformer-remark
 
 This one is here to transform your markdown into blog post views,
-- "Support for an [RSS feed](https://lacourt.dev/rss.xml)"? You can add my blog to your RSS Reader... wait... this is not 2009?!
+- "Support for an [RSS feed](/rss)"? You can add my blog to your RSS Reader... wait... this is not 2009?!
 - "Support for code syntax highlighting": well, you might have read some of my previous posts, and the code inside wasn't all that **highlighted**, merely shown. I might have missed something, here.
 - "Includes plugins for offline support out of the box": this is great, [this blog is a PWA](/future/this-blog-is-100-PWA) you can install it, it will download all contents and you can read the articles while offline. Also, it makes visiting this site much faster after the first time thanks to service workers!
 
@@ -90,6 +91,12 @@ Other possibilities would have been to use:
 - [Nuxt](https://nuxtjs.org/), using [VueJS](https://vuejs.org/),
 - ... [there are many others!](https://www.staticgen.com/)
 
+<aside class="update-2026">
+
+**2026 update.** Zeit [became Vercel](https://vercel.com/blog/zeit-is-now-vercel) in April 2020, and WordPress now powers about 40% of all websites according to [W3Techs](https://w3techs.com/technologies/details/cm-wordpress).
+
+</aside>
+
 ## Own your content
 
 > ownership of your own content forever
@@ -100,7 +107,7 @@ So my goal in the future is to find the best way to [push my posts to other plat
 
 ## Security
 
-Gatsby is a [Static Site Generator](https://www.staticgen.com/gatsby). As the name implies, SSRs have fewer security issues when deployed on a live server, because, well, everything is static. You will not expose your API keys, API calls, or anything else, all the content is already included in the pages. Just don’t put your keys on GitHub and you’ll be ok 👌🏼
+Gatsby is a [Static Site Generator](https://www.staticgen.com/gatsby). As the name implies, SSGs have fewer security issues when deployed on a live server, because, well, everything is static. You will not expose your API keys, API calls, or anything else, all the content is already included in the pages. Just don’t put your keys on GitHub and you’ll be ok 👌🏼
 
 ## Why an SSG is a good fit
 
@@ -120,6 +127,6 @@ Anyway, I learned a ton on the way and am quite satisfied with this blog as a re
 
 I hope you too learned a few things.
 
-> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use Twitter: my DMs are open.
+> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use ~~Twitter: my DMs are open~~.
 
 👋

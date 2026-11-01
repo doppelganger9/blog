@@ -130,7 +130,7 @@ Now, after the app is built and tested, the coverage report is generated, and th
 
 You can see it here: https://coveralls.io/github/doppelganger9/blog
 
-Also, I added a badge to the README file: ![Coverage Status](https://coveralls.io/repos/github/doppelganger9/blog/badge.svg?branch=feature/rollup-cypress-code-coverage)
+Also, I added a badge to the README file: ![Coverage Status](https://coveralls.io/repos/github/doppelganger9/blog/badge.svg?branch=master)
 
 ## Conclusion
 
@@ -142,6 +142,6 @@ Also, I added a badge to the README file: ![Coverage Status](https://coveralls.i
 >
 > I will have a future post about Mutation Testing.
 >
-> If you have any questions or feedback, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions or feedback, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 Photo credit from [Unsplash](https://unsplash.com) by [@rotor_](https://unsplash.com/@rotor_), [@cherath14](https://unsplash.com/@cherath14), [@esseish](https://unsplash.com/@esseish).

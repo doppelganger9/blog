@@ -3,6 +3,7 @@
   import Separator from '#lib/components/Separator.svelte';
   import ArticleFooter from '#lib/components/ArticleFooter.svelte';
   import AddGiscusScript from './AddGiscusScript.svelte';
+  import ContactBlock from '#lib/components/ContactBlock.svelte';
   
   import { siteUrl } from '#lib/stores/config.js';
   import { i18n } from '#lib/stores/i18n.js';
@@ -65,6 +66,16 @@
     grid-row: 1 / 2;
     grid-column: 2;
   }
+  .obsolete {
+    margin: -2.5rem 0 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid hsl(35, 80%, 60%);
+    border-left: 0.32813rem solid hsl(35, 80%, 50%);
+    border-radius: 4px;
+    background: hsl(40, 100%, 96%);
+    color: #333;
+    font-size: 0.9rem;
+  }
   .metadata {
     display: grid;
     justify-content: space-between;
@@ -111,11 +122,24 @@
   <div use:twemoji data-cy='blog-post-categories' class='categories'>{post.metadata.category ?? $i18n`None`}</div>
 </div>
 
+{#if post.metadata.obsolete}
+  <!-- `obsolete:` frontmatter field: posts about tools or a stack that no longer apply, kept for history -->
+  <aside class='obsolete' data-cy='blog-post-obsolete' role='note'>
+    {#if post.metadata.lang === 'fr'}
+      <strong>📦 Article archivé.</strong> {post.metadata.obsolete} Il est conservé pour l'historique.
+    {:else}
+      <strong>📦 Archived post.</strong> {post.metadata.obsolete} It is kept for history.
+    {/if}
+  </aside>
+{/if}
+
 <div data-cy='blog-post-content' class='content'>
   <svelte:component this="{post.component}" />
 </div>
 
-<div class="giscus"></div>
+<ContactBlock slug={post.slug} title={post.metadata.title} lang={post.metadata.lang} />
+
+<div id="comments" class="giscus"></div>
 
 <Separator />
 <ArticleFooter />

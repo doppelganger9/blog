@@ -7,6 +7,7 @@ lang: en
 category: Dev
 keywords: Sapper, Svelte, GatsbyJS, React, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, rss, syndication, feed, endpoint, test after
 slug: 2019/06/29
+obsolete: "Sapper was superseded by SvelteKit: the feed is still served at /rss, now by src/routes/rss/+server.js, and tested by Playwright."
 thumb: https://lacourt.dev/unsplash/glen-noble-o4-YyGi5JBc-unsplash.jpg
 ---
 
@@ -32,7 +33,7 @@ This is the kind of business requirements that do not reflect the public's needs
 
 Adding an RSS endpoint to this Sapper website was almost too easy.
 
-Let's have a look at [`src/rss.js`](https://github.com/doppelganger9/blog/blob/master/src/routes/rss.js):
+Let's have a look at [`src/rss.js`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/routes/rss.js):
 
 ```javascript
 import { getPosts } from './_posts.js';
@@ -89,7 +90,7 @@ export function get(req, res) {
 
 As you see, with **Sapper**, we can [expose a "Server Route"](https://sapper.svelte.dev/docs#Server_routes) that will here render a `application/rss+xml` content.
 
-When we will call `sapper export` this endpoint will be called during the build process and will generate a static XML file based on the current app contents at build time. [Remember this website is statically generated ("SSG")? JAMStack?](https://www.staticgen.com/sapperjs)
+When we will call `sapper export` this endpoint will be called during the build process and will generate a static XML file based on the current app contents at build time. [Remember this website is statically generated ("SSG")? JAMStack?](https://jamstack.org/generators/)
 
 The RSS Server Route takes the list of posts with some filtering rules, written in a functional programming declarative style, and calls a rendering function that generates XML content with posts data.
 
@@ -103,7 +104,7 @@ So now that we've got the Server Route set up, let's make the RSS better integra
 
 Browsers or other tools usually look for a hint from the HTML page so as to know if an RSS feed exists for the current web page.
 
-Check this line in the [`template.html`](https://github.com/doppelganger9/blog/blob/master/src/template.html#L8); it advertises the link for auto-discovery of the RSS feed:
+Check this line in the [`template.html`](https://github.com/doppelganger9/blog/blob/3432e25267b68af502a4d181a236c5e2e0834280/src/template.html#L7); it advertises the link for auto-discovery of the RSS feed:
 
 ```html
   <link rel='alternate' type='application/rss+xml' title="RSS Feed for David's Blog" href='/rss' />
@@ -206,7 +207,7 @@ At least, for an almost unneeded feature, that was quick.
 >
 > It was a short post because it was really easy to implement. I hope you found it interesting!
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [@glennoble](https://unsplash.com/@glennoble), [@nellie_adamyan](https://unsplash.com/@nellie_adamyan), [@thoughtcatalog](https://unsplash.com/@thoughtcatalog).

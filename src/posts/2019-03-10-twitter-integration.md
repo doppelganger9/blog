@@ -8,6 +8,7 @@ category: Dev
 lang: en
 keywords: twitter, gastby, gatsbyjs, integration, gatsby-remark-twitter, gatsby-source-twitter
 slug: 2019/03/10
+obsolete: "This blog no longer runs on Gatsby, and Twitter has since become X, whose API has been mostly paid since 2023."
 ---
 <script>
   import AddTwitterWidgetScript from '#lib/components/AddTwitterWidgetScript.svelte';
@@ -117,6 +118,6 @@ As always, I learned a ton on the way and ended up with a simpler solution to my
 
 I hope you too learned a few things or at least witnessed how I bump against issues and go on 🤣.
 
-> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use Twitter: my DMs are open.
+> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use ~~Twitter: my DMs are open~~.
 
 👋

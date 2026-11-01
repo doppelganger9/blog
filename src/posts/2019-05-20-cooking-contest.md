@@ -135,6 +135,13 @@ So given my extremely positive experience so far with Svelte, I decided to go on
 
 And, by the way, you are looking at the end result: *this blog is now powered by Sapper + Svelte*, instead of Gatsby + React.
 
+<aside class="update-2026">
+
+**2026 update.** Sapper was superseded by SvelteKit, which runs this blog today, with Svelte 5.
+
+</aside>
+
+
 *Gatsby is so 2018!* 🤣
 
 Kidding aside, both are awesome, but Sapper feels more like native HTML + CSS + JS.
@@ -149,7 +156,7 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 
 > Wow, in this post I showed you my new side-project [cooking-contest.web.app](https://cooking-contest.web.app) which is built with [Svelte](https://svelte.dev). You've seen pictures of failed cakes, my broken *Orange* car, a talk by *Rich Harris*, leaked API Keys, and spoilers about upcoming blog posts on using Sapper to rebuild this blog.
 >
-> I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> I hope you liked it; if you have any questions, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [@jibarox](https://unsplash.com/@jibarox), [@philipsfuture](https://unsplash.com/@philipsfuture), [@iantuck](https://unsplash.com/@iantuck).
