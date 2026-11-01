@@ -86,7 +86,9 @@ export const languageReads = (page: Page) => page.evaluate(() => (window as any)
 
 // Optional equivalent of Cypress' `blockHosts`, e.g. to work offline:
 // BLOCK_HOSTS='fonts.googleapis.com,platform.twitter.com' npm test
-const blockedHosts = (process.env.BLOCK_HOSTS ?? '').split(',').map((h) => h.trim()).filter(Boolean);
+// GoatCounter is always blocked: the tests must not count page views (count.js already skips
+// 127.0.0.1, but it would still be downloaded by each test).
+const blockedHosts = ['gc.zgo.at', '*.goatcounter.com', ...(process.env.BLOCK_HOSTS ?? '').split(',').map((h) => h.trim()).filter(Boolean)];
 const isBlocked = (url: string) => {
   const { hostname } = new URL(url);
   return blockedHosts.some((pattern) =>
