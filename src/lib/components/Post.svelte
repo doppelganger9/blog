@@ -65,6 +65,16 @@
     grid-row: 1 / 2;
     grid-column: 2;
   }
+  .obsolete {
+    margin: -2.5rem 0 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid hsl(35, 80%, 60%);
+    border-left: 0.32813rem solid hsl(35, 80%, 50%);
+    border-radius: 4px;
+    background: hsl(40, 100%, 96%);
+    color: #333;
+    font-size: 0.9rem;
+  }
   .metadata {
     display: grid;
     justify-content: space-between;
@@ -110,6 +120,17 @@
   <!-- TODO : faire un composant comme la liste des categories qui au clic renvoie sur la liste en selectionnant la categorie cliquée -->
   <div use:twemoji data-cy='blog-post-categories' class='categories'>{post.metadata.category ?? $i18n`None`}</div>
 </div>
+
+{#if post.metadata.obsolete}
+  <!-- `obsolete:` frontmatter field: posts about tools or a stack that no longer apply, kept for history -->
+  <aside class='obsolete' data-cy='blog-post-obsolete' role='note'>
+    {#if post.metadata.lang === 'fr'}
+      <strong>📦 Article archivé.</strong> {post.metadata.obsolete} Il est conservé pour l'historique.
+    {:else}
+      <strong>📦 Archived post.</strong> {post.metadata.obsolete} It is kept for history.
+    {/if}
+  </aside>
+{/if}
 
 <div data-cy='blog-post-content' class='content'>
   <svelte:component this="{post.component}" />

@@ -52,4 +52,19 @@ test.describe('a blog post', () => {
   test('should have a giscus frame for comments', async ({ page }) => {
     await expect(page.locator('.giscus-frame')).toBeAttached();
   });
+
+  test('should not show the archived banner on a current post', async ({ page }) => {
+    await expect(page.locator('[data-cy=blog-post-obsolete]')).toHaveCount(0);
+  });
+});
+
+test.describe('an obsolete blog post', () => {
+  test('shows the archived banner from the `obsolete` frontmatter field', async ({ page }) => {
+    await mockNetwork(page);
+    await visit(page, '/2019/03/06');
+    const banner = page.locator('[data-cy=blog-post-obsolete]');
+    await expect(banner).toContainText('Archived post.');
+    await expect(banner).toContainText('HCL workflow syntax');
+    await expect(banner).toContainText('kept for history');
+  });
 });
