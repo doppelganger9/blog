@@ -297,7 +297,7 @@ Using it to test CSS selectors for your `cy.get('...')` instructions:
 >
 > It was less funky than my previous post, lacking emojis, animated GIFs and pictures of 💩 from my kids, but I hope it was still enjoyable!
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [@winstonchen](https://unsplash.com/@winstonchen), [@cbarbalis](https://unsplash.com/@cbarbalis), [@randytarampi](https://unsplash.com/@randytarampi).

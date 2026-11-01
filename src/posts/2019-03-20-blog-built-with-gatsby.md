@@ -127,6 +127,6 @@ Anyway, I learned a ton on the way and am quite satisfied with this blog as a re
 
 I hope you too learned a few things.
 
-> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use Twitter: my DMs are open.
+> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use ~~Twitter: my DMs are open~~.
 
 👋

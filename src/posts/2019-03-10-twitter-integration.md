@@ -118,6 +118,6 @@ As always, I learned a ton on the way and ended up with a simpler solution to my
 
 I hope you too learned a few things or at least witnessed how I bump against issues and go on 🤣.
 
-> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use Twitter: my DMs are open.
+> Thanks for reading this blog, If you have any questions, please use the Github Repository's Issues to start a conversation, or use ~~Twitter: my DMs are open~~.
 
 👋

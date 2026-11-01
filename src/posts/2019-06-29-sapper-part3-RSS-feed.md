@@ -207,7 +207,7 @@ At least, for an almost unneeded feature, that was quick.
 >
 > It was a short post because it was really easy to implement. I hope you found it interesting!
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [@glennoble](https://unsplash.com/@glennoble), [@nellie_adamyan](https://unsplash.com/@nellie_adamyan), [@thoughtcatalog](https://unsplash.com/@thoughtcatalog).

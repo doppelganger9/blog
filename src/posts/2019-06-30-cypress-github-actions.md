@@ -187,4 +187,4 @@ Still 3 minutes feels pretty fast to me.
 > I also explained why I chose Netlify over GitHub Pages to deploy this blog.
 >
 > I hope it will help you set up this in your own Workflow!
-> If I can be of any help, or If you have any questions about Cypress, Svelte, Sapper, GitHub Actions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If I can be of any help, or If you have any questions about Cypress, Svelte, Sapper, GitHub Actions, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!

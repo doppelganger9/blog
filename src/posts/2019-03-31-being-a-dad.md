@@ -102,6 +102,6 @@ In this post, I wanted to reflect on how skill transfers and how being a dad tra
 
 I hope that I piqued your curiosity.
 
-> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use [Twitter: my DMs are open](https://twitter.com/doppelganger9).
+> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use ~~[Twitter: my DMs are open](https://twitter.com/doppelganger9)~~.
 
 👋

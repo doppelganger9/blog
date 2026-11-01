@@ -139,4 +139,4 @@ This migration was quick!
 >
 > It was a short post because it was really easy to implement. I hope you found it interesting!
 >
-> If you have any questions or feedback, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions or feedback, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!

@@ -202,7 +202,7 @@ What do you think? What should I do? I tend to think that it is already good eno
 
 > In this post I've shown you the process of writing a new feature using Test Driven Development using End to End tests with Cypress.io
 >
-> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> If you have any questions about TDD, Cypress, Svelte, Sapper, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [Ine Carriquiry](https://unsplash.com/photos/DdVCpBoHlv0), [Ward Mercer](https://unsplash.com/photos/nrcpPfXwYBo), [@christopher__burns](https://unsplash.com/@christopher__burns), and [@viktortalashuk](https://unsplash.com/@viktortalashuk).

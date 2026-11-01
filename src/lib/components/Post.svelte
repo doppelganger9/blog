@@ -3,6 +3,7 @@
   import Separator from '#lib/components/Separator.svelte';
   import ArticleFooter from '#lib/components/ArticleFooter.svelte';
   import AddGiscusScript from './AddGiscusScript.svelte';
+  import ContactBlock from '#lib/components/ContactBlock.svelte';
   
   import { siteUrl } from '#lib/stores/config.js';
   import { i18n } from '#lib/stores/i18n.js';
@@ -136,7 +137,9 @@
   <svelte:component this="{post.component}" />
 </div>
 
-<div class="giscus"></div>
+<ContactBlock slug={post.slug} title={post.metadata.title} lang={post.metadata.lang} />
+
+<div id="comments" class="giscus"></div>
 
 <Separator />
 <ArticleFooter />

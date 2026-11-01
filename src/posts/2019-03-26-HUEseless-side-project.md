@@ -131,6 +131,6 @@ Anyway, I learned some things on the way.
 
 I hope you too learned a few things or at least piqued your curiosity.
 
-> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use [Twitter: my DMs are open](https://twitter.com/doppelganger9).
+> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use ~~[Twitter: my DMs are open](https://twitter.com/doppelganger9)~~.
 
 👋

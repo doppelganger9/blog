@@ -129,6 +129,6 @@ In this post, I wanted to tell you about some cognitive bias that periodically a
 
 I hope you learned a few things on the way or at least piqued your curiosity.
 
-> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use [Twitter: my DMs are open](https://twitter.com/doppelganger9).
+> Thanks for reading this blog, If you have any questions, please use the [Github Repository's Issues](https://github.com/doppelganger9/blog/issues) to start a conversation, or use ~~[Twitter: my DMs are open](https://twitter.com/doppelganger9)~~.
 
 👋

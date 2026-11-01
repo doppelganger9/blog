@@ -53,6 +53,15 @@ test.describe('a blog post', () => {
     await expect(page.locator('.giscus-frame')).toBeAttached();
   });
 
+  test('should end with the contact block, before the comments', async ({ page }) => {
+    const contact = page.locator('[data-cy=blog-post-contact]');
+    await expect(contact).toContainText('Got a question, a correction');
+    await expect(contact.locator('a[href="#comments"]')).toBeVisible();
+    await expect(contact.locator('a[href="mailto:david@lacourt.dev"]')).toBeVisible();
+    await expect(contact.locator('a[href^="https://bsky.app/intent/compose?text="]')).toBeVisible();
+    await expect(page.locator('#comments.giscus')).toBeAttached();
+  });
+
   test('should not show the archived banner on a current post', async ({ page }) => {
     await expect(page.locator('[data-cy=blog-post-obsolete]')).toHaveCount(0);
   });
@@ -66,5 +75,16 @@ test.describe('an obsolete blog post', () => {
     await expect(banner).toContainText('Archived post.');
     await expect(banner).toContainText('HCL workflow syntax');
     await expect(banner).toContainText('kept for history');
+  });
+});
+
+test.describe('a blog post in French', () => {
+  test('shows the contact block in French, with share links to the post', async ({ page }) => {
+    await mockNetwork(page);
+    await visit(page, '/2021/11/13');
+    const contact = page.locator('[data-cy=blog-post-contact]');
+    await expect(contact).toContainText('Une question, une correction');
+    await expect(contact.locator('a[href^="https://www.linkedin.com/sharing/share-offsite/"]'))
+      .toHaveAttribute('href', `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://lacourt.dev/2021/11/13')}`);
   });
 });

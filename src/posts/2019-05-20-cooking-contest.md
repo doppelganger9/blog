@@ -156,7 +156,7 @@ Sometimes it's nice to do smart things, but it is even nicer to do dumb things.
 
 > Wow, in this post I showed you my new side-project [cooking-contest.web.app](https://cooking-contest.web.app) which is built with [Svelte](https://svelte.dev). You've seen pictures of failed cakes, my broken *Orange* car, a talk by *Rich Harris*, leaked API Keys, and spoilers about upcoming blog posts on using Sapper to rebuild this blog.
 >
-> I hope you liked it; if you have any questions, or just want to say hi or thank you, [my DMs are open on Twitter](https://twitter.com/doppelganger9)!
+> I hope you liked it; if you have any questions, or just want to say hi or thank you, ~~[my DMs are open on Twitter](https://twitter.com/doppelganger9)~~!
 
 
 Photo credit from [Unsplash](https://unsplash.com) by [@jibarox](https://unsplash.com/@jibarox), [@philipsfuture](https://unsplash.com/@philipsfuture), [@iantuck](https://unsplash.com/@iantuck).
