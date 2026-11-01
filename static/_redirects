@@ -1,0 +1,4 @@
+# Redirections Netlify (copié tel quel dans build/).
+# Le flux RSS a toujours été servi à /rss ; /rss.xml est l'URL que l'on devine
+# et celle qu'un ancien article donnait par erreur.
+/rss.xml  /rss  301
