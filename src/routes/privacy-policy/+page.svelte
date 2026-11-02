@@ -43,4 +43,3 @@
 <Separator />
 <ArticleFooter />
 
-<a href="/hidden-links" style="visibility: hidden; position: absolute;">&nbsp;</a>

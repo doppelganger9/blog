@@ -314,7 +314,7 @@ I found it not really practical as I did not want to have an index for my hidden
 
 <aside class="update-2026">
 
-**Today in SvelteKit (2026):** the prerendering still crawls links, and the invisible link to a `hidden-links` page is still there (in the privacy policy page), listing the playground pages and the technical endpoints. SvelteKit has a `prerender.entries` option that would make it unnecessary. Fun fact: this crawling is also how this very draft leaked: another post linked to it, so the crawler generated it although it was not published. Since 2026, unpublished posts are a 404 in the production build, and a link to one fails the build.
+**Today in SvelteKit (2026):** the prerendering still crawls links, but the hidden link is gone. It survived until November 2026, hidden in the privacy policy page, long after it stopped being useful: SvelteKit prerenders every route without parameters by default (its `prerender.entries` option defaults to `['*']`), so the playground pages and the technical endpoints were generated anyway. Proof: the last playground pages I added were never listed in it, and removing it changed exactly one file in the build, the `hidden-links` page itself. The crawl is still needed for the posts, whose routes have parameters (`/[year]/[month]/[day]`): they are found through the home page and the sitemap. Fun fact: this crawling is also how this very draft leaked: another post linked to it, so the crawler generated it although it was not published. Since 2026, unpublished posts are a 404 in the production build, and a link to one fails the build.
 
 </aside>
 
