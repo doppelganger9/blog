@@ -1,5 +1,8 @@
 <script>
   import {onMount} from 'svelte';
+
+  // the comments widget follows the post's language (Giscus supports `en` and `fr`, among others)
+  let { lang = 'en' } = $props();
   
   onMount(() => {
     const child = document.createElement('script');
@@ -13,7 +16,7 @@
     child.setAttribute('data-reactions-enabled', "1");
     child.setAttribute('data-emit-metadata', "0");
     child.setAttribute('data-theme', "light");
-    child.setAttribute('data-lang', "en");
+    child.setAttribute('data-lang', lang === 'fr' ? 'fr' : 'en');
     child.setAttribute('crossorigin', "anonymous");
     const body = document.getElementsByTagName('body')[0];
     body.appendChild(child);

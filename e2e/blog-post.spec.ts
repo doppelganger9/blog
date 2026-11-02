@@ -51,6 +51,7 @@ test.describe('a blog post', () => {
 
   test('should have a giscus frame for comments', async ({ page }) => {
     await expect(page.locator('.giscus-frame')).toBeAttached();
+    await expect(page.locator('script[src="https://giscus.app/client.js"]')).toHaveAttribute('data-lang', 'en');
   });
 
   test('should end with the contact block, before the comments', async ({ page }) => {
@@ -86,5 +87,7 @@ test.describe('a blog post in French', () => {
     await expect(contact).toContainText('Une question, une correction');
     await expect(contact.locator('a[href^="https://www.linkedin.com/sharing/share-offsite/"]'))
       .toHaveAttribute('href', `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://lacourt.dev/2021/11/13')}`);
+    // the comments widget follows the post's language too
+    await expect(page.locator('script[src="https://giscus.app/client.js"]')).toHaveAttribute('data-lang', 'fr');
   });
 });
