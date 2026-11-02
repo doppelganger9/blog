@@ -5,15 +5,11 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 
-// Compile a Svelte component as a Custom Element when it has `<svelte:options tag=...>`
-function isWebComponentSvelte(code) {
-  const svelteOptionsIdx = code.indexOf('<svelte:options ')
-  if (svelteOptionsIdx < 0) {
-    return false
-  }
-  const tagOptionIdx = code.indexOf('tag=', svelteOptionsIdx)
-  const svelteOptionsEndIdx = code.indexOf('>', svelteOptionsIdx)
-  return tagOptionIdx > svelteOptionsIdx && tagOptionIdx < svelteOptionsEndIdx
+// Compile a Svelte component as a Custom Element when it has `<svelte:options customElement=...>`
+// (Svelte 4+ syntax; `tag=` was the Svelte 3 one). Without the `customElement: true` compile option,
+// Svelte 5 still registers the element but warns `options_missing_custom_element`.
+export function isWebComponentSvelte(code) {
+  return /<svelte:options\b[^>]*\bcustomElement\s*=/.test(code)
 }
 
 /** @type {import('vite').UserConfig} */
