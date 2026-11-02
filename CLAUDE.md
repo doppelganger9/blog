@@ -40,6 +40,7 @@ A weekly workflow (`.github/workflows/links.yml`, config in `lychee.toml`) check
 
 **Other areas:**
 - `src/routes/playground/*` — standalone interactive toys (music tools using tone/tonal/vexflow, poker planning, timers, etc.) not tied to posts.
+- `<html lang>`: `src/app.html` has a `%lang%` placeholder, replaced by `src/hooks.server.js` with the post's `lang` on post pages (`en` elsewhere); `src/routes/+layout.svelte` updates it after client-side navigations.
 - `src/lib/stores/i18n.js` — homemade en/fr i18n via a tagged-template store (`$i18n\`key\``); add labels for both languages there.
 - `lambda/src/*` — Netlify functions (separate `package.json`, bundled by esbuild): `polls`/`poll-description` (Airtable-backed safety-check poll) and `pusher-auth` (presence-channel auth for the poker planning playground). Shared CORS/JSON helpers live in `lambda/src/utils/http.js`: only allowed origins get CORS headers (lacourt.dev, the Netlify deploy previews, localhost; override with the `ALLOWED_ORIGINS` env var), and errors return a generic message. Never log the Pusher instance or raw events (they contain secrets), and keep validating inputs before they reach Airtable formulas or Pusher.
 - `src/lib/components/ContactBlock.svelte` — the shared en/fr "get in touch" block that `Post.svelte` adds at the end of every post, before the Giscus comments (`#comments`); its links are counted as GoatCounter events (`contact-*`, `share-*`). Posts no longer need a hand-written sign-off.

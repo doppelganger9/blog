@@ -3,6 +3,13 @@
   import Favicons from '#lib/components/Favicons.svelte';
   import { afterNavigate } from '$app/navigation';
   import { tick } from 'svelte';
+  import { page } from '$app/state';
+
+  // `<html lang>`: the post's language on a post page, English elsewhere. The prerendered
+  // pages get it from src/hooks.server.js; this keeps it right after client-side navigations.
+  afterNavigate(() => {
+    document.documentElement.lang = page.data?.metadata?.lang ?? 'en';
+  });
 
   // GoatCounter (src/app.html) counts the first page view when count.js loads; the pages
   // opened afterwards by the client-side router are counted here.
