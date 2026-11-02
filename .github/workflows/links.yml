@@ -2,8 +2,8 @@ name: Broken links
 
 # Weekly check of the external links of the posts with lychee (config: lychee.toml).
 # Broken links are reported in a single "broken-links" issue, updated at each run
-# and closed automatically once every link works again. Internal links are not checked
-# here: the SvelteKit prerender already fails the build on a link to a missing page.
+# and closed automatically once every link works again. Root-relative links are not checked
+# against the repository but against the live site (base_url in lychee.toml).
 on:
   schedule:
     - cron: '23 5 * * 1' # Mondays 05:23 UTC

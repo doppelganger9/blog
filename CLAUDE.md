@@ -22,7 +22,7 @@ npm run start:lambda # serve Netlify functions locally (netlify-cli, port 9999)
 
 CI (`.github/workflows`, Node 24) runs `npm ci`, installs Playwright's Chromium, `npm run build` and `npm run test:coverage` on every push, uploads `coverage/lcov.info` to Coveralls and the Playwright report as an artifact on failure. There are no unit tests or linter; Playwright e2e against the built site is the test suite. Coverage is Chromium's V8 coverage of the production build (no instrumentation), collected per test by the auto fixture in `e2e/fixtures.ts` and merged by monocart-coverage-reports (`e2e/coverage-*.ts`).
 
-A weekly workflow (`.github/workflows/links.yml`, config in `lychee.toml`) checks the external links of `src/posts/*.md` with lychee and keeps a single issue labelled `broken-links` up to date (opened or updated when links break, closed when they all work again); it also runs, without touching issues, on pushes that change the workflow or its config. Add an `exclude` there for sites that block bots.
+A weekly workflow (`.github/workflows/links.yml`, config in `lychee.toml`) checks the links of `src/posts/*.md` with lychee (root-relative ones against the live site) and keeps a single issue labelled `broken-links` up to date (opened or updated when links break, closed when they all work again); it also runs, without touching issues, on pushes that change the workflow or its config. Add an `exclude` there for sites that block bots.
 
 ## Architecture
 
