@@ -109,7 +109,7 @@
   {/if}
 </svelte:head>
 
-<AddGiscusScript />
+<AddGiscusScript lang={post.metadata.lang} />
 
 <TitleBar level='h3' />
 

@@ -22,6 +22,8 @@ npm run start:lambda # serve Netlify functions locally (netlify-cli, port 9999)
 
 CI (`.github/workflows`, Node 24) runs `npm ci`, installs Playwright's Chromium, `npm run build` and `npm run test:coverage` on every push, uploads `coverage/lcov.info` to Coveralls and the Playwright report as an artifact on failure. There are no unit tests or linter; Playwright e2e against the built site is the test suite. Coverage is Chromium's V8 coverage of the production build (no instrumentation), collected per test by the auto fixture in `e2e/fixtures.ts` and merged by monocart-coverage-reports (`e2e/coverage-*.ts`).
 
+A weekly workflow (`.github/workflows/links.yml`, config in `lychee.toml`) checks the links of `src/posts/*.md` with lychee (root-relative ones against the live site) and keeps a single issue labelled `broken-links` up to date (opened or updated when links break, closed when they all work again); it also runs, without touching issues, on pushes that change the workflow or its config. Add an `exclude` there for sites that block bots.
+
 ## Architecture
 
 **Posts pipeline.** `src/posts/*.md` (or `.svx`) are imported eagerly with `import.meta.glob` in `src/lib/posts.js`, which builds the single in-memory `POSTS` list (sorted newest first) used by every route, the RSS feed (`src/routes/rss`) and the sitemap. Each post module's `default` export is the rendered Svelte component; frontmatter comes from `metadata`.
@@ -43,7 +45,7 @@ CI (`.github/workflows`, Node 24) runs `npm ci`, installs Playwright's Chromium,
 - `src/lib/components/ContactBlock.svelte` — the shared en/fr "get in touch" block that `Post.svelte` adds at the end of every post, before the Giscus comments (`#comments`); its links are counted as GoatCounter events (`contact-*`, `share-*`). Posts no longer need a hand-written sign-off.
 - `static/_headers` — Netlify security headers (no CSP yet).
 - Analytics: GoatCounter (cookieless, site `lacourtdev`). The script tag is in `src/app.html` and counts the first page view; client-side navigations are counted by `afterNavigate` in `src/routes/+layout.svelte`. The e2e tests always block `gc.zgo.at` and `*.goatcounter.com`; keep `src/routes/privacy-policy` in sync if the tracking changes, and allow `gc.zgo.at` + `lacourtdev.goatcounter.com` in a future CSP.
-- There is no `svelte.config.js` anymore (SvelteKit 3): the SvelteKit options (adapter, mdsvex preprocessing, extensions) are passed to the `sveltekit()` plugin in `vite.config.js`, which also compiles a component as a custom element when it detects a `tag=` option inside `<svelte:options>`.
+- There is no `svelte.config.js` anymore (SvelteKit 3): the SvelteKit options (adapter, mdsvex preprocessing, extensions) are passed to the `sveltekit()` plugin in `vite.config.js`, which also passes the `customElement: true` compile option to components that have `<svelte:options customElement=...>`.
 - `src/lib` is imported as `#lib/...` (subpath imports declared in `package.json`), with the file extension (`#lib/posts.js`, `#lib/music.ts`).
 - `patches/` — patch-package fixes for twemoji, twemoji-parser and hast-util-to-string; keep them in sync if those dependency versions change.
 
