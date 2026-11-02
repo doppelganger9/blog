@@ -1,0 +1,23 @@
+# lychee configuration, used by .github/workflows/links.yml
+# https://lychee.cli.rs/usage/config/
+
+# only web links: relative links are checked by the SvelteKit prerender
+scheme = ["https", "http"]
+
+# 403 and 429 are what anti-bot protections answer to a CI runner, not dead pages
+accept = ["200..=299", "403", "429"]
+
+max_retries = 2
+timeout = 20
+max_concurrency = 8
+
+exclude = [
+  # always refuse bots (login walls)
+  '^https?://(www\.)?(twitter|x)\.com/',
+  '^https?://([a-z]+\.)?linkedin\.com/',
+  '^https?://([a-z]+\.)?facebook\.com/',
+  '^https?://(www\.)?instagram\.com/',
+  # examples and local URLs quoted in posts
+  '^https?://(localhost|127\.0\.0\.1)',
+  '^https?://([a-z]+\.)?example\.(com|org)',
+]

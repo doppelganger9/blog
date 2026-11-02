@@ -1,0 +1,60 @@
+name: Broken links
+
+# Weekly check of the external links of the posts with lychee (config: lychee.toml).
+# Broken links are reported in a single "broken-links" issue, updated at each run
+# and closed automatically once every link works again. Internal links are not checked
+# here: the SvelteKit prerender already fails the build on a link to a missing page.
+on:
+  schedule:
+    - cron: '23 5 * * 1' # Mondays 05:23 UTC
+  workflow_dispatch:
+  # dry run (no issue) when the check itself changes
+  push:
+    paths:
+      - .github/workflows/links.yml
+      - lychee.toml
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          args: --config lychee.toml --no-progress 'src/posts/*.md' README.md
+          output: lychee/out.md
+          fail: false
+          failIfEmpty: false
+
+      - name: Find the open broken-links issue
+        id: issue
+        if: github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "number=$(gh issue list --repo "$GITHUB_REPOSITORY" --label broken-links --state open --json number --jq '.[0].number // empty')" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the issue
+        if: github.event_name != 'push' && steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v6.0.0
+        with:
+          title: Broken links in the posts
+          content-filepath: lychee/out.md
+          labels: broken-links
+          issue-number: ${{ steps.issue.outputs.number }}
+
+      - name: Close the issue when every link works again
+        if: github.event_name != 'push' && steps.lychee.outputs.exit_code == 0 && steps.issue.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ steps.issue.outputs.number }}" --repo "$GITHUB_REPOSITORY" --comment "All links work again ($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)."
