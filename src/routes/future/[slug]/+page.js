@@ -1,4 +1,4 @@
-import { loadPostForSlug } from '#lib/posts.js';
+import { loadPostForSlug } from '#lib/postPage.js';
 
 export const prerender = true;
 

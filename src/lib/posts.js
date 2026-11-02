@@ -1,41 +1,20 @@
-import { computeMinutesToRead } from "#lib/minutesToRead.js";
-import { error } from '@sveltejs/kit';
-import { dev } from '$app/environment';
+// Server-side only (+page.server.js, +server.js and hooks.server.js files): the eager import
+// below bundles every post, so importing this module from client code would make every
+// visitor download all of them. Post pages load their post with #lib/postPage.js instead.
+import postIndex from 'virtual:post-index';
+import { toPost } from '#lib/post.js';
 
 const POSTS = _loadPosts();
 
 function _loadPosts() {
-  const slugFromPath = (path) => path.match(/\/src\/posts\/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
-
-  // mdsvex exposes all posts as modules we can import dynamically
+  // mdsvex exposes all posts as modules we can import
   const imports = import.meta.glob(`/src/posts/*.{md,svx,svelte.md}`, {eager: true});
-  const posts = [];
+  const posts = Object.entries(imports).map(([path, postModule]) => toPost(path, postModule.metadata));
 
-  for (const path in imports) {
-    const postModule = imports[path];
-    if (postModule) {
-      const slug = slugFromPath(path);
-
-      const alternateSlug = postModule.metadata.slug;
-      const component = postModule.default;
-      const wordCount = postModule.metadata.wordCount;
-      const date = new Date(postModule.metadata.date);
-      const lang = postModule.metadata.lang || 'en';
-      const categories = postModule.metadata.category?.split(/, ?/);
-      const tags = postModule.metadata.tags?.split(/, ?/);
-      const minutesToRead = computeMinutesToRead(wordCount, 180, lang);
-      const dateString = date.toLocaleDateString(lang, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-      posts.push({
-        path,
-        slug: alternateSlug || slug, // possibilité de surcharger le slug via le frontmatter
-        metadata: {...postModule.metadata, dateString, lang},
-        //html: undefined now
-        minutesToRead,
-        categories,
-        tags,
-        component,
-      });
+  // the slug → file index used by the post pages in the browser must agree with mdsvex
+  for (const post of posts) {
+    if (postIndex[post.slug] !== post.path) {
+      throw new Error(`virtual:post-index maps ${post.slug} to ${postIndex[post.slug]} instead of ${post.path} (see vite.config.js)`);
     }
   }
 
@@ -89,27 +68,4 @@ export function getPostForSlug(slug) {
 export function getPostForDateSlug(slug) {
   const regexp_YYYY_MM_DD = /(\d){4}\/(\d){2}\/(\d){2}/;
   return regexp_YYYY_MM_DD.test(slug) ? getPostForSlug(slug) : undefined;
-}
-
-export function loadPostForSlug(slug) {
-  const post = getPostForSlug(slug);
-  if (!post) {
-    error(404, 'Oh no! The requested page could not be found.');
-  }
-
-  return post;
-}
-
-/**
- * Same as loadPostForSlug, but drafts (`published: false`) are a 404 in the production build,
- * even when another page links to them: the prerender crawler would otherwise publish them.
- * They stay visible with `npm run dev` for proofreading.
- * (`future/` and `alternate-reality/` teaser pages are intentionally unpublished and keep using loadPostForSlug.)
- */
-export function loadPublishedPostForSlug(slug) {
-  const post = loadPostForSlug(slug);
-  if (!post.metadata.published && !dev) {
-    error(404, 'Oh no! The requested page could not be found.');
-  }
-  return post;
 }
