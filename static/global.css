@@ -118,12 +118,43 @@ blockquote {
   }
 }
 
+/* tables: thin horizontal rules only, faint zebra rows to follow a line across the columns,
+   numbers in tabular figures so that digits line up from one row to the next */
+.content table {
+  border-collapse: collapse;
+  margin: 0 0 1.75rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+.content th, .content td {
+  padding: 0.5em 0.75em;
+  vertical-align: middle;
+}
+.content thead th {
+  border-bottom: 2px solid hsla(0, 0%, 0%, 0.6);
+  vertical-align: bottom;
+}
+.content tbody td {
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.08);
+}
+.content tbody tr:nth-child(even) {
+  background: hsla(0, 0%, 0%, 0.03);
+}
+@media (hover: hover) {
+  .content tbody tr:hover {
+    background: hsla(22, 100%, 50%, 0.07);
+  }
+}
+
 /* phones: smaller tables, and a table still too wide scrolls on its own instead of the page */
 @media (max-width: 599px) {
   .content table {
     display: block;
     overflow-x: auto;
     font-size: 0.85em;
+  }
+  .content th, .content td {
+    padding: 0.4em 0.35em;
   }
 }
 
