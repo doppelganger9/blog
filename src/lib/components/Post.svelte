@@ -17,6 +17,12 @@
       font-size: 2.5rem;
       margin: 0 0 .5rem 0;
   }
+  /* a long title filled the whole first screen of a phone */
+  @media (max-width: 599px) {
+    h1 {
+      font-size: 1.9rem;
+    }
+  }
 
   /*
     By default, CSS is locally scoped to the component,

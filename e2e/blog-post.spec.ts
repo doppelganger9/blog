@@ -87,7 +87,21 @@ test.describe('a blog post in French', () => {
     await expect(contact).toContainText('Une question, une correction');
     await expect(contact.locator('a[href^="https://www.linkedin.com/sharing/share-offsite/"]'))
       .toHaveAttribute('href', `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://lacourt.dev/2021/11/13')}`);
-    // the comments widget follows the post's language too
+    // so do <html lang> and the comments widget
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
     await expect(page.locator('script[src="https://giscus.app/client.js"]')).toHaveAttribute('data-lang', 'fr');
+  });
+});
+
+test.describe('<html lang>', () => {
+  test('follows the language of the post during client-side navigation', async ({ page }) => {
+    await mockNetwork(page);
+    await visit(page, '/');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await page.locator(`a[href$='2021/11/13']`).first().click();
+    await expect(page.locator('[data-cy=blog-post-heading]')).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+    await page.goBack();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   });
 });

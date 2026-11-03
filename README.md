@@ -4,22 +4,22 @@
 
 See it live here: https://lacourt.dev/
 
-This is a [SvelteKit](https://kit.svelte.dev) backed blog. To clone it and get started:
+This is a [SvelteKit](https://svelte.dev/docs/kit) backed blog. To clone it and get started:
 
 ```bash
 git clone https://github.com/doppelganger9/blog.git
-cd david-blog
+cd blog
 npm install
 npm run dev
 ```
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
-Consult [kit.svelte.dev](https://kit.svelte.dev) for help getting started.
+Consult [the SvelteKit docs](https://svelte.dev/docs/kit) for help getting started, and `CLAUDE.md` for how this blog is put together.
 
 ## Open source
 
-You can follow in the commit history how I migrated from the [Gastby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/) to grow my own thing.
+You can follow in the commit history how I migrated from the [gatsby-starter-blog](https://github.com/gatsbyjs/gatsby-starter-blog) to grow my own thing.
 
 I encourage your curiosity and will be delighted if you can fix my poor English grammar or whatever deeper in the content I will post.
 

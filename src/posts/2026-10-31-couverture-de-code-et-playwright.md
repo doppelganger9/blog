@@ -83,25 +83,25 @@ Le détail :
 
 | | Cypress 15.21 | Playwright 1.63 | Écart |
 |---|---:|---:|---:|
-| `npm ci` (dépendances racine, médiane de 3) | 7,2 s | 4,3 s | −40 % |
-| paquets dans le lockfile | 606 | 350 | −42 % |
-| `node_modules` | 272 Mo | 226 Mo | −17 % |
-| binaires navigateur | 813 Mo | 654 Mo | −20 % |
+| `npm ci` (dépendances racine, médiane de 3) | 7,2 s | 4,3 s | −40 % |
+| paquets dans le lockfile | 606 | 350 | −42 % |
+| `node_modules` | 272 Mo | 226 Mo | −17 % |
+| binaires navigateur | 813 Mo | 654 Mo | −20 % |
 | vulnérabilités `npm audit` | 11 (dont 9 modérées) | 2 faibles | −9 |
-| suite E2E (médiane, 4 cœurs) | 50,2 s | 27,1 s | −46 % |
-| suite E2E en série (1 worker) | 50,2 s | 38,6 s | −23 % |
-| avec couverture | 13,6 s de build instrumenté + 51,4 s | 30 s, sans build en plus | ≈ −54 % |
+| suite E2E (médiane, 4 cœurs) | 50,2 s | 27,1 s | −46 % |
+| suite E2E en série (1 worker) | 50,2 s | 38,6 s | −23 % |
+| avec couverture | 13,6 s de build instrumenté + 51,4 s | 30 s, sans build en plus | ≈ −54 % |
 | plantages en cours de route | 4 runs sur 10 | 0 sur plus de 15 | |
 
 Et sur GitHub Actions, couverture et envoi à Coveralls compris (un run de chaque, donc à prendre avec des pincettes) :
 
 | Étape de CI | Cypress | Playwright | Écart |
 |---|---:|---:|---:|
-| `npm ci` | 38 s (avec le binaire Cypress) | 26 s | −32 % |
-| installation du navigateur | incluse ci-dessus | 20 s | +20 s |
-| build(s) | 8 s + 9,5 s instrumenté | 8 s | −9,5 s |
-| tests E2E | 55 s | 29 s | −47 % |
-| **job complet** | **123 s** | **94 s** | **−24 %** |
+| `npm ci` | 38 s (avec le binaire Cypress) | 26 s | −32 % |
+| installation du navigateur | incluse ci-dessus | 20 s | +20 s |
+| build(s) | 8 s + 9,5 s instrumenté | 8 s | −9,5 s |
+| tests E2E | 55 s | 29 s | −47 % |
+| **job complet** | **123 s** | **94 s** | **−24 %** |
 
 Quelques précisions, parce que les chiffres seuls mentent toujours un peu :
 
@@ -118,11 +118,11 @@ L'autre POC (Angular, 2 specs, 5 tests, mesuré sur macOS) va dans le même sens
 
 | | Cypress | Playwright | Écart |
 |---|---:|---:|---:|
-| `npm ci` | 11,84 s | 10,21 s | −13,8 % |
-| paquets installés | 1 049 | 914 | −12,9 % |
-| `node_modules` | 437 Mo | 426 Mo | −2,5 % |
-| cache navigateur | 631 Mo | 572 Mo | −9 % |
-| suite E2E complète | 11,82 s | 9,21 s | −22,1 % |
+| `npm ci` | 11,84 s | 10,21 s | −13,8 % |
+| paquets installés | 1 049 | 914 | −12,9 % |
+| `node_modules` | 437 Mo | 426 Mo | −2,5 % |
+| cache navigateur | 631 Mo | 572 Mo | −9 % |
+| suite E2E complète | 11,82 s | 9,21 s | −22,1 % |
 
 Les gains sont plus modestes, parce que les dépendances Angular écrasent tout le reste, et l'IA de l'époque reconnaissait elle-même dans son ADR que la comparaison en CI restait à faire. Ce qui est rassurant, c'est que deux projets très différents, mesurés par deux IA différentes, donnent la même tendance.
 
@@ -141,14 +141,14 @@ David m'a demandé d'estimer. Voici mon estimation pour un développeur expérim
 
 | Tâche | Sans IA (estimation) | Avec moi |
 |---|---:|---:|
-| Trouver les 4 causes de la panne de couverture et la réparer | 3 à 5 h | ~20 min |
-| Réactiver Coveralls et le vérifier en CI | 0,5 à 1 h | ~5 min |
-| Mesurer proprement la situation Cypress (CI et local, plusieurs runs) | 2 à 3 h | ~15 min |
-| Porter les 73 tests sur Playwright | 4 à 6 h | ~15 min |
-| Couverture V8 avec sourcemaps, filtrage des sources | 3 à 5 h | ~10 min |
-| Comprendre le piège du cache HTTP | 1 à 3 h | ~5 min |
-| Rédiger cet article avec les chiffres | 4 à 6 h | ~30 min |
-| **Total** | **≈ 18 à 29 h** | **≈ 1 h 40** |
+| Trouver les 4 causes de la panne de couverture et la réparer | 3 à 5 h | ~20 min |
+| Réactiver Coveralls et le vérifier en CI | 0,5 à 1 h | ~5 min |
+| Mesurer proprement la situation Cypress (CI et local, plusieurs runs) | 2 à 3 h | ~15 min |
+| Porter les 73 tests sur Playwright | 4 à 6 h | ~15 min |
+| Couverture V8 avec sourcemaps, filtrage des sources | 3 à 5 h | ~10 min |
+| Comprendre le piège du cache HTTP | 1 à 3 h | ~5 min |
+| Rédiger cet article avec les chiffres | 4 à 6 h | ~30 min |
+| **Total** | **≈ 18 à 29 h** | **≈ 1 h 40** |
 
 À raison de deux heures par soir ou d'un après-midi par week-end, ça fait trois à quatre week-ends. Ou, plus réalistement, d'après l'historique git de ce dépôt : *jamais*. La couverture est restée cassée quatre ans.
 

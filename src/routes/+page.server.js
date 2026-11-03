@@ -1,5 +1,5 @@
-import { getPublishedPosts } from '#lib/posts.js';
-import { getAllCategoriesOfPublishedPosts, getAllTagsOfPublishedPosts } from '../lib/posts';
+// server load: the list of posts is computed when prerendering, the browser only gets this data
+import { getPublishedPosts, getAllCategoriesOfPublishedPosts, getAllTagsOfPublishedPosts } from '#lib/posts.js';
 
 export const prerender = true;
 
@@ -20,10 +20,9 @@ function mapStoredPostToViewablePost(storedPost) {
 }
 
 /**
- * @type {import('@sveltejs/kit').PageLoad}
+ * @type {import('./$types').PageServerLoad}
  */
 export function load() {
-  // this appears during build and in the browser while `npx http-server build`
   const publishedPosts = getPublishedPosts();
   const allTags = getAllTagsOfPublishedPosts(publishedPosts);
   const allCategories = getAllCategoriesOfPublishedPosts(publishedPosts);

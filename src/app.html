@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang='en' xmlns:og="http://ogp.me/ns#">
+<html lang='%lang%' xmlns:og="http://ogp.me/ns#">
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width,initial-scale=1.0'>
@@ -31,7 +31,7 @@
   </style>
   %sveltekit.head%
 </head>
-<body>
+<body data-sveltekit-preload-data="hover">
   <div id='svelte'>%sveltekit.body%</div>
 </body>
 </html>

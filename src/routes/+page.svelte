@@ -41,12 +41,8 @@
 
 <ul use:twemoji data-cy="blog-posts-list">
   {#each data.posts.filter(p => !$selectedCategory || !p.categories || p.categories?.indexOf($selectedCategory)>=0) as post}
-    <!-- we're using the non-standard `rel=prefetch` attribute to
-        tell SvelteKit to load the data for the page as soon as
-        the user hovers over the link or taps it, instead of
-        waiting for the 'click' event -->
     <li data-cy="blog-posts-item">
-      <a rel='prefetch' href='{post.slug}'>
+      <a href='{post.slug}'>
         <h3>{post.title}</h3>
         <div class='subtitle'><date>{post.date}</date>{#if post.minutesToRead} - {post.minutesToRead}{/if}<br/></div>
         <p>{post.description}</p>

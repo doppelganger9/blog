@@ -1,11 +1,8 @@
 .DS_Store
 node_modules
-yarn-error.log
 /test-results/
 /playwright-report/
-/__sapper__/
 /.svelte-kit/
-/.nyc_output/
 /coverage/
 /build/
 /.netlify/
