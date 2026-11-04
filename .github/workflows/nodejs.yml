@@ -67,7 +67,7 @@ jobs:
       run: npm run build
     - name: Visual regression tests
       if: env.UPDATE != 'true'
-      run: npx playwright test --project='visual-*'
+      run: npx playwright test --project='visual-*' --repeat-each=5
       env:
         CI: true
         VISUAL: true
