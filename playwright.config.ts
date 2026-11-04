@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const coverage = process.env.COVERAGE === 'true';
+// visual regression tests: only on demand, since their reference images are rendered by the CI
+// in the Playwright Docker image (see e2e/visual.spec.ts)
+const visual = process.env.VISUAL === 'true';
 
 export default defineConfig({
   testDir: './e2e',
@@ -26,8 +29,12 @@ export default defineConfig({
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] }, testIgnore: /visual\.spec/ },
-    { name: 'visual-desktop', use: { ...devices['Desktop Chrome'] }, testMatch: /visual\.spec/ },
-    { name: 'visual-mobile', use: { ...devices['Pixel 7'] }, testMatch: /visual\.spec/ },
+    ...(visual
+      ? [
+          { name: 'visual-desktop', use: { ...devices['Desktop Chrome'] }, testMatch: /visual\.spec/ },
+          { name: 'visual-mobile', use: { ...devices['Pixel 7'] }, testMatch: /visual\.spec/ },
+        ]
+      : []),
   ],
   // serves the static build (run `npm run build` first)
   webServer: {
