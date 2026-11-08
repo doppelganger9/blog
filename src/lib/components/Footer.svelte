@@ -12,7 +12,7 @@ footer {
 
 <footer use:twemoji data-cy='footer'>
   <p>
-  © {new Date().getFullYear()} 
+  © <span data-cy='footer-year'>{new Date().getFullYear()}</span> 
   -
   {$i18n`built with`} <a href="https://svelte.dev">Svelte</a> 
   {$i18n`and`} <a href='https://kit.svelte.dev'>SvelteKit</a> 
