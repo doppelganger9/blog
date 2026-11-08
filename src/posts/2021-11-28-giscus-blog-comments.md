@@ -3,7 +3,7 @@ title: GitHub Discussions as Comments Section
 date: 2021-11-28T22:58:00
 published: true
 description: A quick post explaining how we added GitHub Discussions to this blog's repository and will use it as an interactive comment section for each blog post using Giscus.
-tags: blog
+tags: blog, GitHub, comments
 category: Dev
 lang: en
 keywords: Discussions, Giscus, GitHub Discussions, utteranc.es

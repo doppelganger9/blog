@@ -6,7 +6,7 @@ published: true
 lang: en
 category: Dev
 keywords: Sapper, Svelte, SvelteKit, deprecated
-tags: deprecated
+tags: deprecated, Sapper, Svelte, Gatsby, blog
 slug: 2019/06/18
 obsolete: "Sapper was superseded by SvelteKit, which runs this blog today: the 2026 notes below tell what became of each point."
 ---

@@ -69,3 +69,34 @@ export function getPostForDateSlug(slug) {
   const regexp_YYYY_MM_DD = /(\d){4}\/(\d){2}\/(\d){2}/;
   return regexp_YYYY_MM_DD.test(slug) ? getPostForSlug(slug) : undefined;
 }
+
+/**
+ * The published posts closest to a post, for its "Read next" block: 3 points per shared tag,
+ * 1 for a shared category, 1 for the same language, -2 for an archived (`obsolete`) post.
+ * Ties go to the most recent post. Only what the block displays is returned.
+ */
+export function getRelatedPosts(slug, count = 3) {
+  const post = getPostForSlug(slug);
+  if (!post) return [];
+  const words = (list) => new Set((list ?? []).map((w) => w.trim().toLowerCase()).filter(Boolean));
+  const shared = (a, b) => [...words(a)].filter((w) => words(b).has(w)).length;
+  return getPublishedPosts()
+    .filter((other) => other.slug !== slug)
+    .map((other) => ({
+      other,
+      score:
+        3 * shared(post.tags, other.tags) +
+        shared(post.categories, other.categories) +
+        (post.metadata.lang === other.metadata.lang ? 1 : 0) -
+        (other.metadata.obsolete ? 2 : 0),
+    }))
+    .sort((a, b) => b.score - a.score) // stable sort: getPublishedPosts is newest first
+    .slice(0, count)
+    .map(({ other }) => ({
+      slug: other.slug,
+      title: other.metadata.title,
+      description: other.metadata.description,
+      date: other.metadata.date,
+      lang: other.metadata.lang,
+    }));
+}

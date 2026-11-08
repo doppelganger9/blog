@@ -4,7 +4,7 @@
 import { error } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import postIndex from 'virtual:post-index';
-import { toPost } from '#lib/post.js';
+import { toPost, relatedPostsKey } from '#lib/post.js';
 
 const postModules = import.meta.glob('/src/posts/*.{md,svx,svelte.md}');
 
@@ -24,8 +24,22 @@ export async function loadPostForSlug(slug) {
  * They stay visible with `npm run dev` for proofreading.
  * (`future/` and `alternate-reality/` teaser pages are intentionally unpublished and keep using loadPostForSlug.)
  */
-export async function loadPublishedPostForSlug(slug) {
-  const post = await loadPostForSlug(slug);
+export async function loadPublishedPostForSlug(slug, fetch) {
+  const [post, related] = await Promise.all([loadPostForSlug(slug), loadRelatedPosts(slug, fetch)]);
   if (!post.metadata.published && !dev) notFound();
-  return post;
+  return { ...post, related };
+}
+
+/**
+ * The "Read next" posts, from the JSON file prerendered for each post by src/routes/related.
+ * SvelteKit's `fetch` inlines the response in the prerendered page: only client-side
+ * navigations download it. A missing file only hides the block.
+ */
+async function loadRelatedPosts(slug, fetch) {
+  try {
+    const response = await fetch(`/related/${relatedPostsKey(slug)}.json`);
+    return response.ok ? await response.json() : [];
+  } catch {
+    return [];
+  }
 }

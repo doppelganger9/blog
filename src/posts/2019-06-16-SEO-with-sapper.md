@@ -5,6 +5,7 @@ description: part 1 of my series on describing how I migrated from a GatsbyJS/Re
 published: true
 lang: en
 category: Dev
+tags: Sapper, Svelte, SEO
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/06/16
 obsolete: "Sapper was superseded by SvelteKit: the same tags now live in the Post.svelte component, and the sitemap in src/routes/sitemap.xml."

@@ -5,6 +5,7 @@ description: I've been talking about Test Driven Development lately, and this ti
 published: true
 lang: en
 category: Dev
+tags: Svelte, TDD, Uptime Robot
 keywords: Sapper, Svelte, SEO, Twitter Cards, OpenGraph, GatsbyJS, Gatsby, React, svelte:head, head, robots.txt, sitemap.xml, Facebook, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr
 slug: 2019/10/27
 thumb: https://lacourt.dev/unsplash/ine-carriquiry-DdVCpBoHlv0-unsplash.jpg
