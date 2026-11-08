@@ -1,4 +1,5 @@
 import { test, expect, mockNetwork, type Page } from './fixtures';
+import type { Locator } from '@playwright/test';
 
 /**
  * Visual regression tests: screenshots compared with the reference images of e2e/__screenshots__.
@@ -23,6 +24,23 @@ async function open(page: Page, url: string) {
   });
 }
 
+/**
+ * Screenshot of one element, first moved down by less than a pixel so that its top lands on the
+ * pixel grid (in CSS and device pixels): otherwise any change of height above it, like a new block
+ * before the contact block, shifts it by a fraction of a pixel and changes the antialiasing of all
+ * its text, failing the comparison although the element itself did not change.
+ */
+async function expectElementScreenshot(element: Locator, name: string) {
+  await element.evaluate((el: HTMLElement) => {
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    const dpr = window.devicePixelRatio;
+    let target = Math.ceil(top - 1e-6);
+    while (Math.abs(target * dpr - Math.round(target * dpr)) > 1e-6) target++;
+    el.style.marginTop = `calc(${getComputedStyle(el).marginTop} + ${target - top}px)`;
+  });
+  await expect(element).toHaveScreenshot(name);
+}
+
 test.describe('a post with figures and tables (2026/10/31)', () => {
   test.beforeEach(async ({ page }) => open(page, '/2026/10/31'));
 
@@ -31,21 +49,21 @@ test.describe('a post with figures and tables (2026/10/31)', () => {
   });
 
   test('figure', async ({ page }) => {
-    await expect(page.locator('.content figure').nth(1)).toHaveScreenshot('post-figure.png');
+    await expectElementScreenshot(page.locator('.content figure').nth(1), 'post-figure.png');
   });
 
   test('table', async ({ page }) => {
-    await expect(page.locator('.content table').first()).toHaveScreenshot('post-table.png');
+    await expectElementScreenshot(page.locator('.content table').first(), 'post-table.png');
   });
 
   test('contact block', async ({ page }) => {
-    await expect(page.locator("[data-cy='blog-post-contact']")).toHaveScreenshot('post-contact.png');
+    await expectElementScreenshot(page.locator("[data-cy='blog-post-contact']"), 'post-contact.png');
   });
 });
 
 test('a post with code blocks (2019/06/21)', async ({ page }) => {
   await open(page, '/2019/06/21');
-  await expect(page.locator('.content pre').first()).toHaveScreenshot('post-code.png');
+  await expectElementScreenshot(page.locator('.content pre').first(), 'post-code.png');
 });
 
 test('404 page', async ({ page }) => {
