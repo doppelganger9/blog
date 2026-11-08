@@ -3,7 +3,7 @@ title: Web Components/Custom Elements as Micro Front-Ends (MFE)
 date: 2023-01-21T22:20:00
 published: true
 description: Initially in this post I reused an old QR Code webcomponent to show how to integrate it in a SvelteKit page. Later I edited to add apps based on Angular Element, Vue Custom Element and React Custom Element. All my orphaned side-projects re-united here!
-tags: blog
+tags: blog, Svelte, Web Components, micro front-ends
 category: Dev
 lang: en
 keywords: StencilJS, webcomponent, web-component, web component, custom element, sveltekit, svelte

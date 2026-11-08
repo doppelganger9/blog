@@ -5,6 +5,6 @@ export const prerender = true;
 /**
  * @type {import('@sveltejs/kit').PageLoad}
  */
-export function load({ params }) {
-  return loadPublishedPostForSlug(`${params.year}/${params.month}/${params.day}`);
+export function load({ params, fetch }) {
+  return loadPublishedPostForSlug(`${params.year}/${params.month}/${params.day}`, fetch);
 }

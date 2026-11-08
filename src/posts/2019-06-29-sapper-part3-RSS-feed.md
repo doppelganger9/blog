@@ -5,6 +5,7 @@ description: part 3 of GatsbyJS/React to Sapper/Svelte blog migration. This one 
 published: true
 lang: en
 category: Dev
+tags: Sapper, Svelte, RSS
 keywords: Sapper, Svelte, GatsbyJS, React, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, sevlte, saper, sappr, rss, syndication, feed, endpoint, test after
 slug: 2019/06/29
 obsolete: "Sapper was superseded by SvelteKit: the feed is still served at /rss, now by src/routes/rss/+server.js, and tested by Playwright."

@@ -5,6 +5,7 @@ description: Going back to part 2 to add more depth to a tweet I made about usin
 published: true
 lang: en
 category: Dev
+tags: Sapper, Cypress, CI/CD, GitHub Actions, Netlify
 keywords: Sapper, Svelte, Cypress.io, Cypress, Cyrpress,Cyrpess, End to end, unit test, tdd, ut, test driven, tst, dirven, test first, non regression testing, non regression, e2e, automation, ci, continuous, integration, continuous integration, cipres, cipress, cypres, sypress, sypres, sipres, sipress, saper, sevlte, sevtle, svetle, sappr, sapr, raect, gatsby, gabtsy, gastby, gabtsyjs, gastbyjs, Github, actions, workflow, pipeline, ci, cd, ci/cd, continuous testing, worflow, wokflow, worklflow, wokrflow
 slug: 2019/06/30
 obsolete: "The HCL workflow syntax and the Cypress action shown here stopped working in September 2019, and Playwright replaced the Cypress tests in 2026."

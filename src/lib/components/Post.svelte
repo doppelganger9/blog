@@ -4,6 +4,7 @@
   import ArticleFooter from '#lib/components/ArticleFooter.svelte';
   import AddGiscusScript from './AddGiscusScript.svelte';
   import ContactBlock from '#lib/components/ContactBlock.svelte';
+  import RelatedPosts from '#lib/components/RelatedPosts.svelte';
   
   import { siteUrl } from '#lib/stores/config.js';
   import { i18n } from '#lib/stores/i18n.js';
@@ -142,6 +143,8 @@
 <div data-cy='blog-post-content' class='content'>
   <svelte:component this="{post.component}" />
 </div>
+
+<RelatedPosts posts={post.related} lang={post.metadata.lang} slug={post.slug} />
 
 <ContactBlock slug={post.slug} title={post.metadata.title} lang={post.metadata.lang} />
 
