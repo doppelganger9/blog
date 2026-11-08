@@ -13,8 +13,17 @@
   <link rel='me' href='https://mastodon.social/@david_lacourt@mamot.fr'>
   <!-- GoatCounter: cookieless page views (https://www.goatcounter.com). count.js counts the first page view itself
        and ignores localhost; the client-side navigations are counted in src/routes/+layout.svelte.
+       It is not loaded on the Netlify deploy previews and branch deploys (*.netlify.app), so that they are not counted.
        Open https://lacourt.dev/#toggle-goatcounter once to stop counting your own visits in this browser. -->
-  <script data-goatcounter='https://lacourtdev.goatcounter.com/count' async src='https://gc.zgo.at/count.js'></script>
+  <script>
+    if (!location.hostname.endsWith('.netlify.app')) {
+      const goatcounter = document.createElement('script');
+      goatcounter.async = true;
+      goatcounter.src = 'https://gc.zgo.at/count.js';
+      goatcounter.dataset.goatcounter = 'https://lacourtdev.goatcounter.com/count';
+      document.head.append(goatcounter);
+    }
+  </script>
   <!-- ES Module Shim to enable importmap on Safari, Safari Mobile and Firefox -->
   <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
   <script type='importmap'>
