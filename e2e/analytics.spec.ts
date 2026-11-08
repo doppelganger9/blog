@@ -48,4 +48,22 @@ test.describe('Analytics (GoatCounter)', () => {
       .poll(() => page.evaluate(() => (window as any).__counted))
       .toEqual([{ path: 'contact-comments', title: '/2023/01/21', event: true }]);
   });
+
+  test('is not loaded on the Netlify deploy previews', async ({ page, baseURL }) => {
+    // serves the build as if it were a deploy preview
+    const preview = 'https://deploy-preview-1--lacourt.netlify.app';
+    await page.route(`${preview}/**`, async (route) =>
+      route.fulfill({ response: await route.fetch({ url: route.request().url().replace(preview, baseURL!) }) }),
+    );
+    const goatcounterRequests: string[] = [];
+    page.on('request', (request) => request.url().includes('goatcounter') || request.url().includes('gc.zgo.at') ? goatcounterRequests.push(request.url()) : null);
+
+    await page.goto(`${preview}/`, { waitUntil: 'load' });
+    await page.locator(`a[href*='privacy-policy']`).first().click();
+    await expect(page).toHaveURL(/\/privacy-policy/);
+
+    await expect(page.locator('script[data-goatcounter]')).toHaveCount(0);
+    expect(await page.evaluate(() => typeof (window as any).goatcounter)).toBe('undefined');
+    expect(goatcounterRequests).toEqual([]);
+  });
 });
