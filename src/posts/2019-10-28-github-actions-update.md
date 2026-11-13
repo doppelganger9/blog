@@ -20,7 +20,7 @@ Here is how I migrated to the new richer YAML syntax.
 
 ## HCL to YAML
 
-[There is documentation available](https://help.github.com/en/github/automating-your-workflow-with-github-actions/about-github-actions#migrating-github-actions-from-hcl-to-yaml-syntax). 
+[There is documentation available](https://web.archive.org/web/2019/https://help.github.com/en/github/automating-your-workflow-with-github-actions/about-github-actions#migrating-github-actions-from-hcl-to-yaml-syntax). 
 
 This is the current workflow for this blog:
 

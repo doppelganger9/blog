@@ -24,7 +24,7 @@ My cousin also had one, even better with two times the memory, the *1040 STf*!
 
 It looked like this:
 
-![Atari 1040 STf](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Atari_1040STf.jpg/1600px-Atari_1040STf.jpg)
+![Atari 1040 STf](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Atari_1040STf.jpg/1280px-Atari_1040STf.jpg)
 
 *Wow, looking back at this, I realize that this is kind of a Macintosh copy 🤔🤓*
 

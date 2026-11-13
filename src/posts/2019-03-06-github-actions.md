@@ -32,7 +32,7 @@ They are Github's take on CI/CD.
 > What's different from GitLab CI/CD, or Jenkins, or Travis CI and the likes?
 
 - a lot of triggers (pushing code, creating a wiki page, creating an issue, posting a comment, or anything imaginable with webhooks)
-- each step is a microservice, a docker image run with [some specific specs](https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#runtime-environment-resources)
+- each step is a microservice, a docker image run with [some specific specs](https://web.archive.org/web/2019/https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#runtime-environment-resources)
 - there is a nice visual editor that renders a graph based on a textual representation
 - it's currently in limited public beta, you have to request access.
 - there is a marketplace for actions, and you can easily create and publish yours.

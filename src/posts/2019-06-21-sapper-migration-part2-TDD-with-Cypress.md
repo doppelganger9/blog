@@ -77,7 +77,7 @@ Writing tests is also really simple compared to other E2E tools.
 
 ## What came before: 💩
 
-[WebDriver](https://www.seleniumhq.org/projects/webdriver) or [Selenium](https://www.seleniumhq.org/) (they are both more or less the same thing), [Appium (WebDriver based for mobile)](http://appium.io/), [Protractor(Angular tooling over Appium over WebDriver.. you get it)](https://www.protractortest.org/): you have failed to be reliable and simple to me.
+[WebDriver](https://www.selenium.dev/documentation/webdriver/) or [Selenium](https://www.selenium.dev/) (they are both more or less the same thing), [Appium (WebDriver based for mobile)](http://appium.io/), [Protractor(Angular tooling over Appium over WebDriver.. you get it)](https://www.protractortest.org/): you have failed to be reliable and simple to me.
 
 Why? The moment you see a tool abstracting a tool abstracting a tool abstracting user interaction, you know you will have a hard time identifying issues when something breaks in one of those layers...even more, when they are asynchronous.
 
@@ -194,7 +194,7 @@ And this specification can be checked by executing the tests.
 
 ## Sample test
 
-I will not go too far into details, I urge you to go check [Cypress.io Get Started](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements) and [Writing your first test](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html).
+I will not go too far into details, I urge you to go check [Cypress.io Get Started](https://docs.cypress.io/app/get-started/install-cypress#System-requirements) and [Writing your first test](https://docs.cypress.io/app/end-to-end-testing/writing-your-first-end-to-end-test).
 
 There will be a sample test below, though what I will share is something I found useful during my process of targeting one dev server and the other.
 

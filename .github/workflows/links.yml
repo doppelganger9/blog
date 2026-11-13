@@ -8,11 +8,12 @@ on:
   schedule:
     - cron: '23 5 * * 1' # Mondays 05:23 UTC
   workflow_dispatch:
-  # dry run (no issue) when the check itself changes
+  # dry run (no issue) when the check or the posts change: see the "Check links" step and its job summary
   push:
     paths:
       - .github/workflows/links.yml
       - lychee.toml
+      - 'src/posts/**'
 
 permissions:
   contents: read
