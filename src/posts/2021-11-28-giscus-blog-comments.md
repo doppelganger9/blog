@@ -56,7 +56,7 @@ In my case, I configured on the Giscus App page to match a blog post with a GH D
 
 ### @giscus/svelte?
 
-Oh, yeah I tried using [`@giscus/svelte`](https://github.com/giscus/giscus-component/tree/main/packages/svelte) component, but it did not work.
+Oh, yeah I tried using [`@giscus/svelte`](https://www.npmjs.com/package/@giscus/svelte) component, but it did not work.
 
 ### Svelte onMount
 

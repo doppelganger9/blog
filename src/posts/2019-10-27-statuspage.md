@@ -25,7 +25,7 @@ You can see the result at the bottom of this page, and it should look like this:
 
 1. monitor my website with Uptime Robot (free!)
 2. set up a public status page
-3. change DNS config to add a CNAME to have a subdomain https://status.lacourt.dev that will show this page.
+3. change DNS config to add a CNAME to have a subdomain `status.lacourt.dev` that will show this page (no longer online in 2026).
 4. add a green indicator for status on the main site.
 
 After writing this last one, it seems a little obvious that you will never see it red, because if it is red, it means the website is unreachable, so you cannot see it... ah, maybe with offline and service-workers and stuff you can still look at an offline version that will still query the uptime API and show you that you will not be able to refresh data because the main website is down.
@@ -55,7 +55,7 @@ describe(`The Status component`, () => {
 
 *NOTE*: When you write E2E tests first, you want to target them via a `data-something` attribute, so that the selector is not coupled with the implementation details. Here, I don't yet know if I will use an Anchor `<A>` or a `<button>` or a clickable `<image>` or whatever.
 
-See the [Cypress Best Practices section](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements) for more info on this.
+See the [Cypress Best Practices section](https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements) for more info on this.
 
 
 Going back to our test, of course, It went red.
